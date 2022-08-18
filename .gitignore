@@ -3,6 +3,8 @@
 .settings/
 .classpath
 
+.project
+
 # Log file
 *.log
 
