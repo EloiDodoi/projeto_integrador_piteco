@@ -55,7 +55,7 @@ public class TelaLoginAdm {
 
 		JLabel lblAdm = new JLabel("Administrador");
 		lblAdm.setForeground(Color.WHITE);
-		lblAdm.setBounds(423, 81, 719, 149);
+		lblAdm.setBounds(423, 51, 719, 149);
 		lblAdm.setFont(new Font("DejaVu Sans Light", Font.PLAIN, 99));
 		frame.getContentPane().add(lblAdm);
 
@@ -64,26 +64,37 @@ public class TelaLoginAdm {
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(214, 87, 46, 14);
+		JLabel lblNewLabel = new JLabel("Usu\u00E1rio");
+		lblNewLabel.setForeground(new Color(0, 51, 0));
+		lblNewLabel.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		lblNewLabel.setBounds(37, 38, 146, 31);
 		panel_1.add(lblNewLabel);
 		
 		textField = new JTextField();
-		textField.setBounds(92, 122, 433, 20);
+		textField.setBackground(Color.WHITE);
+		textField.setForeground(Color.DARK_GRAY);
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		textField.setBounds(37, 80, 578, 39);
 		panel_1.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(202, 191, 46, 14);
+		JLabel lblNewLabel_1 = new JLabel("Senha");
+		lblNewLabel_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		lblNewLabel_1.setForeground(new Color(0, 51, 0));
+		lblNewLabel_1.setBackground(new Color(240, 240, 240));
+		lblNewLabel_1.setBounds(37, 150, 120, 31);
 		panel_1.add(lblNewLabel_1);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(92, 211, 433, 20);
+		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		textField_1.setBounds(37, 192, 578, 39);
 		panel_1.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(92, 258, 46, 14);
+		JLabel lblNewLabel_2 = new JLabel("*para logar insira seu e-mail ou CNPJ e a sua senha");
+		lblNewLabel_2.setForeground(Color.DARK_GRAY);
+		lblNewLabel_2.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 16));
+		lblNewLabel_2.setBounds(37, 257, 507, 25);
 		panel_1.add(lblNewLabel_2);
 		
 		JButton btnNewButton = new JButton("Login");
@@ -92,13 +103,13 @@ public class TelaLoginAdm {
 			}
 		});
 		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(51, 102, 51));
+		btnNewButton.setBackground(new Color(0, 51, 0));
 		btnNewButton.setFont(new Font("Alef", Font.PLAIN, 25));
 		btnNewButton.setBounds(124, 307, 375, 46);
 		panel_1.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Cadastrar");
-		btnNewButton_1.setForeground(new Color(51, 102, 51));
+		btnNewButton_1.setForeground(new Color(0, 51, 0));
 		btnNewButton_1.setBackground(new Color(255, 255, 255));
 		btnNewButton_1.setFont(new Font("Alef", Font.PLAIN, 25));
 		btnNewButton_1.setBounds(124, 364, 375, 45);
