@@ -180,7 +180,7 @@ CREATE TABLE `usuario` (
   `usuario_cpf` char(11) NOT NULL,
   `usuario_cnpj` char(14) DEFAULT NULL,
   `usuario_datanascimento` date NOT NULL,
-  `usuario_telefone` int(11) DEFAULT NULL,
+  `usuario_telefone` varchar(11) DEFAULT NULL,
   `usuario_senha` varchar(45) NOT NULL,
   `usuario_email` varchar(100) NOT NULL,
   `TipoUser_id_tipo` int(11) NOT NULL,
