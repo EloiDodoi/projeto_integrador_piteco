@@ -108,7 +108,7 @@ CREATE TABLE `produto` (
   `Unidade_quantidade_idUnidade_quantidade` int(11) NOT NULL,
   PRIMARY KEY (`idProduto`,`Unidade_quantidade_idUnidade_quantidade`),
   KEY `fk_Produto_Unidade_quantidade1_idx` (`Unidade_quantidade_idUnidade_quantidade`),
-  CONSTRAINT `fk_Produto_Unidade_quantidade1` FOREIGN KEY (`Unidade_quantidade_idUnidade_quantidade`) REFERENCES `mydb`.`unidade_quantidade` (`idUnidade_quantidade`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_Produto_Unidade_quantidade1` FOREIGN KEY (`Unidade_quantidade_idUnidade_quantidade`) REFERENCES `piteco`.`unidade_quantidade` (`idUnidade_quantidade`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -186,7 +186,7 @@ CREATE TABLE `usuario` (
   `TipoUser_id_tipo` int(11) NOT NULL,
   PRIMARY KEY (`idUsuario`),
   KEY `fk_Usuario_TipoUser1_idx` (`TipoUser_id_tipo`),
-  CONSTRAINT `fk_Usuario_TipoUser1` FOREIGN KEY (`TipoUser_id_tipo`) REFERENCES `mydb`.`tipouser` (`id_tipo`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_Usuario_TipoUser1` FOREIGN KEY (`TipoUser_id_tipo`) REFERENCES `piteco`.`tipouser` (`id_tipo`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
