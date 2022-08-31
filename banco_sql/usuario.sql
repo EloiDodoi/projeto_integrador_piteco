@@ -1,0 +1,1 @@
+insert into usuario (idUsuario, usuario_nome, usuario_cpf, usuario_cnpj, usuario_datanascimento, usuario_telefone, usuario_senha, usuario_email, TipoUser_id_tipo) values (1, 'Deloris Lafaye', '88567114586', '73815653183222', '1976-09-06 08:59:37', '00096059272', 'nwsgdm3Tibs9', 'dlafaye0@ifeng.com', 1);
