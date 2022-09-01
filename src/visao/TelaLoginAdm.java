@@ -20,12 +20,13 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
+import javax.swing.JPasswordField;
 
 public class TelaLoginAdm {
 
 	private JFrame frmLoginDoAdministrador;
 	private JTextField txtUsuarioAdm;
-	private JTextField txtSenhaAdm;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -98,13 +99,6 @@ public class TelaLoginAdm {
 		lblNewLabel_1.setBounds(37, 150, 120, 31);
 		panel_1.add(lblNewLabel_1);
 		
-		txtSenhaAdm = new JTextField();
-		txtSenhaAdm.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		txtSenhaAdm.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txtSenhaAdm.setBounds(36, 192, 578, 39);
-		panel_1.add(txtSenhaAdm);
-		txtSenhaAdm.setColumns(10);
-		
 		JLabel lblNewLabel_2 = new JLabel("*para logar insira seu e-mail ou CNPJ e a sua senha");
 		lblNewLabel_2.setForeground(Color.DARK_GRAY);
 		lblNewLabel_2.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 16));
@@ -133,6 +127,13 @@ public class TelaLoginAdm {
 		btnNewButton_1.setFont(new Font("Alef", Font.PLAIN, 25));
 		btnNewButton_1.setBounds(138, 364, 375, 45);
 		panel_1.add(btnNewButton_1);
+		
+		passwordField = new JPasswordField();
+		passwordField.setForeground(Color.DARK_GRAY);
+		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		passwordField.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		passwordField.setBounds(37, 192, 577, 39);
+		panel_1.add(passwordField);
 		frmLoginDoAdministrador.setBounds(100, 100, 1600, 850);
 		frmLoginDoAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
