@@ -13,6 +13,7 @@ import java.awt.Font;
 import java.awt.Dimension;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 
 public class TelaInicial extends JFrame {
@@ -42,7 +43,7 @@ public class TelaInicial extends JFrame {
 	public TelaInicial() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Lenovo\\Downloads\\PitecoLogo\\3.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1386, 850);
+		setBounds(100, 100, 1600, 850);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -63,6 +64,10 @@ public class TelaInicial extends JFrame {
 		lblPiteco.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblPiteco.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblPiteco, BorderLayout.SOUTH);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		panel.add(lblNewLabel_1, BorderLayout.CENTER);
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Lenovo\\Downloads\\PitecoLogo\\1.png"));
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(234, 242, 237));
