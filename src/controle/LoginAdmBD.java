@@ -1,6 +1,7 @@
 package controle;
-
+import modelo.Usuario;
 import java.sql.*;
+
 
 public class LoginAdmBD {
 	
@@ -13,20 +14,15 @@ public class LoginAdmBD {
 	}
 	
 	
-	public boolean autenticar() {
-		
-		
-		
-		// TODO Auto-generated method stub
+	public boolean autenticar(Usuario usuario) {
+		try {
+			PreparedStatement ps = conexao.prepareStatement("select email,senha from usuario where email = '?' and senha = '?'");
+			ps.setString(1, usuario.getUsuario_email());
+			ps.setString(2, usuario.getUsuario_senha());
+		} catch (Exception e) {
 
+		}
+		return false;
 	}
 	
-	public static void main(String[] args) {
-		try {
-			Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/piteco", "root", "aluno");
-			System.out.println("Conectado!");
-		}catch (SQLException e) {
-			System.out.println("Erro na conexão!");
-		}
-	}
 }
