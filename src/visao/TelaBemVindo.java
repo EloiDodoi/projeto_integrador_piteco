@@ -67,7 +67,7 @@ public class TelaBemVindo extends JFrame {
 			}
 		});
 		btnCadastro.setBackground(new Color(150, 191, 120));
-		btnCadastro.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		btnCadastro.setBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(150, 191, 120), null));
 		btnCadastro.setForeground(new Color(150, 191, 120));
 		btnCadastro.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 65));
 		btnCadastro.setBounds(226, 517, 391, 126);
@@ -75,16 +75,25 @@ public class TelaBemVindo extends JFrame {
 		
 		JButton btnVenda = new JButton("Venda");
 		btnVenda.setBackground(new Color(150, 191, 120));
-		btnVenda.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		btnVenda.setBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(150, 191, 120), null));
 		btnVenda.setForeground(new Color(150, 191, 120));
 		btnVenda.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 65));
 		btnVenda.setBounds(746, 517, 391, 126);
 		panel.add(btnVenda);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(0, 0, 47, 738);
+		panel_1.setBounds(0, 0, 64, 738);
 		panel.add(panel_1);
 		panel_1.setBackground(new Color(150, 191, 120));
+		panel_1.setLayout(null);
+		
+		JButton btnMenu = new JButton("");
+		btnMenu.setIcon(new ImageIcon("C:\\Users\\Lenovo\\projeto_integrador_piteco\\img\\menu-aberto.png"));
+		btnMenu.setBorder(null);
+		btnMenu.setForeground(new Color(234, 242, 237));
+		btnMenu.setBackground(new Color(150, 191, 120));
+		btnMenu.setBounds(0, 681, 64, 46);
+		panel_1.add(btnMenu);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(0, 0, 1360, 40);
@@ -92,11 +101,21 @@ public class TelaBemVindo extends JFrame {
 		panel_2.setBackground(new Color(150, 191, 120));
 		panel_2.setLayout(null);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBorder(null);
-		btnNewButton.setBackground(new Color(150, 191, 120));
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Lenovo\\Downloads\\solucao.png"));
-		btnNewButton.setBounds(1251, 0, 60, 40);
-		panel_2.add(btnNewButton);
+		JButton btnConfiguracao = new JButton("");
+		btnConfiguracao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnConfiguracao.setBorder(null);
+		btnConfiguracao.setBackground(new Color(150, 191, 120));
+		btnConfiguracao.setIcon(new ImageIcon("C:\\Users\\Lenovo\\projeto_integrador_piteco\\img\\solucao.png"));
+		btnConfiguracao.setBounds(1224, 0, 60, 40);
+		panel_2.add(btnConfiguracao);
+		
+		JButton btnConfiguracao_1 = new JButton("");
+		btnConfiguracao_1.setBorder(null);
+		btnConfiguracao_1.setBackground(new Color(150, 191, 120));
+		btnConfiguracao_1.setBounds(1171, 0, 60, 40);
+		panel_2.add(btnConfiguracao_1);
 	}
 }
