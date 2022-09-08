@@ -72,7 +72,7 @@ public class TelaInicial extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		panel.add(lblNewLabel_1, BorderLayout.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon(TelaInicial.class.getResource("/img/2.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(TelaInicial.class.getResource("../img/2.png")));
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(234, 242, 237));

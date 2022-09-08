@@ -111,28 +111,30 @@ public class TelaLoginAdm {
 		lblNewLabel_2.setBounds(37, 242, 507, 25);
 		panel_1.add(lblNewLabel_2);
 		
-		JButton btnNewButton = new JButton("Entrar");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btn_entrar_adm = new JButton("Entrar");
+		btn_entrar_adm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnNewButton.setForeground(new Color(234, 242, 237));
-		btnNewButton.setBackground(new Color(31, 65, 45));
-		btnNewButton.setFont(new Font("Alef", Font.PLAIN, 25));
-		btnNewButton.setBounds(138, 307, 375, 46);
-		panel_1.add(btnNewButton);
+		btn_entrar_adm.setForeground(new Color(234, 242, 237));
+		btn_entrar_adm.setBackground(new Color(31, 65, 45));
+		btn_entrar_adm.setFont(new Font("Alef", Font.PLAIN, 25));
+		btn_entrar_adm.setBounds(138, 307, 375, 46);
+		panel_1.add(btn_entrar_adm);
 		
-		JButton btnNewButton_1 = new JButton("Cadastrar");
-		btnNewButton_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btn_cadastrar_adm = new JButton("Cadastrar");
+		btn_cadastrar_adm.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		btn_cadastrar_adm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				TelaCadastroAdm tela_cadastro = new TelaCadastroAdm();
+				tela_cadastro.abrir();
 			}
 		});
-		btnNewButton_1.setForeground(new Color(31, 65, 45));
-		btnNewButton_1.setBackground(new Color(255, 255, 255));
-		btnNewButton_1.setFont(new Font("Alef", Font.PLAIN, 25));
-		btnNewButton_1.setBounds(138, 364, 375, 45);
-		panel_1.add(btnNewButton_1);
+		btn_cadastrar_adm.setForeground(new Color(31, 65, 45));
+		btn_cadastrar_adm.setBackground(new Color(255, 255, 255));
+		btn_cadastrar_adm.setFont(new Font("Alef", Font.PLAIN, 25));
+		btn_cadastrar_adm.setBounds(138, 364, 375, 45);
+		panel_1.add(btn_cadastrar_adm);
 		
 		passwordField = new JPasswordField();
 		passwordField.setForeground(Color.DARK_GRAY);

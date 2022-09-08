@@ -59,7 +59,6 @@ public class TelaLoginVendedor {
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-
 	}
 
 	private void initialize() {
