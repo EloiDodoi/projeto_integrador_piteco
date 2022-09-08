@@ -72,7 +72,7 @@ public class TelaInicial extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		panel.add(lblNewLabel_1, BorderLayout.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon(TelaInicial.class.getResource("../img/2.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(TelaInicial.class.getResource("/img/2.png")));
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(234, 242, 237));
@@ -120,7 +120,7 @@ public class TelaInicial extends JFrame {
 		btn_adm.setBorder(null);
 		btn_adm.setBackground(new Color(150, 191, 120));
 		btn_adm.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 30));
-		btn_adm.setBounds(122, 386, 468, 70);
+		btn_adm.setBounds(152, 345, 416, 61);
 		panel_1.add(btn_adm);
 		
 		JButton btn_vendedor = new JButton("Vendedor\r\n");
@@ -135,7 +135,12 @@ public class TelaInicial extends JFrame {
 		btn_vendedor.setForeground(Color.WHITE);
 		btn_vendedor.setBackground(new Color(150, 191, 120));
 		btn_vendedor.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 30));
-		btn_vendedor.setBounds(122, 467, 468, 70);
+		btn_vendedor.setBounds(152, 417, 416, 54);
 		panel_1.add(btn_vendedor);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(TelaInicial.class.getResource("/img/ilustracaoTelaInicial.png")));
+		lblNewLabel_2.setBounds(10, 501, 410, 238);
+		panel_1.add(lblNewLabel_2);
 	}
 }

@@ -19,6 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class TelaCadastroAdm {
 
@@ -45,6 +46,7 @@ public class TelaCadastroAdm {
 	private JPasswordField passwordField;
 	private JPasswordField passwordField_1;
 	private JButton btnNewButton;
+	private JLabel lblNewLabel_12;
 
 	/**
 	 * Launch the application.
@@ -95,10 +97,16 @@ public class TelaCadastroAdm {
 		lblVendedor.setHorizontalAlignment(SwingConstants.LEFT);
 		lblVendedor.setForeground(new Color(234, 242, 237));
 		lblVendedor.setFont(new Font("Dialog", Font.PLAIN, 85));
-		lblVendedor.setBounds(25, 0, 797, 110);
+		lblVendedor.setBounds(25, 0, 871, 110);
 		panel_1.add(lblVendedor);
 		
+		lblNewLabel_12 = new JLabel("");
+		lblNewLabel_12.setIcon(new ImageIcon(TelaCadastroAdm.class.getResource("/img/farmer-128px.png")));
+		lblNewLabel_12.setBounds(1032, 0, 175, 141);
+		panel_1.add(lblNewLabel_12);
+		
 		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(234, 242, 237));
 		panel_2.setBounds(206, 230, 640, 543);
 		frame.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
