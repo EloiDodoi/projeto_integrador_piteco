@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
+import java.security.PublicKey;
 import java.awt.event.ActionEvent;
 import java.awt.Rectangle;
 import javax.swing.border.CompoundBorder;
@@ -55,9 +56,13 @@ public class TelaLoginAdm {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	public void abrir() {
+		frmLoginDoAdministrador.setVisible(true);	
+		frmLoginDoAdministrador.setLocationRelativeTo(null);
+		frmLoginDoAdministrador.setExtendedState(frmLoginDoAdministrador.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+
+	}
+	
 	private void initialize() {
 		frmLoginDoAdministrador = new JFrame();
 		frmLoginDoAdministrador.setResizable(false);
@@ -142,5 +147,6 @@ public class TelaLoginAdm {
 		frmLoginDoAdministrador.getContentPane().add(lblNewLabel_3);
 		frmLoginDoAdministrador.setBounds(100, 100, 1600, 850);
 		frmLoginDoAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 	}
 }

@@ -14,6 +14,8 @@ import java.awt.Dimension;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class TelaInicial extends JFrame {
@@ -29,6 +31,8 @@ public class TelaInicial extends JFrame {
 				try {
 					TelaInicial window = new TelaInicial();
 					window.setVisible(true);
+					window.setLocationRelativeTo(null);
+					window.setExtendedState(window.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,6 +45,7 @@ public class TelaInicial extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaInicial() {
+		
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Lenovo\\Downloads\\PitecoLogo\\3.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 850);
@@ -104,21 +109,33 @@ public class TelaInicial extends JFrame {
 		lblPalmaDaSua_1_1.setBounds(122, 259, 468, 54);
 		panel_1.add(lblPalmaDaSua_1_1);
 		
-		JButton btnAdm = new JButton("Administrador");
-		btnAdm.setForeground(Color.WHITE);
-		btnAdm.setBorder(null);
-		btnAdm.setBackground(new Color(150, 191, 120));
-		btnAdm.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 30));
-		btnAdm.setBounds(122, 386, 468, 70);
-		panel_1.add(btnAdm);
+		JButton btn_adm = new JButton("Administrador");
+		btn_adm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaLoginAdm login_adm = new TelaLoginAdm();
+				login_adm.abrir();
+			}
+		});
+		btn_adm.setForeground(Color.WHITE);
+		btn_adm.setBorder(null);
+		btn_adm.setBackground(new Color(150, 191, 120));
+		btn_adm.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 30));
+		btn_adm.setBounds(122, 386, 468, 70);
+		panel_1.add(btn_adm);
 		
-		JButton btnVendedor = new JButton("Vendedor\r\n");
-		btnVendedor.setPreferredSize(new Dimension(99, 23));
-		btnVendedor.setBorder(null);
-		btnVendedor.setForeground(Color.WHITE);
-		btnVendedor.setBackground(new Color(150, 191, 120));
-		btnVendedor.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 30));
-		btnVendedor.setBounds(122, 467, 468, 70);
-		panel_1.add(btnVendedor);
+		JButton btn_vendedor = new JButton("Vendedor\r\n");
+		btn_vendedor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaLoginVendedor login_vendedor = new TelaLoginVendedor();
+				login_vendedor.abrir();
+			}
+		});
+		btn_vendedor.setPreferredSize(new Dimension(99, 23));
+		btn_vendedor.setBorder(null);
+		btn_vendedor.setForeground(Color.WHITE);
+		btn_vendedor.setBackground(new Color(150, 191, 120));
+		btn_vendedor.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 30));
+		btn_vendedor.setBounds(122, 467, 468, 70);
+		panel_1.add(btn_vendedor);
 	}
 }
