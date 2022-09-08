@@ -21,6 +21,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
 
 public class TelaLoginAdm {
 
@@ -134,6 +135,11 @@ public class TelaLoginAdm {
 		passwordField.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		passwordField.setBounds(37, 192, 577, 39);
 		panel_1.add(passwordField);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\Dell\\projeto_integrador_piteco\\img\\adm_login.png"));
+		lblNewLabel_3.setBounds(52, 119, 304, 262);
+		frmLoginDoAdministrador.getContentPane().add(lblNewLabel_3);
 		frmLoginDoAdministrador.setBounds(100, 100, 1600, 850);
 		frmLoginDoAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
