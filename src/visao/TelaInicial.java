@@ -56,7 +56,7 @@ public class TelaInicial extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setPreferredSize(new Dimension(500, 10));
-		panel.setBackground(new Color(150, 191, 120));
+		panel.setBackground(new Color(123, 166, 111));
 		contentPane.add(panel, BorderLayout.EAST);
 		panel.setLayout(new BorderLayout(0, 0));
 		
@@ -70,9 +70,9 @@ public class TelaInicial extends JFrame {
 		lblPiteco.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblPiteco, BorderLayout.SOUTH);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		JLabel lblNewLabel_1 = new JLabel("");
 		panel.add(lblNewLabel_1, BorderLayout.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Lenovo\\Downloads\\PitecoLogo\\1.png"));
+		lblNewLabel_1.setIcon(new ImageIcon(TelaInicial.class.getResource("/img/2.png")));
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(234, 242, 237));
