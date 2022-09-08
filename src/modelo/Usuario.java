@@ -1,17 +1,17 @@
 package modelo;
-import java.util.Calendar;
 import java.util.Date;
 
 public class Usuario {
 	int usuario_id;
 	String usuario_nome;
 	String usuario_cpf;
+	String usuario_cnpj;
 	Date usuario_datanascimento;
 	String usuario_telefone;
 	String usuario_senha;
 	String usuario_email;
 	int tipouser_id_tipo;
-	public Usuario(int usuario_id, String usuario_nome, String usuario_cpf, Date usuario_datanascimento,
+	public Usuario(int usuario_id, String usuario_nome, String usuario_cpf, String usuario_cnpj, Date usuario_datanascimento,
 			String usuario_telefone, String usuario_senha, String usuario_email, int tipouser_id_tipo) {
 		this.usuario_id = usuario_id;
 		this.usuario_nome = usuario_nome;
@@ -24,6 +24,12 @@ public class Usuario {
 	}
 	public int getUsuario_id() {
 		return usuario_id;
+	}
+	public String getUsuario_cnpj() {
+		return usuario_cnpj;
+	}
+	public void setUsuario_cnpj(String usuario_cnpj) {
+		this.usuario_cnpj = usuario_cnpj;
 	}
 	public void setUsuario_id(int usuario_id) {
 		this.usuario_id = usuario_id;
