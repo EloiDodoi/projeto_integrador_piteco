@@ -69,17 +69,25 @@ public class TelaLoginAdm {
 		frmLoginDoAdministrador.setTitle("Login do Administrador");
 		frmLoginDoAdministrador.getContentPane().setBackground(new Color(150, 191, 120));
 		frmLoginDoAdministrador.getContentPane().setLayout(null);
-
-		JLabel lblAdm = new JLabel("Administrador");
-		lblAdm.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAdm.setForeground(new Color(234, 242, 237));
-		lblAdm.setBounds(432, 50, 719, 149);
-		lblAdm.setFont(new Font("Dialog", Font.PLAIN, 100));
-		frmLoginDoAdministrador.getContentPane().add(lblAdm);
+		
+				JLabel lblAdm = new JLabel("Administrador");
+				lblAdm.setHorizontalAlignment(SwingConstants.CENTER);
+				lblAdm.setForeground(new Color(234, 242, 237));
+				lblAdm.setBounds(432, 50, 719, 149);
+				lblAdm.setFont(new Font("Dialog", Font.PLAIN, 100));
+				frmLoginDoAdministrador.getContentPane().add(lblAdm);
+		
+		JLabel image = new JLabel("");
+		image.setBackground(new Color(255, 255, 255));
+		image.setForeground(new Color(255, 255, 255));
+		image.setIcon(new ImageIcon(TelaLoginAdm.class.getResource("/img/adm_login.png")));
+		image.setBounds(700, 189, 180, 180);
+		frmLoginDoAdministrador.getContentPane().add(image);
 
 		JPanel panel_1 =  new JPanel();
+		panel_1.setBorder(null);
 		panel_1.setBackground(new Color(234, 242, 237));
-		panel_1.setBounds(466, 315, 651, 450);
+		panel_1.setBounds(465, 315, 650, 450);
 		frmLoginDoAdministrador.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -142,11 +150,6 @@ public class TelaLoginAdm {
 		passwordField.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		passwordField.setBounds(37, 192, 577, 39);
 		panel_1.add(passwordField);
-		
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\Dell\\projeto_integrador_piteco\\img\\adm_login.png"));
-		lblNewLabel_3.setBounds(52, 119, 304, 262);
-		frmLoginDoAdministrador.getContentPane().add(lblNewLabel_3);
 		frmLoginDoAdministrador.setBounds(100, 100, 1600, 850);
 		frmLoginDoAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
