@@ -26,10 +26,16 @@ public class LoginAdmBD {
 			ps.setString(2, usuario.getUsuario_senha());
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
+				Usuario adm = new Usuario(rs.getInt(1), rs.getString(2), null, null, null, null, null, null, 0);
 				usuario.setTipouser_id_tipo(rs.getInt(1));
 				usuario.setUsuario_nome(rs.getString(2));
+				usuario.setUsuario_cpf(rs.getString(3));
 				usuario.setUsuario_cpf(rs.getString(4));
 				usuario.setUsuario_datanascimento(rs.getDate(5));
+				usuario.setUsuario_telefone(rs.getString(6));
+				usuario.setUsuario_email(rs.getString(7));
+				usuario.setTipouser_id_tipo(rs.getInt(8));
+				
 				return null;
 			}
 			
