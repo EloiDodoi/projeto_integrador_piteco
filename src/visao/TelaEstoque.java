@@ -90,7 +90,7 @@ public class TelaEstoque extends JFrame {
 		textFieldPesquisaNoEstoque.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		textFieldPesquisaNoEstoque.setSelectionColor(new Color(217, 173, 181));
 		textFieldPesquisaNoEstoque.setCaretColor(new Color(31, 65, 45));
-		textFieldPesquisaNoEstoque.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		textFieldPesquisaNoEstoque.setBorder(new LineBorder(new Color(31, 65, 45), 2));
 		textFieldPesquisaNoEstoque.setHorizontalAlignment(SwingConstants.LEFT);
 		textFieldPesquisaNoEstoque.setColumns(10);
 		
