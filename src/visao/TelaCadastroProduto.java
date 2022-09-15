@@ -7,13 +7,23 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
 import javax.swing.ButtonGroup;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
+import java.awt.Dimension;
 
 public class TelaCadastroProduto {
 
@@ -129,14 +139,15 @@ public class TelaCadastroProduto {
 		textField.setBounds(410, 51, 943, 35);
 		panel_2.add(textField);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Quilograma (Kg)");
-		buttonGroup.add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.setBorder(new LineBorder(new Color(0, 0, 0)));
-		rdbtnNewRadioButton.setForeground(new Color(31, 65, 45));
-		rdbtnNewRadioButton.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
-		rdbtnNewRadioButton.setBackground(new Color(123, 166, 111));
-		rdbtnNewRadioButton.setBounds(460, 209, 243, 35);
-		panel_2.add(rdbtnNewRadioButton);
+		JRadioButton rbKg = new JRadioButton("Quilograma (Kg)");
+		buttonGroup.add(rbKg);
+		rbKg.setBorder(new LineBorder(new Color(0, 0, 0)));
+		rbKg.setForeground(new Color(31, 65, 45));
+		rbKg.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
+		rbKg.setBackground(new Color(123, 166, 111));
+		rbKg.setBounds(460, 203, 255, 47);
+		scaleRadioButtonIcon(rbKg);
+		panel_2.add(rbKg);
 		
 		textField_1 = new JTextField();
 		textField_1.setForeground(Color.DARK_GRAY);
@@ -165,13 +176,14 @@ public class TelaCadastroProduto {
 		textField_3.setBounds(1060, 297, 293, 35);
 		panel_2.add(textField_3);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Unidade");
-		buttonGroup.add(rdbtnNewRadioButton_1);
-		rdbtnNewRadioButton_1.setForeground(new Color(31, 65, 45));
-		rdbtnNewRadioButton_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
-		rdbtnNewRadioButton_1.setBackground(new Color(123, 166, 111));
-		rdbtnNewRadioButton_1.setBounds(797, 215, 204, 23);
-		panel_2.add(rdbtnNewRadioButton_1);
+		JRadioButton rbUnidade = new JRadioButton("Unidade");
+		buttonGroup.add(rbUnidade);
+		rbUnidade.setForeground(new Color(31, 65, 45));
+		rbUnidade.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
+		rbUnidade.setBackground(new Color(123, 166, 111));
+		rbUnidade.setBounds(797, 208, 204, 37);
+		scaleRadioButtonIcon(rbUnidade);
+		panel_2.add(rbUnidade);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
 		btnNewButton.setBackground(new Color(123, 166, 111));
@@ -190,5 +202,43 @@ public class TelaCadastroProduto {
 		separator.setBorder(new LineBorder(new Color(31, 65, 45), 4));
 		separator.setBounds(124, 118, 1430, 8);
 		frame.getContentPane().add(separator);
+	}
+	
+	public static void scaleRadioButtonIcon(JRadioButton rb){
+	    boolean previousState = rb.isSelected();
+	    rb.setSelected(false);
+	    Icon radioIcon = UIManager.getIcon("RadioButton.icon"); // Mudar imagem do radioButton (não selecionado)
+	    BufferedImage radioImage = new BufferedImage(
+	        radioIcon.getIconWidth(), radioIcon.getIconHeight(),BufferedImage.TYPE_INT_ARGB
+	    );
+	    Graphics graphics = radioImage.createGraphics();
+	    try{
+	        radioIcon.paintIcon(rb, graphics, 0, 0);
+	    }finally{
+	        graphics.dispose();
+	    }
+	    ImageIcon newRadioImage = new ImageIcon(radioImage);
+	    Image finalRadioImage = newRadioImage.getImage().getScaledInstance(
+	        30, 30, Image.SCALE_SMOOTH
+	    );
+
+	    rb.setSelected(true);
+	    Icon selectedRadioIcon = UIManager.getIcon("RadioButton.icon"); // Mudar imagem do radioButton (selecionado)S
+	    BufferedImage selectedRadioImage = new BufferedImage(
+	            selectedRadioIcon.getIconWidth(), selectedRadioIcon.getIconHeight(),BufferedImage.TYPE_INT_ARGB
+	    );
+	    Graphics selectedGraphics = selectedRadioImage.createGraphics();
+	    try{
+	        selectedRadioIcon.paintIcon(rb, selectedGraphics, 0, 0);
+	    }finally{
+	        selectedGraphics.dispose();
+	    }
+	    ImageIcon newSelectedRadioImage = new ImageIcon(selectedRadioImage);
+	    Image selectedFinalRadioImage = newSelectedRadioImage.getImage().getScaledInstance(
+	        30, 30, Image.SCALE_SMOOTH
+	    );
+	    rb.setSelected(previousState);
+	    rb.setIcon(new ImageIcon(finalRadioImage));
+	    rb.setSelectedIcon(new ImageIcon(selectedFinalRadioImage));
 	}
 }
