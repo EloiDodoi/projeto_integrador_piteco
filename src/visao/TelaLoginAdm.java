@@ -60,7 +60,6 @@ public class TelaLoginAdm {
 		frmLoginDoAdministrador.setVisible(true);	
 		frmLoginDoAdministrador.setLocationRelativeTo(null);
 		frmLoginDoAdministrador.setExtendedState(frmLoginDoAdministrador.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-
 	}
 	
 	private void initialize() {

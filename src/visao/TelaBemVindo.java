@@ -69,6 +69,8 @@ public class TelaBemVindo extends JFrame {
 		btnCadastro.setBorder(new LineBorder(new Color(150, 191, 120), 3, true));
 		btnCadastro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				TelaCadastroProduto cadastro_produto = new TelaCadastroProduto();
+				cadastro_produto.abrir();
 			}
 		});
 		btnCadastro.setBackground(new Color(234, 242, 237));
