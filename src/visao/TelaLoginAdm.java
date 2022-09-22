@@ -1,34 +1,39 @@
 package visao;
-
+import controle.LoginAdmBD;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 import java.security.PublicKey;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Rectangle;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.SoftBevelBorder;
+
+import modelo.Usuario;
+
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
-
+import visao.TelaBemVindo;
 public class TelaLoginAdm {
 
 	private JFrame frmLoginDoAdministrador;
-	private JTextField txtUsuarioAdm;
-	private JPasswordField passwordField;
+	private JTextField txt_login;
+	private JPasswordField txt_senha;
 
 	/**
 	 * Launch the application.
@@ -96,14 +101,14 @@ public class TelaLoginAdm {
 		lblNewLabel.setBounds(37, 38, 146, 31);
 		panel_1.add(lblNewLabel);
 		
-		txtUsuarioAdm = new JTextField();
-		txtUsuarioAdm.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		txtUsuarioAdm.setBackground(Color.WHITE);
-		txtUsuarioAdm.setForeground(Color.DARK_GRAY);
-		txtUsuarioAdm.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txtUsuarioAdm.setBounds(36, 80, 578, 39);
-		panel_1.add(txtUsuarioAdm);
-		txtUsuarioAdm.setColumns(10);
+		txt_login = new JTextField();
+		txt_login.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txt_login.setBackground(Color.WHITE);
+		txt_login.setForeground(Color.DARK_GRAY);
+		txt_login.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txt_login.setBounds(36, 80, 578, 39);
+		panel_1.add(txt_login);
+		txt_login.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Senha");
 		lblNewLabel_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
@@ -121,8 +126,18 @@ public class TelaLoginAdm {
 		JButton btn_entrar_adm = new JButton("Entrar");
 		btn_entrar_adm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+				Usuario login = new Usuario(0, null, null, null, null, null, txt_senha.getText(), txt_login.getText(), 0);
+				LoginAdmBD lg = new LoginAdmBD();
+				if (lg.autenticar(login)== null ) {
+					System.out.println("Erro Login");
+					JOptionPane.showMessageDialog(null, "E-mail ou senha incorretos, tente novamente!");
+				}else {
+					System.out.println("Login feito com êxito");
+					TelaBemVindo tb = new TelaBemVindo();
+					tb.abrir();
+				}
+				
+			}});
 		btn_entrar_adm.setForeground(new Color(234, 242, 237));
 		btn_entrar_adm.setBackground(new Color(31, 65, 45));
 		btn_entrar_adm.setFont(new Font("Alef", Font.PLAIN, 25));
@@ -143,12 +158,12 @@ public class TelaLoginAdm {
 		btn_cadastrar_adm.setBounds(138, 364, 375, 45);
 		panel_1.add(btn_cadastrar_adm);
 		
-		passwordField = new JPasswordField();
-		passwordField.setForeground(Color.DARK_GRAY);
-		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		passwordField.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		passwordField.setBounds(37, 192, 577, 39);
-		panel_1.add(passwordField);
+		txt_senha = new JPasswordField();
+		txt_senha.setForeground(Color.DARK_GRAY);
+		txt_senha.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txt_senha.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txt_senha.setBounds(37, 192, 577, 39);
+		panel_1.add(txt_senha);
 		frmLoginDoAdministrador.setBounds(100, 100, 1600, 850);
 		frmLoginDoAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

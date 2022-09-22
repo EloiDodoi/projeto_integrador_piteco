@@ -35,6 +35,8 @@ public class TelaBemVindo extends JFrame {
 				try {
 					TelaBemVindo frame = new TelaBemVindo();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
+					frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -45,6 +47,14 @@ public class TelaBemVindo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
+	public void abrir() {
+		TelaBemVindo frame = new TelaBemVindo();
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
+	
 	public TelaBemVindo() 
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

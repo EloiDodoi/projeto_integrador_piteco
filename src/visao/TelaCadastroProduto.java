@@ -11,11 +11,17 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.JRadioButton;
+import javax.swing.JButton;
+import javax.swing.ButtonGroup;
 
 public class TelaCadastroProduto {
 
 	private JFrame frame;
-	private JTextField textField;
+	private JTextField txtNomeVegetal;
+	private JTextField txtEspecie;
+	private JTextField txtQuantidade;
+	private JTextField txtPreco;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -83,65 +89,94 @@ public class TelaCadastroProduto {
 		JLabel lblNomeDoVegetal = new JLabel("Nome do Vegetal:");
 		lblNomeDoVegetal.setForeground(new Color(31, 65, 45));
 		lblNomeDoVegetal.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
-		lblNomeDoVegetal.setBounds(48, 47, 293, 35);
+		lblNomeDoVegetal.setBounds(50, 50, 293, 35);
 		panel_2.add(lblNomeDoVegetal);
 		
 		JLabel lblEspcieDoVegetal = new JLabel("Espécie do Vegetal:");
 		lblEspcieDoVegetal.setForeground(new Color(31, 65, 45));
 		lblEspcieDoVegetal.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
-		lblEspcieDoVegetal.setBounds(48, 99, 321, 35);
+		lblEspcieDoVegetal.setBounds(50, 125, 321, 35);
 		panel_2.add(lblEspcieDoVegetal);
 		
 		JLabel lblNomeDoVegetal_1_1 = new JLabel("Produto Vendido Por:");
 		lblNomeDoVegetal_1_1.setForeground(new Color(31, 65, 45));
 		lblNomeDoVegetal_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
-		lblNomeDoVegetal_1_1.setBounds(48, 138, 332, 28);
+		lblNomeDoVegetal_1_1.setBounds(50, 200, 332, 28);
 		panel_2.add(lblNomeDoVegetal_1_1);
 		
 		JLabel lblNomeDoVegetal_1_1_1 = new JLabel("Preço:");
 		lblNomeDoVegetal_1_1_1.setForeground(new Color(31, 65, 45));
 		lblNomeDoVegetal_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
-		lblNomeDoVegetal_1_1_1.setBounds(48, 180, 107, 37);
+		lblNomeDoVegetal_1_1_1.setBounds(49, 273, 107, 37);
 		panel_2.add(lblNomeDoVegetal_1_1_1);
 		
 		JLabel lblNomeDoVegetal_1_1_1_1 = new JLabel("Quantidade:");
 		lblNomeDoVegetal_1_1_1_1.setForeground(new Color(31, 65, 45));
 		lblNomeDoVegetal_1_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
-		lblNomeDoVegetal_1_1_1_1.setBounds(48, 228, 293, 28);
+		lblNomeDoVegetal_1_1_1_1.setBounds(765, 277, 293, 28);
 		panel_2.add(lblNomeDoVegetal_1_1_1_1);
 		
 		JLabel lblNomeDoVegetal_1_1_1_1_1 = new JLabel("R$");
 		lblNomeDoVegetal_1_1_1_1_1.setForeground(new Color(31, 65, 45));
 		lblNomeDoVegetal_1_1_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
-		lblNomeDoVegetal_1_1_1_1_1.setBounds(48, 268, 293, 28);
+		lblNomeDoVegetal_1_1_1_1_1.setBounds(177, 277, 293, 28);
 		panel_2.add(lblNomeDoVegetal_1_1_1_1_1);
 		
-		JLabel lblNomeDoVegetal_1_1_1_1_1_1 = new JLabel("Quilograma (Kg)");
-		lblNomeDoVegetal_1_1_1_1_1_1.setForeground(new Color(31, 65, 45));
-		lblNomeDoVegetal_1_1_1_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
-		lblNomeDoVegetal_1_1_1_1_1_1.setBounds(354, 228, 293, 28);
-		panel_2.add(lblNomeDoVegetal_1_1_1_1_1_1);
-		
-		JLabel lblNomeDoVegetal_1_1_1_1_1_1_1 = new JLabel("Unidade");
-		lblNomeDoVegetal_1_1_1_1_1_1_1.setForeground(new Color(31, 65, 45));
-		lblNomeDoVegetal_1_1_1_1_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
-		lblNomeDoVegetal_1_1_1_1_1_1_1.setBounds(351, 268, 293, 28);
-		panel_2.add(lblNomeDoVegetal_1_1_1_1_1_1_1);
-		
-		textField = new JTextField();
-		textField.setBackground(new Color(234, 242, 237));
-		textField.setForeground(Color.DARK_GRAY);
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField.setColumns(10);
-		textField.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		textField.setBounds(384, 47, 565, 35);
-		panel_2.add(textField);
+		txtNomeVegetal = new JTextField();
+		txtNomeVegetal.setBackground(new Color(234, 242, 237));
+		txtNomeVegetal.setForeground(Color.DARK_GRAY);
+		txtNomeVegetal.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txtNomeVegetal.setColumns(10);
+		txtNomeVegetal.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txtNomeVegetal.setBounds(424, 51, 956, 35);
+		panel_2.add(txtNomeVegetal);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Quilograma (Kg)");
+		buttonGroup.add(rdbtnNewRadioButton);
 		rdbtnNewRadioButton.setForeground(new Color(31, 65, 45));
 		rdbtnNewRadioButton.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
 		rdbtnNewRadioButton.setBackground(new Color(123, 166, 111));
-		rdbtnNewRadioButton.setBounds(437, 151, 243, 35);
+		rdbtnNewRadioButton.setBounds(480, 199, 243, 35);
 		panel_2.add(rdbtnNewRadioButton);
+		
+		txtEspecie = new JTextField();
+		txtEspecie.setForeground(Color.DARK_GRAY);
+		txtEspecie.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txtEspecie.setColumns(10);
+		txtEspecie.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txtEspecie.setBackground(new Color(234, 242, 237));
+		txtEspecie.setBounds(424, 125, 956, 35);
+		panel_2.add(txtEspecie);
+		
+		txtQuantidade = new JTextField();
+		txtQuantidade.setForeground(Color.DARK_GRAY);
+		txtQuantidade.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txtQuantidade.setColumns(10);
+		txtQuantidade.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txtQuantidade.setBackground(new Color(234, 242, 237));
+		txtQuantidade.setBounds(979, 275, 401, 35);
+		panel_2.add(txtQuantidade);
+		
+		txtPreco = new JTextField();
+		txtPreco.setForeground(Color.DARK_GRAY);
+		txtPreco.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txtPreco.setColumns(10);
+		txtPreco.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txtPreco.setBackground(new Color(234, 242, 237));
+		txtPreco.setBounds(235, 275, 401, 35);
+		panel_2.add(txtPreco);
+		
+		JRadioButton rdbtnUnidade = new JRadioButton("Unidade");
+		buttonGroup.add(rdbtnUnidade);
+		rdbtnUnidade.setForeground(new Color(31, 65, 45));
+		rdbtnUnidade.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
+		rdbtnUnidade.setBackground(new Color(123, 166, 111));
+		rdbtnUnidade.setBounds(815, 199, 243, 35);
+		panel_2.add(rdbtnUnidade);
+		
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 29));
+		btnCadastrar.setBounds(529, 415, 373, 70);
+		panel_2.add(btnCadastrar);
 	}
 }
