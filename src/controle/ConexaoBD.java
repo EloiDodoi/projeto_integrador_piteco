@@ -8,7 +8,7 @@ public class ConexaoBD {
 	private Connection conexao;
 
 	public Connection getConexao() throws SQLException {
-		conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/piteco", "root", "Artcev.01");
+		conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/piteco", "root", "aluno");
 		return conexao;
 	}
 	public static Connection fecharConexao(Connection conexao) throws SQLException {
