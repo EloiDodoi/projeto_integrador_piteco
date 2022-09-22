@@ -24,14 +24,16 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCadastroProduto {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField txt_nome;
+	private JTextField txt_especie;
+	private JTextField txt_preco;
+	private JTextField txt_quantidade;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
@@ -133,14 +135,14 @@ public class TelaCadastroProduto {
 		lblNomeDoVegetal_1_1_1_1_1.setBounds(174, 299, 84, 28);
 		panel_2.add(lblNomeDoVegetal_1_1_1_1_1);
 		
-		textField = new JTextField();
-		textField.setBackground(new Color(234, 242, 237));
-		textField.setForeground(Color.DARK_GRAY);
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField.setColumns(10);
-		textField.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		textField.setBounds(410, 51, 943, 35);
-		panel_2.add(textField);
+		txt_nome = new JTextField();
+		txt_nome.setBackground(new Color(234, 242, 237));
+		txt_nome.setForeground(Color.DARK_GRAY);
+		txt_nome.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txt_nome.setColumns(10);
+		txt_nome.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txt_nome.setBounds(410, 51, 943, 35);
+		panel_2.add(txt_nome);
 		
 		JRadioButton rbKg = new JRadioButton("Quilograma (Kg)");
 		buttonGroup.add(rbKg);
@@ -152,32 +154,32 @@ public class TelaCadastroProduto {
 		scaleRadioButtonIcon(rbKg);
 		panel_2.add(rbKg);
 		
-		textField_1 = new JTextField();
-		textField_1.setForeground(Color.DARK_GRAY);
-		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField_1.setColumns(10);
-		textField_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		textField_1.setBackground(new Color(234, 242, 237));
-		textField_1.setBounds(410, 125, 943, 35);
-		panel_2.add(textField_1);
+		txt_especie = new JTextField();
+		txt_especie.setForeground(Color.DARK_GRAY);
+		txt_especie.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txt_especie.setColumns(10);
+		txt_especie.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txt_especie.setBackground(new Color(234, 242, 237));
+		txt_especie.setBounds(410, 125, 943, 35);
+		panel_2.add(txt_especie);
 		
-		textField_2 = new JTextField();
-		textField_2.setForeground(Color.DARK_GRAY);
-		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField_2.setColumns(10);
-		textField_2.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		textField_2.setBackground(new Color(234, 242, 237));
-		textField_2.setBounds(225, 297, 293, 35);
-		panel_2.add(textField_2);
+		txt_preco = new JTextField();
+		txt_preco.setForeground(Color.DARK_GRAY);
+		txt_preco.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txt_preco.setColumns(10);
+		txt_preco.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txt_preco.setBackground(new Color(234, 242, 237));
+		txt_preco.setBounds(225, 297, 293, 35);
+		panel_2.add(txt_preco);
 		
-		textField_3 = new JTextField();
-		textField_3.setForeground(Color.DARK_GRAY);
-		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField_3.setColumns(10);
-		textField_3.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		textField_3.setBackground(new Color(234, 242, 237));
-		textField_3.setBounds(1060, 297, 293, 35);
-		panel_2.add(textField_3);
+		txt_quantidade = new JTextField();
+		txt_quantidade.setForeground(Color.DARK_GRAY);
+		txt_quantidade.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txt_quantidade.setColumns(10);
+		txt_quantidade.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txt_quantidade.setBackground(new Color(234, 242, 237));
+		txt_quantidade.setBounds(1060, 297, 293, 35);
+		panel_2.add(txt_quantidade);
 		
 		JRadioButton rbUnidade = new JRadioButton("Unidade");
 		buttonGroup.add(rbUnidade);
@@ -188,13 +190,34 @@ public class TelaCadastroProduto {
 		scaleRadioButtonIcon(rbUnidade);
 		panel_2.add(rbUnidade);
 		
-		JButton btnNewButton = new JButton("Cadastrar");
-		btnNewButton.setBackground(new Color(123, 166, 111));
-		btnNewButton.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
-		btnNewButton.setForeground(new Color(31, 65, 45));
-		btnNewButton.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
-		btnNewButton.setBounds(517, 400, 396, 94);
-		panel_2.add(btnNewButton);
+		JButton btn_cadastrar_produto = new JButton("Cadastrar");
+		btn_cadastrar_produto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nome = txt_nome.getText();
+				String especie = txt_especie.getText();
+				
+				int unidade;
+				if (rbKg.isSelected() == true) {
+					unidade = 1;
+					txt_nome.setText("kg");
+				}
+				else {
+					unidade = 2;
+					txt_nome.setText("unidade");
+				}
+				
+				float preco = Float.parseFloat(txt_preco.getText());
+				float quantidade = Float.parseFloat(txt_quantidade.getText());
+				
+				
+			}
+		});
+		btn_cadastrar_produto.setBackground(new Color(123, 166, 111));
+		btn_cadastrar_produto.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
+		btn_cadastrar_produto.setForeground(new Color(31, 65, 45));
+		btn_cadastrar_produto.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
+		btn_cadastrar_produto.setBounds(517, 400, 396, 94);
+		panel_2.add(btn_cadastrar_produto);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(new Color(103, 146, 90));
