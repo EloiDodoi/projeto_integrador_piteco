@@ -1,7 +1,7 @@
  package visao;
 
 import java.awt.EventQueue;
-
+import modelo.Produto;
 import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -26,7 +26,7 @@ import javax.swing.ImageIcon;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import controle.CadastroProdutoBD;
 public class TelaCadastroProduto {
 
 	private JFrame frame;
@@ -204,8 +204,9 @@ public class TelaCadastroProduto {
 				}
 				float preco = Float.parseFloat(txt_preco.getText());
 				float quantidade = Float.parseFloat(txt_quantidade.getText());
-				
-				
+				CadastroProdutoBD cp = new CadastroProdutoBD();
+				Produto pd = new Produto(0, nome, especie, preco, quantidade, unidade);
+				cp.cadastrar(pd);
 			}
 		});
 		btn_cadastrar_produto.setBackground(new Color(123, 166, 111));
