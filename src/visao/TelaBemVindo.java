@@ -80,6 +80,12 @@ public class TelaBemVindo extends JFrame {
 		panel.add(btnCadastro);
 		
 		JButton btnVenda = new JButton("Venda");
+		btnVenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaVenda tela_venda = new TelaVenda();
+				tela_venda.abrir();
+			}
+		});
 		btnVenda.setBorder(new LineBorder(new Color(150, 191, 120), 3, true));
 		btnVenda.setBackground(new Color(234, 242, 237));
 		btnVenda.setForeground(new Color(150, 191, 120));
