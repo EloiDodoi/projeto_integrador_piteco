@@ -195,17 +195,13 @@ public class TelaCadastroProduto {
 			public void actionPerformed(ActionEvent e) {
 				String nome = txt_nome.getText();
 				String especie = txt_especie.getText();
-				
 				int unidade;
 				if (rbKg.isSelected() == true) {
 					unidade = 1;
-					txt_nome.setText("kg");
 				}
 				else {
 					unidade = 2;
-					txt_nome.setText("unidade");
 				}
-				
 				float preco = Float.parseFloat(txt_preco.getText());
 				float quantidade = Float.parseFloat(txt_quantidade.getText());
 				
