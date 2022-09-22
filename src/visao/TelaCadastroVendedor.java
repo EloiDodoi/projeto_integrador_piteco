@@ -14,6 +14,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCadastroVendedor {
 
@@ -62,11 +64,15 @@ public class TelaCadastroVendedor {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(234, 242, 237));
-		panel.setBounds(206, 202, 1171, 580);
+		panel.setBounds(183, 200, 1171, 580);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Cadastrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton.setBackground(new Color(234, 242, 237));
 		btnNewButton.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
 		btnNewButton.setForeground(new Color(217, 173, 181));

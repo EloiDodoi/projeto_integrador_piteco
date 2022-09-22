@@ -60,9 +60,12 @@ public class TelaCadastroProduto {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	public void abrir() {
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setMaximumSize(new Dimension(1600, 850));

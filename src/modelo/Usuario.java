@@ -16,6 +16,7 @@ public class Usuario {
 		this.usuario_id = usuario_id;
 		this.usuario_nome = usuario_nome;
 		this.usuario_cpf = usuario_cpf;
+		this.usuario_cnpj = usuario_cnpj;
 		this.usuario_datanascimento = usuario_datanascimento;
 		this.usuario_telefone = usuario_telefone;
 		this.usuario_senha = usuario_senha;
