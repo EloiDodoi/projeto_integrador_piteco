@@ -24,8 +24,10 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 
-public class TelaCadastroProduto {
+public class TelaSalvarProduto {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -41,7 +43,7 @@ public class TelaCadastroProduto {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaCadastroProduto window = new TelaCadastroProduto();
+					TelaSalvarProduto window = new TelaSalvarProduto();
 					window.frame.setVisible(true);
 					window.frame.setLocationRelativeTo(null);
 					window.frame.setExtendedState(window.frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
@@ -56,7 +58,7 @@ public class TelaCadastroProduto {
 	/**
 	 * Create the application.
 	 */
-	public TelaCadastroProduto() {
+	public TelaSalvarProduto() {
 		initialize();
 	}
 
@@ -72,7 +74,7 @@ public class TelaCadastroProduto {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblVendedor = new JLabel("Cadastro do Produto");
+		JLabel lblVendedor = new JLabel("Alterar Produto");
 		lblVendedor.setBackground(new Color(234, 242, 237));
 		lblVendedor.setHorizontalAlignment(SwingConstants.LEFT);
 		lblVendedor.setForeground(new Color(31, 65, 45));
@@ -92,7 +94,7 @@ public class TelaCadastroProduto {
 		lblNomeDoVegetal.setBounds(50, 50, 293, 35);
 		panel_2.add(lblNomeDoVegetal);
 		
-		JLabel lblEspcieDoVegetal = new JLabel("Espécie do Vegetal:");
+		JLabel lblEspcieDoVegetal = new JLabel("Esp\u00E9cie do Vegetal:");
 		lblEspcieDoVegetal.setForeground(new Color(31, 65, 45));
 		lblEspcieDoVegetal.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
 		lblEspcieDoVegetal.setBounds(50, 125, 321, 35);
@@ -104,7 +106,7 @@ public class TelaCadastroProduto {
 		lblNomeDoVegetal_1_1.setBounds(50, 210, 332, 28);
 		panel_2.add(lblNomeDoVegetal_1_1);
 		
-		JLabel lblNomeDoVegetal_1_1_1 = new JLabel("Preço:");
+		JLabel lblNomeDoVegetal_1_1_1 = new JLabel("Pre\u00E7o:");
 		lblNomeDoVegetal_1_1_1.setForeground(new Color(31, 65, 45));
 		lblNomeDoVegetal_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
 		lblNomeDoVegetal_1_1_1.setBounds(50, 295, 107, 37);
@@ -177,18 +179,31 @@ public class TelaCadastroProduto {
 		scaleRadioButtonIcon(rbUnidade);
 		panel_2.add(rbUnidade);
 		
-		JButton btnNewButton = new JButton("Cadastrar");
-		btnNewButton.setBackground(new Color(123, 166, 111));
-		btnNewButton.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
-		btnNewButton.setForeground(new Color(31, 65, 45));
-		btnNewButton.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
-		btnNewButton.setBounds(517, 400, 396, 94);
-		panel_2.add(btnNewButton);
+		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.setBackground(new Color(123, 166, 111));
+		btnSalvar.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
+		btnSalvar.setForeground(new Color(31, 65, 45));
+		btnSalvar.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
+		btnSalvar.setBounds(174, 400, 396, 94);
+		panel_2.add(btnSalvar);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(new Color(103, 146, 90));
-		panel_3.setBounds(527, 410, 396, 94);
+		panel_3.setBounds(184, 410, 396, 94);
 		panel_2.add(panel_3);
+		
+		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir.setForeground(new Color(31, 65, 45));
+		btnExcluir.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
+		btnExcluir.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
+		btnExcluir.setBackground(new Color(123, 166, 111));
+		btnExcluir.setBounds(820, 400, 396, 94);
+		panel_2.add(btnExcluir);
+		
+		JPanel panel_3_1 = new JPanel();
+		panel_3_1.setBackground(new Color(103, 146, 90));
+		panel_3_1.setBounds(830, 410, 396, 94);
+		panel_2.add(panel_3_1);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBorder(new LineBorder(new Color(31, 65, 45), 4));
@@ -196,13 +211,13 @@ public class TelaCadastroProduto {
 		frame.getContentPane().add(separator);
 		
 		JPanel panel_1_1 = new JPanel();
-		panel_1_1.setBounds(0, 0, 50, 811);
-		frame.getContentPane().add(panel_1_1);
 		panel_1_1.setLayout(null);
 		panel_1_1.setBackground(new Color(123, 166, 111));
+		panel_1_1.setBounds(0, 0, 50, 811);
+		frame.getContentPane().add(panel_1_1);
 		
 		JButton btnMenu = new JButton("");
-		btnMenu.setIcon(new ImageIcon(TelaCadastroProduto.class.getResource("/img/menu-aberto.png")));
+		btnMenu.setIcon(new ImageIcon(TelaSalvarProduto.class.getResource("/img/menu-aberto.png")));
 		btnMenu.setForeground(new Color(234, 242, 237));
 		btnMenu.setBorder(null);
 		btnMenu.setBackground(new Color(123, 166, 111));
@@ -210,38 +225,31 @@ public class TelaCadastroProduto {
 		panel_1_1.add(btnMenu);
 		
 		JPanel panel_2_1 = new JPanel();
-		panel_2_1.setBounds(0, 0, 1584, 40);
-		frame.getContentPane().add(panel_2_1);
 		panel_2_1.setLayout(null);
 		panel_2_1.setBackground(new Color(123, 166, 111));
+		panel_2_1.setBounds(0, 0, 1584, 40);
+		frame.getContentPane().add(panel_2_1);
 		
 		JButton btnConfiguracao = new JButton("");
-		btnConfiguracao.setIcon(new ImageIcon(TelaCadastroProduto.class.getResource("/img/solucao.png")));
+		btnConfiguracao.setIcon(new ImageIcon(TelaSalvarProduto.class.getResource("/img/solucao.png")));
 		btnConfiguracao.setBorder(null);
 		btnConfiguracao.setBackground(new Color(123, 166, 111));
 		btnConfiguracao.setBounds(1464, 0, 60, 40);
 		panel_2_1.add(btnConfiguracao);
 		
 		JButton btnNotificacao = new JButton("");
-		btnNotificacao.setIcon(new ImageIcon(TelaCadastroProduto.class.getResource("/img/notificacao.png")));
+		btnNotificacao.setIcon(new ImageIcon(TelaSalvarProduto.class.getResource("/img/notificacao.png")));
 		btnNotificacao.setBorder(null);
 		btnNotificacao.setBackground(new Color(123, 166, 111));
 		btnNotificacao.setBounds(1401, 0, 60, 40);
 		panel_2_1.add(btnNotificacao);
 		
 		JButton btnUser = new JButton("");
-		btnUser.setIcon(new ImageIcon(TelaCadastroProduto.class.getResource("/img/farmer.png")));
+		btnUser.setIcon(new ImageIcon(TelaSalvarProduto.class.getResource("/img/farmer.png")));
 		btnUser.setBorder(null);
 		btnUser.setBackground(new Color(123, 166, 111));
 		btnUser.setBounds(1524, 0, 60, 40);
 		panel_2_1.add(btnUser);
-		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setOrientation(SwingConstants.VERTICAL);
-		separator_1.setForeground(new Color(234, 242, 237));
-		separator_1.setBackground(new Color(234, 242, 237));
-		separator_1.setBounds(1294, 0, 2, 40);
-		panel_2_1.add(separator_1);
 	}
 	
 	public static void scaleRadioButtonIcon(JRadioButton rb){
