@@ -56,15 +56,6 @@ public class TelaEstoque extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnFiltro_1 = new JButton("");
-		btnFiltro_1.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/filtro (1).png")));
-		btnFiltro_1.setForeground(new Color(234, 242, 237));
-		btnFiltro_1.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
-		btnFiltro_1.setBorder(null);
-		btnFiltro_1.setBackground(new Color(31, 65, 45));
-		btnFiltro_1.setBounds(1190, 226, 40, 31);
-		contentPane.add(btnFiltro_1);
-		
 		JPanel BarraSuperior = new JPanel();
 		BarraSuperior.setBackground(new Color(150, 191, 120));
 		BarraSuperior.setBounds(0, 0, 1370, 40);
@@ -173,6 +164,7 @@ public class TelaEstoque extends JFrame {
 		btnPesquisa.setBackground(new Color(31, 65, 45));
 		
 		JButton btnFiltro = new JButton("Filtrar");
+		btnFiltro.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/filtro (1).png")));
 		btnFiltro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -181,7 +173,7 @@ public class TelaEstoque extends JFrame {
 		btnFiltro.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
 		btnFiltro.setBorder(null);
 		btnFiltro.setBackground(new Color(31, 65, 45));
-		btnFiltro.setBounds(1096, 226, 108, 31);
+		btnFiltro.setBounds(1096, 226, 134, 31);
 		contentPane.add(btnFiltro);
 		
 		JPanel panel = new JPanel();
