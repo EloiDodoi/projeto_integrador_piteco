@@ -21,6 +21,8 @@ import javax.swing.JSeparator;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class TelaBemVindo extends JFrame {
 
@@ -87,29 +89,32 @@ public class TelaBemVindo extends JFrame {
 		btnVenda.setBounds(740, 602, 391, 126);
 		panel.add(btnVenda);
 		
+		JLabel Logo = new JLabel("");
+		Logo.setLabelFor(Logo);
+		Logo.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/3.png")));
+		Logo.setBounds(461, 51, 469, 402);
+		panel.add(Logo);
+		
 		JPanel BarraLateral = new JPanel();
-		BarraLateral.setBounds(0, 0, 40, 750);
-		panel.add(BarraLateral);
+		contentPane.add(BarraLateral, BorderLayout.WEST);
 		BarraLateral.setBackground(new Color(150, 191, 120));
-		BarraLateral.setLayout(null);
+		BarraLateral.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnMenu = new JButton("");
-		btnMenu.setBounds(-6, 685, 52, 48);
-		BarraLateral.add(btnMenu);
+		btnMenu.setBorderPainted(false);
+		BarraLateral.add(btnMenu, BorderLayout.SOUTH);
 		btnMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		btnMenu.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/menu-aberto.png")));
-		btnMenu.setBorder(null);
+		btnMenu.setBorder(new LineBorder(new Color(0, 0, 0), 5));
 		btnMenu.setForeground(new Color(234, 242, 237));
 		btnMenu.setBackground(new Color(150, 191, 120));
 		
 		JPanel BarraSuperior = new JPanel();
-		BarraSuperior.setBounds(0, 0, 1370, 40);
-		panel.add(BarraSuperior);
+		contentPane.add(BarraSuperior, BorderLayout.NORTH);
 		BarraSuperior.setBackground(new Color(150, 191, 120));
-		BarraSuperior.setLayout(null);
 		
 		JButton btnConfiguracao = new JButton("");
 		btnConfiguracao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/solucao.png")));
@@ -119,34 +124,35 @@ public class TelaBemVindo extends JFrame {
 		});
 		btnConfiguracao.setBorder(null);
 		btnConfiguracao.setBackground(new Color(150, 191, 120));
-		btnConfiguracao.setBounds(1236, 0, 60, 40);
-		BarraSuperior.add(btnConfiguracao);
 		
 		JButton btnNotificacao = new JButton("");
 		btnNotificacao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/notificacao.png")));
 		btnNotificacao.setBorder(null);
 		btnNotificacao.setBackground(new Color(150, 191, 120));
-		btnNotificacao.setBounds(1178, 0, 60, 40);
-		BarraSuperior.add(btnNotificacao);
 		
 		JButton btnUser = new JButton("");
 		btnUser.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/farmer.png")));
 		btnUser.setBorder(null);
 		btnUser.setBackground(new Color(150, 191, 120));
-		btnUser.setBounds(1294, 0, 60, 40);
-		BarraSuperior.add(btnUser);
-		
-		JSeparator separator = new JSeparator();
-		separator.setOrientation(SwingConstants.VERTICAL);
-		separator.setBackground(new Color(234, 242, 237));
-		separator.setForeground(new Color(234, 242, 237));
-		separator.setBounds(1294, 0, 2, 40);
-		BarraSuperior.add(separator);
-		
-		JLabel Logo = new JLabel("");
-		Logo.setLabelFor(Logo);
-		Logo.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/3.png")));
-		Logo.setBounds(461, 51, 469, 402);
-		panel.add(Logo);
+		GroupLayout gl_BarraSuperior = new GroupLayout(BarraSuperior);
+		gl_BarraSuperior.setHorizontalGroup(
+			gl_BarraSuperior.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_BarraSuperior.createSequentialGroup()
+					.addGap(1294)
+					.addComponent(btnUser, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_BarraSuperior.createSequentialGroup()
+					.addGap(1236)
+					.addComponent(btnConfiguracao, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_BarraSuperior.createSequentialGroup()
+					.addGap(1178)
+					.addComponent(btnNotificacao, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
+		);
+		gl_BarraSuperior.setVerticalGroup(
+			gl_BarraSuperior.createParallelGroup(Alignment.LEADING)
+				.addComponent(btnUser, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+				.addComponent(btnConfiguracao, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+				.addComponent(btnNotificacao, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+		);
+		BarraSuperior.setLayout(gl_BarraSuperior);
 	}
 }
