@@ -138,8 +138,65 @@ public class TelaLoginVendedor {
 		lblVendedor.setHorizontalAlignment(SwingConstants.CENTER);
 		lblVendedor.setForeground(new Color(234, 242, 237));
 		lblVendedor.setFont(new Font("Dialog", Font.PLAIN, 99));
-		lblVendedor.setBounds(432, 50, 719, 149);
+		lblVendedor.setBounds(421, 50, 528, 149);
 		frame.getContentPane().add(lblVendedor);
+																														
+																														JLabel lblNewLabel = new JLabel("");
+																														lblNewLabel.setIcon(new ImageIcon(TelaLoginVendedor.class.getResource("/img/vendedora-removebg-preview.png")));
+																														lblNewLabel.setBounds(596, 183, 180, 180);
+																														frame.getContentPane().add(lblNewLabel);
+																														
+																																JPanel panel = new JPanel();
+																																panel.setBackground(new Color(234, 242, 237));
+																																panel.setBounds(360, 315, 650, 380);
+																																frame.getContentPane().add(panel);
+																																panel.setLayout(null);
+																																
+																																		JLabel lblUsuario = new JLabel("Usu�rio");
+																																		lblUsuario.setForeground(new Color(31, 65, 45));
+																																		lblUsuario.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+																																		lblUsuario.setBounds(37, 37, 146, 31);
+																																		panel.add(lblUsuario);
+																																		
+																																				txtUsuarioVendedor = new JTextField();
+																																				txtUsuarioVendedor.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+																																				txtUsuarioVendedor.setForeground(Color.DARK_GRAY);
+																																				txtUsuarioVendedor.setFont(new Font("Tahoma", Font.PLAIN, 25));
+																																				txtUsuarioVendedor.setColumns(10);
+																																				txtUsuarioVendedor.setBackground(Color.WHITE);
+																																				txtUsuarioVendedor.setBounds(36, 79, 578, 39);
+																																				panel.add(txtUsuarioVendedor);
+																																				
+																																						JLabel lblNewLabel_1 = new JLabel("Senha");
+																																						lblNewLabel_1.setForeground(new Color(31, 65, 45));
+																																						lblNewLabel_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+																																						lblNewLabel_1.setBackground(SystemColor.menu);
+																																						lblNewLabel_1.setBounds(37, 150, 120, 31);
+																																						panel.add(lblNewLabel_1);
+																																						
+																																								JLabel lblNewLabel_2 = new JLabel("*para logar insira seu e-mail ou CNPJ e a sua senha");
+																																								lblNewLabel_2.setForeground(Color.DARK_GRAY);
+																																								lblNewLabel_2.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 16));
+																																								lblNewLabel_2.setBounds(37, 242, 507, 25);
+																																								panel.add(lblNewLabel_2);
+																																								
+																																										JButton btnEntrar = new JButton("Entrar");
+																																										btnEntrar.addActionListener(new ActionListener() {
+																																											public void actionPerformed(ActionEvent e) {
+																																											}
+																																										});
+																																										btnEntrar.setForeground(new Color(31, 65, 45));
+																																										btnEntrar.setFont(new Font("Alef", Font.PLAIN, 25));
+																																										btnEntrar.setBackground(new Color(31, 65, 45));
+																																										btnEntrar.setBounds(137, 307, 375, 46);
+																																										panel.add(btnEntrar);
+																																										
+																																												passwordField = new JPasswordField();
+																																												passwordField.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+																																												passwordField.setForeground(Color.DARK_GRAY);
+																																												passwordField.setFont(new Font("Tahoma", Font.PLAIN, 25));
+																																												passwordField.setBounds(37, 192, 577, 39);
+																																												panel.add(passwordField);
 		URL resource = this.getClass().getResource("../img/adm_login.png");
 		Image img1 = new ImageIcon(resource).getImage();
 		frame.setResizable(false);

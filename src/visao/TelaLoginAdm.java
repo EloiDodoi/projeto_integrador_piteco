@@ -77,21 +77,21 @@ public class TelaLoginAdm {
 				JLabel lblAdm = new JLabel("Administrador");
 				lblAdm.setHorizontalAlignment(SwingConstants.CENTER);
 				lblAdm.setForeground(new Color(234, 242, 237));
-				lblAdm.setBounds(432, 50, 719, 149);
+				lblAdm.setBounds(325, 50, 719, 149);
 				lblAdm.setFont(new Font("Dialog", Font.PLAIN, 100));
 				frmLoginDoAdministrador.getContentPane().add(lblAdm);
 		
 		JLabel image = new JLabel("");
 		image.setBackground(new Color(255, 255, 255));
 		image.setForeground(new Color(255, 255, 255));
-		image.setIcon(new ImageIcon(TelaLoginAdm.class.getResource("/img/adm_login.png")));
-		image.setBounds(700, 189, 180, 180);
+		image.setIcon(new ImageIcon(TelaLoginAdm.class.getResource("/img/agricultor-removebg-preview.png")));
+		image.setBounds(595, 189, 180, 180);
 		frmLoginDoAdministrador.getContentPane().add(image);
 
 		JPanel panel_1 =  new JPanel();
 		panel_1.setBorder(null);
 		panel_1.setBackground(new Color(234, 242, 237));
-		panel_1.setBounds(465, 315, 650, 450);
+		panel_1.setBounds(360, 315, 650, 450);
 		frmLoginDoAdministrador.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -124,6 +124,7 @@ public class TelaLoginAdm {
 		panel_1.add(lblNewLabel_2);
 		
 		JButton btn_entrar_adm = new JButton("Entrar");
+		btn_entrar_adm.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		btn_entrar_adm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Usuario login = new Usuario(0, null, null, null, null, null, txt_senha.getText(), txt_login.getText(), 0);
