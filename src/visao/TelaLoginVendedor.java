@@ -123,6 +123,7 @@ public class TelaLoginVendedor {
 					System.out.println("Login feito com êxito");
 					TelaBemVindo tb = new TelaBemVindo();
 					tb.abrir();
+					frame.setVisible(false);
 				}
 			}
 		});

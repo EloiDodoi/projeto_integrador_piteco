@@ -25,6 +25,7 @@ import javax.swing.SwingConstants;
 public class TelaBemVindo extends JFrame {
 
 	private JPanel contentPane;
+	static TelaBemVindo frame = new TelaBemVindo();
 
 	/**
 	 * Launch the application.
@@ -33,7 +34,6 @@ public class TelaBemVindo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaBemVindo frame = new TelaBemVindo();
 					frame.setVisible(true);
 					frame.setLocationRelativeTo(null);
 					frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
@@ -81,6 +81,7 @@ public class TelaBemVindo extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TelaCadastroProduto cadastro_produto = new TelaCadastroProduto();
 				cadastro_produto.abrir();
+				frame.setVisible(false);
 			}
 		});
 		btnCadastro.setBackground(new Color(234, 242, 237));
@@ -94,6 +95,7 @@ public class TelaBemVindo extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TelaVenda tela_venda = new TelaVenda();
 				tela_venda.abrir();
+				frame.setVisible(false);
 			}
 		});
 		btnVenda.setBorder(new LineBorder(new Color(150, 191, 120), 3, true));

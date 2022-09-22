@@ -136,6 +136,7 @@ public class TelaLoginAdm {
 					System.out.println("Login feito com êxito");
 					TelaBemVindo tb = new TelaBemVindo();
 					tb.abrir();
+					frmLoginDoAdministrador.setVisible(false);
 				}
 				
 			}});
