@@ -93,11 +93,11 @@ public class TelaCadastroAdm {
 		panel_1.setBackground(new Color(31, 65, 45));
 		panel_1.setLayout(null);
 		
-		JLabel lblVendedor = new JLabel("Cadastro do Negócio");
+		JLabel lblVendedor = new JLabel("Cadastro do Administrador");
 		lblVendedor.setHorizontalAlignment(SwingConstants.LEFT);
 		lblVendedor.setForeground(new Color(234, 242, 237));
 		lblVendedor.setFont(new Font("Dialog", Font.PLAIN, 85));
-		lblVendedor.setBounds(25, 0, 871, 110);
+		lblVendedor.setBounds(10, 0, 1073, 110);
 		panel_1.add(lblVendedor);
 		
 		lblNewLabel_12 = new JLabel("");
