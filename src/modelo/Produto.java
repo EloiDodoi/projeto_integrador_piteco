@@ -10,6 +10,18 @@ public class Produto {
 	private int Unidade_quantidade_idUnidade_quantidade;
 	
 	
+
+	public Produto(int idProduto, String produto_nomeveg, String produto_especieveg, float produto_preco,
+			float produto_quantidade, int unidade_quantidade_idUnidade_quantidade) {
+		super();
+		this.idProduto = idProduto;
+		this.produto_nomeveg = produto_nomeveg;
+		this.produto_especieveg = produto_especieveg;
+		this.produto_preco = produto_preco;
+		this.produto_quantidade = produto_quantidade;
+		Unidade_quantidade_idUnidade_quantidade = unidade_quantidade_idUnidade_quantidade;
+	}
+
 	public int getIdProduto() {
 		return idProduto;
 	}
