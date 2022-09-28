@@ -9,6 +9,9 @@ import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+
+import controle.CadastroProdutoBD;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -167,6 +170,8 @@ public class TelaEstoque extends JFrame {
 		panelPesquisa.add(btnPesquisa);
 		btnPesquisa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				CadastroProdutoBD cp = new CadastroProdutoBD();
+				System.out.println(cp.listaProdutos());
 			}
 		});
 		btnPesquisa.setBorder(null);

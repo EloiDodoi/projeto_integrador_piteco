@@ -1,8 +1,11 @@
 package controle;
 
 import modelo.Produto;
+import modelo.Usuario;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -17,7 +20,18 @@ public class CadastroProdutoBD {
 	private ConexaoBD cbd = new ConexaoBD();
 
 	public ArrayList<Produto> listaProdutos() {
-
+		try {
+			ArrayList<Produto> estoque = new ArrayList<>();
+			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT * FROM produto");
+			ResultSet rs = ps.executeQuery();
+	          while(rs.next()){
+	        	  Produto p = new Produto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
+	        	  estoque.add(p);
+	            }
+	          return estoque;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
