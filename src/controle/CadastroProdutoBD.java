@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JOptionPane;
 
@@ -28,13 +29,20 @@ public class CadastroProdutoBD {
 	        	  Produto p = new Produto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
 	        	  estoque.add(p);
 	            }
+	          for (Produto p: estoque) {
+	        	  System.out.println(p.getIdProduto());
+	        	  System.out.println(p.getProduto_nomeveg());
+	        	  System.out.println(p.getProduto_especieveg());
+	        	  System.out.println(p.getProduto_preco());
+	        	  System.out.println(p.getProduto_quantidade());
+	        	  System.out.println(p.getUnidade_quantidade_idUnidade_quantidade());
+	          }
 	          return estoque;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-
 	public void cadastrar(Produto produto) {
 		try {
 			PreparedStatement ps = cbd.getConexao()
