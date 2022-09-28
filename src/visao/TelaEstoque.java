@@ -11,6 +11,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controle.CadastroProdutoBD;
+import modelo.Produto;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -20,6 +21,9 @@ import javax.swing.JButton;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
@@ -30,7 +34,8 @@ public class TelaEstoque extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldPesquisaNoEstoque;
-
+	private Produto produto_selecionado;
+	CadastroProdutoBD cp = new CadastroProdutoBD();
 	/**
 	 * Launch the application.
 	 */
@@ -143,13 +148,14 @@ public class TelaEstoque extends JFrame {
 		table.setBorder(new LineBorder(new Color(31, 65, 45), 2));
 		table.setGridColor(new Color(150, 191, 120));
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"C\u00F3digo", "", "", "", ""},
+			new Object[][][][][][] {
+			
 			},
 			new String[] {
 				"C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade"
 			}
 		));
+		table.setModel(cp.listagemProduto());
 		table.getColumnModel().getColumn(1).setPreferredWidth(150);
 		table.getColumnModel().getColumn(2).setPreferredWidth(150);
 		table.getColumnModel().getColumn(4).setPreferredWidth(100);
@@ -167,11 +173,11 @@ public class TelaEstoque extends JFrame {
 		JButton btnPesquisa = new JButton("");
 		btnPesquisa.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/inspecao (1).png")));
 		btnPesquisa.setBounds(10, 5, 35, 32);
+		
 		panelPesquisa.add(btnPesquisa);
 		btnPesquisa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CadastroProdutoBD cp = new CadastroProdutoBD();
-				System.out.println(cp.listaProdutos());
+
 			}
 		});
 		btnPesquisa.setBorder(null);
@@ -236,5 +242,17 @@ public class TelaEstoque extends JFrame {
 		lblQuantidade.setBounds(904, 0, 215, 51);
 		panel.add(lblQuantidade);
 		
+		//-------------------------------------------------------- métodos -------------------------------------
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ArrayList<Produto> lista = cp.listaProdutos();
+				int posicao_produto = table.getSelectedRow();
+				produto_selecionado = lista.get(posicao_produto);
+			}
+			}
+		);
+
+
 	}
 }

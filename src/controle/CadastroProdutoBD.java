@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 import controle.ConexaoBD;
 
@@ -43,6 +44,24 @@ public class CadastroProdutoBD {
 		}
 		return null;
 	}
+	
+	public DefaultTableModel listagemProduto() {
+		ArrayList<Produto> lp = listaProdutos();
+		DefaultTableModel modelo_tabela = new DefaultTableModel(
+				new Object[][][][][][] {
+					
+				},
+				new String[] {
+					"C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade"
+				}	
+		);
+		for (int i = 0;i<lp.size();i++) {
+			Produto p = lp.get(i);
+			modelo_tabela.addRow(new Object[] {p.getIdProduto(),p.getProduto_nomeveg(),p.getProduto_especieveg(),p.getProduto_preco(), p.getProduto_quantidade()});
+		}
+		return modelo_tabela;	
+	}
+	
 	public void cadastrar(Produto produto) {
 		try {
 			PreparedStatement ps = cbd.getConexao()
