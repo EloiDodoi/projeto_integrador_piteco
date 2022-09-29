@@ -11,6 +11,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controle.CadastroProdutoBD;
+import controle.EstoqueBD;
 import modelo.Produto;
 
 import javax.swing.JLabel;
@@ -35,7 +36,7 @@ public class TelaEstoque extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldPesquisaNoEstoque;
 	private Produto produto_selecionado;
-	CadastroProdutoBD cp = new CadastroProdutoBD();
+	EstoqueBD etb = new EstoqueBD();
 	/**
 	 * Launch the application.
 	 */
@@ -155,7 +156,7 @@ public class TelaEstoque extends JFrame {
 				"C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade"
 			}
 		));
-		table.setModel(cp.listagemProduto());
+		table.setModel(etb.listagemProduto());
 		table.getColumnModel().getColumn(1).setPreferredWidth(150);
 		table.getColumnModel().getColumn(2).setPreferredWidth(150);
 		table.getColumnModel().getColumn(4).setPreferredWidth(100);
@@ -254,7 +255,7 @@ public class TelaEstoque extends JFrame {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ArrayList<Produto> lista = cp.listaProdutos();
+				ArrayList<Produto> lista = etb.listaProdutos();
 				int posicao_produto = table.getSelectedRow();
 				produto_selecionado = lista.get(posicao_produto);
 			}
