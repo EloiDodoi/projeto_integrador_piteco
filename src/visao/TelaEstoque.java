@@ -242,6 +242,14 @@ public class TelaEstoque extends JFrame {
 		lblQuantidade.setBounds(904, 0, 215, 51);
 		panel.add(lblQuantidade);
 		
+		JButton btnRemover = new JButton("Remover");
+		btnRemover.setBounds(1247, 280, 134, 31);
+		contentPane.add(btnRemover);
+		
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setBounds(1247, 414, 134, 31);
+		contentPane.add(btnAlterar);
+		
 		//-------------------------------------------------------- métodos -------------------------------------
 		table.addMouseListener(new MouseAdapter() {
 			@Override
