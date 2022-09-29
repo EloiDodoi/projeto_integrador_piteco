@@ -134,6 +134,31 @@ public class TelaEstoque extends JFrame {
 		
 		JTable table = new JTable();
 		table.setBounds(130, 330, 1119, 391);
+		table.setRowHeight(40);
+		table.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
+		table.setBorder(new LineBorder(new Color(31, 65, 45), 2));
+		table.setGridColor(new Color(150, 191, 120));
+		
+		
+		table.setModel(new DefaultTableModel(
+				new Object[][][][][][] {
+				
+				},
+				new String[] {
+					"C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade"
+				}
+			));
+			table.setModel(cp.listagemProduto());
+			table.getColumnModel().getColumn(1).setPreferredWidth(150);
+			table.getColumnModel().getColumn(2).setPreferredWidth(150);
+			table.getColumnModel().getColumn(4).setPreferredWidth(100);
+			
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(130, 330, 1119, 391);
+		contentPane.add(scrollPane);
+		
+		/*/		JTable table = new JTable();
+		table.setBounds(130, 330, 1119, 391);
 		contentPane.add(table);
 		table.setRowHeight(40);
 		table.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
@@ -151,6 +176,7 @@ public class TelaEstoque extends JFrame {
 		table.getColumnModel().getColumn(1).setPreferredWidth(150);
 		table.getColumnModel().getColumn(2).setPreferredWidth(150);
 		table.getColumnModel().getColumn(4).setPreferredWidth(100);
+/*/
 		
 		textFieldPesquisaNoEstoque = new JTextField();
 		textFieldPesquisaNoEstoque.setBounds(43, 5, 797, 32);
@@ -236,12 +262,13 @@ public class TelaEstoque extends JFrame {
 		panel.add(lblQuantidade);
 		
 		JButton btnRemover = new JButton("Remover");
-		btnRemover.setBounds(1247, 280, 134, 31);
+		btnRemover.setBounds(1247, 332, 134, 31);
 		contentPane.add(btnRemover);
 		
 		JButton btnAlterar = new JButton("Alterar");
-		btnAlterar.setBounds(1247, 414, 134, 31);
+		btnAlterar.setBounds(1247, 374, 134, 31);
 		contentPane.add(btnAlterar);
+		
 		
 		//-------------------------------------------------------- métodos -------------------------------------
 		table.addMouseListener(new MouseAdapter() {
