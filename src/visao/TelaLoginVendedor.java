@@ -33,6 +33,7 @@ public class TelaLoginVendedor {
 	private static JFrame frame;
 	private JTextField txt_login;
 	private JPasswordField txt_senha;
+	static TelaLoginVendedor window = new TelaLoginVendedor();
 
 	/**
 	 * Launch the application.
@@ -146,11 +147,31 @@ public class TelaLoginVendedor {
 		lblVendedor.setFont(new Font("Dialog", Font.PLAIN, 99));
 		lblVendedor.setBounds(528, 50, 528, 149);
 		frame.getContentPane().add(lblVendedor);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			TelaInicial inicio = new TelaInicial();
+			inicio.abrir();
+			window.setVisible(false);
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon(TelaLoginVendedor.class.getResource("/img/desfazer.png")));
+		btnNewButton.setForeground(new Color(150, 191, 120));
+		btnNewButton.setBorder(null);
+		btnNewButton.setBackground(new Color(150, 191, 120));
+		btnNewButton.setBounds(10, 11, 50, 50);
+		frame.getContentPane().add(btnNewButton);
 																																		
 		URL resource = this.getClass().getResource("../img/adm_login.png");
 		Image img1 = new ImageIcon(resource).getImage();
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1600, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	protected void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
 	}
 }
