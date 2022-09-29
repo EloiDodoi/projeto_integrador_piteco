@@ -132,7 +132,13 @@ public class TelaEstoque extends JFrame {
 		contentPane.add(panelPesquisa);
 		panelPesquisa.setLayout(null);
 		
-		JTable table = new JTable();
+		JTable table = new JTable() {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+		};
 		table.setBounds(130, 330, 1119, 391);
 		table.setRowHeight(40);
 		table.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
