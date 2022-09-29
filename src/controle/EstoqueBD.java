@@ -27,7 +27,7 @@ public class EstoqueBD {
 			atualizarEstoque(jt);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Erro Banco de Dados");
+			System.out.println("Erro Banco de Dados: "+e);
 		}
 	
 	}

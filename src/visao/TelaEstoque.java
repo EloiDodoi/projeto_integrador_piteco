@@ -10,6 +10,7 @@ import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import controle.AlterarProdutoBD;
 import controle.CadastroProdutoBD;
 import controle.EstoqueBD;
 import modelo.Produto;
@@ -24,6 +25,7 @@ import javax.swing.border.MatteBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
@@ -35,8 +37,9 @@ public class TelaEstoque extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldPesquisaNoEstoque;
-	private Produto produto_selecionado;
+	Produto produto_selecionado;
 	EstoqueBD etb = new EstoqueBD();
+	AlterarProdutoBD at = new AlterarProdutoBD();
 	/**
 	 * Launch the application.
 	 */
@@ -258,6 +261,14 @@ public class TelaEstoque extends JFrame {
 		contentPane.add(btnRemover);
 		
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(produto_selecionado != null) {
+					TelaSalvarProduto sp = new TelaSalvarProduto();
+					sp.abrir(produto_selecionado);
+				}
+			}
+		});
 		btnAlterar.setBounds(1247, 374, 134, 31);
 		contentPane.add(btnAlterar);
 		
@@ -269,8 +280,9 @@ public class TelaEstoque extends JFrame {
 				ArrayList<Produto> lista = etb.listaProdutos();
 				int posicao_produto = table.getSelectedRow();
 				produto_selecionado = lista.get(posicao_produto);
+				System.out.println(produto_selecionado.getProduto_nomeveg());
 			}
-			}
+			}	
 		);
 
 
