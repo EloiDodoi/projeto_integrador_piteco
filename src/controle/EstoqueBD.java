@@ -1,10 +1,11 @@
 package controle;
-
+import modelo.Produto;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import modelo.Produto;
@@ -12,6 +13,24 @@ import modelo.Produto;
 public class EstoqueBD {
 
 	private ConexaoBD cbd = new ConexaoBD();
+	
+	public void atualizarEstoque(JTable jt) {
+		jt.setModel(listagemProduto());
+	}
+	
+	public void deletar(Produto p, JTable jt) {
+		PreparedStatement ps;
+		try {
+			ps = cbd.getConexao().prepareStatement("DELETE FROM produto WHERE idproduto = ?");
+			ps.setInt(1, p.getIdProduto());
+			ps.executeUpdate();
+			atualizarEstoque(jt);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Erro Banco de Dados");
+		}
+	
+	}
 
 	public ArrayList<Produto> listaProdutos() {
 		try {
