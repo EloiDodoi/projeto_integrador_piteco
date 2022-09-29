@@ -9,6 +9,11 @@ import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+
+import controle.CadastroProdutoBD;
+import controle.EstoqueBD;
+import modelo.Produto;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -17,6 +22,9 @@ import javax.swing.JButton;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
@@ -27,7 +35,8 @@ public class TelaEstoque extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldPesquisaNoEstoque;
-
+	private Produto produto_selecionado;
+	EstoqueBD etb = new EstoqueBD();
 	/**
 	 * Launch the application.
 	 */
@@ -55,15 +64,6 @@ public class TelaEstoque extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JButton btnFiltro_1 = new JButton("");
-		btnFiltro_1.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/filtro (1).png")));
-		btnFiltro_1.setForeground(new Color(234, 242, 237));
-		btnFiltro_1.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
-		btnFiltro_1.setBorder(null);
-		btnFiltro_1.setBackground(new Color(31, 65, 45));
-		btnFiltro_1.setBounds(1190, 226, 40, 31);
-		contentPane.add(btnFiltro_1);
 		
 		JPanel BarraSuperior = new JPanel();
 		BarraSuperior.setBackground(new Color(150, 191, 120));
@@ -132,24 +132,38 @@ public class TelaEstoque extends JFrame {
 		contentPane.add(panelPesquisa);
 		panelPesquisa.setLayout(null);
 		
-		JTable table = new JTable();
+		JTable table = new JTable() {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+		};
 		table.setBounds(130, 330, 1119, 391);
-		contentPane.add(table);
 		table.setRowHeight(40);
 		table.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
 		table.setBorder(new LineBorder(new Color(31, 65, 45), 2));
 		table.setGridColor(new Color(150, 191, 120));
+		
+		
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"C\u00F3digo", "", "", "", ""},
-			},
-			new String[] {
-				"C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade"
-			}
-		));
-		table.getColumnModel().getColumn(1).setPreferredWidth(150);
-		table.getColumnModel().getColumn(2).setPreferredWidth(150);
-		table.getColumnModel().getColumn(4).setPreferredWidth(100);
+				new Object[][][][][][] {
+				
+				},
+				new String[] {
+					"C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade"
+				}
+			));
+			table.setModel(etb.listagemProduto());
+			table.getColumnModel().getColumn(1).setPreferredWidth(150);
+			table.getColumnModel().getColumn(2).setPreferredWidth(150);
+			table.getColumnModel().getColumn(4).setPreferredWidth(100);
+			
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(130, 330, 1119, 391);
+		contentPane.add(scrollPane);
+		
+
 		
 		textFieldPesquisaNoEstoque = new JTextField();
 		textFieldPesquisaNoEstoque.setBounds(43, 5, 797, 32);
@@ -164,15 +178,18 @@ public class TelaEstoque extends JFrame {
 		JButton btnPesquisa = new JButton("");
 		btnPesquisa.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/inspecao (1).png")));
 		btnPesquisa.setBounds(10, 5, 35, 32);
+		
 		panelPesquisa.add(btnPesquisa);
 		btnPesquisa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 			}
 		});
 		btnPesquisa.setBorder(null);
 		btnPesquisa.setBackground(new Color(31, 65, 45));
 		
 		JButton btnFiltro = new JButton("Filtrar");
+		btnFiltro.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/filtro (1).png")));
 		btnFiltro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -181,7 +198,7 @@ public class TelaEstoque extends JFrame {
 		btnFiltro.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
 		btnFiltro.setBorder(null);
 		btnFiltro.setBackground(new Color(31, 65, 45));
-		btnFiltro.setBounds(1096, 226, 108, 31);
+		btnFiltro.setBounds(1096, 226, 134, 31);
 		contentPane.add(btnFiltro);
 		
 		JPanel panel = new JPanel();
@@ -231,5 +248,31 @@ public class TelaEstoque extends JFrame {
 		lblQuantidade.setBounds(904, 0, 215, 51);
 		panel.add(lblQuantidade);
 		
+		JButton btnRemover = new JButton("Remover");
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				etb.deletar(produto_selecionado,table);
+			}
+		});
+		btnRemover.setBounds(1247, 332, 134, 31);
+		contentPane.add(btnRemover);
+		
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setBounds(1247, 374, 134, 31);
+		contentPane.add(btnAlterar);
+		
+		
+		//-------------------------------------------------------- métodos -------------------------------------
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ArrayList<Produto> lista = etb.listaProdutos();
+				int posicao_produto = table.getSelectedRow();
+				produto_selecionado = lista.get(posicao_produto);
+			}
+			}
+		);
+
+
 	}
 }
