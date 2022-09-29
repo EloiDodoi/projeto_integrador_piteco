@@ -105,11 +105,11 @@ public class TelaBemVindo extends JFrame {
 		btnVenda.setBounds(740, 602, 391, 126);
 		panel.add(btnVenda);
 		
-		JPanel BarraLateral = new JPanel();
-		BarraLateral.setBounds(0, 0, 40, 750);
-		panel.add(BarraLateral);
-		BarraLateral.setBackground(new Color(150, 191, 120));
-		BarraLateral.setLayout(null);
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(0, 0, 50, 738);
+		panel.add(panel_1);
+		panel_1.setBackground(new Color(150, 191, 120));
+		panel_1.setLayout(null);
 		
 		JButton btnMenu = new JButton("");
 		btnMenu.setBounds(-6, 685, 52, 48);
@@ -122,6 +122,8 @@ public class TelaBemVindo extends JFrame {
 		btnMenu.setBorder(null);
 		btnMenu.setForeground(new Color(234, 242, 237));
 		btnMenu.setBackground(new Color(150, 191, 120));
+		btnMenu.setBounds(0, 681, 50, 46);
+		panel_1.add(btnMenu);
 		
 		JPanel BarraSuperior = new JPanel();
 		BarraSuperior.setBounds(0, 0, 1370, 40);
