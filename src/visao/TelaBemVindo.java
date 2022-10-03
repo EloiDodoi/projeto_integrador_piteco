@@ -47,34 +47,33 @@ public class TelaBemVindo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	
+
 	public void abrir() {
 		TelaBemVindo frame = new TelaBemVindo();
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
-	
-	public TelaBemVindo() 
-	{
+
+	public TelaBemVindo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 850);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
+
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setBackground(new Color(234, 242, 237));
 		panel.setLayout(null);
-		
+
 		JLabel lblTitulo = new JLabel("Bem Vindo!");
 		lblTitulo.setForeground(new Color(31, 65, 45));
 		lblTitulo.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 82));
 		lblTitulo.setBounds(471, 468, 440, 164);
 		panel.add(lblTitulo);
-		
+
 		JButton btnCadastro = new JButton("Cadastro");
 		btnCadastro.setBorder(new LineBorder(new Color(150, 191, 120), 3, true));
 		btnCadastro.addActionListener(new ActionListener() {
@@ -89,7 +88,7 @@ public class TelaBemVindo extends JFrame {
 		btnCadastro.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 65));
 		btnCadastro.setBounds(229, 602, 391, 126);
 		panel.add(btnCadastro);
-		
+
 		JButton btnVenda = new JButton("Venda");
 		btnVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -104,13 +103,13 @@ public class TelaBemVindo extends JFrame {
 		btnVenda.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 65));
 		btnVenda.setBounds(740, 602, 391, 126);
 		panel.add(btnVenda);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(0, 0, 50, 738);
 		panel.add(panel_1);
 		panel_1.setBackground(new Color(150, 191, 120));
 		panel_1.setLayout(null);
-		
+
 		JButton btnMenu = new JButton("");
 		btnMenu.setBounds(-6, 685, 52, 48);
 		BarraLateral.add(btnMenu);
@@ -124,13 +123,13 @@ public class TelaBemVindo extends JFrame {
 		btnMenu.setBackground(new Color(150, 191, 120));
 		btnMenu.setBounds(0, 681, 50, 46);
 		panel_1.add(btnMenu);
-		
+
 		JPanel BarraSuperior = new JPanel();
 		BarraSuperior.setBounds(0, 0, 1370, 40);
 		panel.add(BarraSuperior);
 		BarraSuperior.setBackground(new Color(150, 191, 120));
 		BarraSuperior.setLayout(null);
-		
+
 		JButton btnConfiguracao = new JButton("");
 		btnConfiguracao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/solucao.png")));
 		btnConfiguracao.addActionListener(new ActionListener() {
@@ -141,28 +140,28 @@ public class TelaBemVindo extends JFrame {
 		btnConfiguracao.setBackground(new Color(150, 191, 120));
 		btnConfiguracao.setBounds(1236, 0, 60, 40);
 		BarraSuperior.add(btnConfiguracao);
-		
+
 		JButton btnNotificacao = new JButton("");
 		btnNotificacao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/notificacao.png")));
 		btnNotificacao.setBorder(null);
 		btnNotificacao.setBackground(new Color(150, 191, 120));
 		btnNotificacao.setBounds(1178, 0, 60, 40);
 		BarraSuperior.add(btnNotificacao);
-		
+
 		JButton btnUser = new JButton("");
 		btnUser.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/farmer.png")));
 		btnUser.setBorder(null);
 		btnUser.setBackground(new Color(150, 191, 120));
 		btnUser.setBounds(1294, 0, 60, 40);
 		BarraSuperior.add(btnUser);
-		
+
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
 		separator.setBackground(new Color(234, 242, 237));
 		separator.setForeground(new Color(234, 242, 237));
 		separator.setBounds(1294, 0, 2, 40);
 		BarraSuperior.add(separator);
-		
+
 		JLabel Logo = new JLabel("");
 		Logo.setLabelFor(Logo);
 		Logo.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/3.png")));

@@ -47,9 +47,9 @@ public class TelaSalvarProduto {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	TelaEstoque telaEstoque;
 	AlterarProdutoBD alt = new AlterarProdutoBD();
+	private Produto produtoSelecionado;
 	private JRadioButton rb_Kg;
 	private JRadioButton rb_Unidade;
-	TelaEstoque et;
 	private JLabel lbl_codigo;
 
 	/**
@@ -202,7 +202,7 @@ public class TelaSalvarProduto {
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Produto produto = et.produto_selecionado;
+				Produto produto = produtoSelecionado;
 				produto.setIdProduto(Integer.parseInt(lbl_codigo.getText()));
 				produto.setProduto_nomeveg(txt_nome.getText());
 				produto.setProduto_especieveg(txt_especie.getText());
@@ -298,6 +298,8 @@ public class TelaSalvarProduto {
 	}
 	
 	public void abrir(Produto produtoSelecionado) {
+		
+		this.produtoSelecionado = produtoSelecionado;
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
