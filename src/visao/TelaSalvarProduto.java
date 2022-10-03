@@ -50,6 +50,7 @@ public class TelaSalvarProduto {
 	private JRadioButton rb_Kg;
 	private JRadioButton rb_Unidade;
 	TelaEstoque et;
+	private JLabel lbl_codigo;
 
 	/**
 	 * Launch the application.
@@ -202,10 +203,16 @@ public class TelaSalvarProduto {
 			public void actionPerformed(ActionEvent e) {
 				
 				Produto produto = et.produto_selecionado;
+				produto.setIdProduto(Integer.parseInt(lbl_codigo.getText()));
 				produto.setProduto_nomeveg(txt_nome.getText());
 				produto.setProduto_especieveg(txt_especie.getText());
 				produto.setProduto_preco(Float.parseFloat(txt_preco.getText()));
 				produto.setProduto_quantidade(Float.parseFloat(txt_quantidade.getText()));
+				if(rb_Kg.isSelected()== true) {
+					produto.setUnidade_quantidade_idUnidade_quantidade(1);
+				}else {
+					produto.setUnidade_quantidade_idUnidade_quantidade(2);
+				}
 				alt.alterarProduto(produto);
 				
 			}
@@ -280,6 +287,12 @@ public class TelaSalvarProduto {
 		btnUser.setBackground(new Color(123, 166, 111));
 		btnUser.setBounds(1524, 0, 60, 40);
 		panel_2_1.add(btnUser);
+		
+		lbl_codigo = new JLabel("0");
+		lbl_codigo.setHorizontalAlignment(SwingConstants.TRAILING);
+		lbl_codigo.setFont(new Font("Tahoma", Font.PLAIN, 92));
+		lbl_codigo.setBounds(1100, 124, 454, 126);
+		frame.getContentPane().add(lbl_codigo);
 	
 
 	}
@@ -288,10 +301,14 @@ public class TelaSalvarProduto {
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		
 		txt_nome.setText(produtoSelecionado.getProduto_nomeveg());
 		txt_especie.setText(produtoSelecionado.getProduto_especieveg());
 		txt_preco.setText("" + produtoSelecionado.getProduto_preco());
-		txt_quantidade.setText("" + produtoSelecionado.getProduto_quantidade());
+		txt_quantidade.setText(Float.toString(produtoSelecionado.getProduto_quantidade()));
+		lbl_codigo.setText(Integer.toString(produtoSelecionado.getIdProduto()));
+		
+		
 		if (produtoSelecionado.getUnidade_quantidade_idUnidade_quantidade() ==1 ) {
 			rb_Kg.setSelected(true);
 		}else {
