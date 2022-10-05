@@ -324,7 +324,7 @@ public class TelaSalvarProduto {
 		
 		txt_nome.setText(produtoSelecionado.getProduto_nomeveg());
 		txt_especie.setText(produtoSelecionado.getProduto_especieveg());
-		txt_preco.setText("" + produtoSelecionado.getProduto_preco());
+		txt_preco.setText(Float.toString( produtoSelecionado.getProduto_preco()));
 		txt_quantidade.setText(Float.toString(produtoSelecionado.getProduto_quantidade()));
 		lbl_codigo.setText(Integer.toString(produtoSelecionado.getIdProduto()));
 		

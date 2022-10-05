@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,9 +26,9 @@ public class EstoqueBD {
 			ps.setInt(1, p.getIdProduto());
 			ps.executeUpdate();
 			atualizarEstoque(jt);
+			JOptionPane.showMessageDialog(null, "Produto deletado com êxito!");
 		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("Erro Banco de Dados: "+e);
+			JOptionPane.showMessageDialog(null, "Erro ao deletar o produto!");
 		}
 	
 	}

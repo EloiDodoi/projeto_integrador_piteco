@@ -3,6 +3,8 @@ package controle;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import controle.ConexaoBD;
 import modelo.Produto;
 
@@ -22,11 +24,10 @@ public class AlterarProdutoBD {
 			ps.setInt(5, p.getUnidade_quantidade_idUnidade_quantidade());
 			ps.setInt(6, p.getIdProduto());
 			ps.executeUpdate();
+			JOptionPane.showMessageDialog(null, "Alteração do Produto realizada com êxito!");
 		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("Erro Banco de Dados: " + e);
+			JOptionPane.showMessageDialog(null, "Erro na alteração!");
 		}
-
 	}
 
 	public Produto passarAlterar(Produto p) {
