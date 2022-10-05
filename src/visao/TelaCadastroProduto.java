@@ -199,6 +199,13 @@ public class TelaCadastroProduto {
 				CadastroProdutoBD cp = new CadastroProdutoBD();
 				Produto pd = new Produto(0, nome, especie, preco, quantidade, unidade);
 				cp.cadastrar(pd);
+				
+				//limpar campos
+				txt_nome.setText("");
+				txt_especie.setText("");
+				rbKg.setSelected(true);
+				txt_preco.setText("");
+				txt_quantidade.setText("");
 			}
 		});
 		btn_cadastrar_produto.setBackground(new Color(123, 166, 111));
@@ -265,6 +272,20 @@ public class TelaCadastroProduto {
 		separator_1.setBackground(new Color(234, 242, 237));
 		separator_1.setBounds(1294, 0, 2, 40);
 		panel_2_1.add(separator_1);
+		
+		JButton btnNewButton = new JButton("<");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaBemVindo tbv = new TelaBemVindo();
+				tbv.abrir();
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 30));
+		btnNewButton.setBackground(new Color(31, 65, 45));
+		btnNewButton.setBounds(60, 52, 60, 56);
+		frame.getContentPane().add(btnNewButton);
 	}
 	
 	public static void scaleRadioButtonIcon(JRadioButton rb){

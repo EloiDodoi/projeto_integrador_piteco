@@ -20,6 +20,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCadastroAdm {
 
@@ -47,6 +49,7 @@ public class TelaCadastroAdm {
 	private JPasswordField passwordField_1;
 	private JButton btnNewButton;
 	private JLabel lblNewLabel_12;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.
@@ -306,6 +309,20 @@ public class TelaCadastroAdm {
 		panel.setBounds(206, 202, 1171, 543);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		btnNewButton_1 = new JButton("<");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaLoginAdm tla = new TelaLoginAdm();
+				tla.abrir();
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 30));
+		btnNewButton_1.setBackground(new Color(31, 65, 45));
+		btnNewButton_1.setBounds(28, 26, 60, 56);
+		frame.getContentPane().add(btnNewButton_1);
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1600, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

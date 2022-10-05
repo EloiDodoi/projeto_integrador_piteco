@@ -112,7 +112,7 @@ public class TelaBemVindo extends JFrame {
 
 		JButton btnMenu = new JButton("");
 		btnMenu.setBounds(-6, 685, 52, 48);
-		BarraLateral.add(btnMenu);
+//		BarraLateral.add(btnMenu);
 		btnMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

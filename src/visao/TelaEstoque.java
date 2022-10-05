@@ -48,9 +48,13 @@ public class TelaEstoque extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	public void abrir() {
+		TelaEstoque frame = new TelaEstoque();
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
+
 	public TelaEstoque() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 850);
@@ -263,6 +267,21 @@ public class TelaEstoque extends JFrame {
 		});
 		btnAlterar.setBounds(1247, 374, 134, 31);
 		contentPane.add(btnAlterar);
+		
+		JButton btnNewButton = new JButton("<");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaBemVindo tbv = new TelaBemVindo();
+				tbv.abrir();
+				TelaEstoque frame = new TelaEstoque();
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 30));
+		btnNewButton.setBackground(new Color(31, 65, 45));
+		btnNewButton.setBounds(50, 50, 60, 56);
+		contentPane.add(btnNewButton);
 		
 		
 		//-------------------------------------------------------- métodos -------------------------------------

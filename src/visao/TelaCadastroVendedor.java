@@ -241,7 +241,7 @@ public class TelaCadastroVendedor {
 				String cpf_vendedor = txt_cpf_vendedor.getText();
 				String email_vendedor = txt_email_vendedor.getText();
 				
-				int dia_vendedor = cb_dia.;
+//				int dia_vendedor = cb_dia.;
 				
 				String telefone_vendedor = txt_telefone_vendedor.getText();
 				String senha_vendedor = txt_senha_vendedor.getText();
@@ -255,5 +255,19 @@ public class TelaCadastroVendedor {
 		btnNewButton.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
 		btnNewButton.setBounds(431, 495, 308, 62);
 		panel.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("<");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaBemVindo tbv = new TelaBemVindo();
+				tbv.abrir();
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 30));
+		btnNewButton_1.setBackground(new Color(31, 65, 45));
+		btnNewButton_1.setBounds(29, 29, 60, 56);
+		frame.getContentPane().add(btnNewButton_1);
 	}
 }

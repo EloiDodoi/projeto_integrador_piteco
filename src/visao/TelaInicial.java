@@ -44,6 +44,13 @@ public class TelaInicial extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
+	public void abrir() {
+		window.setVisible(true);
+		window.setLocationRelativeTo(null);
+		window.setExtendedState(window.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
+	
 	public TelaInicial() {
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Lenovo\\Downloads\\PitecoLogo\\3.png"));
