@@ -32,6 +32,7 @@ public class TelaEstoque extends JFrame {
 	Produto produto_selecionado;
 	EstoqueBD etb = new EstoqueBD();
 	AlterarProdutoBD at = new AlterarProdutoBD();
+	JTable table;
 	/**
 	 * Launch the application.
 	 */
@@ -131,7 +132,7 @@ public class TelaEstoque extends JFrame {
 		contentPane.add(panelPesquisa);
 		panelPesquisa.setLayout(null);
 		
-		JTable table = new JTable() {
+		table = new JTable() {
 			@Override
 			public boolean isCellEditable(int row, int column) {
 				// TODO Auto-generated method stub
@@ -251,6 +252,7 @@ public class TelaEstoque extends JFrame {
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				etb.deletar(produto_selecionado,table);
+				table.setModel(etb.listagemProduto());
 			}
 		});
 		btnRemover.setBounds(1247, 332, 134, 31);

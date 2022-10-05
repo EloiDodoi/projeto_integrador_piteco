@@ -11,6 +11,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.nio.channels.NotYetBoundException;
 
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
@@ -47,6 +48,7 @@ public class TelaSalvarProduto {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	TelaEstoque telaEstoque;
 	AlterarProdutoBD alt = new AlterarProdutoBD();
+	EstoqueBD etb = new EstoqueBD();
 	private Produto produtoSelecionado;
 	private JRadioButton rb_Kg;
 	private JRadioButton rb_Unidade;
@@ -214,7 +216,7 @@ public class TelaSalvarProduto {
 					produto.setUnidade_quantidade_idUnidade_quantidade(2);
 				}
 				alt.alterarProduto(produto);
-				
+				telaEstoque.table.setModel(etb.listagemProduto());
 				frame.setVisible(false);
 				
 			}
