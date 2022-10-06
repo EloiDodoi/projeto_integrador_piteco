@@ -1,5 +1,7 @@
 package modelo;
+import java.time.LocalDate;
 import java.util.Date;
+import java.time.LocalDate;
 
 public class Usuario {
 	int usuario_id;
@@ -23,6 +25,7 @@ public class Usuario {
 		this.usuario_email = usuario_email;
 		this.tipouser_id_tipo = tipouser_id_tipo;
 	}
+		// TODO Auto-generated constructor stub
 	public int getUsuario_id() {
 		return usuario_id;
 	}

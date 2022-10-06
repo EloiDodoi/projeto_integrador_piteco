@@ -12,11 +12,17 @@ import java.awt.Font;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+
+import controle.CadastroVendedorBD;
+import modelo.Usuario;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
@@ -211,15 +217,23 @@ public class TelaCadastroVendedor {
 				int mes_vendedor = Integer.parseInt((String) cb_mes.getSelectedItem());
 				int ano_vendedor = Integer.parseInt((String) cb_ano.getSelectedItem());
 				
+				LocalDate data = LocalDate.of(ano_vendedor, mes_vendedor, dia_vendedor);
+				
+				
 				String telefone_vendedor = txt_telefone_vendedor.getText();
 				String senha_vendedor = pf_senha_vendedor.getText();
 				String senha_confirmada_vendedor = pf_senha_confirmada_vendedor.getText();
 				
-				if (senha_vendedor != senha_confirmada_vendedor) {
+				System.out.println(data);
+				
+				if (!senha_vendedor.equals(senha_confirmada_vendedor)) {
 					JOptionPane.showMessageDialog(null, "A confirmação da senha está incorreta. Digite novamente.");
 					pf_senha_confirmada_vendedor.setText("");
 				}
 				else {
+					CadastroVendedorBD bv = new CadastroVendedorBD();
+					Usuario usuario =  new Usuario(0,nome_vendedor,cpf_vendedor,null,Date.valueOf(data),telefone_vendedor,senha_vendedor,email_vendedor,0);
+					bv.cadastrarVendedor(usuario);
 					JOptionPane.showMessageDialog(null, "Vendedor cadastrado com sucesso!");
 				}
 				
