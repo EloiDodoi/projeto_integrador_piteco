@@ -101,7 +101,7 @@ DROP TABLE IF EXISTS `produto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `produto` (
-  `idProduto` int(11) NOT NULL,
+  `idProduto` int(11) NOT NULL AUTO_INCREMENT,
   `produto_nomeveg` varchar(50) NOT NULL,
   `produto_especieveg` varchar(50) DEFAULT NULL,
   `produto_preco` float NOT NULL,
