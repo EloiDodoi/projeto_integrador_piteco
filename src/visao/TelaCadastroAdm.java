@@ -20,17 +20,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
-import java.awt.GridLayout;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import javax.swing.border.EmptyBorder;
-import java.awt.Insets;
-import javax.swing.border.CompoundBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.BoxLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
 
 
 public class TelaCadastroAdm {
@@ -58,6 +49,7 @@ public class TelaCadastroAdm {
 	private JPasswordField passwordField_1;
 	private JButton btnNewButton;
 	private JLabel lblNewLabel_12;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.
@@ -266,7 +258,7 @@ public class TelaCadastroAdm {
 		lblNewLabel_4.setForeground(new Color(31, 65, 45));
 		lblNewLabel_4.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		
-		lblNewLabel_5 = new JLabel("Mês");
+		lblNewLabel_5 = new JLabel("Mï¿½s");
 		lblNewLabel_5.setBackground(new Color(234, 242, 237));
 		panel_5.add(lblNewLabel_5);
 		lblNewLabel_5.setForeground(new Color(31, 65, 45));
@@ -478,9 +470,46 @@ public class TelaCadastroAdm {
 		btnNewButton.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
 		btnNewButton.setForeground(new Color(217, 173, 181));
 		btnNewButton.setBackground(new Color(234, 242, 237));
-		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 35));
-		frame.setResizable(true);
-		frame.setBounds(100, 100, 1047, 679);
+		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 45));
+		btnNewButton.setBounds(83, 399, 367, 76);
+		panel_3.add(btnNewButton);
+		
+		textField_1 = new JTextField();
+		textField_1.setBackground(new Color(234, 242, 237));
+		textField_1.setBounds(29, 308, 472, 35);
+		panel_3.add(textField_1);
+		textField_1.setForeground(Color.DARK_GRAY);
+		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		textField_1.setColumns(10);
+		textField_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		
+		lblNewLabel_1 = new JLabel("E-mail");
+		lblNewLabel_1.setBounds(31, 197, 293, 28);
+		panel_3.add(lblNewLabel_1);
+		lblNewLabel_1.setForeground(new Color(31, 65, 45));
+		lblNewLabel_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(234, 242, 237));
+		panel.setBounds(206, 202, 1171, 543);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		btnNewButton_1 = new JButton("<");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaLoginAdm tla = new TelaLoginAdm();
+				tla.abrir();
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 30));
+		btnNewButton_1.setBackground(new Color(31, 65, 45));
+		btnNewButton_1.setBounds(28, 26, 60, 56);
+		frame.getContentPane().add(btnNewButton_1);
+		frame.setResizable(false);
+		frame.setBounds(100, 100, 1600, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

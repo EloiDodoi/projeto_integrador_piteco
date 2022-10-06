@@ -1,42 +1,38 @@
 package visao;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JTable;
-import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
-
-import controle.CadastroProdutoBD;
-import controle.EstoqueBD;
-import modelo.Produto;
-
-import javax.swing.JLabel;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.MatteBorder;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import javax.swing.JScrollPane;
-import javax.swing.JList;
-import java.awt.Dimension;
+
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+
+import controle.AlterarProdutoBD;
+import controle.EstoqueBD;
+import modelo.Produto;
 
 public class TelaEstoque extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldPesquisaNoEstoque;
-	private Produto produto_selecionado;
+	Produto produto_selecionado;
 	EstoqueBD etb = new EstoqueBD();
+	AlterarProdutoBD at = new AlterarProdutoBD();
+	JTable table;
 	/**
 	 * Launch the application.
 	 */
@@ -53,9 +49,13 @@ public class TelaEstoque extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	public void abrir() {
+		TelaEstoque frame = new TelaEstoque();
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
+
 	public TelaEstoque() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 850);
@@ -132,7 +132,7 @@ public class TelaEstoque extends JFrame {
 		contentPane.add(panelPesquisa);
 		panelPesquisa.setLayout(null);
 		
-		JTable table = new JTable() {
+		table = new JTable() {
 			@Override
 			public boolean isCellEditable(int row, int column) {
 				// TODO Auto-generated method stub
@@ -252,14 +252,38 @@ public class TelaEstoque extends JFrame {
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				etb.deletar(produto_selecionado,table);
+				table.setModel(etb.listagemProduto());
 			}
 		});
 		btnRemover.setBounds(1247, 332, 134, 31);
 		contentPane.add(btnRemover);
 		
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(produto_selecionado != null) {
+					TelaSalvarProduto sp = new TelaSalvarProduto();
+					sp.abrir(produto_selecionado);
+				}
+			}
+		});
 		btnAlterar.setBounds(1247, 374, 134, 31);
 		contentPane.add(btnAlterar);
+		
+		JButton btnNewButton = new JButton("<");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaBemVindo tbv = new TelaBemVindo();
+				tbv.abrir();
+				TelaEstoque frame = new TelaEstoque();
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 30));
+		btnNewButton.setBackground(new Color(31, 65, 45));
+		btnNewButton.setBounds(50, 50, 60, 56);
+		contentPane.add(btnNewButton);
 		
 		
 		//-------------------------------------------------------- métodos -------------------------------------
@@ -269,8 +293,9 @@ public class TelaEstoque extends JFrame {
 				ArrayList<Produto> lista = etb.listaProdutos();
 				int posicao_produto = table.getSelectedRow();
 				produto_selecionado = lista.get(posicao_produto);
+				System.out.println(produto_selecionado.getProduto_nomeveg());
 			}
-			}
+			}	
 		);
 
 

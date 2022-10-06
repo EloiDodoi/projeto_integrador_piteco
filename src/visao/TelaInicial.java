@@ -46,10 +46,10 @@ public class TelaInicial extends JFrame {
 	 */
 	
 	public void abrir() {
-		window.setVisible(true);	
+		window.setVisible(true);
 		window.setLocationRelativeTo(null);
 		window.setExtendedState(window.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-	}	
+	}
 	
 	public TelaInicial() {
 		
