@@ -2,24 +2,8 @@ package visao;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import java.awt.Color;
-import javax.swing.JPanel;
-import java.awt.Component;
-import java.awt.Point;
-import java.awt.Dimension;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.border.LineBorder;
-import javax.swing.JSpinner;
-import javax.swing.JToggleButton;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
+import javax.swing.*;
+import java.awt.*;
 
 public class TelaCadastroAdm {
 
