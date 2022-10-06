@@ -20,6 +20,7 @@ import javax.swing.border.LineBorder;
 
 public class MenuAdm extends JPanel {
 
+		MenuAdm window = new MenuAdm();
 	/**
 	 * Create the panel.
 	 */
@@ -41,6 +42,9 @@ public class MenuAdm extends JPanel {
 		btnEstoque.setHorizontalAlignment(SwingConstants.LEFT);
 		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				TelaEstoque estoque = new TelaEstoque();
+				estoque.abrir();
+				window.setVisible(false);
 			}
 		});
 		btnEstoque.setIcon(new ImageIcon(MenuAdm.class.getResource("/img/estoque-pronto.png")));

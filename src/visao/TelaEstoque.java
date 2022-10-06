@@ -27,12 +27,14 @@ import modelo.Produto;
 
 public class TelaEstoque extends JFrame {
 
+	private JFrame frmTelaEstoque;
 	private JPanel contentPane;
 	private JTextField textFieldPesquisaNoEstoque;
 	Produto produto_selecionado;
 	EstoqueBD etb = new EstoqueBD();
 	AlterarProdutoBD at = new AlterarProdutoBD();
 	JTable table;
+	TelaEstoque window = new TelaEstoque();
 	/**
 	 * Launch the application.
 	 */
@@ -51,9 +53,9 @@ public class TelaEstoque extends JFrame {
 
 	public void abrir() {
 		TelaEstoque frame = new TelaEstoque();
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		frmTelaEstoque.setVisible(true);
+		frmTelaEstoque.setLocationRelativeTo(null);
+		frmTelaEstoque.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 
 	public TelaEstoque() {
