@@ -9,8 +9,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import controle.ControleVendedorBD;
 import controle.EstoqueBD;
 import modelo.Produto;
+import modelo.Usuario;
 
 import java.awt.Color;
 import javax.swing.JButton;
@@ -39,8 +41,8 @@ public class TelaListagemVendedores extends JFrame {
 	private JPanel panelPesquisa;
 	private JTextField textField;
 	private JButton btnPesquisa;
-	Produto produto_selecionado;
-	EstoqueBD etb = new EstoqueBD();
+	Usuario vendedor_selecionado;
+	ControleVendedorBD cvbd = new ControleVendedorBD();
 
 	/**
 	 * Launch the application.
@@ -88,13 +90,15 @@ public class TelaListagemVendedores extends JFrame {
 		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
+			new Object[][][][][] {
 			},
 			new String[] {
 				"Nome", "CPF", "Data de nascimento", "Telefone", "E-mail"
 			}
 		));
 		scrollPane.setViewportView(table);
+		
+		table.setModel(cvbd.listagemVendedor());
 		
 		BarraLateral = new JPanel();
 		BarraLateral.setLayout(null);
@@ -190,10 +194,10 @@ public class TelaListagemVendedores extends JFrame {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ArrayList<Produto> lista = etb.listaProdutos();
+				ArrayList<Usuario> lista = cvbd.listaVendedor();
 				int posicao_produto = table.getSelectedRow();
-				produto_selecionado = lista.get(posicao_produto);
-				System.out.println(produto_selecionado.getProduto_nomeveg());
+				vendedor_selecionado = lista.get(posicao_produto);
+				System.out.println(vendedor_selecionado.getUsuario_nome());
 			}
 			}	
 		);

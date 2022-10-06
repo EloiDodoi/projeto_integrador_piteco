@@ -234,7 +234,6 @@ public class TelaCadastroVendedor {
 					CadastroVendedorBD bv = new CadastroVendedorBD();
 					Usuario usuario =  new Usuario(0,nome_vendedor,cpf_vendedor,null,Date.valueOf(data),telefone_vendedor,senha_vendedor,email_vendedor,0);
 					bv.cadastrarVendedor(usuario);
-					JOptionPane.showMessageDialog(null, "Vendedor cadastrado com sucesso!");
 				}
 				
 			}
