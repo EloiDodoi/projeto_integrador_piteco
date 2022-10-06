@@ -33,6 +33,7 @@ public class TelaLoginVendedor {
 	private static JFrame frame;
 	private JTextField txt_login;
 	private JPasswordField txt_senha;
+	static TelaLoginVendedor window = new TelaLoginVendedor();
 
 	/**
 	 * Launch the application.
@@ -166,5 +167,10 @@ public class TelaLoginVendedor {
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1600, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	protected void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
 	}
 }

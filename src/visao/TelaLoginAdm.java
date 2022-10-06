@@ -29,11 +29,13 @@ import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 import visao.TelaBemVindo;
+import javax.swing.border.EmptyBorder;
 public class TelaLoginAdm {
 
 	private JFrame frmLoginDoAdministrador;
 	private JTextField txt_login;
 	private JPasswordField txt_senha;
+	static TelaLoginAdm window = new TelaLoginAdm();
 
 	/**
 	 * Launch the application.
@@ -185,5 +187,8 @@ public class TelaLoginAdm {
 		
 		
 		
+	}
+
+	protected void setVisible(boolean b) {		
 	}
 }

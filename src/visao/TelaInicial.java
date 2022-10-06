@@ -40,7 +40,7 @@ public class TelaInicial extends JFrame {
 			}
 		});
 	}
-
+	
 	/**
 	 * Create the frame.
 	 */
@@ -152,4 +152,6 @@ public class TelaInicial extends JFrame {
 		lblNewLabel_2.setBounds(10, 501, 410, 238);
 		panel_1.add(lblNewLabel_2);
 	}
+	
+	
 }
