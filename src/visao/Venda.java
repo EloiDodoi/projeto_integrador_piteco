@@ -179,13 +179,43 @@ public class Venda extends JFrame {
 		btnNewButton.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
 		panel_4.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Adicionar Item");
-		btnNewButton_1.setBorder(null);
-		btnNewButton_1.setBackground(new Color(234, 242, 237));
-		btnNewButton_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 20));
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(new Color(234, 242, 237));
+		panel.add(panel_5, BorderLayout.CENTER);
+		panel_5.setLayout(new BorderLayout(0, 0));
+		
+		JScrollPane scrollPane = new JScrollPane();
+		panel_5.add(scrollPane, BorderLayout.CENTER);
+		
+		panel_item = new JPanel();
+		panel_item.setBackground(new Color(234, 242, 237));
+		scrollPane.setViewportView(panel_item);
+		panel_item.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel panel_6 = new JPanel();
+		panel_6.setBackground(new Color(234, 242, 237));
+		panel.add(panel_6, BorderLayout.EAST);
+		GridBagLayout gbl_panel_6 = new GridBagLayout();
+		gbl_panel_6.columnWidths = new int[]{141, 0};
+		gbl_panel_6.rowHeights = new int[]{31, 0, 0, 0, 0, 0};
+		gbl_panel_6.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_panel_6.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel_6.setLayout(gbl_panel_6);
+		
+		JButton btnAdicionarItem = new JButton("Adicionar Item");
+		GridBagConstraints gbc_btnAdicionarItem = new GridBagConstraints();
+		gbc_btnAdicionarItem.insets = new Insets(0, 0, 5, 0);
+		gbc_btnAdicionarItem.anchor = GridBagConstraints.NORTH;
+		gbc_btnAdicionarItem.gridx = 0;
+		gbc_btnAdicionarItem.gridy = 2;
+		panel_6.add(btnAdicionarItem, gbc_btnAdicionarItem);
+		btnAdicionarItem.setBorder(null);
+		btnAdicionarItem.setBackground(new Color(234, 242, 237));
+		btnAdicionarItem.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 20));
+		
+		
+		btnAdicionarItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("sdstr");
 				JPanel panel_Itens = new JPanel();
 				panel_Itens.setBackground(new Color(150, 191, 120));
 				GridBagLayout gbl_panel_Itens = new GridBagLayout();
@@ -307,23 +337,18 @@ public class Venda extends JFrame {
 				panel_item.add(panel_Itens);
 				panel_item.revalidate();
 				panel_item.repaint();
-				System.out.println("ffff");
 				
 			}
 		});
-		panel.add(btnNewButton_1, BorderLayout.EAST);
 		
-		JPanel panel_5 = new JPanel();
-		panel_5.setBackground(new Color(234, 242, 237));
-		panel.add(panel_5, BorderLayout.CENTER);
-		panel_5.setLayout(new BorderLayout(0, 0));
-		
-		JScrollPane scrollPane = new JScrollPane();
-		panel_5.add(scrollPane, BorderLayout.CENTER);
-		
-		panel_item = new JPanel();
-		scrollPane.setViewportView(panel_item);
-		panel_item.setLayout(new GridLayout(0, 1, 0, 0));
+		JButton btnRemoverItem = new JButton("Remover Item");
+		btnRemoverItem.setBorder(null);
+		GridBagConstraints gbc_btnRemoverItem = new GridBagConstraints();
+		gbc_btnRemoverItem.gridx = 0;
+		gbc_btnRemoverItem.gridy = 4;
+		btnRemoverItem.setBackground(new Color(234, 242, 237));
+		btnRemoverItem.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 20));
+		panel_6.add(btnRemoverItem, gbc_btnRemoverItem);
 		
 	
 		
