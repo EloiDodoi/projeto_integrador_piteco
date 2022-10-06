@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
@@ -16,6 +18,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 public class TelaCadastroVendedor {
 
@@ -23,9 +26,9 @@ public class TelaCadastroVendedor {
 	private JTextField txt_nome_vendedor;
 	private JTextField txt_cpf_vendedor;
 	private JTextField txt_telefone_vendedor;
-	private JTextField txt_senha_vendedor;
-	private JTextField txt_senha_confirmada_vendedor;
 	private JTextField txt_email_vendedor;
+	private JPasswordField pf_senha_vendedor;
+	private JPasswordField pf_senha_confirmada_vendedor;
 
 	/**
 	 * Launch the application.
@@ -67,11 +70,6 @@ public class TelaCadastroVendedor {
 		panel.setBounds(183, 200, 1171, 580);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(214, 228, 219));
-		panel_2.setBounds(441, 507, 308, 62);
-		panel.add(panel_2);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBorder(new LineBorder(new Color(31, 65, 45), 3));
@@ -148,24 +146,6 @@ public class TelaCadastroVendedor {
 		txt_telefone_vendedor.setBounds(635, 178, 483, 35);
 		panel.add(txt_telefone_vendedor);
 		
-		txt_senha_vendedor = new JTextField();
-		txt_senha_vendedor.setForeground(Color.DARK_GRAY);
-		txt_senha_vendedor.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txt_senha_vendedor.setColumns(10);
-		txt_senha_vendedor.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		txt_senha_vendedor.setBackground(new Color(245, 250, 248));
-		txt_senha_vendedor.setBounds(635, 279, 483, 35);
-		panel.add(txt_senha_vendedor);
-		
-		txt_senha_confirmada_vendedor = new JTextField();
-		txt_senha_confirmada_vendedor.setForeground(Color.DARK_GRAY);
-		txt_senha_confirmada_vendedor.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txt_senha_confirmada_vendedor.setColumns(10);
-		txt_senha_confirmada_vendedor.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		txt_senha_confirmada_vendedor.setBackground(new Color(245, 250, 248));
-		txt_senha_confirmada_vendedor.setBounds(635, 381, 483, 35);
-		panel.add(txt_senha_confirmada_vendedor);
-		
 		txt_email_vendedor = new JTextField();
 		txt_email_vendedor.setForeground(Color.DARK_GRAY);
 		txt_email_vendedor.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -184,7 +164,7 @@ public class TelaCadastroVendedor {
 		JLabel lblNewLabel_5 = new JLabel("Mês");
 		lblNewLabel_5.setForeground(new Color(31, 65, 45));
 		lblNewLabel_5.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		lblNewLabel_5.setBounds(171, 403, 73, 28);
+		lblNewLabel_5.setBounds(209, 403, 73, 28);
 		panel.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Ano");
@@ -203,12 +183,12 @@ public class TelaCadastroVendedor {
 		panel.add(cb_dia);
 		
 		JComboBox cb_mes = new JComboBox();
-		cb_mes.setModel(new DefaultComboBoxModel(new String[] {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}));
+		cb_mes.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"}));
 		cb_mes.setForeground(new Color(31, 65, 45));
 		cb_mes.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		cb_mes.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		cb_mes.setBackground(new Color(245, 250, 248));
-		cb_mes.setBounds(171, 429, 159, 35);
+		cb_mes.setBounds(209, 429, 85, 35);
 		panel.add(cb_mes);
 		
 		JComboBox cb_ano = new JComboBox();
@@ -219,6 +199,44 @@ public class TelaCadastroVendedor {
 		cb_ano.setBackground(new Color(245, 250, 248));
 		cb_ano.setBounds(374, 429, 159, 35);
 		panel.add(cb_ano);
+		
+		JButton btnNewButton = new JButton("Cadastrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nome_vendedor = txt_nome_vendedor.getText();
+				String cpf_vendedor = txt_cpf_vendedor.getText();
+				String email_vendedor = txt_email_vendedor.getText();
+				
+				int dia_vendedor = Integer.parseInt((String) cb_dia.getSelectedItem());
+				int mes_vendedor = Integer.parseInt((String) cb_mes.getSelectedItem());
+				int ano_vendedor = Integer.parseInt((String) cb_ano.getSelectedItem());
+				
+				String telefone_vendedor = txt_telefone_vendedor.getText();
+				String senha_vendedor = pf_senha_vendedor.getText();
+				String senha_confirmada_vendedor = pf_senha_confirmada_vendedor.getText();
+				
+				if (senha_vendedor != senha_confirmada_vendedor) {
+					JOptionPane.showMessageDialog(null, "A confirmação da senha está incorreta. Digite novamente.");
+					pf_senha_confirmada_vendedor.setText("");
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Vendedor cadastrado com sucesso!");
+				}
+				
+			}
+		});
+		
+		btnNewButton.setBackground(new Color(234, 242, 237));
+		btnNewButton.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
+		btnNewButton.setForeground(new Color(217, 173, 181));
+		btnNewButton.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
+		btnNewButton.setBounds(431, 495, 308, 62);
+		panel.add(btnNewButton);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(214, 228, 219));
+		panel_2.setBounds(441, 507, 308, 62);
+		panel.add(panel_2);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(31, 65, 45));
@@ -233,28 +251,21 @@ public class TelaCadastroVendedor {
 		lblCadastroDoVendedor.setBounds(23, 0, 871, 110);
 		panel_1.add(lblCadastroDoVendedor);
 		
+		pf_senha_vendedor = new JPasswordField();
+		pf_senha_vendedor.setForeground(Color.DARK_GRAY);
+		pf_senha_vendedor.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		pf_senha_vendedor.setBackground(new Color(245, 250, 248));
+		pf_senha_vendedor.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		pf_senha_vendedor.setBounds(635, 279, 483, 35);
+		panel.add(pf_senha_vendedor);
 		
-		JButton btnNewButton = new JButton("Cadastrar");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String nome_vendedor = txt_nome_vendedor.getText();
-				String cpf_vendedor = txt_cpf_vendedor.getText();
-				String email_vendedor = txt_email_vendedor.getText();
-				
-//				int dia_vendedor = cb_dia.;
-				
-				String telefone_vendedor = txt_telefone_vendedor.getText();
-				String senha_vendedor = txt_senha_vendedor.getText();
-				String senha_confirmada_vendedor = txt_senha_confirmada_vendedor.getText();
-			}
-		});
-		
-		btnNewButton.setBackground(new Color(234, 242, 237));
-		btnNewButton.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
-		btnNewButton.setForeground(new Color(217, 173, 181));
-		btnNewButton.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
-		btnNewButton.setBounds(431, 495, 308, 62);
-		panel.add(btnNewButton);
+		pf_senha_confirmada_vendedor = new JPasswordField();
+		pf_senha_confirmada_vendedor.setForeground(Color.DARK_GRAY);
+		pf_senha_confirmada_vendedor.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		pf_senha_confirmada_vendedor.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		pf_senha_confirmada_vendedor.setBackground(new Color(245, 250, 248));
+		pf_senha_confirmada_vendedor.setBounds(635, 381, 483, 35);
+		panel.add(pf_senha_confirmada_vendedor);
 		
 		JButton btnNewButton_1 = new JButton("<");
 		btnNewButton_1.addActionListener(new ActionListener() {
