@@ -27,8 +27,9 @@ import javax.swing.GroupLayout.Alignment;
 public class TelaBemVindo extends JFrame {
 
 	private JPanel contentPane;
+	private JPanel painelMenu;
 	static TelaBemVindo frame = new TelaBemVindo();
-
+	private int statusMenu = 0;
 	/**
 	 * Launch the application.
 	 */
@@ -71,6 +72,11 @@ public class TelaBemVindo extends JFrame {
 		panel.setBackground(new Color(234, 242, 237));
 		panel.setLayout(null);
 		
+		painelMenu = new JPanel();
+		painelMenu.setBounds(0, 0, 215, 699);
+		painelMenu.setLayout(new BorderLayout());
+		panel.add(painelMenu);
+	
 		JLabel lblTitulo = new JLabel("Bem Vindo!");
 		lblTitulo.setForeground(new Color(31, 65, 45));
 		lblTitulo.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 82));
@@ -123,6 +129,25 @@ public class TelaBemVindo extends JFrame {
 		BarraLateral.add(btnMenu, BorderLayout.SOUTH);
 		btnMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (statusMenu == 0) {
+				
+				//			if (se for perfil adm) {
+				MenuAdm menuAdm = new MenuAdm();
+				painelMenu.add(menuAdm,  BorderLayout.CENTER);
+				painelMenu.revalidate();
+				painelMenu.repaint();
+//			} else 
+//			if (se for perfil vendedor) {
+//				MenuVendedor menuVenda = new MenuVendedor();
+//				menuVenda.abrir();
+//			}
+				statusMenu++;
+			} else if (statusMenu == 1) {
+				painelMenu.removeAll();
+				painelMenu.revalidate();
+				painelMenu.repaint();
+				statusMenu--;
+			}
 			}
 		});
 		btnMenu.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/menu-aberto.png")));
