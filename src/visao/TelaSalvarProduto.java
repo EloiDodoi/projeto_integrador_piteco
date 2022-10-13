@@ -58,7 +58,7 @@ public class TelaSalvarProduto {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+		EventQueue.invokeLater(new UUC() {
 			public void run() {
 				try {
 					TelaSalvarProduto window = new TelaSalvarProduto();
