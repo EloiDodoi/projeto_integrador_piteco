@@ -3,6 +3,8 @@ package visao;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -25,6 +27,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
 
 public class TelaCadastroVendedor {
 
@@ -35,6 +38,9 @@ public class TelaCadastroVendedor {
 	private JTextField txt_email_vendedor;
 	private JPasswordField pf_senha_vendedor;
 	private JPasswordField pf_senha_confirmada_vendedor;
+	
+	private int statusMenu = 0;
+	
 
 	/**
 	 * Launch the application.
@@ -65,11 +71,17 @@ public class TelaCadastroVendedor {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(123, 166, 111));
 		frame.setBounds(100, 100, 1600, 851);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		JPanel painelMenu = new JPanel();
+		painelMenu.setBounds(54, 0, 180, 812);
+		frame.getContentPane().add(painelMenu);
+		painelMenu.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(234, 242, 237));
@@ -280,7 +292,24 @@ public class TelaCadastroVendedor {
 		pf_senha_confirmada_vendedor.setBounds(635, 381, 483, 35);
 		panel.add(pf_senha_confirmada_vendedor);
 		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(150, 191, 120));
+		panel_3.setBounds(0, 0, 55, 812);
+		frame.getContentPane().add(panel_3);
+		panel_3.setLayout(null);
+		
+		JButton botaoMenu = new JButton("");
+		botaoMenu.setBorder(null);
+		botaoMenu.setBounds(0, 755, 55, 55);
+		panel_3.add(botaoMenu);
+		botaoMenu.setForeground(new Color(150, 191, 120));
+		botaoMenu.setBackground(new Color(150, 191, 120));
+		botaoMenu.setIcon(new ImageIcon(TelaCadastroVendedor.class.getResource("/img/menu-aberto.png")));
+		
 		JButton btnNewButton_1 = new JButton("<");
+		btnNewButton_1.setBorder(null);
+		btnNewButton_1.setBounds(-17, -12, 84, 83);
+		panel_3.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaBemVindo tbv = new TelaBemVindo();
@@ -288,10 +317,34 @@ public class TelaCadastroVendedor {
 				frame.setVisible(false);
 			}
 		});
+		painelMenu.setVisible(false);
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnNewButton_1.setBackground(new Color(31, 65, 45));
-		btnNewButton_1.setBounds(29, 29, 60, 56);
-		frame.getContentPane().add(btnNewButton_1);
+		btnNewButton_1.setBackground(new Color(150, 191, 120));
+		botaoMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (statusMenu == 0) {
+					
+					//			if (se for perfil adm) {
+					MenuAdm menuAdm = new MenuAdm();
+					painelMenu.setVisible(true);
+					painelMenu.add(menuAdm,  BorderLayout.CENTER);
+					painelMenu.revalidate();
+					painelMenu.repaint();
+//				} else 
+//				if (se for perfil vendedor) {
+//					MenuVendedor menuVenda = new MenuVendedor();
+//					menuVenda.abrir();
+//				}
+					statusMenu++;
+				} else if (statusMenu == 1) {
+					painelMenu.removeAll();
+					painelMenu.revalidate();
+					painelMenu.repaint();
+					statusMenu--;
+					painelMenu.setVisible(false);
+				}				
+			}
+		});
 	}
 }
