@@ -29,11 +29,13 @@ import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 import visao.TelaBemVindo;
+import javax.swing.border.EmptyBorder;
 public class TelaLoginAdm {
 
 	private JFrame frmLoginDoAdministrador;
 	private JTextField txt_login;
 	private JPasswordField txt_senha;
+	static TelaLoginAdm window = new TelaLoginAdm();
 
 	/**
 	 * Launch the application.
@@ -65,7 +67,6 @@ public class TelaLoginAdm {
 		frmLoginDoAdministrador.setVisible(true);	
 		frmLoginDoAdministrador.setLocationRelativeTo(null);
 		frmLoginDoAdministrador.setExtendedState(frmLoginDoAdministrador.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-
 	}
 	
 	private void initialize() {
@@ -78,21 +79,21 @@ public class TelaLoginAdm {
 				JLabel lblAdm = new JLabel("Administrador");
 				lblAdm.setHorizontalAlignment(SwingConstants.CENTER);
 				lblAdm.setForeground(new Color(234, 242, 237));
-				lblAdm.setBounds(432, 50, 719, 149);
+				lblAdm.setBounds(325, 50, 719, 149);
 				lblAdm.setFont(new Font("Dialog", Font.PLAIN, 100));
 				frmLoginDoAdministrador.getContentPane().add(lblAdm);
 		
 		JLabel image = new JLabel("");
 		image.setBackground(new Color(255, 255, 255));
 		image.setForeground(new Color(255, 255, 255));
-		image.setIcon(new ImageIcon(TelaLoginAdm.class.getResource("/img/adm_login.png")));
-		image.setBounds(700, 189, 180, 180);
+		image.setIcon(new ImageIcon(TelaLoginAdm.class.getResource("/img/agricultor-removebg-preview.png")));
+		image.setBounds(595, 189, 180, 180);
 		frmLoginDoAdministrador.getContentPane().add(image);
 
 		JPanel panel_1 =  new JPanel();
 		panel_1.setBorder(null);
 		panel_1.setBackground(new Color(234, 242, 237));
-		panel_1.setBounds(465, 315, 650, 450);
+		panel_1.setBounds(360, 315, 650, 450);
 		frmLoginDoAdministrador.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -125,6 +126,7 @@ public class TelaLoginAdm {
 		panel_1.add(lblNewLabel_2);
 		
 		JButton btn_entrar_adm = new JButton("Entrar");
+		btn_entrar_adm.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		btn_entrar_adm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Usuario login = new Usuario(0, null, null, null, null, null, txt_senha.getText(), txt_login.getText(), 0);
@@ -136,6 +138,7 @@ public class TelaLoginAdm {
 					System.out.println("Login feito com êxito");
 					TelaBemVindo tb = new TelaBemVindo();
 					tb.abrir();
+					frmLoginDoAdministrador.setVisible(false);
 				}
 				
 			}});
@@ -165,8 +168,27 @@ public class TelaLoginAdm {
 		txt_senha.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		txt_senha.setBounds(37, 192, 577, 39);
 		panel_1.add(txt_senha);
+		
+		JButton btnNewButton = new JButton("<");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaInicial ti = new TelaInicial();
+				ti.abrir();
+				frmLoginDoAdministrador.setVisible(false);
+			}
+		});
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 30));
+		btnNewButton.setBackground(new Color(31, 65, 45));
+		btnNewButton.setBounds(27, 25, 60, 56);
+		frmLoginDoAdministrador.getContentPane().add(btnNewButton);
 		frmLoginDoAdministrador.setBounds(100, 100, 1600, 850);
 		frmLoginDoAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		
+		
+	}
+
+	protected void setVisible(boolean b) {		
 	}
 }
