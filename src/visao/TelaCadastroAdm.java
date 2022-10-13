@@ -1,17 +1,20 @@
 package visao;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import java.awt.Color;
-import javax.swing.JPanel;
-import java.awt.Component;
-import java.awt.Point;
 import java.awt.Dimension;
-import javax.swing.JLabel;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.SwingConstants;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.JSpinner;
 import javax.swing.JToggleButton;
@@ -278,6 +281,16 @@ public class TelaCadastroAdm {
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		comboBox.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		
+		lblNewLabel_5 = new JLabel("Mês");
+		lblNewLabel_5.setForeground(new Color(31, 65, 45));
+		lblNewLabel_5.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
+		gbc_lblNewLabel_5.anchor = GridBagConstraints.NORTHWEST;
+		gbc_lblNewLabel_5.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_5.gridx = 3;
+		gbc_lblNewLabel_5.gridy = 6;
+		panel_2.add(lblNewLabel_5, gbc_lblNewLabel_5);
+		
 		JComboBox comboBox_1 = new JComboBox();
 		panel_5.add(comboBox_1);
 		comboBox_1.setForeground(new Color(31, 65, 45));
@@ -285,6 +298,16 @@ public class TelaCadastroAdm {
 		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}));
 		comboBox_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		
+		lblNewLabel_6 = new JLabel("Ano");
+		lblNewLabel_6.setForeground(new Color(31, 65, 45));
+		lblNewLabel_6.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();
+		gbc_lblNewLabel_6.anchor = GridBagConstraints.NORTHWEST;
+		gbc_lblNewLabel_6.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_6.gridx = 5;
+		gbc_lblNewLabel_6.gridy = 6;
+		panel_2.add(lblNewLabel_6, gbc_lblNewLabel_6);
 		
 		JComboBox comboBox_1_1 = new JComboBox();
 		panel_5.add(comboBox_1_1);
@@ -342,6 +365,18 @@ public class TelaCadastroAdm {
 		gbc_passwordField_1.gridx = 0;
 		gbc_passwordField_1.gridy = 9;
 		panel_2.add(passwordField_1, gbc_passwordField_1);
+		
+		lblNewLabel_10 = new JLabel("Confirme sua Senha");
+		lblNewLabel_10.setForeground(new Color(31, 65, 45));
+		lblNewLabel_10.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		GridBagConstraints gbc_lblNewLabel_10 = new GridBagConstraints();
+		gbc_lblNewLabel_10.anchor = GridBagConstraints.NORTH;
+		gbc_lblNewLabel_10.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblNewLabel_10.insets = new Insets(0, 0, 0, 5);
+		gbc_lblNewLabel_10.gridwidth = 3;
+		gbc_lblNewLabel_10.gridx = 1;
+		gbc_lblNewLabel_10.gridy = 8;
+		panel_2.add(lblNewLabel_10, gbc_lblNewLabel_10);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new EmptyBorder(5, 5, 5, 5));
