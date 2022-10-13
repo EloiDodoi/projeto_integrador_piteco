@@ -81,7 +81,7 @@ public class TelaCadastroVendedor {
 		JPanel painelMenu = new JPanel();
 		painelMenu.setBounds(54, 0, 180, 812);
 		frame.getContentPane().add(painelMenu);
-		painelMenu.setLayout(null);
+		painelMenu.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(234, 242, 237));
