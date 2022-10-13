@@ -18,15 +18,19 @@ import javax.swing.SwingConstants;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JRadioButton;
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 
 public class VendasPagamento extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -47,6 +51,13 @@ public class VendasPagamento extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	public void abrir() {
+		VendasPagamento frame = new VendasPagamento();
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
+	
 	public VendasPagamento() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1189, 662);
@@ -147,6 +158,33 @@ public class VendasPagamento extends JFrame {
 		panelInfo.add(scrollPane, gbc_scrollPane);
 		scrollPane.setBackground(new Color(234, 242, 237));
 		
+/*		scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+		    protected void configureScrollBarColors() {
+		        this.thumbColor = Color.decode("#7BA66F");
+		    }
+		    
+		    @Override
+		    protected JButton createDecreaseButton(int orientation) {
+		        JButton button = super.createDecreaseButton(orientation);
+		        button.setBackground(new Color(234, 242, 237));
+		        button.setForeground(null);
+		        button.setSelectedIcon(null);
+		        button.setBorder(BorderFactory.createLineBorder(new Color(234, 242, 237), 2));
+		        return button;
+		    }
+
+		    @Override
+		    protected JButton createIncreaseButton(int orientation) {
+		        JButton button = super.createIncreaseButton(orientation);
+		        button.setBackground(new Color(234, 242, 237));
+		        button.setForeground(null);
+		        button.setSelectedIcon(null);
+		        button.setBorder(BorderFactory.createLineBorder(new Color(234, 242, 237), 2));
+		        return button;
+		    }
+		});
+*/
+		
 		table = new JTable();
 		table.setRowHeight(25);
 		table.setSelectionBackground(new Color(217, 173, 181));
@@ -182,6 +220,7 @@ public class VendasPagamento extends JFrame {
 		panelRadioB.setLayout(gbl_panelRadioB);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Dinheiro\r\n");
+		buttonGroup.add(rdbtnNewRadioButton);
 		rdbtnNewRadioButton.setBackground(new Color(234, 242, 237));
 		rdbtnNewRadioButton.setForeground(new Color(31, 65, 45));
 		rdbtnNewRadioButton.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
@@ -194,6 +233,7 @@ public class VendasPagamento extends JFrame {
 		panelRadioB.add(rdbtnNewRadioButton, gbc_rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnCartoDeDbito = new JRadioButton("Cart\u00E3o de D\u00E9bito");
+		buttonGroup.add(rdbtnCartoDeDbito);
 		rdbtnCartoDeDbito.setBackground(new Color(234, 242, 237));
 		rdbtnCartoDeDbito.setForeground(new Color(31, 65, 45));
 		rdbtnCartoDeDbito.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
@@ -206,6 +246,7 @@ public class VendasPagamento extends JFrame {
 		panelRadioB.add(rdbtnCartoDeDbito, gbc_rdbtnCartoDeDbito);
 		
 		JRadioButton rdbtnCartoDeCrdito = new JRadioButton("Cart\u00E3o de Cr\u00E9dito");
+		buttonGroup.add(rdbtnCartoDeCrdito);
 		rdbtnCartoDeCrdito.setBackground(new Color(234, 242, 237));
 		rdbtnCartoDeCrdito.setForeground(new Color(31, 65, 45));
 		rdbtnCartoDeCrdito.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
@@ -380,7 +421,9 @@ public class VendasPagamento extends JFrame {
 		panel_5.setBackground(new Color(234, 242, 237));
 		panelCentro.add(panel_5, BorderLayout.SOUTH);
 		
-		JButton btnFinalizar = new JButton("Finalizar\r\n\r\n");
+		JButton btnFinalizar = new JButton(" Finalizar\r\n\r\n ");
+		btnFinalizar.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
+		btnFinalizar.setBackground(new Color(234, 242, 237));
 		btnFinalizar.setForeground(new Color(217, 173, 181));
 		btnFinalizar.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 42));
 		panel_5.add(btnFinalizar);

@@ -33,8 +33,9 @@ public class Venda extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JPanel panel_5;
-
 	private JPanel itensVenda;
+	VendasPagamento vp = new VendasPagamento();
+	static Venda frame = new Venda();
 
 	/**
 	 * Launch the application.
@@ -43,7 +44,6 @@ public class Venda extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Venda frame = new Venda();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -175,6 +175,12 @@ public class Venda extends JFrame {
 		panel_4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
 		btnNewButton = new JButton(" Pagamento ");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vp.setVisible(true);
+				frame.setVisible(false);
+			}
+		});
 		btnNewButton.setBackground(new Color(234, 242, 237));
 		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 45));
 		btnNewButton.setForeground(new Color(217, 173, 181));
@@ -360,7 +366,7 @@ public class Venda extends JFrame {
 			}
 		});
 
-		scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+/*		scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
 		    protected void configureScrollBarColors() {
 		        this.thumbColor = Color.decode("#7BA66F");
 		    }
@@ -385,7 +391,7 @@ public class Venda extends JFrame {
 		        return button;
 		    }
 		});
-
+*/
 	}
 
 }
