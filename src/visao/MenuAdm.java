@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -19,6 +20,12 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 
 public class MenuAdm extends JPanel {
+	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Create the panel.
