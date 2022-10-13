@@ -1,11 +1,12 @@
 package visao;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
 
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.*;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -15,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.JSpinner;
 import javax.swing.JToggleButton;
@@ -369,14 +371,14 @@ public class TelaCadastroAdm {
 		lblNewLabel_10 = new JLabel("Confirme sua Senha");
 		lblNewLabel_10.setForeground(new Color(31, 65, 45));
 		lblNewLabel_10.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		GridBagConstraints gbc_lblNewLabel_10 = new GridBagConstraints();
-		gbc_lblNewLabel_10.anchor = GridBagConstraints.NORTH;
-		gbc_lblNewLabel_10.fill = GridBagConstraints.HORIZONTAL;
-		gbc_lblNewLabel_10.insets = new Insets(0, 0, 0, 5);
-		gbc_lblNewLabel_10.gridwidth = 3;
-		gbc_lblNewLabel_10.gridx = 1;
-		gbc_lblNewLabel_10.gridy = 8;
-		panel_2.add(lblNewLabel_10, gbc_lblNewLabel_10);
+		GridBagConstraints gbc_lblNewLabel_101 = new GridBagConstraints();
+		gbc_lblNewLabel_101.anchor = GridBagConstraints.NORTH;
+		gbc_lblNewLabel_101.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblNewLabel_101.insets = new Insets(0, 0, 0, 5);
+		gbc_lblNewLabel_101.gridwidth = 3;
+		gbc_lblNewLabel_101.gridx = 1;
+		gbc_lblNewLabel_101.gridy = 8;
+		panel_2.add(lblNewLabel_10, gbc_lblNewLabel_101);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -524,11 +526,11 @@ public class TelaCadastroAdm {
 		lblNewLabel_1.setForeground(new Color(31, 65, 45));
 		lblNewLabel_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(234, 242, 237));
-		panel.setBounds(206, 202, 1171, 543);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
+		JPanel panel1 = new JPanel();
+		panel1.setBackground(new Color(234, 242, 237));
+		panel1.setBounds(206, 202, 1171, 543);
+		frame.getContentPane().add(panel1);
+		panel1.setLayout(null);
 		
 		btnNewButton_1 = new JButton("<");
 		btnNewButton_1.addActionListener(new ActionListener() {
