@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaListagemVendedores extends JFrame {
 
@@ -88,9 +90,17 @@ public class TelaListagemVendedores extends JFrame {
 		scrollPane.setBounds(136, 280, 1230, 483);
 		contentPane.add(scrollPane);
 		
-		table = new JTable();
+		table = new JTable() {
+			public boolean isCellEditable(int row, int column) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+		};
 		table.setModel(new DefaultTableModel(
-			new Object[][][][][] {
+			new Object[][] {
+				{"Mike Ianni", "79167095305", null, "69748948553", "mianni0@example.com"},
+				{"Gaylor Buzza", "24038418891", null, "38222072735", "gbuzza1@illinois.edu"},
+				{"Liv Bernon", "19222185011", null, "75806156444", "lbernon2@apache.org"},
 			},
 			new String[] {
 				"Nome", "CPF", "Data de nascimento", "Telefone", "E-mail"
@@ -172,6 +182,11 @@ public class TelaListagemVendedores extends JFrame {
 		panelPesquisa.add(btnPesquisa);
 		
 		JButton btnExcluir = new JButton(" Excluir");
+		btnExcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cvbd.deletarVendedor(vendedor_selecionado, table);
+			}
+		});
 		btnExcluir.setHorizontalAlignment(SwingConstants.LEADING);
 		btnExcluir.setForeground(new Color(234, 242, 237));
 		btnExcluir.setFont(new Font("Yu Gothic UI", Font.PLAIN, 28));
@@ -195,9 +210,8 @@ public class TelaListagemVendedores extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<Usuario> lista = cvbd.listaVendedor();
-				int posicao_produto = table.getSelectedRow();
-				vendedor_selecionado = lista.get(posicao_produto);
-				System.out.println(vendedor_selecionado.getUsuario_nome());
+				int posicao_vend = table.getSelectedRow();
+				vendedor_selecionado = lista.get(posicao_vend);
 			}
 			}	
 		);

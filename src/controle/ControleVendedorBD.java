@@ -28,7 +28,7 @@ public class ControleVendedorBD {
 			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT * FROM usuario where TipoUser_id_tipo = 2");
 			ResultSet rs = ps.executeQuery();
 	          while(rs.next()){
-	        	  Usuario vendedor = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), null, rs.getDate(5), rs.getString(6), rs.getString(7), null, rs.getInt(9));
+	        	  Usuario vendedor = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), null, rs.getDate(5), rs.getString(6), null, rs.getString(8), rs.getInt(9));
 	        	  controle_vend.add(vendedor);
 	          }
 	          return controle_vend;
@@ -52,5 +52,18 @@ public class ControleVendedorBD {
 			modelo_tabela.addRow(new Object[] {u.getUsuario_nome(), u.getUsuario_cpf(), u.getUsuario_datanascimento(), u.getUsuario_telefone(), u.getUsuario_email()});
 		}
 		return modelo_tabela;	
+	}
+	public void deletarVendedor (Usuario u, JTable table){
+		try {
+			PreparedStatement ps = cbd.getConexao().prepareStatement("DELETE FROM usuario WHERE idUsuario = ?");
+			ps.setInt(1, u.getUsuario_id());
+			ps.executeUpdate();
+			atualizarLista(table);
+			JOptionPane.showMessageDialog(null, "Produto deletado com êxito!");
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao deletar o produto!");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
