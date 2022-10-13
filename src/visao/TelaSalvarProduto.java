@@ -200,7 +200,7 @@ public class TelaSalvarProduto {
 		scaleRadioButtonIcon(rb_Unidade);
 		panel_2.add(rb_Unidade);
 
-		JButton btnSalvar = new JButton("Salvar");
+		JButton btnSalvar = new JButton("Alterar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

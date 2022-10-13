@@ -196,6 +196,14 @@ public class TelaListagemVendedores extends JFrame {
 		contentPane.add(btnExcluir);
 		
 		JButton btnAlterar = new JButton(" Alterar");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(vendedor_selecionado != null) {
+					TelaAlterarVendedor tav = new TelaAlterarVendedor();
+					tav.abrir(vendedor_selecionado);
+				}
+			}
+		});
 		btnAlterar.setHorizontalAlignment(SwingConstants.LEFT);
 		btnAlterar.setForeground(new Color(234, 242, 237));
 		btnAlterar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 28));
