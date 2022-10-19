@@ -28,6 +28,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.YearMonth;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
@@ -369,9 +370,9 @@ public class TelaAlterarVendedor {
 		txt_telefone_vendedor.setText(usuario_selecionado.getUsuario_telefone());
 		pf_senha_vendedor.setText(usuario_selecionado.getUsuario_senha());
 		
-		cb_dia.setSelectedIndex(LocalDate.parse(usuario_selecionado.getUsuario_datanascimento().toString()).getDayOfMonth());
-		cb_mes.setSelectedIndex(LocalDate.parse(usuario_selecionado.getUsuario_datanascimento().toString()).getMonthValue());
-		cb_ano.setSelectedIndex(LocalDate.parse(usuario_selecionado.getUsuario_datanascimento().toString()).getYear());
+		cb_dia.setSelectedIndex(LocalDate.parse(usuario_selecionado.getUsuario_datanascimento().toString()).getDayOfMonth()-1);
+		cb_mes.setSelectedIndex(LocalDate.parse(usuario_selecionado.getUsuario_datanascimento().toString()).getMonthValue()-1);
+		cb_ano.setSelectedIndex(LocalDate.parse(usuario_selecionado.getUsuario_datanascimento().toString()).getYear()-1);
 		
 		
 	}
