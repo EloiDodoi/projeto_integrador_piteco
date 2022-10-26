@@ -372,8 +372,7 @@ public class TelaAlterarVendedor {
 		
 		cb_dia.setSelectedIndex(LocalDate.parse(usuario_selecionado.getUsuario_datanascimento().toString()).getDayOfMonth()-1);
 		cb_mes.setSelectedIndex(LocalDate.parse(usuario_selecionado.getUsuario_datanascimento().toString()).getMonthValue()-1);
-		cb_ano.setSelectedIndex(LocalDate.parse(usuario_selecionado.getUsuario_datanascimento().toString()).getYear()-1);
-		
+		cb_ano.setSelectedIndex(LocalDate.parse(usuario_selecionado.getUsuario_datanascimento().toString()).getYear()-1900);
 		
 	}
 }
