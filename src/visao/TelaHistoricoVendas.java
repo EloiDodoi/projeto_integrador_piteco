@@ -85,18 +85,23 @@ public class TelaHistoricoVendas extends JFrame {
 		panelPesquisa.add(btnPesquisa);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(82, 299, 1195, 371);
+		scrollPane.setBounds(82, 292, 1261, 458);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.setGridColor(new Color(31, 65, 45));
+		table.setForeground(new Color(31, 65, 45));
+		table.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null},
 			},
 			new String[] {
-				"N\u00FAmero", "Data", "Tipo de Pagamento", "Valor", "Produtos"
+				"N\u00B0", "Data", "Tipo de Pagamento", "Valor", "Produtos"
 			}
 		));
-		scrollPane.setRowHeaderView(table);
+		table.getColumnModel().getColumn(4).setPreferredWidth(100);
+		scrollPane.setViewportView(table);
+		
+		
 	}
 }

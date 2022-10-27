@@ -185,6 +185,7 @@ public class Venda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				vp.setVisible(true);
 				frame.setVisible(false);
+				
 			}
 		});
 		btnNewButton.setBackground(new Color(234, 242, 237));
