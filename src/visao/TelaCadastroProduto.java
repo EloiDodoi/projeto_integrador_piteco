@@ -1,7 +1,7 @@
  package visao;
 
 import java.awt.EventQueue;
-
+import modelo.Produto;
 import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -43,10 +43,10 @@ import com.jgoodies.forms.layout.RowSpec;
 public class TelaCadastroProduto {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField txt_nome;
+	private JTextField txt_especie;
+	private JTextField txt_preco;
+	private JTextField txt_quantidade;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
@@ -75,11 +75,16 @@ public class TelaCadastroProduto {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	public void abrir() {
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
+	
 	private void initialize() {
 		frame = new JFrame();
+		frame.setMaximumSize(new Dimension(1600, 850));
+		frame.setMinimumSize(new Dimension(1600, 850));
 		frame.getContentPane().setBackground(new Color(234, 242, 237));
 		frame.setBounds(100, 100, 1136, 716);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

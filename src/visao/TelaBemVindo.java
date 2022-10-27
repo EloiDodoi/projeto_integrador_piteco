@@ -33,7 +33,9 @@ import java.awt.GridLayout;
 public class TelaBemVindo extends JFrame {
 
 	private JPanel contentPane;
-
+	private JPanel painelMenu;
+	static TelaBemVindo frame = new TelaBemVindo();
+	private int statusMenu = 0;
 	/**
 	 * Launch the application.
 	 */
@@ -41,8 +43,9 @@ public class TelaBemVindo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaBemVindo frame = new TelaBemVindo();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
+					frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -53,15 +56,22 @@ public class TelaBemVindo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaBemVindo() 
-	{
+
+	public void abrir() {
+		TelaBemVindo frame = new TelaBemVindo();
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
+
+	public TelaBemVindo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1034, 641);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
+
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setBackground(new Color(234, 242, 237));
@@ -86,9 +96,12 @@ public class TelaBemVindo extends JFrame {
 		panel_3.add(btnCadastro, gbc_btnCadastro);
 		btnCadastro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				TelaCadastroProduto cadastro_produto = new TelaCadastroProduto();
+				cadastro_produto.abrir();
+				frame.setVisible(false);
 			}
 		});
-		btnCadastro.setBackground(new Color(150, 191, 120));
+		btnCadastro.setBackground(new Color(234, 242, 237));
 		btnCadastro.setForeground(new Color(150, 191, 120));
 		btnCadastro.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 65));
 		
