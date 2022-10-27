@@ -12,9 +12,14 @@ import javax.swing.table.DefaultTableModel;
 
 public class TelaEstoque extends JFrame {
 
+	private JFrame frmTelaEstoque;
 	private JPanel contentPane;
-	private JTable table;
-
+	private JTextField textFieldPesquisaNoEstoque;
+	Produto produto_selecionado;
+	EstoqueBD etb = new EstoqueBD();
+	AlterarProdutoBD at = new AlterarProdutoBD();
+	JTable table;
+	TelaEstoque window = new TelaEstoque();
 	/**
 	 * Launch the application.
 	 */
@@ -31,9 +36,13 @@ public class TelaEstoque extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	public void abrir() {
+		TelaEstoque frame = new TelaEstoque();
+		frmTelaEstoque.setVisible(true);
+		frmTelaEstoque.setLocationRelativeTo(null);
+		frmTelaEstoque.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
+
 	public TelaEstoque() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 850);
