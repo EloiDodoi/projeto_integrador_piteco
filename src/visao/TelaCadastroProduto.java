@@ -200,7 +200,7 @@ public class TelaCadastroProduto {
 		gbc_lblNomeDoVegetal.gridy = 0;
 		panel_2.add(lblNomeDoVegetal, gbc_lblNomeDoVegetal);
 		
-		textField = new JTextField();
+		JTextField textField = new JTextField();
 		textField.setBackground(new Color(234, 242, 237));
 		textField.setForeground(Color.DARK_GRAY);
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -225,7 +225,7 @@ public class TelaCadastroProduto {
 		gbc_lblEspcieDoVegetal.gridy = 1;
 		panel_2.add(lblEspcieDoVegetal, gbc_lblEspcieDoVegetal);
 		
-		textField_1 = new JTextField();
+		JTextField textField_1 = new JTextField();
 		textField_1.setForeground(Color.DARK_GRAY);
 		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		textField_1.setColumns(10);
@@ -297,7 +297,7 @@ public class TelaCadastroProduto {
 		gbc_lblNomeDoVegetal_1_1_1_1_1.gridy = 3;
 		panel_2.add(lblNomeDoVegetal_1_1_1_1_1, gbc_lblNomeDoVegetal_1_1_1_1_1);
 		
-		textField_2 = new JTextField();
+		JTextField textField_2 = new JTextField();
 		textField_2.setForeground(Color.DARK_GRAY);
 		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		textField_2.setColumns(10);
@@ -321,7 +321,7 @@ public class TelaCadastroProduto {
 		gbc_lblNomeDoVegetal_1_1_1_1.gridy = 4;
 		panel_2.add(lblNomeDoVegetal_1_1_1_1, gbc_lblNomeDoVegetal_1_1_1_1);
 		
-		textField_3 = new JTextField();
+		JTextField textField_3 = new JTextField();
 		textField_3.setForeground(Color.DARK_GRAY);
 		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		textField_3.setColumns(10);

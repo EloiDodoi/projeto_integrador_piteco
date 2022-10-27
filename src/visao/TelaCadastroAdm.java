@@ -1,9 +1,17 @@
 package visao;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+
 import java.awt.*;
+import net.miginfocom.swing.MigLayout;
 
 public class TelaCadastroAdm {
 
@@ -67,7 +75,7 @@ public class TelaCadastroAdm {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(150, 191, 120));
-		frame.getContentPane().setLayout(null);
+		frame.getContentPane().setLayout(new MigLayout("", "[1px][205px][1378px]", "[1px][201px][609px]"));
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setMinimumSize(new Dimension(1171, 174));
@@ -290,6 +298,20 @@ public class TelaCadastroAdm {
 		panel.setBounds(206, 202, 1171, 543);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		btnNewButton_1 = new JButton("<");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaLoginAdm tla = new TelaLoginAdm();
+				tla.abrir();
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 30));
+		btnNewButton_1.setBackground(new Color(31, 65, 45));
+		btnNewButton_1.setBounds(28, 26, 60, 56);
+		frame.getContentPane().add(btnNewButton_1, "cell 0 0 3 3,grow");
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1600, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
