@@ -94,7 +94,7 @@ public class TelaBemVindo extends JFrame {
 		JButton btnVenda = new JButton("Venda");
 		btnVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaVenda tela_venda = new TelaVenda();
+				Venda tela_venda = new Venda();
 				tela_venda.abrir();
 				frame.setVisible(false);
 			}
