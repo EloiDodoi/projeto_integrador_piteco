@@ -1,5 +1,6 @@
 package visao;
 import controle.LoginVendedorBD;
+import controle.Md5;
 import modelo.Usuario;
 
 import java.awt.EventQueue;
@@ -115,7 +116,7 @@ public class TelaLoginVendedor {
 		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Usuario login = new Usuario(0, null, null, null, null, null, txt_senha.getText(), txt_login.getText(), 0);
+				Usuario login = new Usuario(0, null, null, null, null, null, Md5.cifrar(txt_senha.getText()), txt_login.getText(), 0);
 				LoginVendedorBD lg = new LoginVendedorBD();
 				if (lg.autenticar(login)== null ) {
 					System.out.println("Erro Login");

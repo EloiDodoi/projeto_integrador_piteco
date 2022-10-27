@@ -195,7 +195,7 @@ public class TelaListagemVendedores extends JFrame {
 		btnExcluir.setBounds(1365, 315, 134, 45);
 		contentPane.add(btnExcluir);
 		
-		JButton btnAlterar = new JButton(" Alterar");
+		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(vendedor_selecionado != null) {
