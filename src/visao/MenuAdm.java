@@ -23,7 +23,10 @@ public class MenuAdm extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	MenuAdm menu = new MenuAdm();
 	public MenuAdm() {
+		
+		
 		setBackground(new Color(150, 191, 120));
 		setBounds(100, 100, 228, 600);
 		setLayout(new BorderLayout(0, 0));
@@ -41,6 +44,7 @@ public class MenuAdm extends JPanel {
 		btnEstoque.setHorizontalAlignment(SwingConstants.LEFT);
 		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			menu.setVisible(false);
 			}
 		});
 		btnEstoque.setIcon(new ImageIcon(MenuAdm.class.getResource("/img/estoque-pronto.png")));

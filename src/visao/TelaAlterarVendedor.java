@@ -304,13 +304,13 @@ public class TelaAlterarVendedor {
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(new Color(150, 191, 120));
-		panel_3.setBounds(0, 0, 55, 812);
+		panel_3.setBounds(0, 0, 55, 749);
 		frame.getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 		
 		JButton botaoMenu = new JButton("");
 		botaoMenu.setBorder(null);
-		botaoMenu.setBounds(0, 755, 55, 55);
+		botaoMenu.setBounds(0, 694, 55, 55);
 		panel_3.add(botaoMenu);
 		botaoMenu.setForeground(new Color(150, 191, 120));
 		botaoMenu.setBackground(new Color(150, 191, 120));
