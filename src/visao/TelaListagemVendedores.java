@@ -192,7 +192,7 @@ public class TelaListagemVendedores extends JFrame {
 		btnExcluir.setFont(new Font("Yu Gothic UI", Font.PLAIN, 28));
 		btnExcluir.setBorder(null);
 		btnExcluir.setBackground(new Color(31, 65, 45));
-		btnExcluir.setBounds(1365, 315, 134, 45);
+		btnExcluir.setBounds(1011, 224, 134, 45);
 		contentPane.add(btnExcluir);
 		
 		JButton btnAlterar = new JButton("Alterar");
@@ -209,7 +209,7 @@ public class TelaListagemVendedores extends JFrame {
 		btnAlterar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 28));
 		btnAlterar.setBorder(null);
 		btnAlterar.setBackground(new Color(31, 65, 45));
-		btnAlterar.setBounds(1365, 371, 134, 40);
+		btnAlterar.setBounds(1155, 226, 134, 40);
 		contentPane.add(btnAlterar);
 		
 		//-------------------------------------------------------- métodos -------------------------------------

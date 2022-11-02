@@ -32,6 +32,7 @@ import java.time.YearMonth;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
+import javax.swing.JProgressBar;
 
 public class TelaAlterarVendedor {
 
@@ -48,6 +49,7 @@ public class TelaAlterarVendedor {
 	private JComboBox cb_dia;
 	private JComboBox cb_mes;
 	private JComboBox cb_ano;
+	private JLabel lbl_idVendedor;
 	
 
 	/**
@@ -239,6 +241,7 @@ public class TelaAlterarVendedor {
 				
 				LocalDate data = LocalDate.of(ano_vendedor, mes_vendedor, dia_vendedor);
 				
+				int id = Integer.parseInt(lbl_idVendedor.getText());
 				
 				String telefone_vendedor = txt_telefone_vendedor.getText();
 				String senha_vendedor = pf_senha_vendedor.getText();
@@ -253,7 +256,7 @@ public class TelaAlterarVendedor {
 				}
 				else {
 					AlterarVendedorBD abd = new AlterarVendedorBD();
-					Usuario usuario =  new Usuario(0,nome_vendedor,cpf_vendedor,null,Date.valueOf(data),telefone_vendedor,senha_vendedor,email_vendedor,0);
+					Usuario usuario =  new Usuario(id,nome_vendedor,cpf_vendedor,null,Date.valueOf(data),telefone_vendedor,senha_vendedor,email_vendedor,0);
 
 					abd.alteraVendedor(usuario);
 				}
@@ -275,7 +278,7 @@ public class TelaAlterarVendedor {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(31, 65, 45));
-		panel_1.setBounds(206, 94, 1171, 110);
+		panel_1.setBounds(193, 90, 1161, 110);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -283,8 +286,15 @@ public class TelaAlterarVendedor {
 		lblCadastroDoVendedor.setHorizontalAlignment(SwingConstants.LEFT);
 		lblCadastroDoVendedor.setForeground(new Color(234, 242, 237));
 		lblCadastroDoVendedor.setFont(new Font("Dialog", Font.PLAIN, 85));
-		lblCadastroDoVendedor.setBounds(23, 0, 871, 110);
+		lblCadastroDoVendedor.setBounds(-13, 0, 859, 110);
 		panel_1.add(lblCadastroDoVendedor);
+		
+		lbl_idVendedor = new JLabel("0");
+		lbl_idVendedor.setBounds(1048, 0, 111, 110);
+		panel_1.add(lbl_idVendedor);
+		lbl_idVendedor.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_idVendedor.setForeground(new Color(234, 242, 237));
+		lbl_idVendedor.setFont(new Font("Dialog", Font.PLAIN, 85));
 		
 		pf_senha_vendedor = new JPasswordField();
 		pf_senha_vendedor.setForeground(Color.DARK_GRAY);
@@ -369,6 +379,8 @@ public class TelaAlterarVendedor {
 		txt_cpf_vendedor.setText(usuario_selecionado.getUsuario_cpf());
 		txt_telefone_vendedor.setText(usuario_selecionado.getUsuario_telefone());
 		pf_senha_vendedor.setText(usuario_selecionado.getUsuario_senha());
+		lbl_idVendedor.setText(Integer.toString(usuario_selecionado.getUsuario_id()));;
+
 		
 		cb_dia.setSelectedIndex(LocalDate.parse(usuario_selecionado.getUsuario_datanascimento().toString()).getDayOfMonth()-1);
 		cb_mes.setSelectedIndex(LocalDate.parse(usuario_selecionado.getUsuario_datanascimento().toString()).getMonthValue()-1);
