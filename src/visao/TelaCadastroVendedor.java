@@ -314,7 +314,7 @@ public class TelaCadastroVendedor {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaBemVindo tbv = new TelaBemVindo();
-				tbv.abrir();
+				//tbv.abrir();
 				frame.setVisible(false);
 			}
 		});

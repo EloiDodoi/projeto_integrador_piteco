@@ -34,8 +34,12 @@ import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.layout.FormSpecs;
 import java.awt.GridLayout;
 
+
+
 public class TelaBemVindo extends JFrame {
 
+	TelaBemVindo tbv = new TelaBemVindo();
+	private int statusMenu = 0;
 	private JPanel contentPane;
 
 	/**
@@ -161,7 +165,26 @@ public class TelaBemVindo extends JFrame {
 
 		btnMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			}
+/*				if (statusMenu == 0) {
+					
+					//			if (se for perfil adm) {
+					MenuAdm menuAdm = new MenuAdm();
+					painelMenu.add(menuAdm,  BorderLayout.CENTER);
+					painelMenu.revalidate();
+					painelMenu.repaint();
+//				} else 
+//				if (se for perfil vendedor) {
+//					MenuVendedor menuVenda = new MenuVendedor();
+//					menuVenda.abrir();
+//				}
+					statusMenu++;
+				} else if (statusMenu == 1) {
+					painelMenu.removeAll();
+					painelMenu.revalidate();
+					painelMenu.repaint();
+					statusMenu--;
+				}
+*/			}
 		});
 		btnMenu.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/menu-aberto.png")));
 		btnMenu.setBorder(null);
@@ -254,5 +277,10 @@ public class TelaBemVindo extends JFrame {
 		btnUser.setBounds(1294, 0, 60, 40);
 		BarraSuperior.add(btnUser);
 */		
+	}
+
+	public void abrir() {
+		tbv.setVisible(false);
+		
 	}
 }
