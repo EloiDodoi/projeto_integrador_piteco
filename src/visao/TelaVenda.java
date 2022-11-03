@@ -11,11 +11,13 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,15 +27,10 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.plaf.basic.BasicScrollBarUI;
 
 import controle.VendaBD;
 import modelo.ItemVenda;
 import modelo.Venda;
-
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 
 public class TelaVenda extends JFrame {
 
@@ -45,13 +42,13 @@ public class TelaVenda extends JFrame {
 	private JPanel itensVenda;
 	private JLabel lblValorDoProduto;
 	private JLabel lblNewLabel;
-	
+
 	Venda venda = new Venda();
-	
+
 	private JTextField cur_textField = null;
 	private JTextField cur_textField_1 = null;
 	int numItens = 0;
-	
+
 	ArrayList<JButton> lista_botoes_excluir = new ArrayList<JButton>();
 
 	/**
@@ -69,7 +66,7 @@ public class TelaVenda extends JFrame {
 			}
 		});
 	}
-	
+
 	public TelaVenda() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 924, 517);
@@ -192,11 +189,11 @@ public class TelaVenda extends JFrame {
 		btnNewButton = new JButton(" Pagamento ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				VendasPagamento telavp = new VendasPagamento(venda);
 				telavp.setVisible(true);
 				setVisible(false);
-				
+
 			}
 		});
 		btnNewButton.setBackground(new Color(234, 242, 237));
@@ -246,8 +243,7 @@ public class TelaVenda extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ItemVenda novoItem = new ItemVenda();
 				venda.adicionarItem(novoItem);
-				
-				
+
 				JPanel itemVenda = new JPanel();
 				itemVenda.setBackground(new Color(150, 191, 120));
 				GridBagLayout gbl_panel_Itens = new GridBagLayout();
@@ -321,10 +317,9 @@ public class TelaVenda extends JFrame {
 					@Override
 					public void keyReleased(KeyEvent e) {
 						atualizarValorUnitario();
-							
+
 					}
 
-				
 				});
 
 				JLabel lblQuantidade = new JLabel("Quantidade");
@@ -351,20 +346,18 @@ public class TelaVenda extends JFrame {
 				textField_1.addKeyListener(new KeyAdapter() {
 					@Override
 					public void keyReleased(KeyEvent e) {
-						
-						
+
 						atualizarValorUnitario();
-						
-						
+
 					}
 				});
-				if(cur_textField != null) {
+				if (cur_textField != null) {
 					cur_textField.setEditable(false);
 					cur_textField_1.setEditable(false);
 				}
 				cur_textField = textField;
 				cur_textField_1 = textField_1;
-				numItens +=1;
+				numItens += 1;
 
 				JButton btnDeletarItem = new JButton(" X ");
 				btnDeletarItem.setForeground(new Color(234, 242, 237));
@@ -375,17 +368,17 @@ public class TelaVenda extends JFrame {
 				lista_botoes_excluir.add(btnDeletarItem);
 				btnDeletarItem.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
+
 						JButton btn = (JButton) e.getSource();
 						int pos = lista_botoes_excluir.indexOf(btn);
 						lista_botoes_excluir.remove(pos);
 						venda.getArrayItensVenda().remove(pos);
 						numItens--;
-						
+
 						itensVenda.remove(itemVenda);
 						itensVenda.revalidate();
 						itensVenda.repaint();
-						
+
 					}
 				});
 
@@ -424,59 +417,56 @@ public class TelaVenda extends JFrame {
 			}
 		});
 
-/*		scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
-		    protected void configureScrollBarColors() {
-		        this.thumbColor = Color.decode("#7BA66F");
-		    }
-		    
-		    @Override
-		    protected JButton createDecreaseButton(int orientation) {
-		        JButton button = super.createDecreaseButton(orientation);
-		        button.setBackground(new Color(234, 242, 237));
-		        button.setForeground(null);
-		        button.setSelectedIcon(null);
-		        button.setBorder(BorderFactory.createLineBorder(new Color(234, 242, 237), 2));
-		        return button;
-		    }
-
-		    @Override
-		    protected JButton createIncreaseButton(int orientation) {
-		        JButton button = super.createIncreaseButton(orientation);
-		        button.setBackground(new Color(234, 242, 237));
-		        button.setForeground(null);
-		        button.setSelectedIcon(null);
-		        button.setBorder(BorderFactory.createLineBorder(new Color(234, 242, 237), 2));
-		        return button;
-		    }
-		});
-*/
+		/*
+		 * scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() { protected
+		 * void configureScrollBarColors() { this.thumbColor = Color.decode("#7BA66F");
+		 * }
+		 * 
+		 * @Override protected JButton createDecreaseButton(int orientation) { JButton
+		 * button = super.createDecreaseButton(orientation); button.setBackground(new
+		 * Color(234, 242, 237)); button.setForeground(null);
+		 * button.setSelectedIcon(null);
+		 * button.setBorder(BorderFactory.createLineBorder(new Color(234, 242, 237),
+		 * 2)); return button; }
+		 * 
+		 * @Override protected JButton createIncreaseButton(int orientation) { JButton
+		 * button = super.createIncreaseButton(orientation); button.setBackground(new
+		 * Color(234, 242, 237)); button.setForeground(null);
+		 * button.setSelectedIcon(null);
+		 * button.setBorder(BorderFactory.createLineBorder(new Color(234, 242, 237),
+		 * 2)); return button; } });
+		 */
 	}
 	
+	public static float roundAvoid(double value, int places) {
+		float scale = (float) Math.pow(10, places);
+	    return Math.round(value * scale) / scale;
+	}
+
 	protected void atualizarValorUnitario() {
-		
-		if(textField.getText().isEmpty() == false) {
-			
+
+		if (textField.getText().isEmpty() == false) {
+
 			VendaBD vbd = new VendaBD();
 			int codProduto = Integer.parseInt(textField.getText());
-			
+
 			lblNewLabel.setText("Item - " + vbd.nomeProduto(codProduto));
-			
-			if(textField_1.getText().isEmpty() == false) {
+
+			if (textField_1.getText().isEmpty() == false) {
 				float quantidade = Float.parseFloat(textField_1.getText());
-			
-				float total = vbd.precoUnitario(codProduto, quantidade);
+
+				Float total = vbd.precoUnitario(codProduto, quantidade);
 				lblValorDoProduto.setText(String.valueOf(total));
-				
-				ItemVenda itemVenda = venda.getArrayItensVenda().get(numItens-1);
+
+				ItemVenda itemVenda = venda.getArrayItensVenda().get(numItens - 1);
 				itemVenda.setCodigoItem(codProduto);
-				itemVenda.setPrecoTotalItem(total);
+				itemVenda.setPrecoTotalItem(roundAvoid(total, 2));
 				itemVenda.setQuantidadeItem(quantidade);
-				
-				
+
 			}
-		
+
 		}
-	
+
 	}
 
 }

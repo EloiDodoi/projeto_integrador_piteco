@@ -352,6 +352,7 @@ public class VendasPagamento extends JFrame {
 		panelValores.add(lblRS2, gbc_lblRS2);
 		
 		txtValorDinheiro = new JTextField();
+		txtValorDinheiro.setForeground(new Color(31, 65, 45));
 		txtValorDinheiro.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -359,7 +360,7 @@ public class VendasPagamento extends JFrame {
 			}
 		});
 		txtValorDinheiro.setBorder(new LineBorder(new Color(31, 65, 45), 2));
-		txtValorDinheiro.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 18));
+		txtValorDinheiro.setFont(new Font("Dialog", Font.PLAIN, 23));
 		GridBagConstraints gbc_textField = new GridBagConstraints();
 		gbc_textField.gridwidth = 3;
 		gbc_textField.insets = new Insets(0, 0, 0, 5);
