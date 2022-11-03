@@ -34,6 +34,8 @@ import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VendasPagamento extends JFrame {
 
@@ -44,6 +46,16 @@ public class VendasPagamento extends JFrame {
 	private JTextField txtValorDinheiro;
 	float valorTotal;
 	JLabel lblTroco2;
+	JLabel lblValorDinheiro;
+	JLabel lblRS2;
+	JLabel lblTroco;
+	JLabel lblRS4;
+	
+	
+	public static float roundAvoid(double value, int places) {
+		float scale = (float) Math.pow(10, places);
+	    return Math.round(value * scale) / scale;
+	}
 
 	public DefaultTableModel listagemItensVenda(Venda venda) {
 		ItemVenda item = new ItemVenda();
@@ -66,7 +78,7 @@ public class VendasPagamento extends JFrame {
 		for(int i = 0; i < venda.getArrayItensVenda().size(); i++) {
 			valor += venda.getArrayItensVenda().get(i).getPrecoTotalItem();
 		}
-		return valor;
+		return roundAvoid(valor, 2);
 	}
 
 	public VendasPagamento(Venda venda) {
@@ -220,6 +232,14 @@ public class VendasPagamento extends JFrame {
 		panelRadioB.setLayout(gbl_panelRadioB);
 
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Dinheiro\r\n");
+		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblValorDinheiro.setVisible(true);
+				lblRS2.setVisible(true);
+				txtValorDinheiro.setVisible(true);
+			}
+		});
+		
 		buttonGroup.add(rdbtnNewRadioButton);
 		rdbtnNewRadioButton.setBackground(new Color(234, 242, 237));
 		rdbtnNewRadioButton.setForeground(new Color(31, 65, 45));
@@ -233,6 +253,19 @@ public class VendasPagamento extends JFrame {
 		panelRadioB.add(rdbtnNewRadioButton, gbc_rdbtnNewRadioButton);
 
 		JRadioButton rdbtnCartoDeDbito = new JRadioButton("Cart\u00E3o de D\u00E9bito");
+		rdbtnCartoDeDbito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblValorDinheiro.setVisible(false);
+				lblRS2.setVisible(false);
+				txtValorDinheiro.setVisible(false);
+				txtValorDinheiro.setText("");
+				lblTroco.setVisible(false);
+				lblRS4.setVisible(false);
+				lblTroco2.setVisible(false);
+				lblTroco2.setText("0,0");
+				
+			}
+		});
 		buttonGroup.add(rdbtnCartoDeDbito);
 		rdbtnCartoDeDbito.setBackground(new Color(234, 242, 237));
 		rdbtnCartoDeDbito.setForeground(new Color(31, 65, 45));
@@ -331,7 +364,7 @@ public class VendasPagamento extends JFrame {
 		panelValores.add(lblValorBruto2, gbc_lblValorBruto2);
 		lblValorBruto2.setText(String.valueOf(valorTotalVenda(venda)));
 
-		JLabel lblValorDinheiro = new JLabel("Pagamento do Cliente:");
+		lblValorDinheiro = new JLabel("Pagamento do Cliente:");
 		lblValorDinheiro.setForeground(new Color(31, 65, 45));
 		lblValorDinheiro.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		GridBagConstraints gbc_lblValorDinheiro = new GridBagConstraints();
@@ -340,8 +373,9 @@ public class VendasPagamento extends JFrame {
 		gbc_lblValorDinheiro.gridx = 0;
 		gbc_lblValorDinheiro.gridy = 1;
 		panelValores.add(lblValorDinheiro, gbc_lblValorDinheiro);
+		lblValorDinheiro.setVisible(false);
 
-		JLabel lblRS2 = new JLabel("R$");
+		lblRS2 = new JLabel("R$");
 		lblRS2.setForeground(new Color(31, 65, 45));
 		lblRS2.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		GridBagConstraints gbc_lblRS2 = new GridBagConstraints();
@@ -350,12 +384,14 @@ public class VendasPagamento extends JFrame {
 		gbc_lblRS2.gridx = 1;
 		gbc_lblRS2.gridy = 1;
 		panelValores.add(lblRS2, gbc_lblRS2);
+		lblRS2.setVisible(false);
 		
 		txtValorDinheiro = new JTextField();
 		txtValorDinheiro.setForeground(new Color(31, 65, 45));
 		txtValorDinheiro.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
+				
 				atualizarTroco(venda);
 			}
 		});
@@ -369,9 +405,10 @@ public class VendasPagamento extends JFrame {
 		gbc_textField.gridy = 1;
 		panelValores.add(txtValorDinheiro, gbc_textField);
 		txtValorDinheiro.setColumns(10);
+		txtValorDinheiro.setVisible(false);
 		
 
-		JLabel lblTroco = new JLabel("Troco:");
+		lblTroco = new JLabel("Troco:");
 		lblTroco.setForeground(new Color(31, 65, 45));
 		lblTroco.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		GridBagConstraints gbc_lblTroco = new GridBagConstraints();
@@ -380,8 +417,9 @@ public class VendasPagamento extends JFrame {
 		gbc_lblTroco.gridx = 16;
 		gbc_lblTroco.gridy = 1;
 		panelValores.add(lblTroco, gbc_lblTroco);
+		lblTroco.setVisible(false);
 
-		JLabel lblRS4 = new JLabel("R$");
+		lblRS4 = new JLabel("R$");
 		lblRS4.setForeground(new Color(31, 65, 45));
 		lblRS4.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		GridBagConstraints gbc_lblRS4 = new GridBagConstraints();
@@ -390,6 +428,7 @@ public class VendasPagamento extends JFrame {
 		gbc_lblRS4.gridx = 17;
 		gbc_lblRS4.gridy = 1;
 		panelValores.add(lblRS4, gbc_lblRS4);
+		lblRS4.setVisible(false);
 
 		lblTroco2 = new JLabel("00,00\r\n");
 		lblTroco2.setForeground(new Color(31, 65, 45));
@@ -399,6 +438,7 @@ public class VendasPagamento extends JFrame {
 		gbc_lblTroco2.gridx = 18;
 		gbc_lblTroco2.gridy = 1;
 		panelValores.add(lblTroco2, gbc_lblTroco2);
+		lblTroco2.setVisible(false);
 
 		JPanel panel_5 = new JPanel();
 		panel_5.setBackground(new Color(234, 242, 237));
@@ -483,7 +523,10 @@ public class VendasPagamento extends JFrame {
 	protected void atualizarTroco(Venda venda) {
 		
 		valorTotal = Float.parseFloat(txtValorDinheiro.getText()) - valorTotalVenda(venda);
-		lblTroco2.setText(String.valueOf(valorTotal));
+		lblTroco.setVisible(true);
+		lblRS4.setVisible(true);
+		lblTroco2.setVisible(true);
+		lblTroco2.setText(String.valueOf(roundAvoid(valorTotal, 2)));
 		
 	}
 
