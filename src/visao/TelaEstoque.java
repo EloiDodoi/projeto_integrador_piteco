@@ -28,6 +28,7 @@ public class TelaEstoque extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldPesquisaNoEstoque;
 
+	TelaEstoque frame = new TelaEstoque();
 	/**
 	 * Launch the application.
 	 */
@@ -123,6 +124,8 @@ public class TelaEstoque extends JFrame {
 		contentPane.add(panelPesquisa);
 		panelPesquisa.setLayout(null);
 		
+		//ArrayList<> tableArray = new ArrayList<>
+		
 		JTable table = new JTable();
 		table.setBounds(130, 330, 1119, 391);
 		contentPane.add(table);
@@ -132,10 +135,10 @@ public class TelaEstoque extends JFrame {
 		table.setGridColor(new Color(150, 191, 120));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"C\u00F3digo", "", "", "", ""},
+				{"Código", "", "", "", ""},
 			},
 			new String[] {
-				"C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade"
+				"Código", "Nome", "Espécie", "Preço", "Quantidade"
 			}
 		));
 		table.getColumnModel().getColumn(1).setPreferredWidth(150);
@@ -222,6 +225,14 @@ public class TelaEstoque extends JFrame {
 		lblQuantidade.setBackground(new Color(123, 166, 111));
 		lblQuantidade.setBounds(904, 0, 215, 51);
 		panel.add(lblQuantidade);
+		
+	}
+
+	public void abrir() {
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		// TODO Auto-generated method stub
 		
 	}
 }

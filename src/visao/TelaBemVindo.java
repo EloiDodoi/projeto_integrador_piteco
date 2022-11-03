@@ -64,9 +64,9 @@ public class TelaBemVindo extends JFrame {
 
 	public void abrir() {
 		//TelaBemVindo frame = new TelaBemVindo();
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		tbv.setVisible(true);
+		tbv.setLocationRelativeTo(null);
+		tbv.setExtendedState(tbv.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 
 	public TelaBemVindo() {
@@ -107,6 +107,9 @@ public class TelaBemVindo extends JFrame {
 		panel_3.add(btnCadastro, gbc_btnCadastro);
 		btnCadastro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				TelaCadastroProduto cadastro_produto = new TelaCadastroProduto();
+				cadastro_produto.abrir();
+				tbv.setVisible(false);
 			}
 		});
 		btnCadastro.setBackground(new Color(150, 191, 120));
@@ -172,6 +175,8 @@ public class TelaBemVindo extends JFrame {
 
 		btnMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JPanel menu = new JPanel();
+				panel.add(menu, BorderLayout.SOUTH);
 /*				if (statusMenu == 0) {
 					
 					//			if (se for perfil adm) {
@@ -179,6 +184,7 @@ public class TelaBemVindo extends JFrame {
 					painelMenu.add(menuAdm,  BorderLayout.CENTER);
 					painelMenu.revalidate();
 					painelMenu.repaint();
+					statusMenu++;
 //				} else 
 //				if (se for perfil vendedor) {
 //					MenuVendedor menuVenda = new MenuVendedor();
@@ -283,7 +289,7 @@ public class TelaBemVindo extends JFrame {
 
 		btnUser.setBounds(1294, 0, 60, 40);
 		BarraSuperior.add(btnUser);
-*/		
+	
 	}
 
 		JSeparator separator = new JSeparator();
@@ -292,12 +298,13 @@ public class TelaBemVindo extends JFrame {
 		separator.setForeground(new Color(234, 242, 237));
 		separator.setBounds(1294, 0, 2, 40);
 		BarraSuperior.add(separator);
-
+*/
 		JLabel Logo = new JLabel("");
+		Logo.setHorizontalAlignment(SwingConstants.CENTER);
 		Logo.setLabelFor(Logo);
 		Logo.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/3.png")));
 		Logo.setBounds(461, 51, 469, 402);
 		panel.add(Logo);
->>>>>>> produto_bd
+		
 	}
 }

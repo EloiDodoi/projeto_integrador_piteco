@@ -9,6 +9,8 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.Component;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Dimension;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -189,7 +191,7 @@ public class TelaCadastroAdm {
 		lblNewLabel_4.setForeground(new Color(31, 65, 45));
 		lblNewLabel_4.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		
-		JLabel lblNewLabel_5 = new JLabel("M�s");
+		JLabel lblNewLabel_5 = new JLabel("Mês");
 		lblNewLabel_5.setBackground(new Color(234, 242, 237));
 		panel_5.add(lblNewLabel_5);
 		lblNewLabel_5.setForeground(new Color(31, 65, 45));
@@ -275,7 +277,7 @@ public class TelaCadastroAdm {
 		panel_3.setBackground(new Color(234, 242, 237));
 		panel_3.setLayout(null);
 		
-		JLabel lblNewLabel_11 = new JLabel("Nome do seu Neg\u00F3cio\r\n");
+		JLabel lblNewLabel_11 = new JLabel("Nome do seu Negócio");
 		GridBagConstraints gbc_lblNewLabel_11 = new GridBagConstraints();
 		gbc_lblNewLabel_11.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_11.insets = new Insets(0, 0, 5, 0);

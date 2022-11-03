@@ -46,7 +46,7 @@ public class TelaSalvarProduto {
 	private JTextField txt_preco;
 	private JTextField txt_quantidade;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	TelaEstoque telaEstoque;
+	TelaEstoque telaEstoque = new TelaEstoque();
 	AlterarProdutoBD alt = new AlterarProdutoBD();
 	EstoqueBD etb = new EstoqueBD();
 	private Produto produtoSelecionado;

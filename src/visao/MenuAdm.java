@@ -45,6 +45,8 @@ public class MenuAdm extends JPanel {
 		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			menu.setVisible(false);
+			TelaEstoque te = new TelaEstoque();
+			te.abrir();
 			}
 		});
 		btnEstoque.setIcon(new ImageIcon(MenuAdm.class.getResource("/img/estoque-pronto.png")));
