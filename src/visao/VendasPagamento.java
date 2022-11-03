@@ -194,12 +194,12 @@ public class VendasPagamento extends JFrame {
 		table.setBackground(new Color(234, 242, 237));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
 			},
 			new String[] {
-				"Pagamento", "Quantidade"
+				"C\u00F3digo", "Pagamento", "Quantidade"
 			}
 		));
 		scrollPane.setViewportView(table);

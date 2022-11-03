@@ -26,6 +26,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
+import controle.VendaBD;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
 public class Venda extends JFrame {
 
 	private JPanel contentPane;
@@ -34,6 +39,8 @@ public class Venda extends JFrame {
 	private JTextField textField_1;
 	private JPanel panel_5;
 	private JPanel itensVenda;
+	private JLabel lblValorDoProduto;
+	private JLabel lblNewLabel;
 	VendasPagamento vp = new VendasPagamento();
 	static Venda frame = new Venda();
 
@@ -231,6 +238,7 @@ public class Venda extends JFrame {
 		btnAdicionarItem.setFont(new Font("Dialog", Font.PLAIN, 22));
 
 		btnAdicionarItem.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				JPanel itemVenda = new JPanel();
 				itemVenda.setBackground(new Color(150, 191, 120));
@@ -259,7 +267,7 @@ public class Venda extends JFrame {
 				gbl_panel_6.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
 				panel_6.setLayout(gbl_panel_6);
 
-				JLabel lblNewLabel = new JLabel("Item");
+				lblNewLabel = new JLabel("Item");
 				lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 				lblNewLabel.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 				lblNewLabel.setForeground(new Color(217, 173, 181));
@@ -301,6 +309,15 @@ public class Venda extends JFrame {
 				gbc_textField.gridy = 1;
 				itemVenda.add(textField, gbc_textField);
 				textField.setColumns(10);
+				textField.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyReleased(KeyEvent e) {
+						atualizarValorUnitario();
+							
+					}
+
+				
+				});
 
 				JLabel lblQuantidade = new JLabel("Quantidade");
 				lblQuantidade.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
@@ -323,6 +340,16 @@ public class Venda extends JFrame {
 				gbc_textField_1.gridy = 2;
 				itemVenda.add(textField_1, gbc_textField_1);
 				textField_1.setColumns(10);
+				textField_1.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyReleased(KeyEvent e) {
+						
+						
+						atualizarValorUnitario();
+						
+						
+					}
+				});
 
 				JButton btnDeletarItem = new JButton(" X ");
 				btnDeletarItem.setForeground(new Color(234, 242, 237));
@@ -357,7 +384,7 @@ public class Venda extends JFrame {
 				gbc_lblNewLabel_1.gridy = 3;
 				itemVenda.add(lblNewLabel_1, gbc_lblNewLabel_1);
 
-				JLabel lblValorDoProduto = new JLabel("0,0");
+				lblValorDoProduto = new JLabel("0,0");
 				lblValorDoProduto.setForeground(new Color(255, 255, 255));
 				lblValorDoProduto.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
 				GridBagConstraints gbc_lblValorDoProduto = new GridBagConstraints();
@@ -399,6 +426,26 @@ public class Venda extends JFrame {
 		    }
 		});
 */
+	}
+	
+	protected void atualizarValorUnitario() {
+		
+		if(textField.getText().isEmpty() == false) {
+			
+			VendaBD vbd = new VendaBD();
+			int codProduto = Integer.parseInt(textField.getText());
+			
+			lblNewLabel.setText("Item - " + vbd.nomeProduto(codProduto));
+			
+			if(textField_1.getText().isEmpty() == false) {
+				float quantidade = Float.parseFloat(textField_1.getText());
+			
+				float total = vbd.precoUnitario(codProduto, quantidade);
+				lblValorDoProduto.setText(String.valueOf(total));
+			}
+		
+		}
+	
 	}
 
 }
