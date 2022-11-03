@@ -380,7 +380,7 @@ public class TelaVenda extends JFrame {
 						int pos = lista_botoes_excluir.indexOf(btn);
 						lista_botoes_excluir.remove(pos);
 						venda.getArrayItensVenda().remove(pos);
-						
+						numItens--;
 						
 						itensVenda.remove(itemVenda);
 						itensVenda.revalidate();

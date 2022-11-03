@@ -31,6 +31,9 @@ import modelo.Venda;
 import javax.swing.JRadioButton;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.JTextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class VendasPagamento extends JFrame {
 
@@ -38,6 +41,9 @@ public class VendasPagamento extends JFrame {
 	private JTable table;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	VendaBD vbd = new VendaBD();
+	private JTextField txtValorDinheiro;
+	float valorTotal;
+	JLabel lblTroco2;
 
 	public DefaultTableModel listagemItensVenda(Venda venda) {
 		ItemVenda item = new ItemVenda();
@@ -52,6 +58,15 @@ public class VendasPagamento extends JFrame {
 					.addRow(new Object[] { item.getCodigoItem(), item.getPrecoTotalItem(), item.getQuantidadeItem() });
 		}
 		return modelo_tabela;
+	}
+	
+	public float valorTotalVenda(Venda venda) {
+		float valor = 0;
+		
+		for(int i = 0; i < venda.getArrayItensVenda().size(); i++) {
+			valor += venda.getArrayItensVenda().get(i).getPrecoTotalItem();
+		}
+		return valor;
 	}
 
 	public VendasPagamento(Venda venda) {
@@ -284,7 +299,7 @@ public class VendasPagamento extends JFrame {
 		gbl_panelValores.rowWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
 		panelValores.setLayout(gbl_panelValores);
 
-		JLabel lblValorBruto = new JLabel("Valor Total (Bruto):");
+		JLabel lblValorBruto = new JLabel("Valor Total:");
 		GridBagConstraints gbc_lblValorBruto = new GridBagConstraints();
 		gbc_lblValorBruto.insets = new Insets(0, 0, 5, 5);
 		gbc_lblValorBruto.anchor = GridBagConstraints.NORTHWEST;
@@ -314,46 +329,17 @@ public class VendasPagamento extends JFrame {
 		gbc_lblValorBruto2.gridx = 2;
 		gbc_lblValorBruto2.gridy = 0;
 		panelValores.add(lblValorBruto2, gbc_lblValorBruto2);
+		lblValorBruto2.setText(String.valueOf(valorTotalVenda(venda)));
 
-		JLabel lblValorTotal = new JLabel("Valor Total:");
-		lblValorTotal.setForeground(new Color(31, 65, 45));
-		lblValorTotal.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
-		GridBagConstraints gbc_lblValorTotal = new GridBagConstraints();
-		gbc_lblValorTotal.anchor = GridBagConstraints.WEST;
-		gbc_lblValorTotal.insets = new Insets(0, 0, 5, 5);
-		gbc_lblValorTotal.gridx = 16;
-		gbc_lblValorTotal.gridy = 0;
-		panelValores.add(lblValorTotal, gbc_lblValorTotal);
-
-		JLabel lblRS3 = new JLabel("R$");
-		lblRS3.setForeground(new Color(31, 65, 45));
-		lblRS3.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
-		GridBagConstraints gbc_lblRS3 = new GridBagConstraints();
-		gbc_lblRS3.anchor = GridBagConstraints.EAST;
-		gbc_lblRS3.insets = new Insets(0, 0, 5, 5);
-		gbc_lblRS3.gridx = 17;
-		gbc_lblRS3.gridy = 0;
-		panelValores.add(lblRS3, gbc_lblRS3);
-
-		JLabel lblValorTotal2 = new JLabel("00,00\r\n");
-		lblValorTotal2.setForeground(new Color(31, 65, 45));
-		lblValorTotal2.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
-		GridBagConstraints gbc_lblValorTotal2 = new GridBagConstraints();
-		gbc_lblValorTotal2.anchor = GridBagConstraints.WEST;
-		gbc_lblValorTotal2.insets = new Insets(0, 0, 5, 0);
-		gbc_lblValorTotal2.gridx = 18;
-		gbc_lblValorTotal2.gridy = 0;
-		panelValores.add(lblValorTotal2, gbc_lblValorTotal2);
-
-		JLabel lblImpostos = new JLabel("Impostos:");
-		lblImpostos.setForeground(new Color(31, 65, 45));
-		lblImpostos.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
-		GridBagConstraints gbc_lblImpostos = new GridBagConstraints();
-		gbc_lblImpostos.anchor = GridBagConstraints.WEST;
-		gbc_lblImpostos.insets = new Insets(0, 0, 0, 5);
-		gbc_lblImpostos.gridx = 0;
-		gbc_lblImpostos.gridy = 1;
-		panelValores.add(lblImpostos, gbc_lblImpostos);
+		JLabel lblValorDinheiro = new JLabel("Pagamento do Cliente:");
+		lblValorDinheiro.setForeground(new Color(31, 65, 45));
+		lblValorDinheiro.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
+		GridBagConstraints gbc_lblValorDinheiro = new GridBagConstraints();
+		gbc_lblValorDinheiro.anchor = GridBagConstraints.WEST;
+		gbc_lblValorDinheiro.insets = new Insets(0, 0, 0, 5);
+		gbc_lblValorDinheiro.gridx = 0;
+		gbc_lblValorDinheiro.gridy = 1;
+		panelValores.add(lblValorDinheiro, gbc_lblValorDinheiro);
 
 		JLabel lblRS2 = new JLabel("R$");
 		lblRS2.setForeground(new Color(31, 65, 45));
@@ -364,16 +350,25 @@ public class VendasPagamento extends JFrame {
 		gbc_lblRS2.gridx = 1;
 		gbc_lblRS2.gridy = 1;
 		panelValores.add(lblRS2, gbc_lblRS2);
-
-		JLabel lblImposto2 = new JLabel("00,00\r\n");
-		lblImposto2.setForeground(new Color(31, 65, 45));
-		lblImposto2.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
-		GridBagConstraints gbc_lblImposto2 = new GridBagConstraints();
-		gbc_lblImposto2.anchor = GridBagConstraints.WEST;
-		gbc_lblImposto2.insets = new Insets(0, 0, 0, 5);
-		gbc_lblImposto2.gridx = 2;
-		gbc_lblImposto2.gridy = 1;
-		panelValores.add(lblImposto2, gbc_lblImposto2);
+		
+		txtValorDinheiro = new JTextField();
+		txtValorDinheiro.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				atualizarTroco(venda);
+			}
+		});
+		txtValorDinheiro.setBorder(new LineBorder(new Color(31, 65, 45), 2));
+		txtValorDinheiro.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 18));
+		GridBagConstraints gbc_textField = new GridBagConstraints();
+		gbc_textField.gridwidth = 3;
+		gbc_textField.insets = new Insets(0, 0, 0, 5);
+		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField.gridx = 2;
+		gbc_textField.gridy = 1;
+		panelValores.add(txtValorDinheiro, gbc_textField);
+		txtValorDinheiro.setColumns(10);
+		
 
 		JLabel lblTroco = new JLabel("Troco:");
 		lblTroco.setForeground(new Color(31, 65, 45));
@@ -395,7 +390,7 @@ public class VendasPagamento extends JFrame {
 		gbc_lblRS4.gridy = 1;
 		panelValores.add(lblRS4, gbc_lblRS4);
 
-		JLabel lblTroco2 = new JLabel("00,00\r\n");
+		lblTroco2 = new JLabel("00,00\r\n");
 		lblTroco2.setForeground(new Color(31, 65, 45));
 		lblTroco2.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		GridBagConstraints gbc_lblTroco2 = new GridBagConstraints();
@@ -482,6 +477,13 @@ public class VendasPagamento extends JFrame {
 		btnMenu.setBorder(null);
 		btnMenu.setBackground(new Color(150, 191, 120));
 		panelMenuLateral.add(btnMenu, BorderLayout.SOUTH);
+	}
+	
+	protected void atualizarTroco(Venda venda) {
+		
+		valorTotal = Float.parseFloat(txtValorDinheiro.getText()) - valorTotalVenda(venda);
+		lblTroco2.setText(String.valueOf(valorTotal));
+		
 	}
 
 }
