@@ -11,9 +11,25 @@ public class Venda {
 	private Date venda_data;
 	private Usuario usuario;
 	ItemVenda iv = new ItemVenda();
-	ArrayList<ItemVenda> itensVenda = new ArrayList<ItemVenda>();
+	ArrayList<ItemVenda> arrayItensVenda = new ArrayList<ItemVenda>();
 	
 
+	public ArrayList<ItemVenda> getArrayItensVenda() {
+		return arrayItensVenda;
+	}
+
+	public void adicionarItem(ItemVenda item) {
+		arrayItensVenda.add(item);
+	}
+	
+	public void deletarItem(int cod) {
+		for (int i = 0; i < arrayItensVenda.size(); i++) {
+			if (cod == i) {
+				arrayItensVenda.remove(cod);
+			}
+		}
+	}
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}

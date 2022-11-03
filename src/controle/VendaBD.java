@@ -3,10 +3,14 @@ package controle;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
+import modelo.ItemVenda;
 import modelo.Produto;
+import modelo.Venda;
 
 public class VendaBD {
 	private ConexaoBD cbd = new ConexaoBD();
@@ -49,4 +53,6 @@ public class VendaBD {
 		
 		return null;
 	}
+	
+	
 }
