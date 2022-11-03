@@ -61,8 +61,15 @@ public class TelaBemVindo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaBemVindo() 
-	{
+
+	public void abrir() {
+		//TelaBemVindo frame = new TelaBemVindo();
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
+
+	public TelaBemVindo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1034, 641);
 		contentPane = new JPanel();
@@ -279,8 +286,18 @@ public class TelaBemVindo extends JFrame {
 */		
 	}
 
-	public void abrir() {
-		tbv.setVisible(false);
-		
+		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
+		separator.setBackground(new Color(234, 242, 237));
+		separator.setForeground(new Color(234, 242, 237));
+		separator.setBounds(1294, 0, 2, 40);
+		BarraSuperior.add(separator);
+
+		JLabel Logo = new JLabel("");
+		Logo.setLabelFor(Logo);
+		Logo.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/3.png")));
+		Logo.setBounds(461, 51, 469, 402);
+		panel.add(Logo);
+>>>>>>> produto_bd
 	}
 }

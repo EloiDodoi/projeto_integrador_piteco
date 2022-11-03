@@ -143,7 +143,7 @@ public class TelaSalvarProduto {
 		lblNomeDoVegetal_1_1_1_1_1.setBounds(174, 299, 84, 28);
 		panel_2.add(lblNomeDoVegetal_1_1_1_1_1);
 
-		txt_nome = new JTextField();
+		JTextField txt_nome = new JTextField();
 		txt_nome.setBackground(new Color(234, 242, 237));
 		txt_nome.setForeground(Color.DARK_GRAY);
 		txt_nome.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -152,7 +152,7 @@ public class TelaSalvarProduto {
 		txt_nome.setBounds(410, 51, 943, 35);
 		panel_2.add(txt_nome);
 
-		rb_Kg = new JRadioButton("Quilograma (Kg)");
+		JRadioButton rb_Kg = new JRadioButton("Quilograma (Kg)");
 		buttonGroup.add(rb_Kg);
 		rb_Kg.setBorder(new LineBorder(new Color(0, 0, 0)));
 		rb_Kg.setForeground(new Color(31, 65, 45));
@@ -164,7 +164,7 @@ public class TelaSalvarProduto {
 		
 
 
-		txt_especie = new JTextField();
+		JTextField txt_especie = new JTextField();
 		txt_especie.setForeground(Color.DARK_GRAY);
 		txt_especie.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		txt_especie.setColumns(10);
@@ -173,7 +173,7 @@ public class TelaSalvarProduto {
 		txt_especie.setBounds(410, 125, 943, 35);
 		panel_2.add(txt_especie);
 
-		txt_preco = new JTextField();
+		JTextField txt_preco = new JTextField();
 		txt_preco.setForeground(Color.DARK_GRAY);
 		txt_preco.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		txt_preco.setColumns(10);
@@ -182,7 +182,7 @@ public class TelaSalvarProduto {
 		txt_preco.setBounds(225, 297, 293, 35);
 		panel_2.add(txt_preco);
 
-		txt_quantidade = new JTextField();
+		JTextField txt_quantidade = new JTextField();
 		txt_quantidade.setForeground(Color.DARK_GRAY);
 		txt_quantidade.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		txt_quantidade.setColumns(10);
@@ -191,7 +191,7 @@ public class TelaSalvarProduto {
 		txt_quantidade.setBounds(1060, 297, 293, 35);
 		panel_2.add(txt_quantidade);
 
-		rb_Unidade = new JRadioButton("Unidade");
+		JRadioButton rb_Unidade = new JRadioButton("Unidade");
 		buttonGroup.add(rb_Unidade);
 		rb_Unidade.setForeground(new Color(31, 65, 45));
 		rb_Unidade.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
@@ -292,7 +292,7 @@ public class TelaSalvarProduto {
 		btnUser.setBounds(1524, 0, 60, 40);
 		panel_2_1.add(btnUser);
 		
-		lbl_codigo = new JLabel("0");
+		JLabel lbl_codigo = new JLabel("0");
 		lbl_codigo.setHorizontalAlignment(SwingConstants.TRAILING);
 		lbl_codigo.setFont(new Font("Tahoma", Font.PLAIN, 92));
 		lbl_codigo.setBounds(1100, 124, 454, 126);

@@ -1,8 +1,10 @@
 package visao;
 
-import java.awt.EventQueue;
+import java.awt.*;
 
-import javax.swing.JFrame;
+import javax.swing.*;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.Component;
@@ -12,6 +14,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.JSpinner;
 import javax.swing.JToggleButton;
@@ -100,7 +103,7 @@ public class TelaCadastroAdm {
 		lblVendedor.setBounds(25, 0, 871, 110);
 		panel_1.add(lblVendedor);
 		
-		lblNewLabel_12 = new JLabel("");
+		JLabel lblNewLabel_12 = new JLabel("");
 		lblNewLabel_12.setIcon(new ImageIcon(TelaCadastroAdm.class.getResource("/img/farmer-128px.png")));
 		lblNewLabel_12.setBounds(1032, 0, 175, 141);
 		panel_1.add(lblNewLabel_12);
@@ -111,23 +114,92 @@ public class TelaCadastroAdm {
 		frame.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBackground(new Color(245, 250, 248));
-		textField.setBounds(37, 59, 565, 35);
-		panel_2.add(textField);
+		JLabel lblNewLabel = new JLabel("Nome Completo");
+		lblNewLabel.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		lblNewLabel.setAlignmentY(Component.TOP_ALIGNMENT);
+		lblNewLabel.setForeground(new Color(31, 65, 45));
+		lblNewLabel.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+		gbc_lblNewLabel.fill = GridBagConstraints.BOTH;
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel.gridx = 0;
+		gbc_lblNewLabel.gridy = 0;
+		panel_2.add(lblNewLabel, gbc_lblNewLabel);
+		
+		JTextField textField = new JTextField();
+		textField.setBackground(new Color(234, 242, 237));
+		GridBagConstraints gbc_textField = new GridBagConstraints();
+		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField.anchor = GridBagConstraints.NORTH;
+		gbc_textField.insets = new Insets(0, 0, 5, 0);
+		gbc_textField.gridx = 0;
+		gbc_textField.gridy = 1;
+		panel_2.add(textField, gbc_textField);
 		textField.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		textField.setForeground(Color.DARK_GRAY);
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		textField.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBackground(new Color(245, 250, 248));
+		JLabel lblNewLabel_2 = new JLabel("CPF");
+		lblNewLabel_2.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		lblNewLabel_2.setAlignmentY(Component.TOP_ALIGNMENT);
+		lblNewLabel_2.setForeground(new Color(31, 65, 45));
+		lblNewLabel_2.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
+		gbc_lblNewLabel_2.fill = GridBagConstraints.BOTH;
+		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_2.gridx = 0;
+		gbc_lblNewLabel_2.gridy = 2;
+		panel_2.add(lblNewLabel_2, gbc_lblNewLabel_2);
+		
+		JTextField textField_2 = new JTextField();
+		textField_2.setBackground(new Color(234, 242, 237));
 		textField_2.setForeground(Color.DARK_GRAY);
 		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		textField_2.setColumns(10);
 		textField_2.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		textField_2.setBounds(37, 143, 565, 35);
 		panel_2.add(textField_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Data de Nascimento");
+		lblNewLabel_3.setAlignmentY(Component.TOP_ALIGNMENT);
+		lblNewLabel_3.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
+		gbc_lblNewLabel_3.fill = GridBagConstraints.BOTH;
+		gbc_lblNewLabel_3.anchor = GridBagConstraints.NORTHWEST;
+		gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_3.gridx = 0;
+		gbc_lblNewLabel_3.gridy = 4;
+		panel_2.add(lblNewLabel_3, gbc_lblNewLabel_3);
+		lblNewLabel_3.setForeground(new Color(31, 65, 45));
+		lblNewLabel_3.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
+		
+		JPanel panel_5 = new JPanel();
+		GridBagConstraints gbc_panel_5 = new GridBagConstraints();
+		gbc_panel_5.fill = GridBagConstraints.BOTH;
+		gbc_panel_5.anchor = GridBagConstraints.NORTH;
+		gbc_panel_5.gridx = 0;
+		gbc_panel_5.gridy = 5;
+		panel_2.add(panel_5, gbc_panel_5);
+		panel_5.setLayout(new GridLayout(2, 3, 3, 0));
+		
+		JLabel lblNewLabel_4 = new JLabel("Dia");
+		lblNewLabel_4.setBackground(new Color(234, 242, 237));
+		panel_5.add(lblNewLabel_4);
+		lblNewLabel_4.setForeground(new Color(31, 65, 45));
+		lblNewLabel_4.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
+		
+		JLabel lblNewLabel_5 = new JLabel("M�s");
+		lblNewLabel_5.setBackground(new Color(234, 242, 237));
+		panel_5.add(lblNewLabel_5);
+		lblNewLabel_5.setForeground(new Color(31, 65, 45));
+		lblNewLabel_5.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
+		
+		JLabel lblNewLabel_6 = new JLabel("Ano");
+		lblNewLabel_6.setBackground(new Color(234, 242, 237));
+		panel_5.add(lblNewLabel_6);
+		lblNewLabel_6.setForeground(new Color(31, 65, 45));
+		lblNewLabel_6.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setForeground(new Color(31, 65, 45));
@@ -156,63 +228,40 @@ public class TelaCadastroAdm {
 		comboBox_1_1.setBounds(443, 272, 159, 35);
 		panel_2.add(comboBox_1_1);
 		
-		lblNewLabel = new JLabel("Nome Completo");
-		lblNewLabel.setForeground(new Color(31, 65, 45));
-		lblNewLabel.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		lblNewLabel.setBounds(37, 31, 293, 28);
-		panel_2.add(lblNewLabel);
-		
-		lblNewLabel_2 = new JLabel("CPF");
-		lblNewLabel_2.setForeground(new Color(31, 65, 45));
-		lblNewLabel_2.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		lblNewLabel_2.setBounds(37, 115, 293, 28);
-		panel_2.add(lblNewLabel_2);
-		
-		lblNewLabel_3 = new JLabel("Data de Nascimento");
-		lblNewLabel_3.setForeground(new Color(31, 65, 45));
-		lblNewLabel_3.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		lblNewLabel_3.setBounds(37, 199, 293, 28);
-		panel_2.add(lblNewLabel_3);
-		
-		lblNewLabel_4 = new JLabel("Dia");
-		lblNewLabel_4.setForeground(new Color(31, 65, 45));
-		lblNewLabel_4.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		lblNewLabel_4.setBounds(37, 245, 73, 28);
-		panel_2.add(lblNewLabel_4);
-		
-		lblNewLabel_5 = new JLabel("Mês");
-		lblNewLabel_5.setForeground(new Color(31, 65, 45));
-		lblNewLabel_5.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		lblNewLabel_5.setBounds(202, 245, 73, 28);
-		panel_2.add(lblNewLabel_5);
-		
-		lblNewLabel_6 = new JLabel("Ano");
-		lblNewLabel_6.setForeground(new Color(31, 65, 45));
-		lblNewLabel_6.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		lblNewLabel_6.setBounds(443, 245, 73, 28);
-		panel_2.add(lblNewLabel_6);
-		
-		lblNewLabel_7 = new JLabel("Senha");
+		JLabel lblNewLabel_7 = new JLabel("Senha");
+		lblNewLabel_7.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		lblNewLabel_7.setAlignmentY(Component.TOP_ALIGNMENT);
 		lblNewLabel_7.setForeground(new Color(31, 65, 45));
 		lblNewLabel_7.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
 		lblNewLabel_7.setBounds(37, 329, 293, 28);
 		panel_2.add(lblNewLabel_7);
 		
-		lblNewLabel_10 = new JLabel("Confirme sua Senha");
-		lblNewLabel_10.setForeground(new Color(31, 65, 45));
-		lblNewLabel_10.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		lblNewLabel_10.setBounds(37, 413, 293, 28);
-		panel_2.add(lblNewLabel_10);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBackground(new Color(245, 250, 248));
-		passwordField.setBounds(37, 355, 565, 35);
-		panel_2.add(passwordField);
+		JPasswordField passwordField = new JPasswordField();
+		passwordField.setBackground(new Color(234, 242, 237));
+		GridBagConstraints gbc_passwordField = new GridBagConstraints();
+		gbc_passwordField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_passwordField.insets = new Insets(0, 0, 5, 0);
+		gbc_passwordField.gridx = 0;
+		gbc_passwordField.gridy = 7;
+		panel_2.add(passwordField, gbc_passwordField);
 		passwordField.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		passwordField.setForeground(Color.DARK_GRAY);
 		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		
-		passwordField_1 = new JPasswordField();
+		JLabel lblNewLabel_10 = new JLabel("Confirme sua Senha");
+		lblNewLabel_10.setAlignmentY(Component.TOP_ALIGNMENT);
+		lblNewLabel_10.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		lblNewLabel_10.setForeground(new Color(31, 65, 45));
+		lblNewLabel_10.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		GridBagConstraints gbc_lblNewLabel_10 = new GridBagConstraints();
+		gbc_lblNewLabel_10.fill = GridBagConstraints.BOTH;
+		gbc_lblNewLabel_10.anchor = GridBagConstraints.NORTHWEST;
+		gbc_lblNewLabel_10.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_10.gridx = 0;
+		gbc_lblNewLabel_10.gridy = 8;
+		panel_2.add(lblNewLabel_10, gbc_lblNewLabel_10);
+		
+		JPasswordField passwordField_1 = new JPasswordField();
 		passwordField_1.setBackground(new Color(234, 242, 237));
 		passwordField_1.setForeground(Color.DARK_GRAY);
 		passwordField_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -226,7 +275,41 @@ public class TelaCadastroAdm {
 		panel_3.setBackground(new Color(234, 242, 237));
 		panel_3.setLayout(null);
 		
-		textField_5 = new JTextField();
+		JLabel lblNewLabel_11 = new JLabel("Nome do seu Neg\u00F3cio\r\n");
+		GridBagConstraints gbc_lblNewLabel_11 = new GridBagConstraints();
+		gbc_lblNewLabel_11.anchor = GridBagConstraints.WEST;
+		gbc_lblNewLabel_11.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_11.gridx = 0;
+		gbc_lblNewLabel_11.gridy = 0;
+		panel_3.add(lblNewLabel_11, gbc_lblNewLabel_11);
+		lblNewLabel_11.setForeground(new Color(31, 65, 45));
+		lblNewLabel_11.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		
+		JTextField textField_1 = new JTextField();
+		textField_1.setBackground(new Color(234, 242, 237));
+		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
+		gbc_textField_1.fill = GridBagConstraints.BOTH;
+		gbc_textField_1.insets = new Insets(0, 0, 5, 0);
+		gbc_textField_1.gridx = 0;
+		gbc_textField_1.gridy = 1;
+		panel_3.add(textField_1, gbc_textField_1);
+		textField_1.setForeground(Color.DARK_GRAY);
+		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		textField_1.setColumns(10);
+		textField_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		
+		JLabel lblNewLabel_8 = new JLabel("Telefone");
+		lblNewLabel_8.setForeground(new Color(31, 65, 45));
+		lblNewLabel_8.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		GridBagConstraints gbc_lblNewLabel_8 = new GridBagConstraints();
+		gbc_lblNewLabel_8.insets = new Insets(10, 6, 5, 0);
+		gbc_lblNewLabel_8.anchor = GridBagConstraints.NORTH;
+		gbc_lblNewLabel_8.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblNewLabel_8.gridx = 0;
+		gbc_lblNewLabel_8.gridy = 2;
+		panel_3.add(lblNewLabel_8, gbc_lblNewLabel_8);
+		
+		JTextField textField_5 = new JTextField();
 		textField_5.setBackground(new Color(234, 242, 237));
 		textField_5.setBounds(31, 58, 470, 35);
 		panel_3.add(textField_5);
@@ -235,7 +318,18 @@ public class TelaCadastroAdm {
 		textField_5.setColumns(10);
 		textField_5.setBorder(new LineBorder(new Color(31, 65, 45), 2));
 		
-		textField_6 = new JTextField();
+		JLabel lblNewLabel_1 = new JLabel("E-mail");
+		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
+		gbc_lblNewLabel_1.anchor = GridBagConstraints.NORTH;
+		gbc_lblNewLabel_1.fill = GridBagConstraints.BOTH;
+		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_1.gridx = 0;
+		gbc_lblNewLabel_1.gridy = 4;
+		panel_3.add(lblNewLabel_1, gbc_lblNewLabel_1);
+		lblNewLabel_1.setForeground(new Color(31, 65, 45));
+		lblNewLabel_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		
+		JTextField textField_6 = new JTextField();
 		textField_6.setBackground(new Color(234, 242, 237));
 		textField_6.setForeground(Color.DARK_GRAY);
 		textField_6.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -244,7 +338,18 @@ public class TelaCadastroAdm {
 		textField_6.setBounds(31, 140, 470, 35);
 		panel_3.add(textField_6);
 		
-		textField_7 = new JTextField();
+		JLabel lblNewLabel_9 = new JLabel("CNPJ");
+		lblNewLabel_9.setForeground(new Color(31, 65, 45));
+		lblNewLabel_9.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		GridBagConstraints gbc_lblNewLabel_9 = new GridBagConstraints();
+		gbc_lblNewLabel_9.anchor = GridBagConstraints.NORTH;
+		gbc_lblNewLabel_9.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblNewLabel_9.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_9.gridx = 0;
+		gbc_lblNewLabel_9.gridy = 6;
+		panel_3.add(lblNewLabel_9, gbc_lblNewLabel_9);
+		
+		JTextField textField_7 = new JTextField();
 		textField_7.setBackground(new Color(234, 242, 237));
 		textField_7.setForeground(Color.DARK_GRAY);
 		textField_7.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -253,32 +358,16 @@ public class TelaCadastroAdm {
 		textField_7.setBounds(31, 224, 470, 35);
 		panel_3.add(textField_7);
 		
-		panel_4 = new JPanel();
-		panel_4.setBackground(new Color(31, 65, 45));
-		panel_4.setBorder(new LineBorder(new Color(31, 65, 45), 50, true));
-		panel_4.setBounds(31, 26, 301, 35);
-		panel_3.add(panel_4);
-		panel_4.setLayout(null);
-		
-		lblNewLabel_11 = new JLabel("Nome do seu Negócio");
-		lblNewLabel_11.setBounds(4, 3, 293, 28);
-		panel_4.add(lblNewLabel_11);
-		lblNewLabel_11.setForeground(new Color(234, 242, 237));
-		lblNewLabel_11.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		
-		lblNewLabel_8 = new JLabel("Telefone");
-		lblNewLabel_8.setForeground(new Color(31, 65, 45));
-		lblNewLabel_8.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		lblNewLabel_8.setBounds(31, 113, 293, 28);
-		panel_3.add(lblNewLabel_8);
-		
-		lblNewLabel_9 = new JLabel("CNPJ");
-		lblNewLabel_9.setForeground(new Color(31, 65, 45));
-		lblNewLabel_9.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		lblNewLabel_9.setBounds(31, 280, 293, 28);
-		panel_3.add(lblNewLabel_9);
-		
-		btnNewButton = new JButton("Cadastrar");
+		JButton btnNewButton = new JButton("Cadastrar");
+		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
+		gbc_btnNewButton.gridx = 0;
+		gbc_btnNewButton.gridy = 8;
+		panel_3.add(btnNewButton, gbc_btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
 		btnNewButton.setForeground(new Color(217, 173, 181));
 		btnNewButton.setBackground(new Color(234, 242, 237));
@@ -286,7 +375,7 @@ public class TelaCadastroAdm {
 		btnNewButton.setBounds(83, 399, 367, 76);
 		panel_3.add(btnNewButton);
 		
-		textField_1 = new JTextField();
+/*		JTextField textField_1 = new JTextField();
 		textField_1.setBackground(new Color(234, 242, 237));
 		textField_1.setBounds(29, 308, 472, 35);
 		panel_3.add(textField_1);
@@ -295,7 +384,7 @@ public class TelaCadastroAdm {
 		textField_1.setColumns(10);
 		textField_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		
-		lblNewLabel_1 = new JLabel("E-mail");
+		JLabel lblNewLabel_1 = new JLabel("E-mail");
 		lblNewLabel_1.setBounds(31, 197, 293, 28);
 		panel_3.add(lblNewLabel_1);
 		lblNewLabel_1.setForeground(new Color(31, 65, 45));
@@ -306,6 +395,20 @@ public class TelaCadastroAdm {
 		panel.setBounds(206, 202, 1171, 543);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
+*/		
+		JButton btnNewButton_1 = new JButton("<");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaLoginAdm tla = new TelaLoginAdm();
+				tla.abrir();
+				frame.setVisible(false);
+			}
+		});
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 30));
+		btnNewButton_1.setBackground(new Color(31, 65, 45));
+		btnNewButton_1.setBounds(28, 26, 60, 56);
+		frame.getContentPane().add(btnNewButton_1);
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1600, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
