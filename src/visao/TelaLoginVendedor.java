@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -71,69 +73,6 @@ public class TelaLoginVendedor {
 		frame.getContentPane().setBackground(new Color(150, 191, 120));
 		frame.getContentPane().setLayout(null);
 
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(234, 242, 237));
-		panel.setBounds(467, 345, 650, 380);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
-
-		JLabel lblUsuario = new JLabel("Usuário");
-		lblUsuario.setForeground(new Color(31, 65, 45));
-		lblUsuario.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		lblUsuario.setBounds(37, 37, 146, 31);
-		panel.add(lblUsuario);
-
-		txt_login = new JTextField();
-		txt_login.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		txt_login.setForeground(Color.DARK_GRAY);
-		txt_login.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txt_login.setColumns(10);
-		txt_login.setBackground(Color.WHITE);
-		txt_login.setBounds(36, 79, 578, 39);
-		panel.add(txt_login);
-
-		JLabel lblNewLabel_1 = new JLabel("Senha");
-		lblNewLabel_1.setForeground(new Color(31, 65, 45));
-		lblNewLabel_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		lblNewLabel_1.setBackground(SystemColor.menu);
-		lblNewLabel_1.setBounds(37, 150, 120, 31);
-		panel.add(lblNewLabel_1);
-
-		JLabel lblNewLabel_2 = new JLabel("*para logar insira seu e-mail e a sua senha");
-		lblNewLabel_2.setForeground(Color.DARK_GRAY);
-		lblNewLabel_2.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 16));
-		lblNewLabel_2.setBounds(37, 242, 507, 25);
-		panel.add(lblNewLabel_2);
-
-		JButton btnEntrar = new JButton("Entrar");
-		btnEntrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Usuario login = new Usuario(0, null, null, null, null, null, Md5.cifrar(txt_senha.getText()), txt_login.getText(), 0);
-				LoginVendedorBD lg = new LoginVendedorBD();
-				if (lg.autenticar(login)== null ) {
-					System.out.println("Erro Login");
-					JOptionPane.showMessageDialog(null, "E-mail ou senha incorretos, tente novamente!");
-				}else {
-					System.out.println("Login feito com êxito");
-					TelaBemVindo tb = new TelaBemVindo();
-					tb.abrir();
-					frame.setVisible(false);
-				}
-			}
-		});
-		btnEntrar.setForeground(new Color(234, 242, 237));
-		btnEntrar.setFont(new Font("Alef", Font.PLAIN, 25));
-		btnEntrar.setBackground(new Color(31, 65, 45));
-		btnEntrar.setBounds(137, 307, 375, 46);
-		panel.add(btnEntrar);
-
-		txt_senha = new JPasswordField();
-		txt_senha.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		txt_senha.setForeground(Color.DARK_GRAY);
-		txt_senha.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txt_senha.setBounds(37, 192, 577, 39);
-		panel.add(txt_senha);
-
 		JLabel lblVendedor = new JLabel("Vendedor");
 		lblVendedor.setHorizontalAlignment(SwingConstants.CENTER);
 		lblVendedor.setForeground(new Color(234, 242, 237));
@@ -146,17 +85,17 @@ public class TelaLoginVendedor {
 																														lblNewLabel.setBounds(596, 183, 180, 180);
 																														frame.getContentPane().add(lblNewLabel);
 																														
-																																JPanel panel = new JPanel();
-																																panel.setBackground(new Color(234, 242, 237));
-																																panel.setBounds(360, 315, 650, 380);
-																																frame.getContentPane().add(panel);
-																																panel.setLayout(null);
+																																JPanel panel1 = new JPanel();
+																																panel1.setBackground(new Color(234, 242, 237));
+																																panel1.setBounds(360, 315, 650, 380);
+																																frame.getContentPane().add(panel1);
+																																panel1.setLayout(null);
 																																
-																																		JLabel lblUsuario = new JLabel("Usu�rio");
-																																		lblUsuario.setForeground(new Color(31, 65, 45));
-																																		lblUsuario.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-																																		lblUsuario.setBounds(37, 37, 146, 31);
-																																		panel.add(lblUsuario);
+																																		JLabel lblUsuario1 = new JLabel("Usu�rio");
+																																		lblUsuario1.setForeground(new Color(31, 65, 45));
+																																		lblUsuario1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+																																		lblUsuario1.setBounds(37, 37, 146, 31);
+																																		panel1.add(lblUsuario1);
 																																		
 																																				txtUsuarioVendedor = new JTextField();
 																																				txtUsuarioVendedor.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
@@ -165,42 +104,44 @@ public class TelaLoginVendedor {
 																																				txtUsuarioVendedor.setColumns(10);
 																																				txtUsuarioVendedor.setBackground(Color.WHITE);
 																																				txtUsuarioVendedor.setBounds(36, 79, 578, 39);
-																																				panel.add(txtUsuarioVendedor);
+																																				panel1.add(txtUsuarioVendedor);
 																																				
-																																						JLabel lblNewLabel_1 = new JLabel("Senha");
-																																						lblNewLabel_1.setForeground(new Color(31, 65, 45));
-																																						lblNewLabel_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-																																						lblNewLabel_1.setBackground(SystemColor.menu);
-																																						lblNewLabel_1.setBounds(37, 150, 120, 31);
-																																						panel.add(lblNewLabel_1);
+																																						JLabel lblNewLabel_11 = new JLabel("Senha");
+																																						lblNewLabel_11.setForeground(new Color(31, 65, 45));
+																																						lblNewLabel_11.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+																																						lblNewLabel_11.setBackground(SystemColor.menu);
+																																						lblNewLabel_11.setBounds(37, 150, 120, 31);
+																																						panel1.add(lblNewLabel_11);
 																																						
-																																								JLabel lblNewLabel_2 = new JLabel("*para logar insira seu e-mail ou CNPJ e a sua senha");
-																																								lblNewLabel_2.setForeground(Color.DARK_GRAY);
-																																								lblNewLabel_2.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 16));
-																																								lblNewLabel_2.setBounds(37, 242, 507, 25);
-																																								panel.add(lblNewLabel_2);
+																																								JLabel lblNewLabel_21 = new JLabel("*para logar insira seu e-mail ou CNPJ e a sua senha");
+																																								lblNewLabel_21.setForeground(Color.DARK_GRAY);
+																																								lblNewLabel_21.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 16));
+																																								lblNewLabel_21.setBounds(37, 242, 507, 25);
+																																								panel1.add(lblNewLabel_21);
 																																								
-																																										JButton btnEntrar = new JButton("Entrar");
-																																										btnEntrar.addActionListener(new ActionListener() {
+																																										JButton btnEntrar1 = new JButton("Entrar");
+																																										btnEntrar1.addActionListener(new ActionListener() {
 																																											public void actionPerformed(ActionEvent e) {
 																																											}
 																																										});
-																																										btnEntrar.setForeground(new Color(31, 65, 45));
-																																										btnEntrar.setFont(new Font("Alef", Font.PLAIN, 25));
-																																										btnEntrar.setBackground(new Color(31, 65, 45));
-																																										btnEntrar.setBounds(137, 307, 375, 46);
-																																										panel.add(btnEntrar);
+																																										btnEntrar1.setForeground(new Color(31, 65, 45));
+																																										btnEntrar1.setFont(new Font("Alef", Font.PLAIN, 25));
+																																										btnEntrar1.setBackground(new Color(31, 65, 45));
+																																										btnEntrar1.setBounds(137, 307, 375, 46);
+																																										panel1.add(btnEntrar1);
 																																										
 																																												passwordField = new JPasswordField();
 																																												passwordField.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 																																												passwordField.setForeground(Color.DARK_GRAY);
 																																												passwordField.setFont(new Font("Tahoma", Font.PLAIN, 25));
 																																												passwordField.setBounds(37, 192, 577, 39);
-																																												panel.add(passwordField);
-		URL resource = this.getClass().getResource("../img/adm_login.png");
+																																												panel1.add(passwordField);
+
+																																												URL resource = this.getClass().getResource("../img/adm_login.png");
 		Image img1 = new ImageIcon(resource).getImage();
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1600, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
+
