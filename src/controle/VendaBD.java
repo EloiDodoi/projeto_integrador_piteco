@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 import modelo.ItemVenda;
 import modelo.Produto;
+import modelo.Usuario;
 import modelo.Venda;
 
 public class VendaBD {
@@ -53,6 +54,17 @@ public class VendaBD {
 		
 		return null;
 	}
-	
+	public void executarVenda(Venda venda) {
+		try {
+			PreparedStatement ps = cbd.getConexao().prepareStatement("Insert into venda values (?,?,?)");
+			ps.setFloat(1, venda.getVenda_valor());
+			ps.setDate(2, venda.getVenda_data());
+			ps.setInt(3, venda.getUsuario().getUsuario_id());
+			ps.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }

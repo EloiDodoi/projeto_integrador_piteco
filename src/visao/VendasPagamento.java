@@ -445,6 +445,12 @@ public class VendasPagamento extends JFrame {
 		panelCentro.add(panel_5, BorderLayout.SOUTH);
 
 		JButton btnFinalizar = new JButton(" Finalizar\r\n\r\n ");
+		btnFinalizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VendaBD vbd = new VendaBD();
+				vbd.executarVenda(venda);
+			}
+		});
 		btnFinalizar.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
 		btnFinalizar.setBackground(new Color(234, 242, 237));
 		btnFinalizar.setForeground(new Color(217, 173, 181));
