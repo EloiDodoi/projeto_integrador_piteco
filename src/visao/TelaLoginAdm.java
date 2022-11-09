@@ -36,7 +36,8 @@ public class TelaLoginAdm {
 	private JTextField txt_login;
 	private JPasswordField txt_senha;
 	static TelaLoginAdm window = new TelaLoginAdm();
-
+	
+	static Usuario user;
 	/**
 	 * Launch the application.
 	 */
@@ -137,6 +138,7 @@ public class TelaLoginAdm {
 				}else {
 					System.out.println("Login feito com êxito");
 					TelaBemVindo tb = new TelaBemVindo();
+					user = lg.autenticar(login);
 					tb.abrir();
 					frmLoginDoAdministrador.setVisible(false);
 				}

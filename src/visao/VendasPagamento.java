@@ -36,9 +36,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import visao.TelaLoginAdm;
 
 public class VendasPagamento extends JFrame {
-
 	private JPanel contentPane;
 	private JTable table;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -448,6 +448,7 @@ public class VendasPagamento extends JFrame {
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VendaBD vbd = new VendaBD();
+				venda.setUsuario(TelaLoginAdm.user);
 				vbd.executarVenda(venda);
 			}
 		});
