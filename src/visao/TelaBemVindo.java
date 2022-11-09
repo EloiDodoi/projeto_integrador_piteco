@@ -38,7 +38,7 @@ import java.awt.GridLayout;
 
 public class TelaBemVindo extends JFrame {
 
-	TelaBemVindo tbv = new TelaBemVindo();
+	static TelaBemVindo frame = new TelaBemVindo();
 	private int statusMenu = 0;
 	private JPanel contentPane;
 
@@ -49,7 +49,6 @@ public class TelaBemVindo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaBemVindo frame = new TelaBemVindo();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -64,9 +63,9 @@ public class TelaBemVindo extends JFrame {
 
 	public void abrir() {
 		//TelaBemVindo frame = new TelaBemVindo();
-		tbv.setVisible(true);
-		tbv.setLocationRelativeTo(null);
-		tbv.setExtendedState(tbv.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 
 	public TelaBemVindo() {
@@ -99,6 +98,7 @@ public class TelaBemVindo extends JFrame {
 		panel_3.setLayout(gbl_panel_3);
 		
 		JButton btnCadastro = new JButton("Cadastro");
+		btnCadastro.setBorder(new LineBorder(new Color(0, 0, 0)));
 		GridBagConstraints gbc_btnCadastro = new GridBagConstraints();
 		gbc_btnCadastro.fill = GridBagConstraints.BOTH;
 		gbc_btnCadastro.insets = new Insets(0, 0, 10, 5);
@@ -109,14 +109,15 @@ public class TelaBemVindo extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TelaCadastroProduto cadastro_produto = new TelaCadastroProduto();
 				cadastro_produto.abrir();
-				tbv.setVisible(false);
+				frame.setVisible(false);
 			}
 		});
-		btnCadastro.setBackground(new Color(150, 191, 120));
+		btnCadastro.setBackground(new Color(192, 192, 192));
 		btnCadastro.setForeground(new Color(150, 191, 120));
 		btnCadastro.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 65));
 		
 		JButton btnVenda = new JButton("Venda");
+		btnVenda.setBorder(new LineBorder(new Color(0, 0, 0)));
 		GridBagConstraints gbc_btnVenda = new GridBagConstraints();
 		gbc_btnVenda.insets = new Insets(0, 0, 10, 0);
 		gbc_btnVenda.fill = GridBagConstraints.BOTH;
@@ -125,9 +126,12 @@ public class TelaBemVindo extends JFrame {
 		panel_3.add(btnVenda, gbc_btnVenda);
 		btnVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Venda venda = new Venda();
+				venda.abrir();
+				frame.setVisible(false);
 			}
 		});
-		btnVenda.setBackground(new Color(150, 191, 120));
+		btnVenda.setBackground(new Color(192, 192, 192));
 		btnVenda.setForeground(new Color(150, 191, 120));
 		btnVenda.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 65));
 
@@ -216,9 +220,9 @@ public class TelaBemVindo extends JFrame {
 		panel_8.setBackground(new Color(150, 191, 120));
 		BarraSuperior.add(panel_8, BorderLayout.EAST);
 		GridBagLayout gbl_panel_8 = new GridBagLayout();
-		gbl_panel_8.columnWidths = new int[] {30, 30, 20, 30, 20};
+		gbl_panel_8.columnWidths = new int[] {30, 30, 20, 0, 30, 20};
 		gbl_panel_8.rowHeights = new int[]{33, 0};
-		gbl_panel_8.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0};
+		gbl_panel_8.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		gbl_panel_8.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		panel_8.setLayout(gbl_panel_8);
 		
@@ -247,7 +251,7 @@ public class TelaBemVindo extends JFrame {
 		JButton btnNotificacao = new JButton("");
 		GridBagConstraints gbc_btnNotificacao = new GridBagConstraints();
 		gbc_btnNotificacao.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNotificacao.gridx = 2;
+		gbc_btnNotificacao.gridx = 3;
 		gbc_btnNotificacao.gridy = 0;
 		panel_8.add(btnNotificacao, gbc_btnNotificacao);
 		btnNotificacao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/notificacao.png")));
@@ -258,8 +262,8 @@ public class TelaBemVindo extends JFrame {
 
 		JButton btnUser = new JButton("");
 		GridBagConstraints gbc_btnUser = new GridBagConstraints();
-		gbc_btnUser.insets = new Insets(5, 0, 5, 10);
-		gbc_btnUser.gridx = 4;
+		gbc_btnUser.insets = new Insets(5, 0, 0, 10);
+		gbc_btnUser.gridx = 5;
 		gbc_btnUser.gridy = 0;
 		panel_8.add(btnUser, gbc_btnUser);
 		btnUser.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/farmer.png")));
@@ -305,6 +309,7 @@ public class TelaBemVindo extends JFrame {
 		Logo.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/3.png")));
 		Logo.setBounds(461, 51, 469, 402);
 		panel.add(Logo);
+		
 		
 	}
 }

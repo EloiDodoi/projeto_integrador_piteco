@@ -25,7 +25,7 @@ public class TelaHistoricoVendas extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTable table;
-
+	private TelaHistoricoVendas frame = new TelaHistoricoVendas();
 	/**
 	 * Launch the application.
 	 */
@@ -45,6 +45,11 @@ public class TelaHistoricoVendas extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	public void abrir() {
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
 	public TelaHistoricoVendas() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 850);

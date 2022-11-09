@@ -21,7 +21,7 @@ import java.awt.event.ActionEvent;
 public class TelaInicial extends JFrame {
 
 	private JPanel contentPane;
-
+	TelaInicial frame = new TelaInicial();
 	/**
 	 * Launch the application.
 	 */
@@ -44,6 +44,12 @@ public class TelaInicial extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
+	public void abrir() {
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
 	public TelaInicial() {
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Lenovo\\Downloads\\PitecoLogo\\3.png"));

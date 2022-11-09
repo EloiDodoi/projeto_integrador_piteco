@@ -141,4 +141,10 @@ public class TelaCadastroProduto {
 		rdbtnNewRadioButton.setBounds(437, 151, 243, 35);
 		panel_2.add(rdbtnNewRadioButton);
 	}
+
+	public void abrir() {
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
 }
