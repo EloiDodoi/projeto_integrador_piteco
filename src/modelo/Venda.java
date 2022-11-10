@@ -22,13 +22,6 @@ public class Venda {
 		arrayItensVenda.add(item);
 	}
 	
-	public void deletarItem(int cod) {
-		for (int i = 0; i < arrayItensVenda.size(); i++) {
-			if (cod == i) {
-				arrayItensVenda.remove(cod);
-			}
-		}
-	}
 	
 	public Usuario getUsuario() {
 		return usuario;
