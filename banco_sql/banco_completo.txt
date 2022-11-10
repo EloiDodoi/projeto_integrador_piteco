@@ -235,7 +235,7 @@ DROP TABLE IF EXISTS `venda`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `venda` (
-  `idVenda` int(11) NOT NULL,
+  `idVenda` int(11) NOT NULL AUTO_INCREMENT,
   `venda_valor` float NOT NULL,
   `venda_data` date NOT NULL,
   `Usuario_idUsuario` int(11) NOT NULL,
@@ -314,13 +314,13 @@ insert into permissoes (Codigo_permissao, permissao) values (3, 'permissao3');
 
 
 
-insert into usuario (idUsuario, usuario_nome, usuario_cpf, usuario_cnpj, usuario_datanascimento, usuario_telefone, usuario_senha, usuario_email, TipoUser_id_tipo) values (1, 'Deloris Lafaye', '88567114586', '73815653183222', '1976-09-06 08:59:37', '00096059272', 'nwsgdm3Tibs9', 'dlafaye0@ifeng.com', 1);
+insert into usuario (idUsuario, usuario_nome, usuario_cpf, usuario_cnpj, usuario_datanascimento, usuario_telefone, usuario_senha, usuario_email, TipoUser_id_tipo) values (1, 'Deloris Lafaye', '88567114586', '73815653183222', '1976-09-06 08:59:37', '00096059272', '123', 'teste', 1);
 
 
 
 
 
-insert into usuario (idUsuario, usuario_nome, usuario_cpf, usuario_datanascimento, usuario_telefone, usuario_senha, usuario_email, TipoUser_id_tipo) values (2, 'Mike Ianni', '79167095305', '1979-10-14 02:34:51', '69748948553', 'DwSkksyHjMM', 'mianni0@example.com', 2);
+insert into usuario (idUsuario, usuario_nome, usuario_cpf, usuario_datanascimento, usuario_telefone, usuario_senha, usuario_email, TipoUser_id_tipo) values (2, 'Mike Ianni', '79167095305', '1979-10-14 02:34:51', '69748948553', '321', 'teste', 2);
 insert into usuario (idUsuario, usuario_nome, usuario_cpf, usuario_datanascimento, usuario_telefone, usuario_senha, usuario_email, TipoUser_id_tipo) values (3, 'Gaylor Buzza', '24038418891', '1969-01-09 03:44:41', '38222072735', 'eTFQDJ', 'gbuzza1@illinois.edu', 2);
 insert into usuario (idUsuario, usuario_nome, usuario_cpf, usuario_datanascimento, usuario_telefone, usuario_senha, usuario_email, TipoUser_id_tipo) values (4, 'Liv Bernon', '19222185011', '1955-03-17 23:23:19', '75806156444', 'X1ZXVUnWd4t', 'lbernon2@apache.org', 2);
 

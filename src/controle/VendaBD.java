@@ -54,13 +54,20 @@ public class VendaBD {
 		
 		return null;
 	}
-	public void executarVenda(Venda venda) {
+	public void executarVenda(Venda venda,ItemVenda iv, Produto produto) {
 		try {
-			PreparedStatement ps = cbd.getConexao().prepareStatement("Insert into venda values (?,?,?)");
+			PreparedStatement ps = cbd.getConexao().prepareStatement("Insert into venda values (Null,?,?,?)");
 			ps.setFloat(1, venda.getVenda_valor());
-			ps.setDate(2, venda.getVenda_data());
+			ps.setDate(2,venda.getVenda_data());
 			ps.setInt(3, venda.getUsuario().getUsuario_id());
 			ps.execute();
+			PreparedStatement ps1 = cbd.getConexao().prepareStatement("select Venda_idVenda from venda ORDER BY id DESC LIMIT 1");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				venda.setIdVenda(rs.getInt(1));
+			}
+			PreparedStatement ps2 = cbd.getConexao().prepareStatement("Insert venda_produto values (?,?,?,?,?)");
+			//ps2.
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

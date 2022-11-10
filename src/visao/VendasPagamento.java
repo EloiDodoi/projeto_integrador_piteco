@@ -34,6 +34,11 @@ import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import visao.TelaLoginAdm;
@@ -352,17 +357,17 @@ public class VendasPagamento extends JFrame {
 		gbc_lblRS1.gridy = 0;
 		panelValores.add(lblRS1, gbc_lblRS1);
 
-		JLabel lblValorBruto2 = new JLabel("00,00\r\n");
-		lblValorBruto2.setBackground(new Color(234, 242, 237));
-		lblValorBruto2.setForeground(new Color(31, 65, 45));
-		lblValorBruto2.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
-		GridBagConstraints gbc_lblValorBruto2 = new GridBagConstraints();
-		gbc_lblValorBruto2.anchor = GridBagConstraints.WEST;
-		gbc_lblValorBruto2.insets = new Insets(0, 0, 5, 5);
-		gbc_lblValorBruto2.gridx = 2;
-		gbc_lblValorBruto2.gridy = 0;
-		panelValores.add(lblValorBruto2, gbc_lblValorBruto2);
-		lblValorBruto2.setText(String.valueOf(valorTotalVenda(venda)));
+		JLabel lblTotal = new JLabel("00,00\r\n");
+		lblTotal.setBackground(new Color(234, 242, 237));
+		lblTotal.setForeground(new Color(31, 65, 45));
+		lblTotal.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
+		GridBagConstraints gbc_lblTotal = new GridBagConstraints();
+		gbc_lblTotal.anchor = GridBagConstraints.WEST;
+		gbc_lblTotal.insets = new Insets(0, 0, 5, 5);
+		gbc_lblTotal.gridx = 2;
+		gbc_lblTotal.gridy = 0;
+		panelValores.add(lblTotal, gbc_lblTotal);
+		lblTotal.setText(String.valueOf(valorTotalVenda(venda)));
 
 		lblValorDinheiro = new JLabel("Pagamento do Cliente:");
 		lblValorDinheiro.setForeground(new Color(31, 65, 45));
@@ -449,6 +454,11 @@ public class VendasPagamento extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				VendaBD vbd = new VendaBD();
 				venda.setUsuario(TelaLoginAdm.user);
+				venda.setVenda_valor(Float.parseFloat(lblTotal.getText()));
+				LocalDateTime data = LocalDateTime.now();
+				java.sql.Date data_venda = java.sql.Date.valueOf(data.toLocalDate());
+				venda.setVenda_data(data_venda);
+				System.out.println(data_venda);
 				vbd.executarVenda(venda);
 			}
 		});
