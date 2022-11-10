@@ -27,8 +27,8 @@ public class TelaEstoque extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldPesquisaNoEstoque;
+	JTable table;
 
-	TelaEstoque frame = new TelaEstoque();
 	/**
 	 * Launch the application.
 	 */
@@ -126,7 +126,7 @@ public class TelaEstoque extends JFrame {
 		
 		//ArrayList<> tableArray = new ArrayList<>
 		
-		JTable table = new JTable();
+		table = new JTable();
 		table.setBounds(130, 330, 1119, 391);
 		contentPane.add(table);
 		table.setRowHeight(40);
@@ -229,6 +229,7 @@ public class TelaEstoque extends JFrame {
 	}
 
 	public void abrir() {
+		TelaEstoque frame = new TelaEstoque();
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);

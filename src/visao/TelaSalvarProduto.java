@@ -58,7 +58,7 @@ public class TelaSalvarProduto {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new UUC() {
+		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					TelaSalvarProduto window = new TelaSalvarProduto();
@@ -239,6 +239,14 @@ public class TelaSalvarProduto {
 		panel_2.add(panel_3);
 
 		JButton btnExcluir = new JButton("Cancelar");
+		btnExcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				TelaEstoque te = new TelaEstoque();
+				te.abrir();
+				frame.setVisible(false);
+			}
+		});
 		btnExcluir.setForeground(new Color(31, 65, 45));
 		btnExcluir.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
 		btnExcluir.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
@@ -302,20 +310,6 @@ public class TelaSalvarProduto {
 		lbl_codigo.setFont(new Font("Tahoma", Font.PLAIN, 92));
 		lbl_codigo.setBounds(1100, 124, 454, 126);
 		frame.getContentPane().add(lbl_codigo);
-		
-		JButton btnNewButton = new JButton("<");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaEstoque te = new TelaEstoque();
-				te.abrir();
-				frame.setVisible(false);
-			}
-		});
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnNewButton.setBackground(new Color(31, 65, 45));
-		btnNewButton.setBounds(60, 51, 60, 56);
-		frame.getContentPane().add(btnNewButton);
 	
 
 	}
