@@ -25,6 +25,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
+import java.awt.Dimension;
 
 public class Venda extends JFrame {
 
@@ -56,9 +57,9 @@ public class Venda extends JFrame {
 	 * Create the frame.
 	 */
 	public void abrir() {
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		setVisible(true);
+		setLocationRelativeTo(null);
+		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 	
 	public Venda() {
@@ -154,6 +155,8 @@ public class Venda extends JFrame {
 		panel_3.setLayout(gbl_panel_3);
 
 		JLabel lblVendedor = new JLabel("Venda\r\n");
+		lblVendedor.setMinimumSize(new Dimension(500, 200));
+		lblVendedor.setMaximumSize(new Dimension(500, 10));
 		GridBagConstraints gbc_lblVendedor = new GridBagConstraints();
 		gbc_lblVendedor.anchor = GridBagConstraints.WEST;
 		gbc_lblVendedor.insets = new Insets(0, 30, 0, 5);
@@ -184,10 +187,26 @@ public class Venda extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vp.setVisible(true);
-				frame.setVisible(false);
-				
+				setVisible(false);
 			}
 		});
+		
+		JButton btnCancelar = new JButton(" Cancelar ");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaBemVindo tbv = new TelaBemVindo();
+				tbv.abrir();
+				setVisible(false);
+			}
+		});
+		btnCancelar.setForeground(new Color(217, 173, 181));
+		btnCancelar.setFont(new Font("Dialog", Font.PLAIN, 45));
+		btnCancelar.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
+		btnCancelar.setBackground(new Color(234, 242, 237));
+		panel_4.add(btnCancelar);
+		
+		JPanel separador = new JPanel();
+		panel_4.add(separador);
 		btnNewButton.setBackground(new Color(234, 242, 237));
 		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 45));
 		btnNewButton.setForeground(new Color(217, 173, 181));

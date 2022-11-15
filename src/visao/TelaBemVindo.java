@@ -33,6 +33,13 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.layout.FormSpecs;
 import java.awt.GridLayout;
+import javax.swing.JMenuBar;
+import java.awt.Component;
+import java.awt.Rectangle;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JMenu;
+import java.awt.Point;
 
 
 
@@ -71,6 +78,199 @@ public class TelaBemVindo extends JFrame {
 	public TelaBemVindo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1034, 641);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorder(null);
+		menuBar.setBackground(new Color(150, 191, 120));
+		menuBar.setForeground(new Color(150, 191, 120));
+		menuBar.setPreferredSize(new Dimension(0, 40));
+		menuBar.setMinimumSize(new Dimension(0, 5));
+		menuBar.setMaximumSize(new Dimension(0, 5));
+		setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("  ");
+		mnNewMenu.setOpaque(true);
+		mnNewMenu.setHorizontalTextPosition(SwingConstants.LEFT);
+		mnNewMenu.setHorizontalAlignment(SwingConstants.LEFT);
+		mnNewMenu.setPreferredSize(new Dimension(60, 40));
+		mnNewMenu.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/menu-aberto.png")));
+		mnNewMenu.setVerticalAlignment(SwingConstants.CENTER);
+		mnNewMenu.setVerticalTextPosition(SwingConstants.CENTER);
+		mnNewMenu.setForeground(new Color(150, 191, 120));
+		mnNewMenu.setBorder(null);
+		mnNewMenu.setBackground(new Color(150, 191, 120));
+		menuBar.add(mnNewMenu);
+		
+		JLabel lblNewLabel_2 = new JLabel("PITECO");
+		lblNewLabel_2.setMaximumSize(new Dimension(1000, 14));
+		lblNewLabel_2.setOpaque(true);
+		lblNewLabel_2.setForeground(new Color(85, 121, 74));
+		lblNewLabel_2.setBackground(new Color(150, 191, 120));
+		lblNewLabel_2.setVerticalTextPosition(SwingConstants.BOTTOM);
+		lblNewLabel_2.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblNewLabel_2.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBorder(null);
+		lblNewLabel_2.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 20));
+		lblNewLabel_2.setAlignmentX(Component.CENTER_ALIGNMENT);
+		mnNewMenu.add(lblNewLabel_2);
+		
+		JMenuItem btnMenuInicio = new JMenuItem("In\u00EDcio       ");
+		btnMenuInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "Você já está na Tela Inicial.");
+			}
+		});
+		btnMenuInicio.setOpaque(true);
+		btnMenuInicio.setForeground(new Color(85, 121, 74));
+		btnMenuInicio.setBorder(null);
+		btnMenuInicio.setBackground(new Color(150, 191, 120));
+		btnMenuInicio.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		btnMenuInicio.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuInicio.setHorizontalAlignment(SwingConstants.CENTER);
+		mnNewMenu.add(btnMenuInicio);
+		
+		JPanel linha = new JPanel();
+		linha.setPreferredSize(new Dimension(1, 2));
+		linha.setMinimumSize(new Dimension(5, 1));
+		linha.setBackground(new Color(85, 121, 74));
+		mnNewMenu.add(linha);
+		
+		JMenuItem btnMenuEstoque = new JMenuItem("Estoque      ");
+		btnMenuEstoque.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaEstoque te = new TelaEstoque();
+				te.abrir();
+				setVisible(false);
+			}
+		});
+		btnMenuEstoque.setOpaque(true);
+		btnMenuEstoque.setForeground(new Color(85, 121, 74));
+		btnMenuEstoque.setBorder(null);
+		btnMenuEstoque.setBackground(new Color(150, 191, 120));
+		btnMenuEstoque.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuEstoque.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuEstoque.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		mnNewMenu.add(btnMenuEstoque);
+		
+		JMenuItem btnMenuVendas = new JMenuItem("Vendas     ");
+		btnMenuVendas.setOpaque(true);
+		btnMenuVendas.setForeground(new Color(85, 121, 74));
+		btnMenuVendas.setBorder(null);
+		btnMenuVendas.setBackground(new Color(150, 191, 120));
+		btnMenuVendas.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuVendas.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuVendas.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		mnNewMenu.add(btnMenuVendas);
+		
+		JPanel linha_1 = new JPanel();
+		linha_1.setPreferredSize(new Dimension(1, 2));
+		linha_1.setMinimumSize(new Dimension(5, 1));
+		linha_1.setBackground(new Color(85, 121, 74));
+		mnNewMenu.add(linha_1);
+		
+		JMenuItem btnMenuRelatorios = new JMenuItem("Relat\u00F3rios     ");
+		btnMenuRelatorios.setOpaque(true);
+		btnMenuRelatorios.setForeground(new Color(85, 121, 74));
+		btnMenuRelatorios.setBorder(null);
+		btnMenuRelatorios.setBackground(new Color(150, 191, 120));
+		btnMenuRelatorios.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuRelatorios.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuRelatorios.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		mnNewMenu.add(btnMenuRelatorios);
+		
+		JMenuItem btnMenuControle = new JMenuItem("Controle      ");
+		btnMenuControle.setOpaque(true);
+		btnMenuControle.setForeground(new Color(85, 121, 74));
+		btnMenuControle.setBorder(null);
+		btnMenuControle.setBackground(new Color(150, 191, 120));
+		btnMenuControle.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuControle.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuControle.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		mnNewMenu.add(btnMenuControle);
+		
+		JPanel linha_1_1 = new JPanel();
+		linha_1_1.setPreferredSize(new Dimension(1, 2));
+		linha_1_1.setMinimumSize(new Dimension(5, 1));
+		linha_1_1.setBackground(new Color(85, 121, 74));
+		mnNewMenu.add(linha_1_1);
+		
+		JMenuItem btnMenuSair = new JMenuItem("Sair      ");
+		btnMenuSair.setOpaque(true);
+		btnMenuSair.setForeground(new Color(85, 121, 74));
+		btnMenuSair.setBorder(null);
+		btnMenuSair.setBackground(new Color(150, 191, 120));
+		btnMenuSair.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuSair.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuSair.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		mnNewMenu.add(btnMenuSair);
+		
+		JPanel linha_1_1_1 = new JPanel();
+		linha_1_1_1.setPreferredSize(new Dimension(1, 2));
+		linha_1_1_1.setMinimumSize(new Dimension(5, 1));
+		linha_1_1_1.setBackground(new Color(150, 191, 120));
+		mnNewMenu.add(linha_1_1_1);
+		//panel_1.add(btnMenu);
+
+		JPanel BarraSuperior = new JPanel();
+		menuBar.add(BarraSuperior);
+		BarraSuperior.setBackground(new Color(150, 191, 120));
+		
+				BarraSuperior.setLayout(new BorderLayout(0, 0));
+				
+				JPanel panel_8 = new JPanel();
+				panel_8.setBackground(new Color(150, 191, 120));
+				BarraSuperior.add(panel_8, BorderLayout.EAST);
+				GridBagLayout gbl_panel_8 = new GridBagLayout();
+				gbl_panel_8.columnWidths = new int[] {30, 30, 20, 0, 30, 20};
+				gbl_panel_8.rowHeights = new int[]{33, 0};
+				gbl_panel_8.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+				gbl_panel_8.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+				panel_8.setLayout(gbl_panel_8);
+				
+				JSeparator separator = new JSeparator();
+				GridBagConstraints gbc_separator = new GridBagConstraints();
+				gbc_separator.insets = new Insets(0, 0, 0, 5);
+				gbc_separator.gridx = 0;
+				gbc_separator.gridy = 0;
+				panel_8.add(separator, gbc_separator);
+				separator.setOrientation(SwingConstants.VERTICAL);
+				separator.setBackground(new Color(234, 242, 237));
+				separator.setForeground(new Color(234, 242, 237));
+				
+				JButton btnConfiguracao = new JButton("");
+				GridBagConstraints gbc_btnConfiguracao = new GridBagConstraints();
+				gbc_btnConfiguracao.insets = new Insets(0, 0, 0, 5);
+				gbc_btnConfiguracao.gridx = 1;
+				gbc_btnConfiguracao.gridy = 0;
+				panel_8.add(btnConfiguracao, gbc_btnConfiguracao);
+				
+						btnConfiguracao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/solucao.png")));
+						btnConfiguracao.setBorder(null);
+						btnConfiguracao.setBackground(new Color(150, 191, 120));
+						
+						
+						JButton btnNotificacao = new JButton("");
+						GridBagConstraints gbc_btnNotificacao = new GridBagConstraints();
+						gbc_btnNotificacao.insets = new Insets(0, 0, 0, 5);
+						gbc_btnNotificacao.gridx = 3;
+						gbc_btnNotificacao.gridy = 0;
+						panel_8.add(btnNotificacao, gbc_btnNotificacao);
+						btnNotificacao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/notificacao.png")));
+						btnNotificacao.setBorder(null);
+						btnNotificacao.setBackground(new Color(150, 191, 120));
+						
+								
+						
+								JButton btnUser = new JButton("");
+								GridBagConstraints gbc_btnUser = new GridBagConstraints();
+								gbc_btnUser.insets = new Insets(5, 0, 0, 10);
+								gbc_btnUser.gridx = 5;
+								gbc_btnUser.gridy = 0;
+								panel_8.add(btnUser, gbc_btnUser);
+								btnUser.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/farmer.png")));
+								btnUser.setBorder(null);
+								btnUser.setBackground(new Color(150, 191, 120));
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -98,7 +298,7 @@ public class TelaBemVindo extends JFrame {
 		panel_3.setLayout(gbl_panel_3);
 		
 		JButton btnCadastro = new JButton("Cadastro");
-		btnCadastro.setBorder(new LineBorder(new Color(0, 0, 0)));
+		btnCadastro.setBorder(new LineBorder(new Color(85, 121, 74), 2, true));
 		GridBagConstraints gbc_btnCadastro = new GridBagConstraints();
 		gbc_btnCadastro.fill = GridBagConstraints.BOTH;
 		gbc_btnCadastro.insets = new Insets(0, 0, 10, 5);
@@ -112,8 +312,8 @@ public class TelaBemVindo extends JFrame {
 				frame.setVisible(false);
 			}
 		});
-		btnCadastro.setBackground(new Color(192, 192, 192));
-		btnCadastro.setForeground(new Color(150, 191, 120));
+		btnCadastro.setBackground(new Color(150, 191, 120));
+		btnCadastro.setForeground(new Color(85, 121, 74));
 		btnCadastro.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 65));
 		
 		JButton btnVenda = new JButton("Venda");
@@ -163,112 +363,6 @@ public class TelaBemVindo extends JFrame {
 		panel_4.add(lblNewLabel, gbc_lblNewLabel);
 		lblNewLabel.setForeground(new Color(31, 65, 45));
 		lblNewLabel.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 82));
-		
-		JPanel BarraLateral = new JPanel();
-		BarraLateral.setBorder(new EmptyBorder(10, 10, 10, 10));
-		contentPane.add(BarraLateral, BorderLayout.WEST);
-		BarraLateral.setBackground(new Color(150, 191, 120));
-		BarraLateral.setLayout(new BorderLayout(0, 0));
-		
-		JButton btnMenu = new JButton("");
-		btnMenu.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/menu-aberto.png")));
-		btnMenu.setBorder(null);
-		btnMenu.setForeground(new Color(234, 242, 237));
-		btnMenu.setBackground(new Color(150, 191, 120));
-		BarraLateral.add(btnMenu, BorderLayout.SOUTH);
-
-		btnMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JPanel menu = new JPanel();
-				panel.add(menu, BorderLayout.SOUTH);
-/*				if (statusMenu == 0) {
-					
-					//			if (se for perfil adm) {
-					MenuAdm menuAdm = new MenuAdm();
-					painelMenu.add(menuAdm,  BorderLayout.CENTER);
-					painelMenu.revalidate();
-					painelMenu.repaint();
-					statusMenu++;
-//				} else 
-//				if (se for perfil vendedor) {
-//					MenuVendedor menuVenda = new MenuVendedor();
-//					menuVenda.abrir();
-//				}
-					statusMenu++;
-				} else if (statusMenu == 1) {
-					painelMenu.removeAll();
-					painelMenu.revalidate();
-					painelMenu.repaint();
-					statusMenu--;
-				}
-*/			}
-		});
-		btnMenu.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/menu-aberto.png")));
-		btnMenu.setBorder(null);
-		btnMenu.setForeground(new Color(234, 242, 237));
-		btnMenu.setBackground(new Color(150, 191, 120));
-		btnMenu.setBounds(0, 681, 50, 46);
-		//panel_1.add(btnMenu);
-
-		JPanel BarraSuperior = new JPanel();
-		contentPane.add(BarraSuperior, BorderLayout.NORTH);
-		BarraSuperior.setBackground(new Color(150, 191, 120));
-
-		BarraSuperior.setLayout(new BorderLayout(0, 0));
-		
-		JPanel panel_8 = new JPanel();
-		panel_8.setBackground(new Color(150, 191, 120));
-		BarraSuperior.add(panel_8, BorderLayout.EAST);
-		GridBagLayout gbl_panel_8 = new GridBagLayout();
-		gbl_panel_8.columnWidths = new int[] {30, 30, 20, 0, 30, 20};
-		gbl_panel_8.rowHeights = new int[]{33, 0};
-		gbl_panel_8.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-		gbl_panel_8.rowWeights = new double[]{0.0, Double.MIN_VALUE};
-		panel_8.setLayout(gbl_panel_8);
-		
-		JSeparator separator = new JSeparator();
-		GridBagConstraints gbc_separator = new GridBagConstraints();
-		gbc_separator.insets = new Insets(0, 0, 0, 5);
-		gbc_separator.gridx = 0;
-		gbc_separator.gridy = 0;
-		panel_8.add(separator, gbc_separator);
-		separator.setOrientation(SwingConstants.VERTICAL);
-		separator.setBackground(new Color(234, 242, 237));
-		separator.setForeground(new Color(234, 242, 237));
-		
-		JButton btnConfiguracao = new JButton("");
-		GridBagConstraints gbc_btnConfiguracao = new GridBagConstraints();
-		gbc_btnConfiguracao.insets = new Insets(0, 0, 0, 5);
-		gbc_btnConfiguracao.gridx = 1;
-		gbc_btnConfiguracao.gridy = 0;
-		panel_8.add(btnConfiguracao, gbc_btnConfiguracao);
-
-		btnConfiguracao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/solucao.png")));
-		btnConfiguracao.setBorder(null);
-		btnConfiguracao.setBackground(new Color(150, 191, 120));
-		
-		
-		JButton btnNotificacao = new JButton("");
-		GridBagConstraints gbc_btnNotificacao = new GridBagConstraints();
-		gbc_btnNotificacao.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNotificacao.gridx = 3;
-		gbc_btnNotificacao.gridy = 0;
-		panel_8.add(btnNotificacao, gbc_btnNotificacao);
-		btnNotificacao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/notificacao.png")));
-		btnNotificacao.setBorder(null);
-		btnNotificacao.setBackground(new Color(150, 191, 120));
-
-		
-
-		JButton btnUser = new JButton("");
-		GridBagConstraints gbc_btnUser = new GridBagConstraints();
-		gbc_btnUser.insets = new Insets(5, 0, 0, 10);
-		gbc_btnUser.gridx = 5;
-		gbc_btnUser.gridy = 0;
-		panel_8.add(btnUser, gbc_btnUser);
-		btnUser.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/farmer.png")));
-		btnUser.setBorder(null);
-		btnUser.setBackground(new Color(150, 191, 120));
 
 /*		GroupLayout gl_BarraSuperior = new GroupLayout(BarraSuperior);
 		gl_BarraSuperior.setHorizontalGroup(
