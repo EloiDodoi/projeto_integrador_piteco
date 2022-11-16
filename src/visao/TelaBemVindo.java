@@ -154,6 +154,13 @@ public class TelaBemVindo extends JFrame {
 		mnNewMenu.add(btnMenuEstoque);
 		
 		JMenuItem btnMenuVendas = new JMenuItem("Vendas     ");
+		btnMenuVendas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			setVisible(false);
+			Venda venda = new Venda();
+			venda.abrir();
+			}
+		});
 		btnMenuVendas.setOpaque(true);
 		btnMenuVendas.setForeground(new Color(85, 121, 74));
 		btnMenuVendas.setBorder(null);
