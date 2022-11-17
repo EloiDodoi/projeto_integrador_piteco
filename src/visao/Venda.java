@@ -26,6 +26,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.Dimension;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class Venda extends JFrame {
 
@@ -65,79 +68,170 @@ public class Venda extends JFrame {
 	public Venda() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 924, 517);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
-
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new EmptyBorder(10, 10, 10, 10));
-		contentPane.add(panel_1, BorderLayout.WEST);
-		panel_1.setBackground(new Color(150, 191, 120));
-		panel_1.setLayout(new BorderLayout(0, 0));
-
-		JButton btnMenu = new JButton("");
-		btnMenu.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/menu-aberto.png")));
-		btnMenu.setBorder(null);
-		btnMenu.setForeground(new Color(234, 242, 237));
-		btnMenu.setBackground(new Color(150, 191, 120));
-		panel_1.add(btnMenu, BorderLayout.SOUTH);
-
-		JPanel panel_2 = new JPanel();
-		contentPane.add(panel_2, BorderLayout.NORTH);
-		panel_2.setBackground(new Color(150, 191, 120));
-		panel_2.setLayout(new BorderLayout(0, 0));
-
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("  ");
+		mnNewMenu.setIcon(new ImageIcon(Venda.class.getResource("/img/menu-aberto.png")));
+		mnNewMenu.setVerticalTextPosition(SwingConstants.CENTER);
+		mnNewMenu.setVerticalAlignment(SwingConstants.CENTER);
+		mnNewMenu.setPreferredSize(new Dimension(60, 40));
+		mnNewMenu.setOpaque(true);
+		mnNewMenu.setHorizontalTextPosition(SwingConstants.LEFT);
+		mnNewMenu.setHorizontalAlignment(SwingConstants.LEFT);
+		mnNewMenu.setForeground(new Color(150, 191, 120));
+		mnNewMenu.setBorder(null);
+		mnNewMenu.setBackground(new Color(150, 191, 120));
+		menuBar.add(mnNewMenu);
+		
+		JLabel lblNewLabel_2 = new JLabel("PITECO");
+		lblNewLabel_2.setVerticalTextPosition(SwingConstants.BOTTOM);
+		lblNewLabel_2.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblNewLabel_2.setOpaque(true);
+		lblNewLabel_2.setMaximumSize(new Dimension(1000, 14));
+		lblNewLabel_2.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setForeground(new Color(85, 121, 74));
+		lblNewLabel_2.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 20));
+		lblNewLabel_2.setBorder(null);
+		lblNewLabel_2.setBackground(new Color(150, 191, 120));
+		lblNewLabel_2.setAlignmentX(0.5f);
+		mnNewMenu.add(lblNewLabel_2);
+		
+		JMenuItem btnMenuInicio = new JMenuItem("In\u00EDcio");
+		btnMenuInicio.setOpaque(true);
+		btnMenuInicio.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuInicio.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuInicio.setForeground(new Color(85, 121, 74));
+		btnMenuInicio.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		btnMenuInicio.setBorder(null);
+		btnMenuInicio.setBackground(new Color(150, 191, 120));
+		mnNewMenu.add(btnMenuInicio);
+		
+		JPanel linha = new JPanel();
+		linha.setPreferredSize(new Dimension(1, 2));
+		linha.setMinimumSize(new Dimension(5, 1));
+		linha.setBackground(new Color(85, 121, 74));
+		mnNewMenu.add(linha);
+		
+		JMenuItem btnMenuEstoque = new JMenuItem("Estoque");
+		btnMenuEstoque.setOpaque(true);
+		btnMenuEstoque.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuEstoque.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuEstoque.setForeground(new Color(85, 121, 74));
+		btnMenuEstoque.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		btnMenuEstoque.setBorder(null);
+		btnMenuEstoque.setBackground(new Color(150, 191, 120));
+		mnNewMenu.add(btnMenuEstoque);
+		
+		JMenuItem btnMenuVendas = new JMenuItem("Vendas");
+		btnMenuVendas.setOpaque(true);
+		btnMenuVendas.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuVendas.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuVendas.setForeground(new Color(85, 121, 74));
+		btnMenuVendas.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		btnMenuVendas.setBorder(null);
+		btnMenuVendas.setBackground(new Color(150, 191, 120));
+		mnNewMenu.add(btnMenuVendas);
+		
+		JPanel linha_1 = new JPanel();
+		linha_1.setPreferredSize(new Dimension(1, 2));
+		linha_1.setMinimumSize(new Dimension(5, 1));
+		linha_1.setBackground(new Color(85, 121, 74));
+		mnNewMenu.add(linha_1);
+		
+		JMenuItem btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas");
+		btnMenuRelatorios.setOpaque(true);
+		btnMenuRelatorios.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuRelatorios.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuRelatorios.setForeground(new Color(85, 121, 74));
+		btnMenuRelatorios.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		btnMenuRelatorios.setBorder(null);
+		btnMenuRelatorios.setBackground(new Color(150, 191, 120));
+		mnNewMenu.add(btnMenuRelatorios);
+		
+		JMenuItem btnMenuControle = new JMenuItem("Controle");
+		btnMenuControle.setOpaque(true);
+		btnMenuControle.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuControle.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuControle.setForeground(new Color(85, 121, 74));
+		btnMenuControle.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		btnMenuControle.setBorder(null);
+		btnMenuControle.setBackground(new Color(150, 191, 120));
+		mnNewMenu.add(btnMenuControle);
+		
+		JPanel linha_1_1 = new JPanel();
+		linha_1_1.setPreferredSize(new Dimension(1, 2));
+		linha_1_1.setMinimumSize(new Dimension(5, 1));
+		linha_1_1.setBackground(new Color(85, 121, 74));
+		mnNewMenu.add(linha_1_1);
+		
+		JMenuItem btnMenuSair = new JMenuItem("Sair");
+		btnMenuSair.setOpaque(true);
+		btnMenuSair.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuSair.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuSair.setForeground(new Color(85, 121, 74));
+		btnMenuSair.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		btnMenuSair.setBorder(null);
+		btnMenuSair.setBackground(new Color(150, 191, 120));
+		mnNewMenu.add(btnMenuSair);
+		
+		JPanel linha_1_1_1 = new JPanel();
+		linha_1_1_1.setPreferredSize(new Dimension(1, 2));
+		linha_1_1_1.setMinimumSize(new Dimension(5, 1));
+		linha_1_1_1.setBackground(new Color(150, 191, 120));
+		mnNewMenu.add(linha_1_1_1);
+		
+		JPanel BarraSuperior = new JPanel();
+		BarraSuperior.setBackground(new Color(150, 191, 120));
+		menuBar.add(BarraSuperior);
+		BarraSuperior.setLayout(new BorderLayout(0, 0));
+		
 		JPanel panel_8 = new JPanel();
-		panel_2.add(panel_8, BorderLayout.EAST);
 		panel_8.setBackground(new Color(150, 191, 120));
+		BarraSuperior.add(panel_8, BorderLayout.EAST);
 		GridBagLayout gbl_panel_8 = new GridBagLayout();
-		gbl_panel_8.columnWidths = new int[] { 30, 30, 20, 30, 20 };
-		gbl_panel_8.rowHeights = new int[] { 33, 0 };
-		gbl_panel_8.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0 };
-		gbl_panel_8.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
+		gbl_panel_8.columnWidths = new int[]{30, 30, 20, 0, 30, 20, 0};
+		gbl_panel_8.rowHeights = new int[]{33, 0};
+		gbl_panel_8.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_8.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		panel_8.setLayout(gbl_panel_8);
-
+		
 		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
+		separator.setForeground(new Color(234, 242, 237));
+		separator.setBackground(new Color(234, 242, 237));
 		GridBagConstraints gbc_separator = new GridBagConstraints();
 		gbc_separator.insets = new Insets(0, 0, 0, 5);
 		gbc_separator.gridx = 0;
 		gbc_separator.gridy = 0;
 		panel_8.add(separator, gbc_separator);
-		separator.setOrientation(SwingConstants.VERTICAL);
-		separator.setBackground(new Color(234, 242, 237));
-		separator.setForeground(new Color(234, 242, 237));
-
-		JButton btnConfiguracao = new JButton("");
-		GridBagConstraints gbc_btnConfiguracao = new GridBagConstraints();
-		gbc_btnConfiguracao.insets = new Insets(0, 0, 0, 5);
-		gbc_btnConfiguracao.gridx = 1;
-		gbc_btnConfiguracao.gridy = 0;
-		panel_8.add(btnConfiguracao, gbc_btnConfiguracao);
-		btnConfiguracao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/solucao.png")));
-		btnConfiguracao.setBorder(null);
-		btnConfiguracao.setBackground(new Color(150, 191, 120));
-
+		
 		JButton btnNotificacao = new JButton("");
-		GridBagConstraints gbc_btnNotificacao = new GridBagConstraints();
-		gbc_btnNotificacao.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNotificacao.gridx = 2;
-		gbc_btnNotificacao.gridy = 0;
-		panel_8.add(btnNotificacao, gbc_btnNotificacao);
-		btnNotificacao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/notificacao.png")));
+		btnNotificacao.setIcon(new ImageIcon(Venda.class.getResource("/img/notificacao.png")));
 		btnNotificacao.setBorder(null);
 		btnNotificacao.setBackground(new Color(150, 191, 120));
-
+		GridBagConstraints gbc_btnNotificacao = new GridBagConstraints();
+		gbc_btnNotificacao.insets = new Insets(0, 0, 0, 5);
+		gbc_btnNotificacao.gridx = 3;
+		gbc_btnNotificacao.gridy = 0;
+		panel_8.add(btnNotificacao, gbc_btnNotificacao);
+		
 		JButton btnUser = new JButton("");
-		GridBagConstraints gbc_btnUser = new GridBagConstraints();
-		gbc_btnUser.insets = new Insets(5, 0, 5, 10);
-		gbc_btnUser.gridx = 4;
-		gbc_btnUser.gridy = 0;
-		panel_8.add(btnUser, gbc_btnUser);
-		btnUser.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/farmer.png")));
+		btnUser.setIcon(new ImageIcon(Venda.class.getResource("/img/farmer.png")));
 		btnUser.setBorder(null);
 		btnUser.setBackground(new Color(150, 191, 120));
+		GridBagConstraints gbc_btnUser = new GridBagConstraints();
+		gbc_btnUser.insets = new Insets(5, 0, 0, 10);
+		gbc_btnUser.gridx = 5;
+		gbc_btnUser.gridy = 0;
+		panel_8.add(btnUser, gbc_btnUser);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(234, 242, 237));
