@@ -37,7 +37,6 @@ public class TelaHistoricoVendas extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldPesquisa;
 	private JTable table;
-	private TelaHistoricoVendas frame = new TelaHistoricoVendas();
 	/**
 	 * Launch the application.
 	 */
@@ -97,7 +96,7 @@ public class TelaHistoricoVendas extends JFrame {
 		lblNewLabel_2.setAlignmentX(0.5f);
 		mnNewMenu.add(lblNewLabel_2);
 		
-		JMenuItem btnMenuInicio = new JMenuItem("In\u00EDcio       ");
+		JMenuItem btnMenuInicio = new JMenuItem("In\u00EDcio");
 		btnMenuInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -120,7 +119,7 @@ public class TelaHistoricoVendas extends JFrame {
 		linha.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha);
 		
-		JMenuItem btnMenuEstoque = new JMenuItem("Estoque      ");
+		JMenuItem btnMenuEstoque = new JMenuItem("Estoque");
 		btnMenuEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -137,7 +136,7 @@ public class TelaHistoricoVendas extends JFrame {
 		btnMenuEstoque.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnMenuEstoque);
 		
-		JMenuItem btnMenuVendas = new JMenuItem("Vendas     ");
+		JMenuItem btnMenuVendas = new JMenuItem("Vendas");
 		btnMenuVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -160,7 +159,7 @@ public class TelaHistoricoVendas extends JFrame {
 		linha_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1);
 		
-		JMenuItem btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas     ");
+		JMenuItem btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas");
 		btnMenuRelatorios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JOptionPane.showMessageDialog(null, "Você já está na Tela de Histórico de Vendas..");
@@ -175,7 +174,7 @@ public class TelaHistoricoVendas extends JFrame {
 		btnMenuRelatorios.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnMenuRelatorios);
 		
-		JMenuItem btnMenuControle = new JMenuItem("Controle      ");
+		JMenuItem btnMenuControle = new JMenuItem("Controle");
 		btnMenuControle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -198,7 +197,7 @@ public class TelaHistoricoVendas extends JFrame {
 		linha_1_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1_1);
 		
-		JMenuItem btnMenuSair = new JMenuItem("Sair      ");
+		JMenuItem btnMenuSair = new JMenuItem("Sair");
 		btnMenuSair.setOpaque(true);
 		btnMenuSair.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnMenuSair.setHorizontalAlignment(SwingConstants.CENTER);
@@ -373,6 +372,6 @@ public class TelaHistoricoVendas extends JFrame {
 		tHeader.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 20));
 		tHeader.setForeground(Color.WHITE);
 		
-		
+	
 	}
 }

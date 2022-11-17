@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import controle.ControleVendedorBD;
 import controle.EstoqueBD;
@@ -131,7 +132,7 @@ public class TelaControleVendedores extends JFrame {
 		lblNewLabel.setAlignmentX(0.5f);
 		mnNewMenu.add(lblNewLabel);
 		
-		btnMenuInicio = new JMenuItem("In\u00EDcio       ");
+		btnMenuInicio = new JMenuItem("In\u00EDcio");
 		btnMenuInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -154,7 +155,7 @@ public class TelaControleVendedores extends JFrame {
 		linha.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha);
 		
-		btnMenuEstoque = new JMenuItem("Estoque      ");
+		btnMenuEstoque = new JMenuItem("Estoque");
 		btnMenuEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -171,7 +172,7 @@ public class TelaControleVendedores extends JFrame {
 		btnMenuEstoque.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnMenuEstoque);
 		
-		btnMenuVendas = new JMenuItem("Vendas     ");
+		btnMenuVendas = new JMenuItem("Vendas");
 		btnMenuVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -194,7 +195,7 @@ public class TelaControleVendedores extends JFrame {
 		linha_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1);
 		
-		btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas     ");
+		btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas");
 		btnMenuRelatorios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -211,7 +212,7 @@ public class TelaControleVendedores extends JFrame {
 		btnMenuRelatorios.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnMenuRelatorios);
 		
-		btnMenuControle = new JMenuItem("Controle      ");
+		btnMenuControle = new JMenuItem("Controle");
 		btnMenuControle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Você já está na Tela de Controle de Vendedores.");
@@ -232,7 +233,7 @@ public class TelaControleVendedores extends JFrame {
 		linha_1_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1_1);
 		
-		btnMenuSair = new JMenuItem("Sair      ");
+		btnMenuSair = new JMenuItem("Sair");
 		btnMenuSair.setOpaque(true);
 		btnMenuSair.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnMenuSair.setHorizontalAlignment(SwingConstants.CENTER);
@@ -346,6 +347,7 @@ public class TelaControleVendedores extends JFrame {
 		panelPesquisa.setLayout(gbl_panelPesquisa);
 		
 		btnPesquisa = new JButton("");
+		btnPesquisa.setIcon(new ImageIcon(TelaControleVendedores.class.getResource("/img/inspecao (1).png")));
 		btnPesquisa.setBorder(null);
 		btnPesquisa.setBackground(new Color(31, 65, 45));
 		GridBagConstraints gbc_btnPesquisa = new GridBagConstraints();
@@ -444,7 +446,10 @@ public class TelaControleVendedores extends JFrame {
 		
 		table.setModel(cvbd.listagemVendedor());
 		
-		
+		JTableHeader tHeader = table.getTableHeader();
+		tHeader.setBackground(new Color(150, 191, 120));
+		tHeader.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 20));
+		tHeader.setForeground(Color.WHITE);
 		
 		//-------------------------------------------------------- mÃ©todos -------------------------------------
 	

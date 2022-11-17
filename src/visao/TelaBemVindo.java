@@ -20,7 +20,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import java.awt.FlowLayout;
 import java.awt.Dimension;
-import javax.swing.JSeparator;
+import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.SwingConstants;
@@ -34,7 +34,7 @@ import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.layout.FormSpecs;
 import java.awt.GridLayout;
 import javax.swing.JMenuBar;
-import java.awt.Component;
+import java.awt.*;
 import java.awt.Rectangle;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -110,7 +110,7 @@ public class TelaBemVindo extends JFrame {
 		lblNewLabel_2.setAlignmentX(Component.CENTER_ALIGNMENT);
 		mnNewMenu.add(lblNewLabel_2);
 		
-		JMenuItem btnMenuInicio = new JMenuItem("In\u00EDcio       ");
+		JMenuItem btnMenuInicio = new JMenuItem("In\u00EDcio");
 		btnMenuInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Você já está na Tela Inicial.");
@@ -131,7 +131,7 @@ public class TelaBemVindo extends JFrame {
 		linha.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha);
 		
-		JMenuItem btnMenuEstoque = new JMenuItem("Estoque      ");
+		JMenuItem btnMenuEstoque = new JMenuItem("Estoque");
 		btnMenuEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaEstoque te = new TelaEstoque();
@@ -148,7 +148,7 @@ public class TelaBemVindo extends JFrame {
 		btnMenuEstoque.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuEstoque);
 		
-		JMenuItem btnMenuVendas = new JMenuItem("Vendas     ");
+		JMenuItem btnMenuVendas = new JMenuItem("Vendas");
 		btnMenuVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			setVisible(false);
@@ -171,7 +171,7 @@ public class TelaBemVindo extends JFrame {
 		linha_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1);
 		
-		JMenuItem btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas     ");
+		JMenuItem btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas");
 		btnMenuRelatorios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaHistoricoVendas thv = new TelaHistoricoVendas();
@@ -187,7 +187,7 @@ public class TelaBemVindo extends JFrame {
 		btnMenuRelatorios.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuRelatorios);
 		
-		JMenuItem btnMenuControle = new JMenuItem("Controle      ");
+		JMenuItem btnMenuControle = new JMenuItem("Controle");
 		btnMenuControle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaControleVendedores tcv = new TelaControleVendedores();
@@ -209,7 +209,7 @@ public class TelaBemVindo extends JFrame {
 		linha_1_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1_1);
 		
-		JMenuItem btnMenuSair = new JMenuItem("Sair      ");
+		JMenuItem btnMenuSair = new JMenuItem("Sair");
 		btnMenuSair.setOpaque(true);
 		btnMenuSair.setForeground(new Color(85, 121, 74));
 		btnMenuSair.setBorder(null);
@@ -320,7 +320,7 @@ public class TelaBemVindo extends JFrame {
 		btnCadastro.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 65));
 		
 		JButton btnVenda = new JButton("Venda");
-		btnVenda.setBorder(new LineBorder(new Color(0, 0, 0)));
+		btnVenda.setBorder(new LineBorder(new Color(85, 121, 74), 2, true));
 		GridBagConstraints gbc_btnVenda = new GridBagConstraints();
 		gbc_btnVenda.insets = new Insets(0, 0, 10, 0);
 		gbc_btnVenda.fill = GridBagConstraints.BOTH;
@@ -334,7 +334,7 @@ public class TelaBemVindo extends JFrame {
 				frame.setVisible(false);
 			}
 		});
-		btnVenda.setBackground(new Color(192, 192, 192));
+		btnVenda.setBackground(new Color(150, 191, 120));
 		btnVenda.setForeground(new Color(85, 121, 74));
 		btnVenda.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 65));
 
