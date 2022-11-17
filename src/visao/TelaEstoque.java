@@ -196,10 +196,9 @@ public class TelaEstoque extends JFrame {
 	}
 
 	public void abrir() {
-		TelaEstoque frame = new TelaEstoque();
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		setVisible(true);
+		setLocationRelativeTo(null);
+		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
 		// TODO Auto-generated method stub
 		
 	}

@@ -68,12 +68,7 @@ public class TelaBemVindo extends JFrame {
 	 * Create the frame.
 	 */
 
-	public void abrir() {
-		//TelaBemVindo frame = new TelaBemVindo();
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-	}
+
 
 	public TelaBemVindo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -176,7 +171,13 @@ public class TelaBemVindo extends JFrame {
 		linha_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1);
 		
-		JMenuItem btnMenuRelatorios = new JMenuItem("Relat\u00F3rios     ");
+		JMenuItem btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas     ");
+		btnMenuRelatorios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaHistoricoVendas thv = new TelaHistoricoVendas();
+				thv.abrir();
+			}
+		});
 		btnMenuRelatorios.setOpaque(true);
 		btnMenuRelatorios.setForeground(new Color(85, 121, 74));
 		btnMenuRelatorios.setBorder(null);
@@ -187,6 +188,12 @@ public class TelaBemVindo extends JFrame {
 		mnNewMenu.add(btnMenuRelatorios);
 		
 		JMenuItem btnMenuControle = new JMenuItem("Controle      ");
+		btnMenuControle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaControleVendedores tcv = new TelaControleVendedores();
+				tcv.abrir();
+			}
+		});
 		btnMenuControle.setOpaque(true);
 		btnMenuControle.setForeground(new Color(85, 121, 74));
 		btnMenuControle.setBorder(null);
@@ -401,5 +408,13 @@ public class TelaBemVindo extends JFrame {
 		panel.add(Logo);
 		
 		
+		
 	}
+	
+	public void abrir() {
+		setVisible(true);
+		setLocationRelativeTo(null);
+		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
+	
 }
