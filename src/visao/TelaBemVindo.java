@@ -244,17 +244,6 @@ public class TelaBemVindo extends JFrame {
 				separator.setOrientation(SwingConstants.VERTICAL);
 				separator.setBackground(new Color(234, 242, 237));
 				separator.setForeground(new Color(234, 242, 237));
-				
-				JButton btnConfiguracao = new JButton("");
-				GridBagConstraints gbc_btnConfiguracao = new GridBagConstraints();
-				gbc_btnConfiguracao.insets = new Insets(0, 0, 0, 5);
-				gbc_btnConfiguracao.gridx = 1;
-				gbc_btnConfiguracao.gridy = 0;
-				panel_8.add(btnConfiguracao, gbc_btnConfiguracao);
-				
-						btnConfiguracao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/solucao.png")));
-						btnConfiguracao.setBorder(null);
-						btnConfiguracao.setBackground(new Color(150, 191, 120));
 						
 						
 						JButton btnNotificacao = new JButton("");
@@ -339,7 +328,7 @@ public class TelaBemVindo extends JFrame {
 			}
 		});
 		btnVenda.setBackground(new Color(192, 192, 192));
-		btnVenda.setForeground(new Color(150, 191, 120));
+		btnVenda.setForeground(new Color(85, 121, 74));
 		btnVenda.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 65));
 
 		JPanel panel_4 = new JPanel();

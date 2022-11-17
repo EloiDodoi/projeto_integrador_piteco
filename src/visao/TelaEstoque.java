@@ -57,55 +57,6 @@ public class TelaEstoque extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel BarraSuperior = new JPanel();
-		BarraSuperior.setBackground(new Color(150, 191, 120));
-		BarraSuperior.setBounds(0, 0, 1370, 40);
-		contentPane.add(BarraSuperior);
-		BarraSuperior.setLayout(null);
-		
-		JButton btnConfiguracao = new JButton("");
-		btnConfiguracao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/solucao.png")));
-		btnConfiguracao.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnConfiguracao.setBorder(null);
-		btnConfiguracao.setBackground(new Color(150, 191, 120));
-		btnConfiguracao.setBounds(1236, 0, 60, 40);
-		BarraSuperior.add(btnConfiguracao);
-		
-		JButton btnNotificacao = new JButton("");
-		btnNotificacao.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/notificacao.png")));
-		btnNotificacao.setBorder(null);
-		btnNotificacao.setBackground(new Color(150, 191, 120));
-		btnNotificacao.setBounds(1178, 0, 60, 40);
-		BarraSuperior.add(btnNotificacao);
-		
-		JButton btnUser = new JButton("");
-		btnUser.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/farmer.png")));
-		btnUser.setBorder(null);
-		btnUser.setBackground(new Color(150, 191, 120));
-		btnUser.setBounds(1294, 0, 60, 40);
-		BarraSuperior.add(btnUser);
-		
-		JPanel BarraLateral = new JPanel();
-		BarraLateral.setBackground(new Color(150, 191, 120));
-		BarraLateral.setBounds(0, 0, 40, 750);
-		contentPane.add(BarraLateral);
-		BarraLateral.setLayout(null);
-		
-		JButton btnMen = new JButton("");
-		btnMen.setBorder(null);
-		btnMen.setForeground(new Color(123, 166, 111));
-		btnMen.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/menu-aberto.png")));
-		btnMen.setBackground(new Color(150, 191, 120));
-		btnMen.setBounds(-6, 700, 52, 48);
-		BarraLateral.add(btnMen);
-		btnMen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
 		JLabel lblTitulo = new JLabel("Estoque");
 		lblTitulo.setForeground(new Color(31, 65, 45));
 		lblTitulo.setVerticalAlignment(SwingConstants.TOP);

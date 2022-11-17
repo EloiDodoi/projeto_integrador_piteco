@@ -27,19 +27,15 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JMenuBar;
+import java.awt.Dimension;
 
 public class TelaListagemVendedores extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	private JPanel BarraLateral;
-	private JButton btnMen;
 	private JLabel lblTitulo;
 	private JPanel Linha;
-	private JPanel BarraSuperior;
-	private JButton btnConfiguracao;
-	private JButton btnNotificacao;
-	private JButton btnUser;
 	private JPanel panelPesquisa;
 	private JTextField textField;
 	private JButton btnPesquisa;
@@ -110,19 +106,6 @@ public class TelaListagemVendedores extends JFrame {
 		
 		table.setModel(cvbd.listagemVendedor());
 		
-		BarraLateral = new JPanel();
-		BarraLateral.setLayout(null);
-		BarraLateral.setBackground(new Color(150, 191, 120));
-		BarraLateral.setBounds(0, 0, 40, 811);
-		contentPane.add(BarraLateral);
-		
-		btnMen = new JButton("");
-		btnMen.setForeground(new Color(123, 166, 111));
-		btnMen.setBorder(null);
-		btnMen.setBackground(new Color(150, 191, 120));
-		btnMen.setBounds(-6, 700, 52, 48);
-		BarraLateral.add(btnMen);
-		
 		lblTitulo = new JLabel("Vendedores");
 		lblTitulo.setVerticalAlignment(SwingConstants.TOP);
 		lblTitulo.setHorizontalAlignment(SwingConstants.LEFT);
@@ -135,30 +118,6 @@ public class TelaListagemVendedores extends JFrame {
 		Linha.setBackground(new Color(31, 65, 45));
 		Linha.setBounds(63, 74, 1426, 5);
 		contentPane.add(Linha);
-		
-		BarraSuperior = new JPanel();
-		BarraSuperior.setLayout(null);
-		BarraSuperior.setBackground(new Color(150, 191, 120));
-		BarraSuperior.setBounds(0, 0, 1584, 40);
-		contentPane.add(BarraSuperior);
-		
-		btnConfiguracao = new JButton("");
-		btnConfiguracao.setBorder(null);
-		btnConfiguracao.setBackground(new Color(150, 191, 120));
-		btnConfiguracao.setBounds(1236, 0, 60, 40);
-		BarraSuperior.add(btnConfiguracao);
-		
-		btnNotificacao = new JButton("");
-		btnNotificacao.setBorder(null);
-		btnNotificacao.setBackground(new Color(150, 191, 120));
-		btnNotificacao.setBounds(1178, 0, 60, 40);
-		BarraSuperior.add(btnNotificacao);
-		
-		btnUser = new JButton("");
-		btnUser.setBorder(null);
-		btnUser.setBackground(new Color(150, 191, 120));
-		btnUser.setBounds(1294, 0, 60, 40);
-		BarraSuperior.add(btnUser);
 		
 		panelPesquisa = new JPanel();
 		panelPesquisa.setLayout(null);
@@ -212,6 +171,8 @@ public class TelaListagemVendedores extends JFrame {
 		btnAlterar.setBounds(1155, 226, 134, 40);
 		contentPane.add(btnAlterar);
 		
+		
+		
 		//-------------------------------------------------------- métodos -------------------------------------
 	
 		table.addMouseListener(new MouseAdapter() {
@@ -225,5 +186,4 @@ public class TelaListagemVendedores extends JFrame {
 		);
 
 	}
-	
 }
