@@ -19,6 +19,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import javax.swing.JMenuBar;
@@ -170,6 +171,11 @@ public class TelaHistoricoVendas extends JFrame {
 		));
 		table.getColumnModel().getColumn(4).setPreferredWidth(100);
 		scrollPane.setViewportView(table);
+		
+		JTableHeader tHeader = table.getTableHeader();
+		tHeader.setBackground(new Color(150, 191, 120));
+		tHeader.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 20));
+		tHeader.setForeground(Color.WHITE);
 		
 		
 	}

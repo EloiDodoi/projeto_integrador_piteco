@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import controle.ControleVendedorBD;
 import controle.EstoqueBD;
@@ -231,6 +232,11 @@ public class TelaListagemVendedores extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		table.setModel(cvbd.listagemVendedor());
+		
+		JTableHeader tHeader = table.getTableHeader();
+		tHeader.setBackground(new Color(150, 191, 120));
+		tHeader.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 20));
+		tHeader.setForeground(Color.WHITE);
 		
 		
 		
