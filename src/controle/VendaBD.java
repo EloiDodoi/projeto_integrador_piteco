@@ -5,8 +5,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
+import com.mysql.cj.protocol.Resultset;
 
 import modelo.ItemVenda;
 import modelo.Produto;
@@ -94,6 +97,32 @@ public class VendaBD {
 				System.out.println(e);
 			e.printStackTrace();
 		}
+		
 	}
-	
+	public boolean verificarItem(ItemVenda item){
+		try {
+			float quant = 0;
+			PreparedStatement ps = cbd.getConexao().prepareStatement("Select produto_quantidade where idproduto = ?");
+			ps.setInt(1, item.getCodigoItem());
+			ResultSet rs =  ps.executeQuery();
+			while (rs.next()) {
+				quant = rs.getFloat(1);
+			}
+			if(quant < item.getQuantidadeItem()) {
+				return false;
+				}else {
+					return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		JOptionPane.showMessageDialog(null, "Quantidade insuficiente no estoque!");			
+		return false;
+	}
+	public void messagemEstoque (Venda venda){
+		for (ItemVenda iv : venda.getArrayItensVenda()) {
+			
+		
+		} 
+	}
 }
