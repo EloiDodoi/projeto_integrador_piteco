@@ -113,7 +113,7 @@ public class TelaBemVindo extends JFrame {
 		JMenuItem btnMenuInicio = new JMenuItem("In\u00EDcio");
 		btnMenuInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Você já está na Tela Inicial.");
+				JOptionPane.showMessageDialog(null, "Vocï¿½ jï¿½ estï¿½ na Tela Inicial.");
 			}
 		});
 		btnMenuInicio.setOpaque(true);

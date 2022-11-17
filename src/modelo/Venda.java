@@ -1,6 +1,8 @@
 package modelo;
 
 import java.sql.Date;
+import java.util.ArrayList;
+
 
 public class Venda {
 
@@ -8,7 +10,23 @@ public class Venda {
 	private float venda_valor;
 	private Date venda_data;
 	private Usuario usuario;
+	ItemVenda iv = new ItemVenda();
+	ArrayList<ItemVenda> arrayItensVenda = new ArrayList<ItemVenda>();
+	
 
+	public ArrayList<ItemVenda> getArrayItensVenda() {
+		return arrayItensVenda;
+	}
+	
+	public ItemVenda itemVendaEspecifico(int i) {
+		return arrayItensVenda.get(i);
+	}
+
+	public void adicionarItem(ItemVenda item) {
+		arrayItensVenda.add(item);
+	}
+	
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}

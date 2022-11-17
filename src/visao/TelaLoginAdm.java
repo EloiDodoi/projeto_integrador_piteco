@@ -27,9 +27,11 @@ import javax.swing.ImageIcon;
 public class TelaLoginAdm {
 
 	private JFrame frmLoginDoAdministrador;
-	private JTextField txtUsuarioAdm;
-	private JPasswordField passwordField;
-
+	private JTextField txt_login;
+	private JPasswordField txt_senha;
+	static TelaLoginAdm window = new TelaLoginAdm();
+	
+	static Usuario user;
 	/**
 	 * Launch the application.
 	 */
@@ -123,10 +125,22 @@ public class TelaLoginAdm {
 		btn_entrar_adm.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		btn_entrar_adm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btn_entrar_adm.setForeground(new Color(31, 65, 45));
-		btn_entrar_adm.setBackground(new Color(255, 255, 255));
+				Usuario login = new Usuario(0, null, null, null, null, null, txt_senha.getText(), txt_login.getText(), 0);
+				LoginAdmBD lg = new LoginAdmBD();
+				if (lg.autenticar(login)== null ) {
+					System.out.println("Erro Login");
+					JOptionPane.showMessageDialog(null, "E-mail ou senha incorretos, tente novamente!");
+				}else {
+					System.out.println("Login feito com êxito");
+					TelaBemVindo tb = new TelaBemVindo();
+					user = lg.autenticar(login);
+					tb.abrir();
+					frmLoginDoAdministrador.setVisible(false);
+				}
+				
+			}});
+		btn_entrar_adm.setForeground(new Color(234, 242, 237));
+		btn_entrar_adm.setBackground(new Color(31, 65, 45));
 		btn_entrar_adm.setFont(new Font("Alef", Font.PLAIN, 25));
 		btn_entrar_adm.setBounds(138, 307, 375, 46);
 		panel_1.add(btn_entrar_adm);
