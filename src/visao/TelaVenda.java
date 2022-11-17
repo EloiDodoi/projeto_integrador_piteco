@@ -19,6 +19,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
@@ -187,10 +188,15 @@ public class TelaVenda extends JFrame {
 		btnNewButton = new JButton(" Pagamento ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				VendasPagamento telavp = new VendasPagamento(venda);
-				telavp.setVisible(true);
-				setVisible(false);
+				
+				if(venda.getArrayItensVenda().isEmpty() == true) {
+					JOptionPane.showMessageDialog(null, "Adicione pelo menos um item à venda para realizar o pagamento.");
+				}
+				else {
+					VendasPagamento telavp = new VendasPagamento(venda);
+					telavp.setVisible(true);
+					setVisible(false);
+				}
 
 			}
 		});
@@ -237,8 +243,27 @@ public class TelaVenda extends JFrame {
 		btnAdicionarItem.setFont(new Font("Dialog", Font.PLAIN, 22));
 
 		btnAdicionarItem.addActionListener(new ActionListener() {
+		int i = 0;
 
 			public void actionPerformed(ActionEvent e) {
+				
+//				if(i > 1) {
+//					if(venda.getArrayItensVenda().isEmpty() == true) {
+//						JOptionPane.showMessageDialog(null, "Preencha todos os campos do item antes de adicionar um novo item à venda.");
+//					}
+//				}
+				
+//				if(venda.getArrayItensVenda().isEmpty() == true) {
+//					JOptionPane.showMessageDialog(null, "Preencha todos os campos do item antes de adicionar um novo item à venda.");
+//					
+//					while(venda.itemVendaEspecifico(i).getPrecoTotalItem() == 0);
+//					{
+//						btnAdicionarItem.setEnabled(false);
+//						JOptionPane.showMessageDialog(null, "Preencha todos os campos do item antes de adicionar um novo item à venda.");
+//					}
+//					btnAdicionarItem.setEnabled(true);
+//				}
+				
 				ItemVenda novoItem = new ItemVenda();
 				venda.adicionarItem(novoItem);
 
@@ -378,6 +403,7 @@ public class TelaVenda extends JFrame {
 						itensVenda.repaint();
 
 					}
+					
 				});
 
 				JLabel lblValor = new JLabel("Valor");
@@ -411,8 +437,13 @@ public class TelaVenda extends JFrame {
 				itensVenda.add(itemVenda);
 				itensVenda.revalidate();
 				itensVenda.repaint();
-
+				
+				
+				
+				i++;
+				
 			}
+			
 		});
 
 		/*

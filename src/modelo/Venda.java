@@ -17,6 +17,10 @@ public class Venda {
 	public ArrayList<ItemVenda> getArrayItensVenda() {
 		return arrayItensVenda;
 	}
+	
+	public ItemVenda itemVendaEspecifico(int i) {
+		return arrayItensVenda.get(i);
+	}
 
 	public void adicionarItem(ItemVenda item) {
 		arrayItensVenda.add(item);
