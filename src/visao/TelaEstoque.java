@@ -78,6 +78,7 @@ public class TelaEstoque extends JFrame {
 		//ArrayList<> tableArray = new ArrayList<>
 		
 		table = new JTable();
+		table.setSelectionBackground(new Color(217, 173, 181));
 		table.setBounds(130, 330, 1119, 391);
 		contentPane.add(table);
 		table.setRowHeight(40);
@@ -86,10 +87,10 @@ public class TelaEstoque extends JFrame {
 		table.setGridColor(new Color(150, 191, 120));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Código", "", "", "", ""},
+				{"C\u00C3\u00B3digo", "", "", "", ""},
 			},
 			new String[] {
-				"Código", "Nome", "Espécie", "Preço", "Quantidade"
+				"C\u00C3\u00B3digo", "Nome", "Esp\u00C3\u00A9cie", "Pre\u00C3\u00A7o", "Quantidade"
 			}
 		));
 		table.getColumnModel().getColumn(1).setPreferredWidth(150);
