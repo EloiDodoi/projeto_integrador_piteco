@@ -40,6 +40,7 @@ import modelo.Produto;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import javax.swing.JMenuBar;
 
 public class TelaSalvarProduto {
 
@@ -104,28 +105,28 @@ public class TelaSalvarProduto {
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel);
 				GridBagLayout gbl_panel = new GridBagLayout();
-				gbl_panel.columnWidths = new int[]{77, 797, 179, 454, 0};
-				gbl_panel.rowHeights = new int[]{8, 112, 610, 0};
+				gbl_panel.columnWidths = new int[] {65, 797, 179, 454, 65};
+				gbl_panel.rowHeights = new int[] {30, 10, 110, 544, 30};
 				gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-				gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+				gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 				panel.setLayout(gbl_panel);
-				
-						JSeparator separator = new JSeparator();
-						GridBagConstraints gbc_separator = new GridBagConstraints();
-						gbc_separator.fill = GridBagConstraints.BOTH;
-						gbc_separator.insets = new Insets(0, 0, 5, 0);
-						gbc_separator.gridwidth = 3;
-						gbc_separator.gridx = 1;
-						gbc_separator.gridy = 0;
-						panel.add(separator, gbc_separator);
-						separator.setBorder(new LineBorder(new Color(31, 65, 45), 4));
+						
+								JSeparator separator = new JSeparator();
+								GridBagConstraints gbc_separator = new GridBagConstraints();
+								gbc_separator.fill = GridBagConstraints.BOTH;
+								gbc_separator.insets = new Insets(0, 0, 5, 0);
+								gbc_separator.gridwidth = 3;
+								gbc_separator.gridx = 1;
+								gbc_separator.gridy = 1;
+								panel.add(separator, gbc_separator);
+								separator.setBorder(new LineBorder(new Color(31, 65, 45), 4));
 				
 						JLabel lblVendedor = new JLabel("Alterar Produto");
 						GridBagConstraints gbc_lblVendedor = new GridBagConstraints();
 						gbc_lblVendedor.fill = GridBagConstraints.HORIZONTAL;
 						gbc_lblVendedor.insets = new Insets(0, 0, 5, 5);
 						gbc_lblVendedor.gridx = 1;
-						gbc_lblVendedor.gridy = 1;
+						gbc_lblVendedor.gridy = 2;
 						panel.add(lblVendedor, gbc_lblVendedor);
 						lblVendedor.setBackground(new Color(234, 242, 237));
 						lblVendedor.setHorizontalAlignment(SwingConstants.LEFT);
@@ -133,12 +134,12 @@ public class TelaSalvarProduto {
 						lblVendedor.setFont(new Font("Dialog", Font.PLAIN, 85));
 				
 				JLabel lbl_codigo_1 = new JLabel("0");
+				lbl_codigo_1.setForeground(new Color(31, 65, 45));
 				GridBagConstraints gbc_lbl_codigo_1 = new GridBagConstraints();
 				gbc_lbl_codigo_1.anchor = GridBagConstraints.NORTH;
 				gbc_lbl_codigo_1.fill = GridBagConstraints.HORIZONTAL;
-				gbc_lbl_codigo_1.gridheight = 2;
 				gbc_lbl_codigo_1.gridx = 3;
-				gbc_lbl_codigo_1.gridy = 1;
+				gbc_lbl_codigo_1.gridy = 2;
 				panel.add(lbl_codigo_1, gbc_lbl_codigo_1);
 				lbl_codigo_1.setHorizontalAlignment(SwingConstants.TRAILING);
 				lbl_codigo_1.setFont(new Font("Tahoma", Font.PLAIN, 92));
@@ -148,7 +149,7 @@ public class TelaSalvarProduto {
 																																		gbc_panel_2.fill = GridBagConstraints.BOTH;
 																																		gbc_panel_2.gridwidth = 3;
 																																		gbc_panel_2.gridx = 1;
-																																		gbc_panel_2.gridy = 2;
+																																		gbc_panel_2.gridy = 3;
 																																		panel.add(panel_2, gbc_panel_2);
 																																		panel_2.setBackground(new Color(123, 166, 111));
 																																		GridBagLayout gbl_panel_2 = new GridBagLayout();
@@ -330,7 +331,7 @@ public class TelaSalvarProduto {
 																																																										gbc_txt_quantidade_1.gridx = 6;
 																																																										gbc_txt_quantidade_1.gridy = 7;
 																																																										panel_2.add(txt_quantidade_1, gbc_txt_quantidade_1);
-																																																										btnSalvar.setBackground(new Color(123, 166, 111));
+																																																										btnSalvar.setBackground(new Color(255, 255, 255));
 																																																										btnSalvar.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
 																																																										btnSalvar.setForeground(new Color(31, 65, 45));
 																																																										btnSalvar.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
@@ -354,13 +355,16 @@ public class TelaSalvarProduto {
 																																																												btnExcluir.setForeground(new Color(31, 65, 45));
 																																																												btnExcluir.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
 																																																												btnExcluir.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
-																																																												btnExcluir.setBackground(new Color(123, 166, 111));
+																																																												btnExcluir.setBackground(new Color(255, 255, 255));
 																																																												GridBagConstraints gbc_btnExcluir = new GridBagConstraints();
 																																																												gbc_btnExcluir.fill = GridBagConstraints.BOTH;
 																																																												gbc_btnExcluir.gridwidth = 2;
 																																																												gbc_btnExcluir.gridx = 5;
 																																																												gbc_btnExcluir.gridy = 9;
 																																																												panel_2.add(btnExcluir, gbc_btnExcluir);
+																																																												
+																																																												JMenuBar menuBar = new JMenuBar();
+																																																												frame.setJMenuBar(menuBar);
 	
 
 	}

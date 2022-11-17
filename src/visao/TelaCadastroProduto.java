@@ -200,7 +200,7 @@ public class TelaCadastroProduto {
 		gbc_rbKg.gridwidth = 2;
 		gbc_rbKg.anchor = GridBagConstraints.NORTH;
 		gbc_rbKg.insets = new Insets(0, 0, 5, 5);
-		gbc_rbKg.gridx = 5;
+		gbc_rbKg.gridx = 4;
 		gbc_rbKg.gridy = 5;
 		panel_2.add(rbKg, gbc_rbKg);
 		
@@ -214,7 +214,7 @@ public class TelaCadastroProduto {
 		gbc_rbUnidade.anchor = GridBagConstraints.EAST;
 		gbc_rbUnidade.fill = GridBagConstraints.VERTICAL;
 		gbc_rbUnidade.insets = new Insets(0, 0, 5, 5);
-		gbc_rbUnidade.gridx = 7;
+		gbc_rbUnidade.gridx = 6;
 		gbc_rbUnidade.gridy = 5;
 		panel_2.add(rbUnidade, gbc_rbUnidade);
 		
@@ -304,7 +304,7 @@ public class TelaCadastroProduto {
 		gbc_txt_quantidade.gridx = 7;
 		gbc_txt_quantidade.gridy = 7;
 		panel_2.add(txt_quantidade, gbc_txt_quantidade);
-		btn_cadastrar_produto.setBackground(new Color(123, 166, 111));
+		btn_cadastrar_produto.setBackground(new Color(255, 255, 255));
 		btn_cadastrar_produto.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
 		btn_cadastrar_produto.setForeground(new Color(31, 65, 45));
 		btn_cadastrar_produto.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));

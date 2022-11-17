@@ -376,41 +376,6 @@ public class TelaCadastroAdm {
 		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 45));
 		btnNewButton.setBounds(83, 399, 367, 76);
 		panel_3.add(btnNewButton);
-		
-/*		JTextField textField_1 = new JTextField();
-		textField_1.setBackground(new Color(234, 242, 237));
-		textField_1.setBounds(29, 308, 472, 35);
-		panel_3.add(textField_1);
-		textField_1.setForeground(Color.DARK_GRAY);
-		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField_1.setColumns(10);
-		textField_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		
-		JLabel lblNewLabel_1 = new JLabel("E-mail");
-		lblNewLabel_1.setBounds(31, 197, 293, 28);
-		panel_3.add(lblNewLabel_1);
-		lblNewLabel_1.setForeground(new Color(31, 65, 45));
-		lblNewLabel_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(234, 242, 237));
-		panel.setBounds(206, 202, 1171, 543);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
-*/		
-		JButton btnNewButton_1 = new JButton("<");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaLoginAdm tla = new TelaLoginAdm();
-				tla.abrir();
-				frame.setVisible(false);
-			}
-		});
-		btnNewButton_1.setForeground(Color.WHITE);
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnNewButton_1.setBackground(new Color(31, 65, 45));
-		btnNewButton_1.setBounds(28, 26, 60, 56);
-		frame.getContentPane().add(btnNewButton_1);
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1600, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
