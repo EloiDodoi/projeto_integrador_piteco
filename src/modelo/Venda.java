@@ -10,6 +10,16 @@ public class Venda {
 	private float venda_valor;
 	private Date venda_data;
 	private Usuario usuario;
+	private int tipo_pagamento;
+	
+	public int getTipo_pagamento() {
+		return tipo_pagamento;
+	}
+
+	public void setTipo_pagamento(int tipo_pagamento) {
+		this.tipo_pagamento = tipo_pagamento;
+	}
+
 	ItemVenda iv = new ItemVenda();
 	ArrayList<ItemVenda> arrayItensVenda = new ArrayList<ItemVenda>();
 	
