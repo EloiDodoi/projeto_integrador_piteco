@@ -482,16 +482,22 @@ public class TelaVenda extends JFrame {
 			lblNewLabel.setText("Item - " + vbd.nomeProduto(codProduto));
 
 			if (textField_1.getText().isEmpty() == false) {
-				float quantidade = Float.parseFloat(textField_1.getText());
+				
+				
+				//vbd.verificarItem(vbd.retornarProduto(codProduto));
+				
+				
+					float quantidade = Float.parseFloat(textField_1.getText());
 
-				Float total = vbd.precoUnitario(codProduto, quantidade);
-				lblValorDoProduto.setText(String.valueOf(total));
+					Float total = vbd.precoUnitario(codProduto, quantidade);
+					lblValorDoProduto.setText(String.valueOf(total));
 
-				ItemVenda itemVenda = venda.getArrayItensVenda().get(numItens - 1);
-				itemVenda.setCodigoItem(codProduto);
-				itemVenda.setPrecoTotalItem(roundAvoid(total, 2));
-				itemVenda.setQuantidadeItem(quantidade);
-
+					ItemVenda itemVenda = venda.getArrayItensVenda().get(numItens - 1);
+					itemVenda.setCodigoItem(codProduto);
+					itemVenda.setPrecoTotalItem(roundAvoid(total, 2));
+					itemVenda.setQuantidadeItem(quantidade);
+				
+			
 			}
 
 		}
