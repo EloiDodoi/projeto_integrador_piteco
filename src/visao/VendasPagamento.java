@@ -16,6 +16,8 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
@@ -236,8 +238,8 @@ public class VendasPagamento extends JFrame {
 		gbl_panelRadioB.rowWeights = new double[] { 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		panelRadioB.setLayout(gbl_panelRadioB);
 
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Dinheiro\r\n");
-		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+		JRadioButton rbtnDinheiro = new JRadioButton("Dinheiro\r\n");
+		rbtnDinheiro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lblValorDinheiro.setVisible(true);
 				lblRS2.setVisible(true);
@@ -245,20 +247,20 @@ public class VendasPagamento extends JFrame {
 			}
 		});
 		
-		buttonGroup.add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.setBackground(new Color(234, 242, 237));
-		rdbtnNewRadioButton.setForeground(new Color(31, 65, 45));
-		rdbtnNewRadioButton.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
-		rdbtnNewRadioButton.setActionCommand("Pagamento");
-		GridBagConstraints gbc_rdbtnNewRadioButton = new GridBagConstraints();
-		gbc_rdbtnNewRadioButton.insets = new Insets(0, 0, 5, 5);
-		gbc_rdbtnNewRadioButton.anchor = GridBagConstraints.NORTHWEST;
-		gbc_rdbtnNewRadioButton.gridx = 0;
-		gbc_rdbtnNewRadioButton.gridy = 0;
-		panelRadioB.add(rdbtnNewRadioButton, gbc_rdbtnNewRadioButton);
+		buttonGroup.add(rbtnDinheiro);
+		rbtnDinheiro.setBackground(new Color(234, 242, 237));
+		rbtnDinheiro.setForeground(new Color(31, 65, 45));
+		rbtnDinheiro.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
+		rbtnDinheiro.setActionCommand("Pagamento");
+		GridBagConstraints gbc_rbtnDinheiro = new GridBagConstraints();
+		gbc_rbtnDinheiro.insets = new Insets(0, 0, 5, 5);
+		gbc_rbtnDinheiro.anchor = GridBagConstraints.NORTHWEST;
+		gbc_rbtnDinheiro.gridx = 0;
+		gbc_rbtnDinheiro.gridy = 0;
+		panelRadioB.add(rbtnDinheiro, gbc_rbtnDinheiro);
 
-		JRadioButton rdbtnCartoDeDbito = new JRadioButton("Cart\u00E3o de D\u00E9bito");
-		rdbtnCartoDeDbito.addActionListener(new ActionListener() {
+		JRadioButton rdbtnCartaoDeDebito = new JRadioButton("Cart\u00E3o de D\u00E9bito");
+		rdbtnCartaoDeDebito.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lblValorDinheiro.setVisible(false);
 				lblRS2.setVisible(false);
@@ -271,30 +273,43 @@ public class VendasPagamento extends JFrame {
 				
 			}
 		});
-		buttonGroup.add(rdbtnCartoDeDbito);
-		rdbtnCartoDeDbito.setBackground(new Color(234, 242, 237));
-		rdbtnCartoDeDbito.setForeground(new Color(31, 65, 45));
-		rdbtnCartoDeDbito.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
-		rdbtnCartoDeDbito.setActionCommand("Pagamento\r\n");
-		GridBagConstraints gbc_rdbtnCartoDeDbito = new GridBagConstraints();
-		gbc_rdbtnCartoDeDbito.anchor = GridBagConstraints.WEST;
-		gbc_rdbtnCartoDeDbito.insets = new Insets(0, 0, 5, 5);
-		gbc_rdbtnCartoDeDbito.gridx = 0;
-		gbc_rdbtnCartoDeDbito.gridy = 1;
-		panelRadioB.add(rdbtnCartoDeDbito, gbc_rdbtnCartoDeDbito);
+		buttonGroup.add(rdbtnCartaoDeDebito);
+		rdbtnCartaoDeDebito.setBackground(new Color(234, 242, 237));
+		rdbtnCartaoDeDebito.setForeground(new Color(31, 65, 45));
+		rdbtnCartaoDeDebito.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
+		rdbtnCartaoDeDebito.setActionCommand("Pagamento\r\n");
+		GridBagConstraints gbc_rdbtnCartaoDeDebito = new GridBagConstraints();
+		gbc_rdbtnCartaoDeDebito.anchor = GridBagConstraints.WEST;
+		gbc_rdbtnCartaoDeDebito.insets = new Insets(0, 0, 5, 5);
+		gbc_rdbtnCartaoDeDebito.gridx = 0;
+		gbc_rdbtnCartaoDeDebito.gridy = 1;
+		panelRadioB.add(rdbtnCartaoDeDebito, gbc_rdbtnCartaoDeDebito);
 
-		JRadioButton rdbtnCartoDeCrdito = new JRadioButton("Cart\u00E3o de Cr\u00E9dito");
-		buttonGroup.add(rdbtnCartoDeCrdito);
-		rdbtnCartoDeCrdito.setBackground(new Color(234, 242, 237));
-		rdbtnCartoDeCrdito.setForeground(new Color(31, 65, 45));
-		rdbtnCartoDeCrdito.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
-		rdbtnCartoDeCrdito.setActionCommand("Pagamento");
-		GridBagConstraints gbc_rdbtnCartoDeCrdito = new GridBagConstraints();
-		gbc_rdbtnCartoDeCrdito.anchor = GridBagConstraints.WEST;
-		gbc_rdbtnCartoDeCrdito.insets = new Insets(0, 0, 0, 5);
-		gbc_rdbtnCartoDeCrdito.gridx = 0;
-		gbc_rdbtnCartoDeCrdito.gridy = 2;
-		panelRadioB.add(rdbtnCartoDeCrdito, gbc_rdbtnCartoDeCrdito);
+		JRadioButton rdbtnCartaoDeCredito = new JRadioButton("Cart\u00E3o de Cr\u00E9dito");
+		rdbtnCartaoDeCredito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblValorDinheiro.setVisible(false);
+				lblRS2.setVisible(false);
+				txtValorDinheiro.setVisible(false);
+				txtValorDinheiro.setText("");
+				lblTroco.setVisible(false);
+				lblRS4.setVisible(false);
+				lblTroco2.setVisible(false);
+				lblTroco2.setText("0,0");
+				
+			}
+		});
+		buttonGroup.add(rdbtnCartaoDeCredito);
+		rdbtnCartaoDeCredito.setBackground(new Color(234, 242, 237));
+		rdbtnCartaoDeCredito.setForeground(new Color(31, 65, 45));
+		rdbtnCartaoDeCredito.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
+		rdbtnCartaoDeCredito.setActionCommand("Pagamento");
+		GridBagConstraints gbc_rdbtnCartaoDeCredito = new GridBagConstraints();
+		gbc_rdbtnCartaoDeCredito.anchor = GridBagConstraints.WEST;
+		gbc_rdbtnCartaoDeCredito.insets = new Insets(0, 0, 0, 5);
+		gbc_rdbtnCartaoDeCredito.gridx = 0;
+		gbc_rdbtnCartaoDeCredito.gridy = 2;
+		panelRadioB.add(rdbtnCartaoDeCredito, gbc_rdbtnCartaoDeCredito);
 
 		JLabel lblValores = new JLabel("Valor da Venda");
 		lblValores.setForeground(new Color(217, 173, 181));
@@ -459,7 +474,27 @@ public class VendasPagamento extends JFrame {
 				java.sql.Date data_venda = java.sql.Date.valueOf(data.toLocalDate());
 				venda.setVenda_data(data_venda);
 				System.out.println(data_venda);
-				vbd.executarVenda(venda);
+				
+				int pagamento = 0;
+				
+				if(rbtnDinheiro.isSelected() == true || rdbtnCartaoDeDebito.isSelected() == true || rdbtnCartaoDeCredito.isSelected() == true) {
+					if (rbtnDinheiro.isSelected() == true) {
+						pagamento = 1;
+					}
+					else if (rdbtnCartaoDeDebito.isSelected() == true){
+						pagamento = 2;
+					}
+					else if(rdbtnCartaoDeCredito.isSelected() == true) {
+						pagamento = 3;
+					}
+					
+					vbd.executarVenda(venda);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Selecione um método de pagamento antes de finalizar a venda!");
+				}
+				
+				
 			}
 		});
 		btnFinalizar.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
