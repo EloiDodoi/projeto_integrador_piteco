@@ -162,7 +162,7 @@ public class TelaHistoricoVendas extends JFrame {
 		JMenuItem btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas");
 		btnMenuRelatorios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JOptionPane.showMessageDialog(null, "Você já está na Tela de Histórico de Vendas..");
+				JOptionPane.showMessageDialog(null, "Vocï¿½ jï¿½ estï¿½ na Tela de Histï¿½rico de Vendas..");
 			}
 		});
 		btnMenuRelatorios.setOpaque(true);
@@ -357,11 +357,11 @@ public class TelaHistoricoVendas extends JFrame {
 			new Object[][] {
 				{null, null, null, null, null},
 				{null, null, null, null, null},
-				{null, null, null, null, null},
+				{null, null, null, "", null},
 				{null, null, null, null, null},
 			},
 			new String[] {
-				"N\u00B0", "Data", "Tipo de Pagamento", "Valor", "Produtos"
+				"N\u00B0", "Data", "Valor", "Tipo de Pagamento", "Produtos"
 			}
 		));
 		table.getColumnModel().getColumn(4).setPreferredWidth(100);
