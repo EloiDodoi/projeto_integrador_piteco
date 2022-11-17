@@ -14,15 +14,15 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `piteco` DEFAULT CHARACTER SET utf8 ;
+USE `piteco` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Permissoes`
+-- Table `piteco`.`Permissoes`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Permissoes` ;
+DROP TABLE IF EXISTS `piteco`.`Permissoes` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Permissoes` (
+CREATE TABLE IF NOT EXISTS `piteco`.`Permissoes` (
   `Codigo_permissao` INT NOT NULL AUTO_INCREMENT,
   `Permissao` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Codigo_permissao`))
@@ -30,11 +30,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`TipoUser`
+-- Table `piteco`.`TipoUser`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`TipoUser` ;
+DROP TABLE IF EXISTS `piteco`.`TipoUser` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`TipoUser` (
+CREATE TABLE IF NOT EXISTS `piteco`.`TipoUser` (
   `id_tipo` INT NOT NULL,
   `tipo_nome` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_tipo`))
@@ -42,11 +42,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Usuario`
+-- Table `piteco`.`Usuario`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Usuario` ;
+DROP TABLE IF EXISTS `piteco`.`Usuario` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Usuario` (
+CREATE TABLE IF NOT EXISTS `piteco`.`Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `usuario_nome` VARCHAR(70) NOT NULL,
   `usuario_cpf` CHAR(11) NOT NULL,
@@ -60,18 +60,18 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Usuario` (
   INDEX `fk_Usuario_TipoUser1_idx` (`TipoUser_id_tipo` ASC),
   CONSTRAINT `fk_Usuario_TipoUser1`
     FOREIGN KEY (`TipoUser_id_tipo`)
-    REFERENCES `mydb`.`TipoUser` (`id_tipo`)
+    REFERENCES `piteco`.`TipoUser` (`id_tipo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Usuario_has_Permissoes`
+-- Table `piteco`.`Usuario_has_Permissoes`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Usuario_has_Permissoes` ;
+DROP TABLE IF EXISTS `piteco`.`Usuario_has_Permissoes` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Usuario_has_Permissoes` (
+CREATE TABLE IF NOT EXISTS `piteco`.`Usuario_has_Permissoes` (
   `Usuario_idUsuario` INT NOT NULL,
   `Permissoes_Codigo_permissao` INT NOT NULL,
   PRIMARY KEY (`Usuario_idUsuario`, `Permissoes_Codigo_permissao`),
@@ -79,23 +79,23 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Usuario_has_Permissoes` (
   INDEX `fk_Usuario_has_Permissoes_Usuario_idx` (`Usuario_idUsuario` ASC),
   CONSTRAINT `fk_Usuario_has_Permissoes_Usuario`
     FOREIGN KEY (`Usuario_idUsuario`)
-    REFERENCES `mydb`.`Usuario` (`idUsuario`)
+    REFERENCES `piteco`.`Usuario` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Usuario_has_Permissoes_Permissoes1`
     FOREIGN KEY (`Permissoes_Codigo_permissao`)
-    REFERENCES `mydb`.`Permissoes` (`Codigo_permissao`)
+    REFERENCES `piteco`.`Permissoes` (`Codigo_permissao`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Venda`
+-- Table `piteco`.`Venda`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Venda` ;
+DROP TABLE IF EXISTS `piteco`.`Venda` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Venda` (
+CREATE TABLE IF NOT EXISTS `piteco`.`Venda` (
   `idVenda` INT NOT NULL AUTO_INCREMENT,
   `venda_valor` FLOAT NOT NULL,
   `venda_data` DATE NOT NULL,
@@ -106,23 +106,23 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Venda` (
   INDEX `fk_Venda_Tipo_Pagamento1_idx` (`Tipo_Pagamento_idTipo_Pagamento` ASC),
   CONSTRAINT `fk_Venda_Usuario1`
     FOREIGN KEY (`Usuario_idUsuario`)
-    REFERENCES `mydb`.`Usuario` (`idUsuario`)
+    REFERENCES `piteco`.`Usuario` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Venda_Tipo_Pagamento1`
     FOREIGN KEY (`Tipo_Pagamento_idTipo_Pagamento`)
-    REFERENCES `mydb`.`Tipo_Pagamento` (`idTipo_Pagamento`)
+    REFERENCES `piteco`.`Tipo_Pagamento` (`idTipo_Pagamento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Tipo_Pagamento`
+-- Table `piteco`.`Tipo_Pagamento`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Tipo_Pagamento` ;
+DROP TABLE IF EXISTS `piteco`.`Tipo_Pagamento` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Tipo_Pagamento` (
+CREATE TABLE IF NOT EXISTS `piteco`.`Tipo_Pagamento` (
   `idTipo_Pagamento` INT NOT NULL AUTO_INCREMENT,
   `Tipo_Pagamento` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idTipo_Pagamento`))
@@ -130,11 +130,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Venda`
+-- Table `piteco`.`Venda`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Venda` ;
+DROP TABLE IF EXISTS `piteco`.`Venda` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Venda` (
+CREATE TABLE IF NOT EXISTS `piteco`.`Venda` (
   `idVenda` INT NOT NULL AUTO_INCREMENT,
   `venda_valor` FLOAT NOT NULL,
   `venda_data` DATE NOT NULL,
@@ -145,23 +145,23 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Venda` (
   INDEX `fk_Venda_Tipo_Pagamento1_idx` (`Tipo_Pagamento_idTipo_Pagamento` ASC),
   CONSTRAINT `fk_Venda_Usuario1`
     FOREIGN KEY (`Usuario_idUsuario`)
-    REFERENCES `mydb`.`Usuario` (`idUsuario`)
+    REFERENCES `piteco`.`Usuario` (`idUsuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Venda_Tipo_Pagamento1`
     FOREIGN KEY (`Tipo_Pagamento_idTipo_Pagamento`)
-    REFERENCES `mydb`.`Tipo_Pagamento` (`idTipo_Pagamento`)
+    REFERENCES `piteco`.`Tipo_Pagamento` (`idTipo_Pagamento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Unidade_quantidade`
+-- Table `piteco`.`Unidade_quantidade`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Unidade_quantidade` ;
+DROP TABLE IF EXISTS `piteco`.`Unidade_quantidade` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Unidade_quantidade` (
+CREATE TABLE IF NOT EXISTS `piteco`.`Unidade_quantidade` (
   `idUnidade_quantidade` INT NOT NULL,
   `uq_tipo` VARCHAR(45) NULL,
   PRIMARY KEY (`idUnidade_quantidade`))
@@ -169,11 +169,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Produto`
+-- Table `piteco`.`Produto`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Produto` ;
+DROP TABLE IF EXISTS `piteco`.`Produto` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Produto` (
+CREATE TABLE IF NOT EXISTS `piteco`.`Produto` (
   `idProduto` INT NOT NULL AUTO_INCREMENT,
   `produto_nomeveg` VARCHAR(50) NOT NULL,
   `produto_especieveg` VARCHAR(50) NULL,
@@ -184,18 +184,18 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Produto` (
   INDEX `fk_Produto_Unidade_quantidade1_idx` (`Unidade_quantidade_idUnidade_quantidade` ASC),
   CONSTRAINT `fk_Produto_Unidade_quantidade1`
     FOREIGN KEY (`Unidade_quantidade_idUnidade_quantidade`)
-    REFERENCES `mydb`.`Unidade_quantidade` (`idUnidade_quantidade`)
+    REFERENCES `piteco`.`Unidade_quantidade` (`idUnidade_quantidade`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Preco_antigo`
+-- Table `piteco`.`Preco_antigo`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Preco_antigo` ;
+DROP TABLE IF EXISTS `piteco`.`Preco_antigo` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Preco_antigo` (
+CREATE TABLE IF NOT EXISTS `piteco`.`Preco_antigo` (
   `idpreco_antigo` INT NOT NULL,
   `pa_valor` FLOAT NULL,
   PRIMARY KEY (`idpreco_antigo`))
@@ -203,11 +203,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Historico_preco`
+-- Table `piteco`.`Historico_preco`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Historico_preco` ;
+DROP TABLE IF EXISTS `piteco`.`Historico_preco` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Historico_preco` (
+CREATE TABLE IF NOT EXISTS `piteco`.`Historico_preco` (
   `Preco_antigo_idpreco_antigo` INT NOT NULL,
   `Produto_idProduto` INT NOT NULL,
   `historico_data` DATE NULL,
@@ -216,23 +216,23 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Historico_preco` (
   INDEX `fk_Preco_antigo_has_Produto_Preco_antigo1_idx` (`Preco_antigo_idpreco_antigo` ASC),
   CONSTRAINT `fk_Preco_antigo_has_Produto_Preco_antigo1`
     FOREIGN KEY (`Preco_antigo_idpreco_antigo`)
-    REFERENCES `mydb`.`Preco_antigo` (`idpreco_antigo`)
+    REFERENCES `piteco`.`Preco_antigo` (`idpreco_antigo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Preco_antigo_has_Produto_Produto1`
     FOREIGN KEY (`Produto_idProduto`)
-    REFERENCES `mydb`.`Produto` (`idProduto`)
+    REFERENCES `piteco`.`Produto` (`idProduto`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Venda_Produto`
+-- Table `piteco`.`Venda_Produto`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Venda_Produto` ;
+DROP TABLE IF EXISTS `piteco`.`Venda_Produto` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Venda_Produto` (
+CREATE TABLE IF NOT EXISTS `piteco`.`Venda_Produto` (
   `Venda_idVenda` INT NOT NULL AUTO_INCREMENT,
   `Produto_idProduto` INT NOT NULL,
   `Produto_Unidade_quantidade_idUnidade_quantidade` INT NOT NULL,
@@ -243,12 +243,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Venda_Produto` (
   INDEX `fk_Venda_has_Produto_Venda1_idx` (`Venda_idVenda` ASC),
   CONSTRAINT `fk_Venda_has_Produto_Venda1`
     FOREIGN KEY (`Venda_idVenda`)
-    REFERENCES `mydb`.`Venda` (`idVenda`)
+    REFERENCES `piteco`.`Venda` (`idVenda`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Venda_has_Produto_Produto1`
     FOREIGN KEY (`Produto_idProduto` , `Produto_Unidade_quantidade_idUnidade_quantidade`)
-    REFERENCES `mydb`.`Produto` (`idProduto` , `Unidade_quantidade_idUnidade_quantidade`)
+    REFERENCES `piteco`.`Produto` (`idProduto` , `Unidade_quantidade_idUnidade_quantidade`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
