@@ -37,6 +37,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import modelo.Produto;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class TelaSalvarProduto {
 
@@ -96,220 +99,268 @@ public class TelaSalvarProduto {
 		frame.getContentPane().setBackground(new Color(234, 242, 237));
 		frame.setBounds(100, 100, 1600, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-
-		JLabel lblVendedor = new JLabel("Alterar Produto");
-		lblVendedor.setBackground(new Color(234, 242, 237));
-		lblVendedor.setHorizontalAlignment(SwingConstants.LEFT);
-		lblVendedor.setForeground(new Color(31, 65, 45));
-		lblVendedor.setFont(new Font("Dialog", Font.PLAIN, 85));
-		lblVendedor.setBounds(124, 137, 797, 110);
-		frame.getContentPane().add(lblVendedor);
-
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(123, 166, 111));
-		panel_2.setBounds(124, 256, 1430, 544);
-		frame.getContentPane().add(panel_2);
-		panel_2.setLayout(null);
-
-		JLabel lblNomeDoVegetal = new JLabel("Nome do Vegetal:");
-		lblNomeDoVegetal.setForeground(new Color(31, 65, 45));
-		lblNomeDoVegetal.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
-		lblNomeDoVegetal.setBounds(50, 50, 293, 35);
-		panel_2.add(lblNomeDoVegetal);
-
-		JLabel lblEspcieDoVegetal = new JLabel("Esp\u00E9cie do Vegetal:");
-		lblEspcieDoVegetal.setForeground(new Color(31, 65, 45));
-		lblEspcieDoVegetal.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
-		lblEspcieDoVegetal.setBounds(50, 125, 321, 35);
-		panel_2.add(lblEspcieDoVegetal);
-
-		JLabel lblNomeDoVegetal_1_1 = new JLabel("Produto Vendido Por:");
-		lblNomeDoVegetal_1_1.setForeground(new Color(31, 65, 45));
-		lblNomeDoVegetal_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
-		lblNomeDoVegetal_1_1.setBounds(50, 210, 332, 28);
-		panel_2.add(lblNomeDoVegetal_1_1);
-
-		JLabel lblNomeDoVegetal_1_1_1 = new JLabel("Pre\u00E7o:");
-		lblNomeDoVegetal_1_1_1.setForeground(new Color(31, 65, 45));
-		lblNomeDoVegetal_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
-		lblNomeDoVegetal_1_1_1.setBounds(50, 295, 107, 37);
-		panel_2.add(lblNomeDoVegetal_1_1_1);
-
-		JLabel lblNomeDoVegetal_1_1_1_1 = new JLabel("Quantidade:");
-		lblNomeDoVegetal_1_1_1_1.setForeground(new Color(31, 65, 45));
-		lblNomeDoVegetal_1_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
-		lblNomeDoVegetal_1_1_1_1.setBounds(837, 299, 204, 28);
-		panel_2.add(lblNomeDoVegetal_1_1_1_1);
-
-		JLabel lblNomeDoVegetal_1_1_1_1_1 = new JLabel("R$");
-		lblNomeDoVegetal_1_1_1_1_1.setForeground(new Color(31, 65, 45));
-		lblNomeDoVegetal_1_1_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
-		lblNomeDoVegetal_1_1_1_1_1.setBounds(174, 299, 84, 28);
-		panel_2.add(lblNomeDoVegetal_1_1_1_1_1);
-
-		JTextField txt_nome = new JTextField();
-		txt_nome.setBackground(new Color(234, 242, 237));
-		txt_nome.setForeground(Color.DARK_GRAY);
-		txt_nome.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txt_nome.setColumns(10);
-		txt_nome.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		txt_nome.setBounds(410, 51, 943, 35);
-		panel_2.add(txt_nome);
-
-		JRadioButton rb_Kg = new JRadioButton("Quilograma (Kg)");
-		buttonGroup.add(rb_Kg);
-		rb_Kg.setBorder(new LineBorder(new Color(0, 0, 0)));
-		rb_Kg.setForeground(new Color(31, 65, 45));
-		rb_Kg.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
-		rb_Kg.setBackground(new Color(123, 166, 111));
-		rb_Kg.setBounds(460, 203, 255, 47);
-		scaleRadioButtonIcon(rb_Kg);
-		panel_2.add(rb_Kg);
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
-
-
-		JTextField txt_especie = new JTextField();
-		txt_especie.setForeground(Color.DARK_GRAY);
-		txt_especie.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txt_especie.setColumns(10);
-		txt_especie.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		txt_especie.setBackground(new Color(234, 242, 237));
-		txt_especie.setBounds(410, 125, 943, 35);
-		panel_2.add(txt_especie);
-
-		JTextField txt_preco = new JTextField();
-		txt_preco.setForeground(Color.DARK_GRAY);
-		txt_preco.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txt_preco.setColumns(10);
-		txt_preco.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		txt_preco.setBackground(new Color(234, 242, 237));
-		txt_preco.setBounds(225, 297, 293, 35);
-		panel_2.add(txt_preco);
-
-		JTextField txt_quantidade = new JTextField();
-		txt_quantidade.setForeground(Color.DARK_GRAY);
-		txt_quantidade.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txt_quantidade.setColumns(10);
-		txt_quantidade.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		txt_quantidade.setBackground(new Color(234, 242, 237));
-		txt_quantidade.setBounds(1060, 297, 293, 35);
-		panel_2.add(txt_quantidade);
-
-		JRadioButton rb_Unidade = new JRadioButton("Unidade");
-		buttonGroup.add(rb_Unidade);
-		rb_Unidade.setForeground(new Color(31, 65, 45));
-		rb_Unidade.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
-		rb_Unidade.setBackground(new Color(123, 166, 111));
-		rb_Unidade.setBounds(797, 208, 204, 37);
-		scaleRadioButtonIcon(rb_Unidade);
-		panel_2.add(rb_Unidade);
-
-		JButton btnSalvar = new JButton("Alterar");
-		btnSalvar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel);
+				GridBagLayout gbl_panel = new GridBagLayout();
+				gbl_panel.columnWidths = new int[]{77, 797, 179, 454, 0};
+				gbl_panel.rowHeights = new int[]{8, 112, 610, 0};
+				gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+				gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+				panel.setLayout(gbl_panel);
 				
-				Produto produto = produtoSelecionado;
-				produto.setIdProduto(Integer.parseInt(lbl_codigo.getText()));
-				produto.setProduto_nomeveg(txt_nome.getText());
-				produto.setProduto_especieveg(txt_especie.getText());
-				produto.setProduto_preco(Float.parseFloat(txt_preco.getText()));
-				produto.setProduto_quantidade(Float.parseFloat(txt_quantidade.getText()));
-				if(rb_Kg.isSelected()== true) {
-					produto.setUnidade_quantidade_idUnidade_quantidade(1);
-				}else {
-					produto.setUnidade_quantidade_idUnidade_quantidade(2);
-				}
-				alt.alterarProduto(produto);
-				telaEstoque.table.setModel(etb.listagemProduto());
-				frame.setVisible(false);
+						JSeparator separator = new JSeparator();
+						GridBagConstraints gbc_separator = new GridBagConstraints();
+						gbc_separator.fill = GridBagConstraints.BOTH;
+						gbc_separator.insets = new Insets(0, 0, 5, 0);
+						gbc_separator.gridwidth = 3;
+						gbc_separator.gridx = 1;
+						gbc_separator.gridy = 0;
+						panel.add(separator, gbc_separator);
+						separator.setBorder(new LineBorder(new Color(31, 65, 45), 4));
 				
-			}
-		});
-		btnSalvar.setBackground(new Color(123, 166, 111));
-		btnSalvar.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
-		btnSalvar.setForeground(new Color(31, 65, 45));
-		btnSalvar.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
-		btnSalvar.setBounds(174, 400, 396, 94);
-		panel_2.add(btnSalvar);
-
-		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(new Color(103, 146, 90));
-		panel_3.setBounds(184, 410, 396, 94);
-		panel_2.add(panel_3);
-
-		JButton btnExcluir = new JButton("Cancelar");
-		btnExcluir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+						JLabel lblVendedor = new JLabel("Alterar Produto");
+						GridBagConstraints gbc_lblVendedor = new GridBagConstraints();
+						gbc_lblVendedor.fill = GridBagConstraints.HORIZONTAL;
+						gbc_lblVendedor.insets = new Insets(0, 0, 5, 5);
+						gbc_lblVendedor.gridx = 1;
+						gbc_lblVendedor.gridy = 1;
+						panel.add(lblVendedor, gbc_lblVendedor);
+						lblVendedor.setBackground(new Color(234, 242, 237));
+						lblVendedor.setHorizontalAlignment(SwingConstants.LEFT);
+						lblVendedor.setForeground(new Color(31, 65, 45));
+						lblVendedor.setFont(new Font("Dialog", Font.PLAIN, 85));
 				
-				TelaEstoque te = new TelaEstoque();
-				te.abrir();
-				frame.setVisible(false);
-			}
-		});
-		btnExcluir.setForeground(new Color(31, 65, 45));
-		btnExcluir.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
-		btnExcluir.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
-		btnExcluir.setBackground(new Color(123, 166, 111));
-		btnExcluir.setBounds(820, 400, 396, 94);
-		panel_2.add(btnExcluir);
+				JLabel lbl_codigo_1 = new JLabel("0");
+				GridBagConstraints gbc_lbl_codigo_1 = new GridBagConstraints();
+				gbc_lbl_codigo_1.anchor = GridBagConstraints.NORTH;
+				gbc_lbl_codigo_1.fill = GridBagConstraints.HORIZONTAL;
+				gbc_lbl_codigo_1.gridheight = 2;
+				gbc_lbl_codigo_1.gridx = 3;
+				gbc_lbl_codigo_1.gridy = 1;
+				panel.add(lbl_codigo_1, gbc_lbl_codigo_1);
+				lbl_codigo_1.setHorizontalAlignment(SwingConstants.TRAILING);
+				lbl_codigo_1.setFont(new Font("Tahoma", Font.PLAIN, 92));
+																																
+																																		JPanel panel_2 = new JPanel();
+																																		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
+																																		gbc_panel_2.fill = GridBagConstraints.BOTH;
+																																		gbc_panel_2.gridwidth = 3;
+																																		gbc_panel_2.gridx = 1;
+																																		gbc_panel_2.gridy = 2;
+																																		panel.add(panel_2, gbc_panel_2);
+																																		panel_2.setBackground(new Color(123, 166, 111));
+																																		GridBagLayout gbl_panel_2 = new GridBagLayout();
+																																		gbl_panel_2.columnWidths = new int[] {65, 107, 222, 305, 82, 244, 293, 65};
+																																		gbl_panel_2.rowHeights = new int[] {50, 36, 39, 35, 43, 47, 45, 37, 68, 94, 20};
+																																		gbl_panel_2.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+																																		gbl_panel_2.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+																																		panel_2.setLayout(gbl_panel_2);
+																																		
+																																				JLabel lblNomeDoVegetal = new JLabel("Nome do Vegetal:");
+																																				lblNomeDoVegetal.setForeground(new Color(31, 65, 45));
+																																				lblNomeDoVegetal.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
+																																				GridBagConstraints gbc_lblNomeDoVegetal = new GridBagConstraints();
+																																				gbc_lblNomeDoVegetal.anchor = GridBagConstraints.WEST;
+																																				gbc_lblNomeDoVegetal.fill = GridBagConstraints.VERTICAL;
+																																				gbc_lblNomeDoVegetal.insets = new Insets(0, 0, 5, 5);
+																																				gbc_lblNomeDoVegetal.gridwidth = 2;
+																																				gbc_lblNomeDoVegetal.gridx = 1;
+																																				gbc_lblNomeDoVegetal.gridy = 1;
+																																				panel_2.add(lblNomeDoVegetal, gbc_lblNomeDoVegetal);
+																																				
+																																						JTextField txt_nome_1 = new JTextField();
+																																						txt_nome_1.setBackground(new Color(234, 242, 237));
+																																						txt_nome_1.setForeground(Color.DARK_GRAY);
+																																						txt_nome_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+																																						txt_nome_1.setColumns(10);
+																																						txt_nome_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+																																						GridBagConstraints gbc_txt_nome_1 = new GridBagConstraints();
+																																						gbc_txt_nome_1.fill = GridBagConstraints.HORIZONTAL;
+																																						gbc_txt_nome_1.insets = new Insets(0, 0, 5, 0);
+																																						gbc_txt_nome_1.gridwidth = 4;
+																																						gbc_txt_nome_1.gridx = 3;
+																																						gbc_txt_nome_1.gridy = 1;
+																																						panel_2.add(txt_nome_1, gbc_txt_nome_1);
+																																						
+																																								JLabel lblEspcieDoVegetal = new JLabel("Esp\u00E9cie do Vegetal:");
+																																								lblEspcieDoVegetal.setForeground(new Color(31, 65, 45));
+																																								lblEspcieDoVegetal.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
+																																								GridBagConstraints gbc_lblEspcieDoVegetal = new GridBagConstraints();
+																																								gbc_lblEspcieDoVegetal.anchor = GridBagConstraints.WEST;
+																																								gbc_lblEspcieDoVegetal.fill = GridBagConstraints.VERTICAL;
+																																								gbc_lblEspcieDoVegetal.insets = new Insets(0, 0, 5, 5);
+																																								gbc_lblEspcieDoVegetal.gridwidth = 2;
+																																								gbc_lblEspcieDoVegetal.gridx = 1;
+																																								gbc_lblEspcieDoVegetal.gridy = 3;
+																																								panel_2.add(lblEspcieDoVegetal, gbc_lblEspcieDoVegetal);
+																																								
 
-		JPanel panel_3_1 = new JPanel();
-		panel_3_1.setBackground(new Color(103, 146, 90));
-		panel_3_1.setBounds(830, 410, 396, 94);
-		panel_2.add(panel_3_1);
 
-		JSeparator separator = new JSeparator();
-		separator.setBorder(new LineBorder(new Color(31, 65, 45), 4));
-		separator.setBounds(124, 118, 1430, 8);
-		frame.getContentPane().add(separator);
-
-		JPanel panel_1_1 = new JPanel();
-		panel_1_1.setLayout(null);
-		panel_1_1.setBackground(new Color(123, 166, 111));
-		panel_1_1.setBounds(0, 0, 50, 811);
-		frame.getContentPane().add(panel_1_1);
-
-		JButton btnMenu = new JButton("");
-		btnMenu.setIcon(new ImageIcon(TelaSalvarProduto.class.getResource("/img/menu-aberto.png")));
-		btnMenu.setForeground(new Color(234, 242, 237));
-		btnMenu.setBorder(null);
-		btnMenu.setBackground(new Color(123, 166, 111));
-		btnMenu.setBounds(0, 754, 50, 46);
-		panel_1_1.add(btnMenu);
-
-		JPanel panel_2_1 = new JPanel();
-		panel_2_1.setLayout(null);
-		panel_2_1.setBackground(new Color(123, 166, 111));
-		panel_2_1.setBounds(0, 0, 1584, 40);
-		frame.getContentPane().add(panel_2_1);
-
-		JButton btnConfiguracao = new JButton("");
-		btnConfiguracao.setIcon(new ImageIcon(TelaSalvarProduto.class.getResource("/img/solucao.png")));
-		btnConfiguracao.setBorder(null);
-		btnConfiguracao.setBackground(new Color(123, 166, 111));
-		btnConfiguracao.setBounds(1464, 0, 60, 40);
-		panel_2_1.add(btnConfiguracao);
-
-		JButton btnNotificacao = new JButton("");
-		btnNotificacao.setIcon(new ImageIcon(TelaSalvarProduto.class.getResource("/img/notificacao.png")));
-		btnNotificacao.setBorder(null);
-		btnNotificacao.setBackground(new Color(123, 166, 111));
-		btnNotificacao.setBounds(1401, 0, 60, 40);
-		panel_2_1.add(btnNotificacao);
-
-		JButton btnUser = new JButton("");
-		btnUser.setIcon(new ImageIcon(TelaSalvarProduto.class.getResource("/img/farmer.png")));
-		btnUser.setBorder(null);
-		btnUser.setBackground(new Color(123, 166, 111));
-		btnUser.setBounds(1524, 0, 60, 40);
-		panel_2_1.add(btnUser);
-		
-		JLabel lbl_codigo = new JLabel("0");
-		lbl_codigo.setHorizontalAlignment(SwingConstants.TRAILING);
-		lbl_codigo.setFont(new Font("Tahoma", Font.PLAIN, 92));
-		lbl_codigo.setBounds(1100, 124, 454, 126);
-		frame.getContentPane().add(lbl_codigo);
+																																								JTextField txt_especie_1 = new JTextField();
+																																								txt_especie_1.setForeground(Color.DARK_GRAY);
+																																								txt_especie_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+																																								txt_especie_1.setColumns(10);
+																																								txt_especie_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+																																								txt_especie_1.setBackground(new Color(234, 242, 237));
+																																								GridBagConstraints gbc_txt_especie_1 = new GridBagConstraints();
+																																								gbc_txt_especie_1.fill = GridBagConstraints.HORIZONTAL;
+																																								gbc_txt_especie_1.insets = new Insets(0, 0, 5, 0);
+																																								gbc_txt_especie_1.gridwidth = 4;
+																																								gbc_txt_especie_1.gridx = 3;
+																																								gbc_txt_especie_1.gridy = 3;
+																																								panel_2.add(txt_especie_1, gbc_txt_especie_1);
+																																								
+																																										JLabel lblNomeDoVegetal_1_1 = new JLabel("Produto Vendido Por:");
+																																										lblNomeDoVegetal_1_1.setForeground(new Color(31, 65, 45));
+																																										lblNomeDoVegetal_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
+																																										GridBagConstraints gbc_lblNomeDoVegetal_1_1 = new GridBagConstraints();
+																																										gbc_lblNomeDoVegetal_1_1.anchor = GridBagConstraints.WEST;
+																																										gbc_lblNomeDoVegetal_1_1.fill = GridBagConstraints.VERTICAL;
+																																										gbc_lblNomeDoVegetal_1_1.insets = new Insets(0, 0, 5, 5);
+																																										gbc_lblNomeDoVegetal_1_1.gridwidth = 2;
+																																										gbc_lblNomeDoVegetal_1_1.gridx = 1;
+																																										gbc_lblNomeDoVegetal_1_1.gridy = 5;
+																																										panel_2.add(lblNomeDoVegetal_1_1, gbc_lblNomeDoVegetal_1_1);
+																																										
+																																												JRadioButton rb_Kg_1 = new JRadioButton("Quilograma (Kg)");
+																																												buttonGroup.add(rb_Kg_1);
+																																												rb_Kg_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+																																												rb_Kg_1.setForeground(new Color(31, 65, 45));
+																																												rb_Kg_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
+																																												rb_Kg_1.setBackground(new Color(123, 166, 111));
+																																												scaleRadioButtonIcon(rb_Kg_1);
+																																												GridBagConstraints gbc_rb_Kg_1 = new GridBagConstraints();
+																																												gbc_rb_Kg_1.anchor = GridBagConstraints.NORTHEAST;
+																																												gbc_rb_Kg_1.insets = new Insets(0, 0, 5, 5);
+																																												gbc_rb_Kg_1.gridx = 3;
+																																												gbc_rb_Kg_1.gridy = 5;
+																																												panel_2.add(rb_Kg_1, gbc_rb_Kg_1);
+																																												
+																																														JRadioButton rb_Unidade_1 = new JRadioButton("Unidade");
+																																														buttonGroup.add(rb_Unidade_1);
+																																														rb_Unidade_1.setForeground(new Color(31, 65, 45));
+																																														rb_Unidade_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
+																																														rb_Unidade_1.setBackground(new Color(123, 166, 111));
+																																														scaleRadioButtonIcon(rb_Unidade_1);
+																																														GridBagConstraints gbc_rb_Unidade_1 = new GridBagConstraints();
+																																														gbc_rb_Unidade_1.fill = GridBagConstraints.BOTH;
+																																														gbc_rb_Unidade_1.insets = new Insets(0, 0, 5, 5);
+																																														gbc_rb_Unidade_1.gridx = 5;
+																																														gbc_rb_Unidade_1.gridy = 5;
+																																														panel_2.add(rb_Unidade_1, gbc_rb_Unidade_1);
+																																														
+																																																JLabel lblNomeDoVegetal_1_1_1 = new JLabel("Pre\u00E7o:");
+																																																lblNomeDoVegetal_1_1_1.setForeground(new Color(31, 65, 45));
+																																																lblNomeDoVegetal_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
+																																																GridBagConstraints gbc_lblNomeDoVegetal_1_1_1 = new GridBagConstraints();
+																																																gbc_lblNomeDoVegetal_1_1_1.fill = GridBagConstraints.BOTH;
+																																																gbc_lblNomeDoVegetal_1_1_1.insets = new Insets(0, 0, 5, 5);
+																																																gbc_lblNomeDoVegetal_1_1_1.gridx = 1;
+																																																gbc_lblNomeDoVegetal_1_1_1.gridy = 7;
+																																																panel_2.add(lblNomeDoVegetal_1_1_1, gbc_lblNomeDoVegetal_1_1_1);
+																																																
+																																																		JLabel lblNomeDoVegetal_1_1_1_1_1 = new JLabel("R$");
+																																																		lblNomeDoVegetal_1_1_1_1_1.setForeground(new Color(31, 65, 45));
+																																																		lblNomeDoVegetal_1_1_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
+																																																		GridBagConstraints gbc_lblNomeDoVegetal_1_1_1_1_1 = new GridBagConstraints();
+																																																		gbc_lblNomeDoVegetal_1_1_1_1_1.anchor = GridBagConstraints.EAST;
+																																																		gbc_lblNomeDoVegetal_1_1_1_1_1.fill = GridBagConstraints.VERTICAL;
+																																																		gbc_lblNomeDoVegetal_1_1_1_1_1.insets = new Insets(0, 0, 5, 5);
+																																																		gbc_lblNomeDoVegetal_1_1_1_1_1.gridx = 2;
+																																																		gbc_lblNomeDoVegetal_1_1_1_1_1.gridy = 7;
+																																																		panel_2.add(lblNomeDoVegetal_1_1_1_1_1, gbc_lblNomeDoVegetal_1_1_1_1_1);
+																																																		
+																																																				JButton btnSalvar = new JButton("Alterar");
+																																																				btnSalvar.addActionListener(new ActionListener() {
+																																																					public void actionPerformed(ActionEvent e) {
+																																																						
+																																																						Produto produto = produtoSelecionado;
+																																																						produto.setIdProduto(Integer.parseInt(lbl_codigo_1.getText()));
+																																																						produto.setProduto_nomeveg(txt_nome.getText());
+																																																						produto.setProduto_especieveg(txt_especie.getText());
+																																																						produto.setProduto_preco(Float.parseFloat(txt_preco.getText()));
+																																																						produto.setProduto_quantidade(Float.parseFloat(txt_quantidade.getText()));
+																																																						if(rb_Kg_1.isSelected()== true) {
+																																																							produto.setUnidade_quantidade_idUnidade_quantidade(1);
+																																																						}else {
+																																																							produto.setUnidade_quantidade_idUnidade_quantidade(2);
+																																																						}
+																																																						alt.alterarProduto(produto);
+																																																						telaEstoque.table.setModel(etb.listagemProduto());
+																																																						frame.setVisible(false);
+																																																						
+																																																					}
+																																																				});
+																																																				
+																																																						JTextField txt_preco_1 = new JTextField();
+																																																						txt_preco_1.setForeground(Color.DARK_GRAY);
+																																																						txt_preco_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+																																																						txt_preco_1.setColumns(10);
+																																																						txt_preco_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+																																																						txt_preco_1.setBackground(new Color(234, 242, 237));
+																																																						GridBagConstraints gbc_txt_preco_1 = new GridBagConstraints();
+																																																						gbc_txt_preco_1.fill = GridBagConstraints.HORIZONTAL;
+																																																						gbc_txt_preco_1.insets = new Insets(0, 0, 5, 5);
+																																																						gbc_txt_preco_1.gridx = 3;
+																																																						gbc_txt_preco_1.gridy = 7;
+																																																						panel_2.add(txt_preco_1, gbc_txt_preco_1);
+																																																						
+																																																								JLabel lblNomeDoVegetal_1_1_1_1 = new JLabel("Quantidade:");
+																																																								lblNomeDoVegetal_1_1_1_1.setForeground(new Color(31, 65, 45));
+																																																								lblNomeDoVegetal_1_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 32));
+																																																								GridBagConstraints gbc_lblNomeDoVegetal_1_1_1_1 = new GridBagConstraints();
+																																																								gbc_lblNomeDoVegetal_1_1_1_1.anchor = GridBagConstraints.EAST;
+																																																								gbc_lblNomeDoVegetal_1_1_1_1.fill = GridBagConstraints.VERTICAL;
+																																																								gbc_lblNomeDoVegetal_1_1_1_1.insets = new Insets(0, 0, 5, 5);
+																																																								gbc_lblNomeDoVegetal_1_1_1_1.gridx = 5;
+																																																								gbc_lblNomeDoVegetal_1_1_1_1.gridy = 7;
+																																																								panel_2.add(lblNomeDoVegetal_1_1_1_1, gbc_lblNomeDoVegetal_1_1_1_1);
+																																																								
+																																																										JTextField txt_quantidade_1 = new JTextField();
+																																																										txt_quantidade_1.setForeground(Color.DARK_GRAY);
+																																																										txt_quantidade_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+																																																										txt_quantidade_1.setColumns(10);
+																																																										txt_quantidade_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+																																																										txt_quantidade_1.setBackground(new Color(234, 242, 237));
+																																																										GridBagConstraints gbc_txt_quantidade_1 = new GridBagConstraints();
+																																																										gbc_txt_quantidade_1.fill = GridBagConstraints.HORIZONTAL;
+																																																										gbc_txt_quantidade_1.insets = new Insets(0, 0, 5, 0);
+																																																										gbc_txt_quantidade_1.gridx = 6;
+																																																										gbc_txt_quantidade_1.gridy = 7;
+																																																										panel_2.add(txt_quantidade_1, gbc_txt_quantidade_1);
+																																																										btnSalvar.setBackground(new Color(123, 166, 111));
+																																																										btnSalvar.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
+																																																										btnSalvar.setForeground(new Color(31, 65, 45));
+																																																										btnSalvar.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
+																																																										GridBagConstraints gbc_btnSalvar = new GridBagConstraints();
+																																																										gbc_btnSalvar.fill = GridBagConstraints.BOTH;
+																																																										gbc_btnSalvar.insets = new Insets(0, 0, 0, 5);
+																																																										gbc_btnSalvar.gridwidth = 2;
+																																																										gbc_btnSalvar.gridx = 2;
+																																																										gbc_btnSalvar.gridy = 9;
+																																																										panel_2.add(btnSalvar, gbc_btnSalvar);
+																																																										
+																																																												JButton btnExcluir = new JButton("Cancelar");
+																																																												btnExcluir.addActionListener(new ActionListener() {
+																																																													public void actionPerformed(ActionEvent e) {
+																																																														
+																																																														TelaEstoque te = new TelaEstoque();
+																																																														te.abrir();
+																																																														frame.setVisible(false);
+																																																													}
+																																																												});
+																																																												btnExcluir.setForeground(new Color(31, 65, 45));
+																																																												btnExcluir.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
+																																																												btnExcluir.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
+																																																												btnExcluir.setBackground(new Color(123, 166, 111));
+																																																												GridBagConstraints gbc_btnExcluir = new GridBagConstraints();
+																																																												gbc_btnExcluir.fill = GridBagConstraints.BOTH;
+																																																												gbc_btnExcluir.gridwidth = 2;
+																																																												gbc_btnExcluir.gridx = 5;
+																																																												gbc_btnExcluir.gridy = 9;
+																																																												panel_2.add(btnExcluir, gbc_btnExcluir);
 	
 
 	}

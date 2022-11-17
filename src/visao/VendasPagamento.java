@@ -22,6 +22,7 @@ import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.JRadioButton;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -203,6 +204,10 @@ public class VendasPagamento extends JFrame {
 			}
 		));
 		scrollPane.setViewportView(table);
+		JTableHeader tHeader = table.getTableHeader();
+		tHeader.setBackground(new Color(150, 191, 120));
+		tHeader.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 20));
+		tHeader.setForeground(Color.WHITE);
 		
 		JPanel panelRadioB = new JPanel();
 		panelRadioB.setBackground(new Color(234, 242, 237));

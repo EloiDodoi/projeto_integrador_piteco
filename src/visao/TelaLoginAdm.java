@@ -73,7 +73,7 @@ public class TelaLoginAdm {
 				JLabel lblAdm = new JLabel("Administrador");
 				lblAdm.setHorizontalAlignment(SwingConstants.CENTER);
 				lblAdm.setForeground(new Color(234, 242, 237));
-				lblAdm.setBounds(325, 50, 719, 149);
+				lblAdm.setBounds(324, 11, 719, 149);
 				lblAdm.setFont(new Font("Dialog", Font.PLAIN, 100));
 				frmLoginDoAdministrador.getContentPane().add(lblAdm);
 		
