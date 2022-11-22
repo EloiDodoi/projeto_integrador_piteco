@@ -539,6 +539,7 @@ public class TelaVenda extends JFrame {
 						itensVenda.repaint();
 					}
 				});
+				lista_botoes_excluir.add(btnDeletarItem);
 
 				JLabel lblValor = new JLabel("Valor");
 				lblValor.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
@@ -619,6 +620,10 @@ public class TelaVenda extends JFrame {
 			
 				float total = vbd.precoUnitario(codProduto, quantidade);
 				lblValorDoProduto.setText(String.valueOf(total));
+				int pos = v.getArrayItensVenda().size()-1;
+				v.getArrayItensVenda().get(pos).setCodigoItem(codProduto);
+				v.getArrayItensVenda().get(pos).setQuantidadeItem(quantidade);
+				v.getArrayItensVenda().get(pos).setPrecoTotalItem(total);
 			}
 		
 		}

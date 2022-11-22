@@ -137,18 +137,26 @@ public class TelaLoginAdm {
 				Usuario login = new Usuario(0, null, null, null, null, null, txt_senha.getText(), txt_login.getText(), 0);
 				
 				
-				LoginAdmBD lg = new LoginAdmBD();
-			
-				if (lg.autenticar(login)== null ) {
+				LoginAdmBD lg;
+				try {
+					lg = new LoginAdmBD();
+					
+					if (lg.autenticar(login)== null ) {
 					System.out.println("Erro Login");
 					JOptionPane.showMessageDialog(null, "E-mail ou senha incorretos, tente novamente!");
 				}else {
-					System.out.println("Login feito com êxito");
-					TelaBemVindo tb = new TelaBemVindo();
-					user = lg.autenticar(login);
-					tb.abrir();
-					frmLoginDoAdministrador.setVisible(false);
+						System.out.println("Login feito com êxito");
+						TelaBemVindo tb = new TelaBemVindo();
+						user = lg.autenticar(login);
+						tb.abrir();
+						frmLoginDoAdministrador.setVisible(false);
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(null, "Não foi possível se conectar com o banco.");
 				}
+			
+				
 				
 			}});
 		btn_entrar_adm.setForeground(new Color(234, 242, 237));
