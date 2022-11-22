@@ -35,6 +35,8 @@ public class TelaLoginAdm {
 	private JTextField txt_login;
 	private JPasswordField txt_senha;
 	static TelaLoginAdm window = new TelaLoginAdm();
+	JTextField txtUsuarioAdm;
+	JPasswordField passwordField;
 	
 	static Usuario user;
 	/**

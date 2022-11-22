@@ -110,167 +110,6 @@ public class TelaCadastroAdm {
 		lblNewLabel_12.setBounds(1032, 0, 175, 141);
 		panel_1.add(lblNewLabel_12);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(234, 242, 237));
-		panel_2.setBounds(206, 230, 640, 543);
-		frame.getContentPane().add(panel_2);
-		panel_2.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Nome Completo");
-		lblNewLabel.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		lblNewLabel.setAlignmentY(Component.TOP_ALIGNMENT);
-		lblNewLabel.setForeground(new Color(31, 65, 45));
-		lblNewLabel.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.fill = GridBagConstraints.BOTH;
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel.gridx = 0;
-		gbc_lblNewLabel.gridy = 0;
-		panel_2.add(lblNewLabel, gbc_lblNewLabel);
-		
-		JTextField textField = new JTextField();
-		textField.setBackground(new Color(234, 242, 237));
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.anchor = GridBagConstraints.NORTH;
-		gbc_textField.insets = new Insets(0, 0, 5, 0);
-		gbc_textField.gridx = 0;
-		gbc_textField.gridy = 1;
-		panel_2.add(textField, gbc_textField);
-		textField.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		textField.setForeground(Color.DARK_GRAY);
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField.setColumns(10);
-		
-		JLabel lblNewLabel_2 = new JLabel("CPF");
-		lblNewLabel_2.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		lblNewLabel_2.setAlignmentY(Component.TOP_ALIGNMENT);
-		lblNewLabel_2.setForeground(new Color(31, 65, 45));
-		lblNewLabel_2.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
-		gbc_lblNewLabel_2.fill = GridBagConstraints.BOTH;
-		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_2.gridx = 0;
-		gbc_lblNewLabel_2.gridy = 2;
-		panel_2.add(lblNewLabel_2, gbc_lblNewLabel_2);
-		
-		JTextField textField_2 = new JTextField();
-		textField_2.setBackground(new Color(234, 242, 237));
-		textField_2.setForeground(Color.DARK_GRAY);
-		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		textField_2.setColumns(10);
-		textField_2.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		textField_2.setBounds(37, 143, 565, 35);
-		panel_2.add(textField_2);
-		
-		JLabel lblNewLabel_3 = new JLabel("Data de Nascimento");
-		lblNewLabel_3.setAlignmentY(Component.TOP_ALIGNMENT);
-		lblNewLabel_3.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
-		gbc_lblNewLabel_3.fill = GridBagConstraints.BOTH;
-		gbc_lblNewLabel_3.anchor = GridBagConstraints.NORTHWEST;
-		gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_3.gridx = 0;
-		gbc_lblNewLabel_3.gridy = 4;
-		panel_2.add(lblNewLabel_3, gbc_lblNewLabel_3);
-		lblNewLabel_3.setForeground(new Color(31, 65, 45));
-		lblNewLabel_3.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
-		
-		JPanel panel_5 = new JPanel();
-		GridBagConstraints gbc_panel_5 = new GridBagConstraints();
-		gbc_panel_5.fill = GridBagConstraints.BOTH;
-		gbc_panel_5.anchor = GridBagConstraints.NORTH;
-		gbc_panel_5.gridx = 0;
-		gbc_panel_5.gridy = 5;
-		panel_2.add(panel_5, gbc_panel_5);
-		panel_5.setLayout(new GridLayout(2, 3, 3, 0));
-		
-		JLabel lblNewLabel_4 = new JLabel("Dia");
-		lblNewLabel_4.setBackground(new Color(234, 242, 237));
-		panel_5.add(lblNewLabel_4);
-		lblNewLabel_4.setForeground(new Color(31, 65, 45));
-		lblNewLabel_4.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
-		
-		JLabel lblNewLabel_5 = new JLabel("Mês");
-		lblNewLabel_5.setBackground(new Color(234, 242, 237));
-		panel_5.add(lblNewLabel_5);
-		lblNewLabel_5.setForeground(new Color(31, 65, 45));
-		lblNewLabel_5.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
-		
-		JLabel lblNewLabel_6 = new JLabel("Ano");
-		lblNewLabel_6.setBackground(new Color(234, 242, 237));
-		panel_5.add(lblNewLabel_6);
-		lblNewLabel_6.setForeground(new Color(31, 65, 45));
-		lblNewLabel_6.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setForeground(new Color(31, 65, 45));
-		comboBox.setBackground(new Color(245, 250, 248));
-		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
-		comboBox.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		comboBox.setBounds(37, 272, 73, 35);
-		panel_2.add(comboBox);
-		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setForeground(new Color(31, 65, 45));
-		comboBox_1.setBackground(new Color(245, 250, 248));
-		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}));
-		comboBox_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		comboBox_1.setBounds(191, 272, 159, 35);
-		panel_2.add(comboBox_1);
-		
-		JComboBox comboBox_1_1 = new JComboBox();
-		comboBox_1_1.setForeground(new Color(31, 65, 45));
-		comboBox_1_1.setBackground(new Color(245, 250, 248));
-		comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] {"1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050"}));
-		comboBox_1_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		comboBox_1_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		comboBox_1_1.setBounds(443, 272, 159, 35);
-		panel_2.add(comboBox_1_1);
-		
-		JLabel lblNewLabel_7 = new JLabel("Senha");
-		lblNewLabel_7.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		lblNewLabel_7.setAlignmentY(Component.TOP_ALIGNMENT);
-		lblNewLabel_7.setForeground(new Color(31, 65, 45));
-		lblNewLabel_7.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		lblNewLabel_7.setBounds(37, 329, 293, 28);
-		panel_2.add(lblNewLabel_7);
-		
-		JPasswordField passwordField = new JPasswordField();
-		passwordField.setBackground(new Color(234, 242, 237));
-		GridBagConstraints gbc_passwordField = new GridBagConstraints();
-		gbc_passwordField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_passwordField.insets = new Insets(0, 0, 5, 0);
-		gbc_passwordField.gridx = 0;
-		gbc_passwordField.gridy = 7;
-		panel_2.add(passwordField, gbc_passwordField);
-		passwordField.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		passwordField.setForeground(Color.DARK_GRAY);
-		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		
-		JLabel lblNewLabel_10 = new JLabel("Confirme sua Senha");
-		lblNewLabel_10.setAlignmentY(Component.TOP_ALIGNMENT);
-		lblNewLabel_10.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		lblNewLabel_10.setForeground(new Color(31, 65, 45));
-		lblNewLabel_10.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		GridBagConstraints gbc_lblNewLabel_10 = new GridBagConstraints();
-		gbc_lblNewLabel_10.fill = GridBagConstraints.BOTH;
-		gbc_lblNewLabel_10.anchor = GridBagConstraints.NORTHWEST;
-		gbc_lblNewLabel_10.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_10.gridx = 0;
-		gbc_lblNewLabel_10.gridy = 8;
-		panel_2.add(lblNewLabel_10, gbc_lblNewLabel_10);
-		
-		JPasswordField passwordField_1 = new JPasswordField();
-		passwordField_1.setBackground(new Color(234, 242, 237));
-		passwordField_1.setForeground(Color.DARK_GRAY);
-		passwordField_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		passwordField_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		passwordField_1.setBounds(37, 438, 565, 35);
-		panel_2.add(passwordField_1);
-		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(844, 230, 533, 543);
 		frame.getContentPane().add(panel_3);
@@ -376,6 +215,167 @@ public class TelaCadastroAdm {
 		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 45));
 		btnNewButton.setBounds(83, 399, 367, 76);
 		panel_3.add(btnNewButton);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(234, 242, 237));
+		panel_2.setBounds(206, 230, 640, 543);
+		frame.getContentPane().add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel lblNewLabel_13 = new JLabel("Nome Completo");
+		lblNewLabel_13.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		lblNewLabel_13.setAlignmentY(Component.TOP_ALIGNMENT);
+		lblNewLabel_13.setForeground(new Color(31, 65, 45));
+		lblNewLabel_13.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		GridBagConstraints gbc_lblNewLabel_13 = new GridBagConstraints();
+		gbc_lblNewLabel_13.fill = GridBagConstraints.BOTH;
+		gbc_lblNewLabel_13.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_13.gridx = 0;
+		gbc_lblNewLabel_13.gridy = 0;
+		panel_2.add(lblNewLabel_13, gbc_lblNewLabel_13);
+		
+		JTextField textField_3 = new JTextField();
+		textField_3.setBackground(new Color(234, 242, 237));
+		GridBagConstraints gbc_textField_3 = new GridBagConstraints();
+		gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField_3.anchor = GridBagConstraints.NORTH;
+		gbc_textField_3.insets = new Insets(0, 0, 5, 0);
+		gbc_textField_3.gridx = 0;
+		gbc_textField_3.gridy = 1;
+		panel_2.add(textField_3, gbc_textField_3);
+		textField_3.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		textField_3.setForeground(Color.DARK_GRAY);
+		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		textField_3.setColumns(10);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("CPF");
+		lblNewLabel_2_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		lblNewLabel_2_1.setAlignmentY(Component.TOP_ALIGNMENT);
+		lblNewLabel_2_1.setForeground(new Color(31, 65, 45));
+		lblNewLabel_2_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		GridBagConstraints gbc_lblNewLabel_2_1 = new GridBagConstraints();
+		gbc_lblNewLabel_2_1.fill = GridBagConstraints.BOTH;
+		gbc_lblNewLabel_2_1.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_2_1.gridx = 0;
+		gbc_lblNewLabel_2_1.gridy = 2;
+		panel_2.add(lblNewLabel_2_1, gbc_lblNewLabel_2_1);
+		
+		JTextField textField_2_1 = new JTextField();
+		textField_2_1.setBackground(new Color(234, 242, 237));
+		textField_2_1.setForeground(Color.DARK_GRAY);
+		textField_2_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		textField_2_1.setColumns(10);
+		textField_2_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		textField_2_1.setBounds(37, 143, 565, 35);
+		panel_2.add(textField_2_1);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("Data de Nascimento");
+		lblNewLabel_3_1.setAlignmentY(Component.TOP_ALIGNMENT);
+		lblNewLabel_3_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		GridBagConstraints gbc_lblNewLabel_3_1 = new GridBagConstraints();
+		gbc_lblNewLabel_3_1.fill = GridBagConstraints.BOTH;
+		gbc_lblNewLabel_3_1.anchor = GridBagConstraints.NORTHWEST;
+		gbc_lblNewLabel_3_1.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_3_1.gridx = 0;
+		gbc_lblNewLabel_3_1.gridy = 4;
+		panel_2.add(lblNewLabel_3_1, gbc_lblNewLabel_3_1);
+		lblNewLabel_3_1.setForeground(new Color(31, 65, 45));
+		lblNewLabel_3_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
+		
+		JPanel panel_5 = new JPanel();
+		GridBagConstraints gbc_panel_5 = new GridBagConstraints();
+		gbc_panel_5.fill = GridBagConstraints.BOTH;
+		gbc_panel_5.anchor = GridBagConstraints.NORTH;
+		gbc_panel_5.gridx = 0;
+		gbc_panel_5.gridy = 5;
+		panel_2.add(panel_5, gbc_panel_5);
+		panel_5.setLayout(new GridLayout(2, 3, 3, 0));
+		
+		JLabel lblNewLabel_4_1 = new JLabel("Dia");
+		lblNewLabel_4_1.setBackground(new Color(234, 242, 237));
+		panel_5.add(lblNewLabel_4_1);
+		lblNewLabel_4_1.setForeground(new Color(31, 65, 45));
+		lblNewLabel_4_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
+		
+		JLabel lblNewLabel_5_1 = new JLabel("Mês");
+		lblNewLabel_5_1.setBackground(new Color(234, 242, 237));
+		panel_5.add(lblNewLabel_5_1);
+		lblNewLabel_5_1.setForeground(new Color(31, 65, 45));
+		lblNewLabel_5_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
+		
+		JLabel lblNewLabel_6_1 = new JLabel("Ano");
+		lblNewLabel_6_1.setBackground(new Color(234, 242, 237));
+		panel_5.add(lblNewLabel_6_1);
+		lblNewLabel_6_1.setForeground(new Color(31, 65, 45));
+		lblNewLabel_6_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setForeground(new Color(31, 65, 45));
+		comboBox.setBackground(new Color(245, 250, 248));
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		comboBox.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		comboBox.setBounds(37, 272, 73, 35);
+		panel_2.add(comboBox);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setForeground(new Color(31, 65, 45));
+		comboBox_1.setBackground(new Color(245, 250, 248));
+		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}));
+		comboBox_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		comboBox_1.setBounds(191, 272, 159, 35);
+		panel_2.add(comboBox_1);
+		
+		JComboBox comboBox_1_1 = new JComboBox();
+		comboBox_1_1.setForeground(new Color(31, 65, 45));
+		comboBox_1_1.setBackground(new Color(245, 250, 248));
+		comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] {"1900", "1901", "1902", "1903", "1904", "1905", "1906", "1907", "1908", "1909", "1910", "1911", "1912", "1913", "1914", "1915", "1916", "1917", "1918", "1919", "1920", "1921", "1922", "1923", "1924", "1925", "1926", "1927", "1928", "1929", "1930", "1931", "1932", "1933", "1934", "1935", "1936", "1937", "1938", "1939", "1940", "1941", "1942", "1943", "1944", "1945", "1946", "1947", "1948", "1949", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050"}));
+		comboBox_1_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		comboBox_1_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		comboBox_1_1.setBounds(443, 272, 159, 35);
+		panel_2.add(comboBox_1_1);
+		
+		JLabel lblNewLabel_7_1 = new JLabel("Senha");
+		lblNewLabel_7_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		lblNewLabel_7_1.setAlignmentY(Component.TOP_ALIGNMENT);
+		lblNewLabel_7_1.setForeground(new Color(31, 65, 45));
+		lblNewLabel_7_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		lblNewLabel_7_1.setBounds(37, 329, 293, 28);
+		panel_2.add(lblNewLabel_7_1);
+		
+		JPasswordField passwordField_2 = new JPasswordField();
+		passwordField_2.setBackground(new Color(234, 242, 237));
+		GridBagConstraints gbc_passwordField_2 = new GridBagConstraints();
+		gbc_passwordField_2.fill = GridBagConstraints.HORIZONTAL;
+		gbc_passwordField_2.insets = new Insets(0, 0, 5, 0);
+		gbc_passwordField_2.gridx = 0;
+		gbc_passwordField_2.gridy = 7;
+		panel_2.add(passwordField_2, gbc_passwordField_2);
+		passwordField_2.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		passwordField_2.setForeground(Color.DARK_GRAY);
+		passwordField_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		
+		JLabel lblNewLabel_10_1 = new JLabel("Confirme sua Senha");
+		lblNewLabel_10_1.setAlignmentY(Component.TOP_ALIGNMENT);
+		lblNewLabel_10_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		lblNewLabel_10_1.setForeground(new Color(31, 65, 45));
+		lblNewLabel_10_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+		GridBagConstraints gbc_lblNewLabel_10_1 = new GridBagConstraints();
+		gbc_lblNewLabel_10_1.fill = GridBagConstraints.BOTH;
+		gbc_lblNewLabel_10_1.anchor = GridBagConstraints.NORTHWEST;
+		gbc_lblNewLabel_10_1.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_10_1.gridx = 0;
+		gbc_lblNewLabel_10_1.gridy = 8;
+		panel_2.add(lblNewLabel_10_1, gbc_lblNewLabel_10_1);
+		
+		JPasswordField passwordField_1_1 = new JPasswordField();
+		passwordField_1_1.setBackground(new Color(234, 242, 237));
+		passwordField_1_1.setForeground(Color.DARK_GRAY);
+		passwordField_1_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		passwordField_1_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		passwordField_1_1.setBounds(37, 438, 565, 35);
+		panel_2.add(passwordField_1_1);
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1600, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
