@@ -304,6 +304,7 @@ public class TelaVenda extends JFrame {
 				}
 				else {
 					VendasPagamento telavp = new VendasPagamento(v);
+					telavp.listagemItensVenda(v);
 					telavp.setVisible(true);
 					setVisible(false);
 				}
