@@ -11,7 +11,6 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -25,12 +24,20 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
+import controle.VendaBD;
+import modelo.ItemVenda;
+import modelo.Venda;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.awt.Dimension;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
-public class Venda extends JFrame {
+public class TelaVenda extends JFrame {
 
 	private JPanel contentPane;
 	private JButton btnNewButton;
@@ -38,8 +45,20 @@ public class Venda extends JFrame {
 	private JTextField textField_1;
 	private JPanel panel_5;
 	private JPanel itensVenda;
-	VendasPagamento vp = new VendasPagamento();
-	static Venda frame = new Venda();
+	
+	static TelaVenda frame = new TelaVenda();
+	JLabel lblNewLabel;
+	JLabel lblValorDoProduto;
+	
+	Venda v = new Venda();
+	VendasPagamento vp = new VendasPagamento(v);
+	
+	private JTextField cur_textField = null;
+	private JTextField cur_textField_1 = null;
+	int numItens = 0;
+	
+	ArrayList<JButton> lista_botoes_excluir = new ArrayList<JButton>();
+	
 
 	/**
 	 * Launch the application.
@@ -65,7 +84,7 @@ public class Venda extends JFrame {
 		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 	
-	public Venda() {
+	public TelaVenda() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 924, 517);
 		
@@ -73,7 +92,7 @@ public class Venda extends JFrame {
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("  ");
-		mnNewMenu.setIcon(new ImageIcon(Venda.class.getResource("/img/menu-aberto.png")));
+		mnNewMenu.setIcon(new ImageIcon(TelaVenda.class.getResource("/img/menu-aberto.png")));
 		mnNewMenu.setVerticalTextPosition(SwingConstants.CENTER);
 		mnNewMenu.setVerticalAlignment(SwingConstants.CENTER);
 		mnNewMenu.setPreferredSize(new Dimension(60, 40));
@@ -209,7 +228,7 @@ public class Venda extends JFrame {
 		panel_8.add(separator, gbc_separator);
 		
 		JButton btnNotificacao = new JButton("");
-		btnNotificacao.setIcon(new ImageIcon(Venda.class.getResource("/img/notificacao.png")));
+		btnNotificacao.setIcon(new ImageIcon(TelaVenda.class.getResource("/img/notificacao.png")));
 		btnNotificacao.setBorder(null);
 		btnNotificacao.setBackground(new Color(150, 191, 120));
 		GridBagConstraints gbc_btnNotificacao = new GridBagConstraints();
@@ -219,7 +238,7 @@ public class Venda extends JFrame {
 		panel_8.add(btnNotificacao, gbc_btnNotificacao);
 		
 		JButton btnUser = new JButton("");
-		btnUser.setIcon(new ImageIcon(Venda.class.getResource("/img/farmer.png")));
+		btnUser.setIcon(new ImageIcon(TelaVenda.class.getResource("/img/farmer.png")));
 		btnUser.setBorder(null);
 		btnUser.setBackground(new Color(150, 191, 120));
 		GridBagConstraints gbc_btnUser = new GridBagConstraints();
@@ -280,8 +299,14 @@ public class Venda extends JFrame {
 		btnNewButton = new JButton(" Pagamento ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				vp.setVisible(true);
-				setVisible(false);
+				if(v.getArrayItensVenda().isEmpty() == true) {
+					JOptionPane.showMessageDialog(null, "Adicione pelo menos um item à venda para realizar o pagamento.");
+				}
+				else {
+					VendasPagamento telavp = new VendasPagamento(v);
+					telavp.setVisible(true);
+					setVisible(false);
+				}
 			}
 		});
 		
@@ -345,6 +370,10 @@ public class Venda extends JFrame {
 
 		btnAdicionarItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ItemVenda novoItem = new ItemVenda();
+				
+				v.adicionarItem(novoItem);
+				
 				JPanel itemVenda = new JPanel();
 				itemVenda.setBackground(new Color(150, 191, 120));
 				GridBagLayout gbl_panel_Itens = new GridBagLayout();
@@ -372,7 +401,7 @@ public class Venda extends JFrame {
 				gbl_panel_6.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
 				panel_6.setLayout(gbl_panel_6);
 
-				JLabel lblNewLabel = new JLabel("Item");
+				lblNewLabel = new JLabel("Item");
 				lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 				lblNewLabel.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 				lblNewLabel.setForeground(new Color(217, 173, 181));
@@ -414,6 +443,15 @@ public class Venda extends JFrame {
 				gbc_textField.gridy = 1;
 				itemVenda.add(textField, gbc_textField);
 				textField.setColumns(10);
+				textField.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyReleased(KeyEvent e) {
+						atualizarValorUnitario();
+							
+					}
+
+				
+				});
 
 				JLabel lblQuantidade = new JLabel("Quantidade");
 				lblQuantidade.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
@@ -436,6 +474,22 @@ public class Venda extends JFrame {
 				gbc_textField_1.gridy = 2;
 				itemVenda.add(textField_1, gbc_textField_1);
 				textField_1.setColumns(10);
+				textField_1.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyReleased(KeyEvent e) {
+						
+						atualizarValorUnitario();
+						
+					}
+				});
+				
+				if(cur_textField != null) {
+					cur_textField.setEditable(false);
+					cur_textField_1.setEditable(false);
+				}
+				cur_textField = textField;
+				cur_textField_1 = textField_1;
+				numItens +=1;
 
 				JButton btnDeletarItem = new JButton(" X ");
 				btnDeletarItem.setForeground(new Color(234, 242, 237));
@@ -445,6 +499,12 @@ public class Venda extends JFrame {
 				itemVenda.add(btnDeletarItem);
 				btnDeletarItem.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						
+						JButton btn = (JButton) e.getSource();
+						int pos = lista_botoes_excluir.indexOf(btn);
+						lista_botoes_excluir.remove(pos);
+						v.getArrayItensVenda().remove(pos);
+						
 						itensVenda.remove(itemVenda);
 						itensVenda.revalidate();
 						itensVenda.repaint();
@@ -470,7 +530,7 @@ public class Venda extends JFrame {
 				gbc_lblNewLabel_1.gridy = 3;
 				itemVenda.add(lblNewLabel_1, gbc_lblNewLabel_1);
 
-				JLabel lblValorDoProduto = new JLabel("0,0");
+				lblValorDoProduto = new JLabel("0,0");
 				lblValorDoProduto.setForeground(new Color(255, 255, 255));
 				lblValorDoProduto.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
 				GridBagConstraints gbc_lblValorDoProduto = new GridBagConstraints();
@@ -485,6 +545,8 @@ public class Venda extends JFrame {
 
 			}
 		});
+		
+		
 
 /*		scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
 		    protected void configureScrollBarColors() {
@@ -512,6 +574,26 @@ public class Venda extends JFrame {
 		    }
 		});
 */
+	}
+	
+	protected void atualizarValorUnitario() {
+		
+		if(textField.getText().isEmpty() == false) {
+			
+			VendaBD vbd = new VendaBD();
+			int codProduto = Integer.parseInt(textField.getText());
+			
+			lblNewLabel.setText("Item - " + vbd.nomeProduto(codProduto));
+			
+			if(textField_1.getText().isEmpty() == false) {
+				float quantidade = Float.parseFloat(textField_1.getText());
+			
+				float total = vbd.precoUnitario(codProduto, quantidade);
+				lblValorDoProduto.setText(String.valueOf(total));
+			}
+		
+		}
+	
 	}
 
 }

@@ -28,12 +28,13 @@ public class Venda {
 		return arrayItensVenda;
 	}
 	
-	public ItemVenda itemVendaEspecifico(int i) {
-		return arrayItensVenda.get(i);
-	}
-
 	public void adicionarItem(ItemVenda item) {
 		arrayItensVenda.add(item);
+	}
+	
+	
+	public ItemVenda itemVendaEspecifico(int i) {
+		return arrayItensVenda.get(i);
 	}
 	
 	

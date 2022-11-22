@@ -152,7 +152,7 @@ public class TelaBemVindo extends JFrame {
 		btnMenuVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			setVisible(false);
-			Venda venda = new Venda();
+			TelaVenda venda = new TelaVenda();
 			venda.abrir();
 			}
 		});
@@ -329,7 +329,7 @@ public class TelaBemVindo extends JFrame {
 		panel_3.add(btnVenda, gbc_btnVenda);
 		btnVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Venda venda = new Venda();
+				TelaVenda venda = new TelaVenda();
 				venda.abrir();
 				frame.setVisible(false);
 			}

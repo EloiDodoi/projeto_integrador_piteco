@@ -140,7 +140,7 @@ public class TelaHistoricoVendas extends JFrame {
 		btnMenuVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				Venda venda = new Venda();
+				TelaVenda venda = new TelaVenda();
 				venda.abrir();
 			}
 		});

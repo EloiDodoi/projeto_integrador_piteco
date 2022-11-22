@@ -176,7 +176,7 @@ public class TelaControleVendedores extends JFrame {
 		btnMenuVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				Venda venda = new Venda();
+				TelaVenda venda = new TelaVenda();
 				venda.abrir();
 			}
 		});
@@ -215,7 +215,7 @@ public class TelaControleVendedores extends JFrame {
 		btnMenuControle = new JMenuItem("Controle");
 		btnMenuControle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Você já está na Tela de Controle de Vendedores.");
+				JOptionPane.showMessageDialog(null, "Vocï¿½ jï¿½ estï¿½ na Tela de Controle de Vendedores.");
 			}
 		});
 		btnMenuControle.setOpaque(true);
