@@ -122,9 +122,9 @@ public class TelaCadastroProduto {
 		panel_2.setBackground(new Color(123, 166, 111));
 		GridBagLayout gbl_panel_2 = new GridBagLayout();
 		gbl_panel_2.columnWidths = new int[] {30, 199, 89, 30, 293, 30, 204, 293, 30};
-		gbl_panel_2.rowHeights = new int[] {50, 36, 39, 35, 43, 47, 45, 37, 30, 94, 0};
+		gbl_panel_2.rowHeights = new int[] {50, 36, 39, 35, 43, 47, 45, 37, 30, 0, 94, 0, 0};
 		gbl_panel_2.columnWeights = new double[]{1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0};
-		gbl_panel_2.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_panel_2.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		panel_2.setLayout(gbl_panel_2);
 		
 		JLabel lblNomeDoVegetal = new JLabel("Nome do Vegetal:");
@@ -228,7 +228,7 @@ public class TelaCadastroProduto {
 		gbc_lblNomeDoVegetal_1_1_1.gridy = 7;
 		panel_2.add(lblNomeDoVegetal_1_1_1, gbc_lblNomeDoVegetal_1_1_1);
 		
-		JButton btn_cadastrar_produto = new JButton("Cadastrar");
+		JButton btn_cadastrar_produto = new JButton("  Cadastrar  ");
 		btn_cadastrar_produto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = txt_nome.getText();
@@ -304,16 +304,33 @@ public class TelaCadastroProduto {
 		gbc_txt_quantidade.gridx = 7;
 		gbc_txt_quantidade.gridy = 7;
 		panel_2.add(txt_quantidade, gbc_txt_quantidade);
-		btn_cadastrar_produto.setBackground(new Color(255, 255, 255));
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(123, 166, 111));
+		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
+		gbc_panel_1.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_1.fill = GridBagConstraints.BOTH;
+		gbc_panel_1.gridx = 1;
+		gbc_panel_1.gridy = 8;
+		panel_2.add(panel_1, gbc_panel_1);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(123, 166, 111));
+		GridBagConstraints gbc_panel_3 = new GridBagConstraints();
+		gbc_panel_3.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_3.fill = GridBagConstraints.BOTH;
+		gbc_panel_3.gridx = 1;
+		gbc_panel_3.gridy = 9;
+		panel_2.add(panel_3, gbc_panel_3);
+		btn_cadastrar_produto.setBackground(new Color(123, 166, 111));
 		btn_cadastrar_produto.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
 		btn_cadastrar_produto.setForeground(new Color(31, 65, 45));
 		btn_cadastrar_produto.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
 		GridBagConstraints gbc_btn_cadastrar_produto = new GridBagConstraints();
 		gbc_btn_cadastrar_produto.insets = new Insets(0, 0, 10, 0);
-		gbc_btn_cadastrar_produto.fill = GridBagConstraints.VERTICAL;
 		gbc_btn_cadastrar_produto.gridwidth = 9;
 		gbc_btn_cadastrar_produto.gridx = 0;
-		gbc_btn_cadastrar_produto.gridy = 9;
+		gbc_btn_cadastrar_produto.gridy = 10;
 		panel_2.add(btn_cadastrar_produto, gbc_btn_cadastrar_produto);
 		
 		JMenuBar menuBar = new JMenuBar();

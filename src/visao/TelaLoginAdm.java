@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 import java.security.PublicKey;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Rectangle;
 import javax.swing.border.CompoundBorder;
@@ -37,6 +38,7 @@ public class TelaLoginAdm {
 	static TelaLoginAdm window = new TelaLoginAdm();
 	JTextField txtUsuarioAdm;
 	JPasswordField passwordField;
+	LoginAdmBD lg;
 	
 	static Usuario user;
 	/**
@@ -133,7 +135,13 @@ public class TelaLoginAdm {
 		btn_entrar_adm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Usuario login = new Usuario(0, null, null, null, null, null, txt_senha.getText(), txt_login.getText(), 0);
-				LoginAdmBD lg = new LoginAdmBD();
+				
+				try {
+					lg = new LoginAdmBD();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				if (lg.autenticar(login)== null ) {
 					System.out.println("Erro Login");
 					JOptionPane.showMessageDialog(null, "E-mail ou senha incorretos, tente novamente!");
