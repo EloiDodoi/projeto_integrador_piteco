@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -23,21 +25,24 @@ public class HistoricoVendaBD {
 	public ArrayList<Produto> listaProdutos() {
 		try {
 			ArrayList<Venda> venda = new ArrayList<>();
+			ArrayList<String> tipo =  new ArrayList<>();
+			ArrayList<Object> historico = new ArrayList<>();
 			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT idVenda,venda_data,venda_valor,Tipo_Pagamento FROM venda inner join tipo_pagamento on Tipo_Pagamento_idTipo_Pagamento = idTipo_Pagamento");
 			ResultSet rs = ps.executeQuery();
 	          while(rs.next()){
+	        	  String tipo_a;
 	        	  Venda v = new Venda();
-	        	  v.setIdVenda(0);
+	        	  v.setIdVenda(rs.getInt(1));
+	        	  v.setVenda_data(rs.getDate(2));
+	        	  v.setVenda_valor(rs.getFloat(3));
+	        	  venda.add(v);
+	        	  tipo_a = rs.getString(4);
+	        	  tipo.add(tipo_a);
 	            }
-	          for (Produto p: estoque) {
-	        	  System.out.println(p.getIdProduto());
-	        	  System.out.println(p.getProduto_nomeveg());
-	        	  System.out.println(p.getProduto_especieveg());
-	        	  System.out.println(p.getProduto_preco());
-	        	  System.out.println(p.getProduto_quantidade());
-	        	  System.out.println(p.getUnidade_quantidade_idUnidade_quantidade());
+	          for (Venda v: venda) {
+	        	  
 	          }
-	          return estoque;
+	          return historico;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
