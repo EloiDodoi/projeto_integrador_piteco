@@ -488,6 +488,8 @@ public class VendasPagamento extends JFrame {
 						pagamento = 3;
 					}
 					
+					venda.setTipo_pagamento(pagamento);
+					
 					vbd.executarVenda(venda);
 				}
 				else {

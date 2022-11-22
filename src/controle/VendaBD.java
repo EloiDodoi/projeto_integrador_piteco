@@ -57,12 +57,35 @@ public class VendaBD {
 		
 		return null;
 	}
+	
+	public Produto retornarProduto(int codProduto) {
+		Produto p = null;
+		try {
+			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT * FROM PRODUTO WHERE idProduto = ?");
+			ps.setInt(1, codProduto);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				p = new Produto(codProduto, rs.getString(1), rs.getString(2), rs.getFloat(3), rs.getFloat(4), rs.getInt(5));
+			}
+			
+			return p;
+			
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "Erro em adicionar item à compra!");
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
+	
 	public void executarVenda(Venda venda) {
 		try {
-			PreparedStatement ps = cbd.getConexao().prepareStatement("Insert into venda values (Null,?,?,?)");
+			PreparedStatement ps = cbd.getConexao().prepareStatement("Insert into venda values (Null,?,?,?,?)");
 			ps.setFloat(1, venda.getVenda_valor());
 			ps.setDate(2,venda.getVenda_data());
 			ps.setInt(3, venda.getUsuario().getUsuario_id());
+			ps.setInt(4, venda.getTipo_pagamento());
+			System.out.println(ps);
 			ps.execute();
 			PreparedStatement ps1 = cbd.getConexao().prepareStatement("select idVenda from venda ORDER BY idVenda DESC LIMIT 1");
 			ResultSet rs = ps1.executeQuery();
@@ -102,7 +125,7 @@ public class VendaBD {
 	public boolean verificarItem(ItemVenda item){
 		try {
 			float quant = 0;
-			PreparedStatement ps = cbd.getConexao().prepareStatement("Select produto_quantidade where idproduto = ?");
+			PreparedStatement ps = cbd.getConexao().prepareStatement("Select produto_quantidade from produto where idproduto = ?");
 			ps.setInt(1, item.getCodigoItem());
 			ResultSet rs =  ps.executeQuery();
 			while (rs.next()) {
@@ -110,8 +133,9 @@ public class VendaBD {
 			}
 			if(quant < item.getQuantidadeItem()) {
 				return false;
-				}else {
-					return true;
+			}
+			else {
+				return true;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
