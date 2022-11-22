@@ -30,7 +30,7 @@ public class LoginAdmBD {
 				usuario.setUsuario_nome(rs.getString(2));
 				usuario.setUsuario_cpf(rs.getString(4));
 				usuario.setUsuario_datanascimento(rs.getDate(5));
-				return null;
+				return usuario;
 			}
 			
 		} catch (SQLException e) {
