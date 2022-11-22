@@ -38,7 +38,7 @@ public class TelaLoginAdm {
 	static TelaLoginAdm window = new TelaLoginAdm();
 	JTextField txtUsuarioAdm;
 	JPasswordField passwordField;
-	LoginAdmBD lg;
+	
 	
 	static Usuario user;
 	/**
@@ -136,12 +136,9 @@ public class TelaLoginAdm {
 			public void actionPerformed(ActionEvent arg0) {
 				Usuario login = new Usuario(0, null, null, null, null, null, txt_senha.getText(), txt_login.getText(), 0);
 				
-				try {
-					lg = new LoginAdmBD();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
+				LoginAdmBD lg = new LoginAdmBD();
+			
 				if (lg.autenticar(login)== null ) {
 					System.out.println("Erro Login");
 					JOptionPane.showMessageDialog(null, "E-mail ou senha incorretos, tente novamente!");

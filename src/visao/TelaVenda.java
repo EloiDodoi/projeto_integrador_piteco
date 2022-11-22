@@ -2,6 +2,7 @@ package visao;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -89,43 +90,56 @@ public class TelaVenda extends JFrame {
 		setBounds(100, 100, 924, 517);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorder(null);
+		menuBar.setBackground(new Color(150, 191, 120));
+		menuBar.setForeground(new Color(150, 191, 120));
+		menuBar.setPreferredSize(new Dimension(0, 40));
+		menuBar.setMinimumSize(new Dimension(0, 5));
+		menuBar.setMaximumSize(new Dimension(0, 5));
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("  ");
-		mnNewMenu.setIcon(new ImageIcon(TelaVenda.class.getResource("/img/menu-aberto.png")));
-		mnNewMenu.setVerticalTextPosition(SwingConstants.CENTER);
-		mnNewMenu.setVerticalAlignment(SwingConstants.CENTER);
-		mnNewMenu.setPreferredSize(new Dimension(60, 40));
 		mnNewMenu.setOpaque(true);
 		mnNewMenu.setHorizontalTextPosition(SwingConstants.LEFT);
 		mnNewMenu.setHorizontalAlignment(SwingConstants.LEFT);
+		mnNewMenu.setPreferredSize(new Dimension(60, 40));
+		mnNewMenu.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/menu-aberto.png")));
+		mnNewMenu.setVerticalAlignment(SwingConstants.CENTER);
+		mnNewMenu.setVerticalTextPosition(SwingConstants.CENTER);
 		mnNewMenu.setForeground(new Color(150, 191, 120));
 		mnNewMenu.setBorder(null);
 		mnNewMenu.setBackground(new Color(150, 191, 120));
 		menuBar.add(mnNewMenu);
 		
 		JLabel lblNewLabel_2 = new JLabel("PITECO");
+		lblNewLabel_2.setMaximumSize(new Dimension(1000, 14));
+		lblNewLabel_2.setOpaque(true);
+		lblNewLabel_2.setForeground(new Color(85, 121, 74));
+		lblNewLabel_2.setBackground(new Color(150, 191, 120));
 		lblNewLabel_2.setVerticalTextPosition(SwingConstants.BOTTOM);
 		lblNewLabel_2.setVerticalAlignment(SwingConstants.BOTTOM);
-		lblNewLabel_2.setOpaque(true);
-		lblNewLabel_2.setMaximumSize(new Dimension(1000, 14));
 		lblNewLabel_2.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setForeground(new Color(85, 121, 74));
-		lblNewLabel_2.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 20));
 		lblNewLabel_2.setBorder(null);
-		lblNewLabel_2.setBackground(new Color(150, 191, 120));
-		lblNewLabel_2.setAlignmentX(0.5f);
+		lblNewLabel_2.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 20));
+		lblNewLabel_2.setAlignmentX(Component.CENTER_ALIGNMENT);
 		mnNewMenu.add(lblNewLabel_2);
 		
 		JMenuItem btnMenuInicio = new JMenuItem("In\u00EDcio");
+		btnMenuInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaBemVindo tbv = new TelaBemVindo();
+				tbv.abrir();
+				setVisible(false);
+			}
+		});
 		btnMenuInicio.setOpaque(true);
-		btnMenuInicio.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnMenuInicio.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuInicio.setForeground(new Color(85, 121, 74));
-		btnMenuInicio.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		btnMenuInicio.setBorder(null);
 		btnMenuInicio.setBackground(new Color(150, 191, 120));
+		btnMenuInicio.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		btnMenuInicio.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuInicio.setHorizontalAlignment(SwingConstants.CENTER);
 		mnNewMenu.add(btnMenuInicio);
 		
 		JPanel linha = new JPanel();
@@ -135,23 +149,36 @@ public class TelaVenda extends JFrame {
 		mnNewMenu.add(linha);
 		
 		JMenuItem btnMenuEstoque = new JMenuItem("Estoque");
+		btnMenuEstoque.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				TelaEstoque te = new TelaEstoque();
+				te.abrir();
+				
+			}
+		});
 		btnMenuEstoque.setOpaque(true);
-		btnMenuEstoque.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnMenuEstoque.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuEstoque.setForeground(new Color(85, 121, 74));
-		btnMenuEstoque.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		btnMenuEstoque.setBorder(null);
 		btnMenuEstoque.setBackground(new Color(150, 191, 120));
+		btnMenuEstoque.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuEstoque.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuEstoque.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuEstoque);
 		
 		JMenuItem btnMenuVendas = new JMenuItem("Vendas");
+		btnMenuVendas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(null, "Voc� j� est� na Tela de Vendas.");
+			}
+		});
 		btnMenuVendas.setOpaque(true);
-		btnMenuVendas.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnMenuVendas.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuVendas.setForeground(new Color(85, 121, 74));
-		btnMenuVendas.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		btnMenuVendas.setBorder(null);
 		btnMenuVendas.setBackground(new Color(150, 191, 120));
+		btnMenuVendas.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuVendas.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuVendas.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuVendas);
 		
 		JPanel linha_1 = new JPanel();
@@ -161,23 +188,35 @@ public class TelaVenda extends JFrame {
 		mnNewMenu.add(linha_1);
 		
 		JMenuItem btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas");
+		btnMenuRelatorios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaHistoricoVendas thv = new TelaHistoricoVendas();
+				thv.abrir();
+			}
+		});
 		btnMenuRelatorios.setOpaque(true);
-		btnMenuRelatorios.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnMenuRelatorios.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuRelatorios.setForeground(new Color(85, 121, 74));
-		btnMenuRelatorios.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		btnMenuRelatorios.setBorder(null);
 		btnMenuRelatorios.setBackground(new Color(150, 191, 120));
+		btnMenuRelatorios.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuRelatorios.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuRelatorios.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuRelatorios);
 		
 		JMenuItem btnMenuControle = new JMenuItem("Controle");
+		btnMenuControle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaControleVendedores tcv = new TelaControleVendedores();
+				tcv.abrir();
+			}
+		});
 		btnMenuControle.setOpaque(true);
-		btnMenuControle.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnMenuControle.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuControle.setForeground(new Color(85, 121, 74));
-		btnMenuControle.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		btnMenuControle.setBorder(null);
 		btnMenuControle.setBackground(new Color(150, 191, 120));
+		btnMenuControle.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuControle.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuControle.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuControle);
 		
 		JPanel linha_1_1 = new JPanel();
@@ -188,28 +227,17 @@ public class TelaVenda extends JFrame {
 		
 		JMenuItem btnMenuSair = new JMenuItem("Sair");
 		btnMenuSair.setOpaque(true);
-		btnMenuSair.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnMenuSair.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuSair.setForeground(new Color(85, 121, 74));
-		btnMenuSair.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		btnMenuSair.setBorder(null);
 		btnMenuSair.setBackground(new Color(150, 191, 120));
+		btnMenuSair.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnMenuSair.setHorizontalAlignment(SwingConstants.CENTER);
+		btnMenuSair.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuSair);
-		
-		JPanel linha_1_1_1 = new JPanel();
-		linha_1_1_1.setPreferredSize(new Dimension(1, 2));
-		linha_1_1_1.setMinimumSize(new Dimension(5, 1));
-		linha_1_1_1.setBackground(new Color(150, 191, 120));
-		mnNewMenu.add(linha_1_1_1);
-		
-		JPanel BarraSuperior = new JPanel();
-		BarraSuperior.setBackground(new Color(150, 191, 120));
-		menuBar.add(BarraSuperior);
-		BarraSuperior.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_8 = new JPanel();
 		panel_8.setBackground(new Color(150, 191, 120));
-		BarraSuperior.add(panel_8, BorderLayout.EAST);
+	//	BarraSuperior.add(panel_8, BorderLayout.EAST);
 		GridBagLayout gbl_panel_8 = new GridBagLayout();
 		gbl_panel_8.columnWidths = new int[]{30, 30, 20, 0, 30, 20, 0};
 		gbl_panel_8.rowHeights = new int[]{33, 0};
