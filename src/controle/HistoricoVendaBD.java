@@ -50,18 +50,19 @@ public class HistoricoVendaBD {
 	public DefaultTableModel listagemVenda() {
 		ArrayList<Object> lp = listaVendas();
 		DefaultTableModel modelo_tabela = new DefaultTableModel(
-				new Object[][][][][][] {
+				new Object[][][][][]{
 					
 				},
 				new String[] {
-					"C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade"
+					"N°", "Data", "Valor", "Tipo de Pagamento", "Produtos"
 				}	
 		);
 		for (int i = 0;i<lp.size();i++) {
-			Object p = lp.get(i);
+			Object v = lp.get(i);
+			////--- nao 
 			modelo_tabela.addRow(new Object[] {});
 		}
 		return modelo_tabela;	
 		}	
-	
+
 }

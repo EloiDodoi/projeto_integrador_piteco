@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `piteco`.`Usuario` (
   `usuario_cpf` CHAR(11) NOT NULL,
   `usuario_cnpj` CHAR(14) NULL,
   `usuario_datanascimento` DATE NOT NULL,
-  `usuario_telefone` INT NULL,
+  `usuario_telefone` varchar(15) NULL,
   `usuario_senha` VARCHAR(45) NULL,
   `usuario_email` VARCHAR(50) CHARACTER SET 'big5' NOT NULL,
   `TipoUser_id_tipo` INT NOT NULL,
