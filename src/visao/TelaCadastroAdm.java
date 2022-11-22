@@ -223,16 +223,12 @@ public class TelaCadastroAdm {
 		panel_2.setLayout(null);
 		
 		JLabel lblNewLabel_13 = new JLabel("Nome Completo");
+		lblNewLabel_13.setBounds(53, 72, 248, 60);
 		lblNewLabel_13.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		lblNewLabel_13.setAlignmentY(Component.TOP_ALIGNMENT);
 		lblNewLabel_13.setForeground(new Color(31, 65, 45));
 		lblNewLabel_13.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		GridBagConstraints gbc_lblNewLabel_13 = new GridBagConstraints();
-		gbc_lblNewLabel_13.fill = GridBagConstraints.BOTH;
-		gbc_lblNewLabel_13.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_13.gridx = 0;
-		gbc_lblNewLabel_13.gridy = 0;
-		panel_2.add(lblNewLabel_13, gbc_lblNewLabel_13);
+		panel_2.add(lblNewLabel_13);
 		
 		JTextField textField_3 = new JTextField();
 		textField_3.setBackground(new Color(234, 242, 237));
@@ -249,16 +245,17 @@ public class TelaCadastroAdm {
 		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("CPF");
+//		lblNewLabel_13.setBounds(53, 72, 248, 60);  --- Setar a posição aqui
 		lblNewLabel_2_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		lblNewLabel_2_1.setAlignmentY(Component.TOP_ALIGNMENT);
 		lblNewLabel_2_1.setForeground(new Color(31, 65, 45));
 		lblNewLabel_2_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		GridBagConstraints gbc_lblNewLabel_2_1 = new GridBagConstraints();
-		gbc_lblNewLabel_2_1.fill = GridBagConstraints.BOTH;
-		gbc_lblNewLabel_2_1.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_2_1.gridx = 0;
-		gbc_lblNewLabel_2_1.gridy = 2;
-		panel_2.add(lblNewLabel_2_1, gbc_lblNewLabel_2_1);
+//		GridBagConstraints gbc_lblNewLabel_2_1 = new GridBagConstraints();
+//		gbc_lblNewLabel_2_1.fill = GridBagConstraints.BOTH;
+//		gbc_lblNewLabel_2_1.insets = new Insets(0, 0, 5, 0);
+//		gbc_lblNewLabel_2_1.gridx = 0;
+//		gbc_lblNewLabel_2_1.gridy = 2;
+//		panel_2.add(lblNewLabel_2_1, gbc_lblNewLabel_2_1);  --- apagar a segunda variavel
 		
 		JTextField textField_2_1 = new JTextField();
 		textField_2_1.setBackground(new Color(234, 242, 237));
