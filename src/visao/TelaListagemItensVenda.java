@@ -45,7 +45,7 @@ public class TelaListagemItensVenda extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 385, 450);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(234, 242, 237));
+		contentPane.setBackground(new Color(31, 65, 45));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -58,7 +58,7 @@ public class TelaListagemItensVenda extends JFrame {
 		
 		JLabel lblItensDaVenda = new JLabel("Itens da Venda");
 		lblItensDaVenda.setHorizontalAlignment(SwingConstants.LEFT);
-		lblItensDaVenda.setForeground(new Color(31, 65, 45));
+		lblItensDaVenda.setForeground(new Color(234, 242, 237));
 		lblItensDaVenda.setFont(new Font("Dialog", Font.PLAIN, 30));
 		lblItensDaVenda.setBackground(new Color(234, 242, 237));
 		GridBagConstraints gbc_lblItensDaVenda = new GridBagConstraints();
@@ -68,7 +68,7 @@ public class TelaListagemItensVenda extends JFrame {
 		contentPane.add(lblItensDaVenda, gbc_lblItensDaVenda);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(234, 242, 237));
+		panel_1.setBackground(new Color(31, 65, 45));
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
 		gbc_panel_1.insets = new Insets(0, 0, 5, 0);
 		gbc_panel_1.fill = GridBagConstraints.BOTH;
@@ -103,7 +103,7 @@ public class TelaListagemItensVenda extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(234, 242, 237));
+		panel.setBackground(new Color(31, 65, 45));
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.insets = new Insets(0, 0, 0, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;

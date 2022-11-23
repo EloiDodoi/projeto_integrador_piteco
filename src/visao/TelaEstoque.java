@@ -294,6 +294,10 @@ public class TelaEstoque extends JFrame {
 		btnFiltro.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/filtro (1).png")));
 		btnFiltro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String nome = textFieldPesquisaNoEstoque.getText();
+				EstoqueBD ebd = new EstoqueBD();
+				
+				ebd.produtoFiltradoTabela(nome);
 			}
 		});
 		btnFiltro.setForeground(new Color(234, 242, 237));

@@ -73,4 +73,40 @@ public class EstoqueBD {
 		}
 		return modelo_tabela;	
 	}
+	
+	public Produto filtro(String nome) {
+		PreparedStatement ps;
+		Produto p = null;
+		try {
+			ps = cbd.getConexao().prepareStatement("SELECT * FROM produto WHERE produto_nomeveg = ?");
+			ps.setString(1, nome);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+		      	p = new Produto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
+			}
+			return p;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro ao filtrar. Tenha certeza de que digitou um nome válido");
+		}
+		
+		return null;
+	}
+	
+	public DefaultTableModel produtoFiltradoTabela(String nome) {
+		Produto p = filtro(nome);
+		
+		DefaultTableModel modelo_tabela = new DefaultTableModel(
+				new Object[][][][][][] {
+					
+				},
+				new String[] {
+					"C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade"
+				}	
+		);
+		modelo_tabela.addRow(new Object[] {p.getIdProduto(),p.getProduto_nomeveg(),p.getProduto_especieveg(),p.getProduto_preco(), p.getProduto_quantidade()});
+		
+		return modelo_tabela;
+	}
 }
