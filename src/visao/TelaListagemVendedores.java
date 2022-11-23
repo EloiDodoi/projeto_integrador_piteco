@@ -34,6 +34,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
 
 public class TelaListagemVendedores extends JFrame {
 
@@ -91,8 +92,8 @@ public class TelaListagemVendedores extends JFrame {
 		panel = new JPanel();
 		contentPane.add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] {61, 865, 125, 119, 119, 60};
-		gbl_panel.rowHeights = new int[]{10, 0, 158, 544, 0};
+		gbl_panel.columnWidths = new int[] {65, 865, 125, 119, 119, 65};
+		gbl_panel.rowHeights = new int[] {30, 0, 158, 544, 30};
 		gbl_panel.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE};
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
@@ -129,13 +130,14 @@ public class TelaListagemVendedores extends JFrame {
 		gbc_panelPesquisa.gridy = 2;
 		panel.add(panelPesquisa, gbc_panelPesquisa);
 		GridBagLayout gbl_panelPesquisa = new GridBagLayout();
-		gbl_panelPesquisa.columnWidths = new int[] {30, 800};
+		gbl_panelPesquisa.columnWidths = new int[] {80, 800};
 		gbl_panelPesquisa.rowHeights = new int[] {32};
 		gbl_panelPesquisa.columnWeights = new double[]{1.0, 1.0, 0.0};
 		gbl_panelPesquisa.rowWeights = new double[]{0.0};
 		panelPesquisa.setLayout(gbl_panelPesquisa);
 		
 		btnPesquisa = new JButton("");
+		btnPesquisa.setIcon(new ImageIcon(TelaListagemVendedores.class.getResource("/img/inspecao (1).png")));
 		btnPesquisa.setBorder(null);
 		btnPesquisa.setBackground(new Color(31, 65, 45));
 		GridBagConstraints gbc_btnPesquisa = new GridBagConstraints();

@@ -26,10 +26,17 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 import controle.AlterarProdutoBD;
 import controle.EstoqueBD;
 import modelo.Produto;
+import java.awt.BorderLayout;
+import java.awt.GridBagLayout;
+import javax.swing.JSeparator;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import javax.swing.border.EmptyBorder;
 
 public class TelaEstoque extends JFrame {
 
@@ -69,7 +76,6 @@ public class TelaEstoque extends JFrame {
 		contentPane.setBackground(new Color(234, 242, 237));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorder(null);
@@ -216,23 +222,56 @@ public class TelaEstoque extends JFrame {
 		btnMenuSair.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuSair);
 		
-		JLabel lblTitulo = new JLabel("Estoque");
-		lblTitulo.setForeground(new Color(31, 65, 45));
-		lblTitulo.setVerticalAlignment(SwingConstants.TOP);
-		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitulo.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 82));
-		lblTitulo.setBounds(113, 79, 326, 115);
-		contentPane.add(lblTitulo);
+		JPanel BarraSuperior = new JPanel();
+		BarraSuperior.setBackground(new Color(150, 191, 120));
+		menuBar.add(BarraSuperior);
+		BarraSuperior.setLayout(new BorderLayout(0, 0));
 		
-		JPanel Linha = new JPanel();
-		Linha.setBackground(new Color(31, 65, 45));
-		Linha.setBounds(63, 63, 1279, 5);
-		contentPane.add(Linha);
+		JPanel panel_8 = new JPanel();
+		panel_8.setBackground(new Color(150, 191, 120));
+		BarraSuperior.add(panel_8, BorderLayout.EAST);
+		GridBagLayout gbl_panel_8 = new GridBagLayout();
+		gbl_panel_8.columnWidths = new int[]{30, 30, 20, 0, 30, 20, 0};
+		gbl_panel_8.rowHeights = new int[]{33, 0};
+		gbl_panel_8.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_8.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		panel_8.setLayout(gbl_panel_8);
 		
-		JPanel panelPesquisa = new JPanel();
-		panelPesquisa.setBounds(120, 222, 799, 40);
-		contentPane.add(panelPesquisa);
-		panelPesquisa.setLayout(null);
+		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
+		separator.setForeground(new Color(234, 242, 237));
+		separator.setBackground(new Color(234, 242, 237));
+		GridBagConstraints gbc_separator = new GridBagConstraints();
+		gbc_separator.insets = new Insets(0, 0, 0, 5);
+		gbc_separator.gridx = 0;
+		gbc_separator.gridy = 0;
+		panel_8.add(separator, gbc_separator);
+		
+		JButton btnNotificacao = new JButton("");
+		btnNotificacao.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/notificacao.png")));
+		btnNotificacao.setBorder(null);
+		btnNotificacao.setBackground(new Color(150, 191, 120));
+		GridBagConstraints gbc_btnNotificacao = new GridBagConstraints();
+		gbc_btnNotificacao.insets = new Insets(0, 0, 0, 5);
+		gbc_btnNotificacao.gridx = 3;
+		gbc_btnNotificacao.gridy = 0;
+		panel_8.add(btnNotificacao, gbc_btnNotificacao);
+		
+		JButton btnUser = new JButton("");
+		btnUser.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/farmer.png")));
+		btnUser.setBorder(null);
+		btnUser.setBackground(new Color(150, 191, 120));
+		GridBagConstraints gbc_btnUser = new GridBagConstraints();
+		gbc_btnUser.insets = new Insets(5, 0, 0, 10);
+		gbc_btnUser.gridx = 5;
+		gbc_btnUser.gridy = 0;
+		panel_8.add(btnUser, gbc_btnUser);
+		GridBagLayout gbl_contentPane = new GridBagLayout();
+		gbl_contentPane.columnWidths = new int[] {65, 856, 134, 256, 65};
+		gbl_contentPane.rowHeights = new int[] {30, 5, 115, 31, 31, 391, 30};
+		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		contentPane.setLayout(gbl_contentPane);
 		
 		table = new JTable() {
 			@Override
@@ -256,32 +295,75 @@ public class TelaEstoque extends JFrame {
 					"C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade"
 				}
 			));
-			table.setModel(etb.listagemProduto());
-			table.getColumnModel().getColumn(1).setPreferredWidth(150);
-			table.getColumnModel().getColumn(2).setPreferredWidth(150);
-			table.getColumnModel().getColumn(4).setPreferredWidth(100);
-			
-		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(130, 330, 1119, 391);
-		contentPane.add(scrollPane);
+		table.setModel(etb.listagemProduto());
+		table.getColumnModel().getColumn(1).setPreferredWidth(150);
+		table.getColumnModel().getColumn(2).setPreferredWidth(150);
+		table.getColumnModel().getColumn(4).setPreferredWidth(100);
 		
-
+		JTableHeader tHeader = table.getTableHeader();
+		tHeader.setBackground(new Color(150, 191, 120));
+		tHeader.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 20));
+		tHeader.setForeground(Color.WHITE);
 		
-		textFieldPesquisaNoEstoque = new JTextField();
-		textFieldPesquisaNoEstoque.setBounds(43, 5, 749, 32);
-		panelPesquisa.add(textFieldPesquisaNoEstoque);
-		textFieldPesquisaNoEstoque.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		textFieldPesquisaNoEstoque.setSelectionColor(new Color(217, 173, 181));
-		textFieldPesquisaNoEstoque.setCaretColor(new Color(31, 65, 45));
-		textFieldPesquisaNoEstoque.setBorder(new LineBorder(new Color(31, 65, 45), 2));
-		textFieldPesquisaNoEstoque.setHorizontalAlignment(SwingConstants.LEFT);
-		textFieldPesquisaNoEstoque.setColumns(10);
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setForeground(new Color(234, 242, 237));
+		btnAlterar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
+		btnAlterar.setBackground(new Color(31, 65, 45));
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(produto_selecionado != null) {
+					TelaSalvarProduto sp = new TelaSalvarProduto();
+					sp.abrir(produto_selecionado);
+					
+				}
+			}
+		});
+		
+		JPanel Linha = new JPanel();
+		Linha.setBackground(new Color(31, 65, 45));
+		GridBagConstraints gbc_Linha = new GridBagConstraints();
+		gbc_Linha.fill = GridBagConstraints.BOTH;
+		gbc_Linha.insets = new Insets(0, 0, 5, 0);
+		gbc_Linha.gridwidth = 3;
+		gbc_Linha.gridx = 1;
+		gbc_Linha.gridy = 1;
+		contentPane.add(Linha, gbc_Linha);
+		
+		JLabel lblTitulo = new JLabel("Estoque");
+		lblTitulo.setForeground(new Color(31, 65, 45));
+		lblTitulo.setVerticalAlignment(SwingConstants.TOP);
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 82));
+		GridBagConstraints gbc_lblTitulo = new GridBagConstraints();
+		gbc_lblTitulo.anchor = GridBagConstraints.WEST;
+		gbc_lblTitulo.fill = GridBagConstraints.VERTICAL;
+		gbc_lblTitulo.insets = new Insets(0, 0, 5, 5);
+		gbc_lblTitulo.gridx = 1;
+		gbc_lblTitulo.gridy = 2;
+		contentPane.add(lblTitulo, gbc_lblTitulo);
+		
+		JPanel panelPesquisa = new JPanel();
+		GridBagConstraints gbc_panelPesquisa = new GridBagConstraints();
+		gbc_panelPesquisa.fill = GridBagConstraints.HORIZONTAL;
+		gbc_panelPesquisa.insets = new Insets(0, 0, 5, 5);
+		gbc_panelPesquisa.gridx = 1;
+		gbc_panelPesquisa.gridy = 4;
+		contentPane.add(panelPesquisa, gbc_panelPesquisa);
+		GridBagLayout gbl_panelPesquisa = new GridBagLayout();
+		gbl_panelPesquisa.columnWidths = new int[] {80, 800};
+		gbl_panelPesquisa.rowHeights = new int[] {32};
+		gbl_panelPesquisa.columnWeights = new double[]{1.0, 1.0};
+		gbl_panelPesquisa.rowWeights = new double[]{0.0};
+		panelPesquisa.setLayout(gbl_panelPesquisa);
 		
 		JButton btnPesquisa = new JButton("");
 		btnPesquisa.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/inspecao (1).png")));
-		btnPesquisa.setBounds(10, 5, 35, 32);
 		
-		panelPesquisa.add(btnPesquisa);
+		GridBagConstraints gbc_btnPesquisa = new GridBagConstraints();
+		gbc_btnPesquisa.fill = GridBagConstraints.BOTH;
+		gbc_btnPesquisa.gridx = 0;
+		gbc_btnPesquisa.gridy = 0;
+		panelPesquisa.add(btnPesquisa, gbc_btnPesquisa);
 		btnPesquisa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -289,6 +371,26 @@ public class TelaEstoque extends JFrame {
 		});
 		btnPesquisa.setBorder(null);
 		btnPesquisa.setBackground(new Color(31, 65, 45));
+		
+		textFieldPesquisaNoEstoque = new JTextField();
+		GridBagConstraints gbc_textFieldPesquisaNoEstoque = new GridBagConstraints();
+		gbc_textFieldPesquisaNoEstoque.insets = new Insets(0, 0, 0, 5);
+		gbc_textFieldPesquisaNoEstoque.fill = GridBagConstraints.BOTH;
+		gbc_textFieldPesquisaNoEstoque.gridx = 1;
+		gbc_textFieldPesquisaNoEstoque.gridy = 0;
+		panelPesquisa.add(textFieldPesquisaNoEstoque, gbc_textFieldPesquisaNoEstoque);
+		textFieldPesquisaNoEstoque.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		textFieldPesquisaNoEstoque.setSelectionColor(new Color(217, 173, 181));
+		textFieldPesquisaNoEstoque.setCaretColor(new Color(31, 65, 45));
+		textFieldPesquisaNoEstoque.setBorder(new LineBorder(new Color(31, 65, 45), 2));
+		textFieldPesquisaNoEstoque.setHorizontalAlignment(SwingConstants.LEFT);
+		textFieldPesquisaNoEstoque.setColumns(10);
+		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
+		gbc_btnAlterar.fill = GridBagConstraints.VERTICAL;
+		gbc_btnAlterar.insets = new Insets(0, 0, 5, 0);
+		gbc_btnAlterar.gridx = 3;
+		gbc_btnAlterar.gridy = 3;
+		contentPane.add(btnAlterar, gbc_btnAlterar);
 		
 		JButton btnFiltro = new JButton("Filtrar");
 		btnFiltro.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/filtro (1).png")));
@@ -304,55 +406,12 @@ public class TelaEstoque extends JFrame {
 		btnFiltro.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
 		btnFiltro.setBorder(null);
 		btnFiltro.setBackground(new Color(31, 65, 45));
-		btnFiltro.setBounds(929, 231, 134, 31);
-		contentPane.add(btnFiltro);
-		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(31, 65, 45), 2));
-		panel.setBackground(new Color(123, 166, 111));
-		panel.setBounds(130, 280, 1119, 51);
-		contentPane.add(panel);
-		panel.setLayout(null);
-		
-		JLabel lblCodigo = new JLabel("C\u00F3digo");
-		lblCodigo.setFont(new Font("Yu Gothic Light", Font.BOLD, 28));
-		lblCodigo.setBounds(0, 0, 190, 51);
-		lblCodigo.setBorder(new LineBorder(new Color(31, 65, 45), 2));
-		panel.add(lblCodigo);
-		lblCodigo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCodigo.setBackground(new Color(123, 166, 111));
-		
-		JLabel lblNome = new JLabel("Nome");
-		lblNome.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNome.setFont(new Font("Yu Gothic Light", Font.BOLD, 28));
-		lblNome.setBorder(new LineBorder(new Color(31, 65, 45), 2));
-		lblNome.setBackground(new Color(123, 166, 111));
-		lblNome.setBounds(188, 0, 266, 51);
-		panel.add(lblNome);
-		
-		JLabel lblEspcie = new JLabel("Esp\u00E9cie");
-		lblEspcie.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEspcie.setFont(new Font("Yu Gothic Light", Font.BOLD, 28));
-		lblEspcie.setBorder(new LineBorder(new Color(31, 65, 45), 2));
-		lblEspcie.setBackground(new Color(123, 166, 111));
-		lblEspcie.setBounds(452, 0, 266, 51);
-		panel.add(lblEspcie);
-		
-		JLabel lblPreco = new JLabel("Pre\u00E7o");
-		lblPreco.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPreco.setFont(new Font("Yu Gothic Light", Font.BOLD, 28));
-		lblPreco.setBorder(new LineBorder(new Color(31, 65, 45), 2));
-		lblPreco.setBackground(new Color(123, 166, 111));
-		lblPreco.setBounds(716, 0, 190, 51);
-		panel.add(lblPreco);
-		
-		JLabel lblQuantidade = new JLabel("Quantidade");
-		lblQuantidade.setHorizontalAlignment(SwingConstants.CENTER);
-		lblQuantidade.setFont(new Font("Yu Gothic Light", Font.BOLD, 28));
-		lblQuantidade.setBorder(new LineBorder(new Color(31, 65, 45), 2));
-		lblQuantidade.setBackground(new Color(123, 166, 111));
-		lblQuantidade.setBounds(904, 0, 215, 51);
-		panel.add(lblQuantidade);
+		GridBagConstraints gbc_btnFiltro = new GridBagConstraints();
+		gbc_btnFiltro.fill = GridBagConstraints.BOTH;
+		gbc_btnFiltro.insets = new Insets(0, 0, 5, 5);
+		gbc_btnFiltro.gridx = 2;
+		gbc_btnFiltro.gridy = 4;
+		contentPane.add(btnFiltro, gbc_btnFiltro);
 		
 		JButton btnRemover = new JButton("Remover");
 		btnRemover.setForeground(new Color(234, 242, 237));
@@ -364,24 +423,22 @@ public class TelaEstoque extends JFrame {
 				table.setModel(etb.listagemProduto());
 			}
 		});
-		btnRemover.setBounds(1086, 231, 152, 31);
-		contentPane.add(btnRemover);
+		GridBagConstraints gbc_btnRemover = new GridBagConstraints();
+		gbc_btnRemover.fill = GridBagConstraints.VERTICAL;
+		gbc_btnRemover.insets = new Insets(0, 0, 5, 0);
+		gbc_btnRemover.gridx = 3;
+		gbc_btnRemover.gridy = 4;
+		contentPane.add(btnRemover, gbc_btnRemover);
 		
-		JButton btnAlterar = new JButton("Alterar");
-		btnAlterar.setForeground(new Color(234, 242, 237));
-		btnAlterar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
-		btnAlterar.setBackground(new Color(31, 65, 45));
-		btnAlterar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(produto_selecionado != null) {
-					TelaSalvarProduto sp = new TelaSalvarProduto();
-					sp.abrir(produto_selecionado);
-					
-				}
-			}
-		});
-		btnAlterar.setBounds(1086, 194, 152, 31);
-		contentPane.add(btnAlterar);
+		JScrollPane scrollPane = new JScrollPane(table);
+		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
+		gbc_scrollPane.fill = GridBagConstraints.BOTH;
+		gbc_scrollPane.gridwidth = 3;
+		gbc_scrollPane.gridx = 1;
+		gbc_scrollPane.gridy = 5;
+		contentPane.add(scrollPane, gbc_scrollPane);
+		
+		JTableHeader tH = table.getTableHeader();
 		
 		
 		//-------------------------------------------------------- métodos -------------------------------------
@@ -395,6 +452,9 @@ public class TelaEstoque extends JFrame {
 			}
 			}	
 		);
+		tH.setBackground(new Color(150, 191, 120));
+		tH.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 20));
+		tH.setForeground(Color.WHITE);
 
 
 	}
