@@ -79,7 +79,7 @@ public class HistoricoVendaBD {
 	}
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------
 	public DefaultTableModel listagemItemVenda() {
-		ArrayList<ItemVendido> lp = listaItensVenda();
+		ArrayList<ItemVendido> lp = listaItensVenda(null);
 		DefaultTableModel modelo_tabela = new DefaultTableModel(
 				new Object[][][][]{
 					
@@ -96,12 +96,13 @@ public class HistoricoVendaBD {
 		return modelo_tabela;	
 	}	
 	
-	public ArrayList<ItemVendido> listaItensVenda(){
+	public ArrayList<ItemVendido> listaItensVenda(Venda v){
 		try {
 			ArrayList<ItemVendido> itensVenda = new ArrayList<>();
 			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT Produto_idProduto,produto_nomeveg,vp_quantidade,vp_valor "
 					+ "from produto inner join venda_produto on Produto_idProduto = idProduto inner join venda on Venda_idVenda = idVenda "
 					+ "where idVenda = ?");
+			ps.setInt(1, v.getIdVenda());
 			ResultSet rs = ps.executeQuery();
 	          while(rs.next()){
 	        	  ItemVendido iv = new ItemVendido();
