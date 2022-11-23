@@ -256,6 +256,12 @@ public class TelaBemVindo extends JFrame {
 		btnNotificacao.setBackground(new Color(150, 191, 120));
 
 		JButton btnUser = new JButton("");
+		btnUser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaAlterarAdm taa = new TelaAlterarAdm();
+				taa.abrir();
+			}
+		});
 		GridBagConstraints gbc_btnUser = new GridBagConstraints();
 		gbc_btnUser.insets = new Insets(5, 0, 0, 10);
 		gbc_btnUser.gridx = 5;
