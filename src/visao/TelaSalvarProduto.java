@@ -189,7 +189,7 @@ public class TelaSalvarProduto {
 		gbc_lblEspcieDoVegetal.gridy = 3;
 		panel_2.add(lblEspcieDoVegetal, gbc_lblEspcieDoVegetal);
 
-		JTextField txt_especie = new JTextField();
+		txt_especie = new JTextField();
 		txt_especie.setForeground(Color.DARK_GRAY);
 		txt_especie.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		txt_especie.setColumns(10);
@@ -215,7 +215,7 @@ public class TelaSalvarProduto {
 		gbc_lblNomeDoVegetal_1_1.gridy = 5;
 		panel_2.add(lblNomeDoVegetal_1_1, gbc_lblNomeDoVegetal_1_1);
 
-		JRadioButton rb_Kg = new JRadioButton("Quilograma (Kg)");
+		rb_Kg = new JRadioButton("Quilograma (Kg)");
 		buttonGroup.add(rb_Kg);
 		rb_Kg.setBorder(new LineBorder(new Color(0, 0, 0)));
 		rb_Kg.setForeground(new Color(31, 65, 45));
@@ -229,7 +229,7 @@ public class TelaSalvarProduto {
 		gbc_rb_Kg_1.gridy = 5;
 		panel_2.add(rb_Kg, gbc_rb_Kg_1);
 
-		JRadioButton rb_Unidade = new JRadioButton("Unidade");
+		rb_Unidade = new JRadioButton("Unidade");
 		buttonGroup.add(rb_Unidade);
 		rb_Unidade.setForeground(new Color(31, 65, 45));
 		rb_Unidade.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
@@ -281,11 +281,13 @@ public class TelaSalvarProduto {
 				alt.alterarProduto(produto);
 				telaEstoque.table.setModel(etb.listagemProduto());
 				frame.setVisible(false);
+				TelaEstoque te = new TelaEstoque();
+				te.setVisible(true);
 
 			}
 		});
 
-		JTextField txt_preco = new JTextField();
+		txt_preco = new JTextField();
 		txt_preco.setForeground(Color.DARK_GRAY);
 		txt_preco.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		txt_preco.setColumns(10);
@@ -309,7 +311,7 @@ public class TelaSalvarProduto {
 		gbc_lblNomeDoVegetal_1_1_1_1.gridy = 7;
 		panel_2.add(lblNomeDoVegetal_1_1_1_1, gbc_lblNomeDoVegetal_1_1_1_1);
 
-		JTextField txt_quantidade = new JTextField();
+		txt_quantidade = new JTextField();
 		txt_quantidade.setForeground(Color.DARK_GRAY);
 		txt_quantidade.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		txt_quantidade.setColumns(10);

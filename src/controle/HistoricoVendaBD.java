@@ -47,11 +47,11 @@ public class HistoricoVendaBD {
 	public DefaultTableModel listagemVenda() {
 		ArrayList<Venda> lp = listaVendas();
 		DefaultTableModel modelo_tabela = new DefaultTableModel(
-				new Object[][][][][]{
+				new Object[][][][]{
 					
 				},
 				new String[] {
-					"N�", "Data", "Valor", "Tipo de Pagamento", "Produtos"
+					"N�", "Data", "Valor", "Tipo de Pagamento"
 				}	
 		);
 		for (int i = 0;i<lp.size();i++) {
