@@ -22,6 +22,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 import controle.HistoricoVendaBD;
+import modelo.Produto;
+import modelo.Venda;
 
 import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
@@ -33,6 +35,9 @@ import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Component;
 
@@ -42,9 +47,9 @@ public class TelaHistoricoVendas extends JFrame {
 	private JTextField textFieldPesquisa;
 	private JTable table;
 	HistoricoVendaBD hvbd = new HistoricoVendaBD();
-	/**
-	 * Launch the application.
-	 */
+	Venda venda_selecionada;
+	
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -58,9 +63,7 @@ public class TelaHistoricoVendas extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public void abrir() {
 		setVisible(true);
 		setLocationRelativeTo(null);
@@ -420,6 +423,18 @@ public class TelaHistoricoVendas extends JFrame {
 		tHeader.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 20));
 		tHeader.setForeground(Color.WHITE);
 		
+		
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ArrayList<Venda> lista = hvbd.listaVendas();
+				int posicao_venda = table.getSelectedRow();
+				venda_selecionada = lista.get(posicao_venda);
+				System.out.println(venda_selecionada.getIdVenda());
+			}
+			}	
+		);
+
 	
 	}
 }

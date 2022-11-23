@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.ItemVenda;
 import modelo.Produto;
 import modelo.Venda;
 
@@ -62,6 +63,7 @@ public class HistoricoVendaBD {
 		}
 		return modelo_tabela;	
 	}	
+	
 	public String TipoPagemento (int id){
 		String tipo = null;
 		switch (id) {
@@ -73,5 +75,27 @@ public class HistoricoVendaBD {
 				tipo = "Cartão de Crédito";
 		}
 		return tipo;
+	}
+	
+	public ArrayList<ItemVenda> listaItensVenda(){
+		try {
+			ArrayList<ItemVenda> itensVenda = new ArrayList<>();
+			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT * FROM venda");
+			ResultSet rs = ps.executeQuery();
+	          while(rs.next()){
+	        	  ItemVenda iv = new ItemVenda();
+//	        	  iv.setIdVenda(rs.getInt(1));
+//	        	  iv.setVenda_data(rs.getDate(2));
+//	        	  iv.setVenda_valor(rs.getFloat(3));
+//	        	  historico.add(v);
+
+	            }
+	          return null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+		
 	}
 }
