@@ -21,7 +21,7 @@ public class LoginAdmBD {
 			ps.setInt(3, 1);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				Usuario adm = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7),rs.getString(8), rs.getInt(9));
+				Usuario adm = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7),rs.getString(8),null, rs.getInt(9));
 				
 				return adm;
 			}
