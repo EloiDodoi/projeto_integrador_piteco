@@ -6,49 +6,29 @@ import javax.swing.*;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JPanel;
 import java.awt.Component;
 import java.awt.Point;
-import controle.CadastrarAdmBD;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.awt.Dimension;
+import javax.swing.JLabel;
 import java.awt.Font;
-
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.JSpinner;
+import javax.swing.JToggleButton;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
-import controle.CadastroVendedorBD;
-import controle.Md5;
-import modelo.Usuario;
-
-public class TelaCadastroAdm {
+public class TelaAlterarAdm {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JPanel panel_4;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
-	private JLabel lblNewLabel_5;
-	private JLabel lblNewLabel_6;
-	private JLabel lblNewLabel_7;
-	private JLabel lblNewLabel_8;
-	private JLabel lblNewLabel_9;
-	private JLabel lblNewLabel_10;
-	private JLabel lblNewLabel_11;
-	private JPasswordField passwordField;
-	private JPasswordField passwordField_1;
-	private JButton btnNewButton;
-	private JLabel lblNewLabel_12;
 	private JTextField txtEmail;
 
 	/**
@@ -58,7 +38,7 @@ public class TelaCadastroAdm {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaCadastroAdm window = new TelaCadastroAdm();
+					TelaAlterarAdm window = new TelaAlterarAdm();
 					window.frame.setVisible(true);
 					window.frame.setLocationRelativeTo(null);
 					window.frame.setExtendedState(window.frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
@@ -73,7 +53,7 @@ public class TelaCadastroAdm {
 	/**
 	 * Create the application.
 	 */
-	public TelaCadastroAdm() {
+	public TelaAlterarAdm() {
 		initialize();
 	}
 
@@ -96,7 +76,7 @@ public class TelaCadastroAdm {
 		panel_1.setBackground(new Color(31, 65, 45));
 		panel_1.setLayout(null);
 		
-		JLabel lblVendedor = new JLabel("Cadastro do Negócio");
+		JLabel lblVendedor = new JLabel("Perfil do Negócio");
 		lblVendedor.setHorizontalAlignment(SwingConstants.LEFT);
 		lblVendedor.setForeground(new Color(234, 242, 237));
 		lblVendedor.setFont(new Font("Dialog", Font.PLAIN, 85));
@@ -173,6 +153,19 @@ public class TelaCadastroAdm {
 		txtTelefone.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		txtTelefone.setBounds(31, 224, 470, 35);
 		panel_3.add(txtTelefone);
+		
+		JButton btnCadastrar = new JButton("Alterar");
+		panel_3.add(btnCadastrar);
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnCadastrar.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
+		btnCadastrar.setForeground(new Color(217, 173, 181));
+		btnCadastrar.setBackground(new Color(234, 242, 237));
+		btnCadastrar.setFont(new Font("Dialog", Font.PLAIN, 45));
+		btnCadastrar.setBounds(83, 399, 367, 76);
+		panel_3.add(btnCadastrar);
 		
 		txtEmail = new JTextField();
 		txtEmail.setForeground(Color.DARK_GRAY);
@@ -323,47 +316,5 @@ public class TelaCadastroAdm {
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1600, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JButton btnCadastrar = new JButton("Cadastrar");
-		panel_3.add(btnCadastrar);
-		btnCadastrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				String nomeAdm = txtNome.getText();
-				String cpfAdm = txtCPF.getText();
-				
-				String senhaAdm = pfSenha.getText();
-				String senhaConfirmadaAdm = pfSenhaConfirmada.getText();
-				
-				String nomeNegocio = txtNomeNegocio.getText();
-				String emailAdm = txtEmail.getText();
-				String cnpj = txtCNPJ.getText();
-				
-				String telefoneAdm = txtTelefone.getText();
-				
-				int diaAdm = Integer.parseInt((String) cbDia.getSelectedItem());
-				int mesAdm = Integer.parseInt((String) cbMes.getSelectedItem());
-				int anoAdm = Integer.parseInt((String) cbAno.getSelectedItem());
-				
-				LocalDate dataAdm = LocalDate.of(anoAdm, mesAdm, diaAdm);
-				
-				if (!senhaAdm.equals(senhaAdm)) {
-					JOptionPane.showMessageDialog(null, "A confirmação da senha está incorreta. Digite novamente.");
-					pfSenhaConfirmada.setText("");
-				}
-				else {
-					CadastrarAdmBD cabd = new CadastrarAdmBD();
-				//	Usuario Adm = new Usuario(0, nomeAdm, cpfAdm, Date.valueOf(dataAdm), telefoneAdm, senhaAdm, emailAdm, 0);
-					cabd.cadastrarVendedor(Adm);
-				}
-				
-			}
-		});
-		btnCadastrar.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
-		btnCadastrar.setForeground(new Color(217, 173, 181));
-		btnCadastrar.setBackground(new Color(234, 242, 237));
-		btnCadastrar.setFont(new Font("Dialog", Font.PLAIN, 45));
-		btnCadastrar.setBounds(83, 399, 367, 76);
-		panel_3.add(btnCadastrar);
 	}
 }
