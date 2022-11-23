@@ -10,13 +10,14 @@ public class Usuario {
 	private String usuario_telefone;
 	private String usuario_senha;
 	private String usuario_email;
+	private String usuario_nome_negocio;
 	private int tipouser_id_tipo;
-	private String nomeNegocio;
+
 	
 
 	
 	public Usuario(int usuario_id, String usuario_nome, String usuario_cpf, String usuario_cnpj, Date usuario_datanascimento,
-			String usuario_telefone, String usuario_senha, String usuario_email, int tipouser_id_tipo) {
+			String usuario_telefone, String usuario_senha, String usuario_email, String usuario_nome_negocio, int tipouser_id_tipo) {
 		this.usuario_id = usuario_id;
 		this.usuario_nome = usuario_nome;
 		this.usuario_cpf = usuario_cpf;
@@ -25,6 +26,7 @@ public class Usuario {
 		this.usuario_telefone = usuario_telefone;
 		this.usuario_senha = usuario_senha;
 		this.usuario_email = usuario_email;
+		this.usuario_nome_negocio = usuario_nome_negocio;
 		this.tipouser_id_tipo = tipouser_id_tipo;
 	}
 	
@@ -85,18 +87,20 @@ public class Usuario {
 		this.usuario_email = usuario_email;
 	}
 	
+	public String getUsuario_nome_negocio() {
+		return usuario_nome_negocio;
+	}
+
+
+	public void setUsuario_nome_negocio(String usuario_nome_negocio) {
+		this.usuario_nome_negocio = usuario_nome_negocio;
+	}
 	public int getTipouser_id_tipo() {
 		return tipouser_id_tipo;
 	}
 	public void setTipouser_id_tipo(int tipouser_id_tipo) {
 		this.tipouser_id_tipo = tipouser_id_tipo;
 	}
-	
-	public String getNomeNegocio() {
-		return nomeNegocio;
-	}
-	public void setNomeNegocio(String nomeNegocio) {
-		this.nomeNegocio = nomeNegocio;
-	}
+
 	
 }
