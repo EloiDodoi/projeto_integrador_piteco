@@ -84,18 +84,21 @@ public class HistoricoVendaBD {
 			ResultSet rs = ps.executeQuery();
 	          while(rs.next()){
 	        	  ItemVenda iv = new ItemVenda();
-//	        	  iv.setIdVenda(rs.getInt(1));
-//	        	  iv.setVenda_data(rs.getDate(2));
-//	        	  iv.setVenda_valor(rs.getFloat(3));
-//	        	  historico.add(v);
+	        	  iv.setCodigoItem(rs.getInt(2));;
+	        	  iv.setQuantidadeItem(4);;
+	        	  iv.setPrecoTotalItem(5);
+	        	  itensVenda.add(iv);
 
 	            }
-	          return null;
+	          return itensVenda;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
 		return null;
-		
+	}
+	
+	public DefaultTableModel listagemItensVenda() {
+		return null;
 	}
 }
