@@ -125,16 +125,16 @@ public class TelaSalvarProduto {
 		lblVendedor.setForeground(new Color(31, 65, 45));
 		lblVendedor.setFont(new Font("Dialog", Font.PLAIN, 85));
 
-		JLabel lbl_codigo_1 = new JLabel("0");
-		lbl_codigo_1.setForeground(new Color(31, 65, 45));
+		lbl_codigo = new JLabel("0");
+		lbl_codigo.setForeground(new Color(31, 65, 45));
 		GridBagConstraints gbc_lbl_codigo_1 = new GridBagConstraints();
 		gbc_lbl_codigo_1.anchor = GridBagConstraints.NORTH;
 		gbc_lbl_codigo_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lbl_codigo_1.gridx = 3;
 		gbc_lbl_codigo_1.gridy = 2;
-		panel.add(lbl_codigo_1, gbc_lbl_codigo_1);
-		lbl_codigo_1.setHorizontalAlignment(SwingConstants.TRAILING);
-		lbl_codigo_1.setFont(new Font("Tahoma", Font.PLAIN, 92));
+		panel.add(lbl_codigo, gbc_lbl_codigo_1);
+		lbl_codigo.setHorizontalAlignment(SwingConstants.TRAILING);
+		lbl_codigo.setFont(new Font("Tahoma", Font.PLAIN, 92));
 
 		JPanel panel_2 = new JPanel();
 		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
@@ -163,19 +163,19 @@ public class TelaSalvarProduto {
 		gbc_lblNomeDoVegetal.gridy = 1;
 		panel_2.add(lblNomeDoVegetal, gbc_lblNomeDoVegetal);
 
-		JTextField txt_nome_1 = new JTextField();
-		txt_nome_1.setBackground(new Color(234, 242, 237));
-		txt_nome_1.setForeground(Color.DARK_GRAY);
-		txt_nome_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txt_nome_1.setColumns(10);
-		txt_nome_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txt_nome = new JTextField();
+		txt_nome.setBackground(new Color(234, 242, 237));
+		txt_nome.setForeground(Color.DARK_GRAY);
+		txt_nome.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txt_nome.setColumns(10);
+		txt_nome.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		GridBagConstraints gbc_txt_nome_1 = new GridBagConstraints();
 		gbc_txt_nome_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txt_nome_1.insets = new Insets(0, 0, 5, 0);
 		gbc_txt_nome_1.gridwidth = 4;
 		gbc_txt_nome_1.gridx = 3;
 		gbc_txt_nome_1.gridy = 1;
-		panel_2.add(txt_nome_1, gbc_txt_nome_1);
+		panel_2.add(txt_nome, gbc_txt_nome_1);
 
 		JLabel lblEspcieDoVegetal = new JLabel("Esp\u00E9cie do Vegetal:");
 		lblEspcieDoVegetal.setForeground(new Color(31, 65, 45));
@@ -189,19 +189,19 @@ public class TelaSalvarProduto {
 		gbc_lblEspcieDoVegetal.gridy = 3;
 		panel_2.add(lblEspcieDoVegetal, gbc_lblEspcieDoVegetal);
 
-		JTextField txt_especie_1 = new JTextField();
-		txt_especie_1.setForeground(Color.DARK_GRAY);
-		txt_especie_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txt_especie_1.setColumns(10);
-		txt_especie_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		txt_especie_1.setBackground(new Color(234, 242, 237));
+		JTextField txt_especie = new JTextField();
+		txt_especie.setForeground(Color.DARK_GRAY);
+		txt_especie.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txt_especie.setColumns(10);
+		txt_especie.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txt_especie.setBackground(new Color(234, 242, 237));
 		GridBagConstraints gbc_txt_especie_1 = new GridBagConstraints();
 		gbc_txt_especie_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txt_especie_1.insets = new Insets(0, 0, 5, 0);
 		gbc_txt_especie_1.gridwidth = 4;
 		gbc_txt_especie_1.gridx = 3;
 		gbc_txt_especie_1.gridy = 3;
-		panel_2.add(txt_especie_1, gbc_txt_especie_1);
+		panel_2.add(txt_especie, gbc_txt_especie_1);
 
 		JLabel lblNomeDoVegetal_1_1 = new JLabel("Produto Vendido Por:");
 		lblNomeDoVegetal_1_1.setForeground(new Color(31, 65, 45));
@@ -215,32 +215,32 @@ public class TelaSalvarProduto {
 		gbc_lblNomeDoVegetal_1_1.gridy = 5;
 		panel_2.add(lblNomeDoVegetal_1_1, gbc_lblNomeDoVegetal_1_1);
 
-		JRadioButton rb_Kg_1 = new JRadioButton("Quilograma (Kg)");
-		buttonGroup.add(rb_Kg_1);
-		rb_Kg_1.setBorder(new LineBorder(new Color(0, 0, 0)));
-		rb_Kg_1.setForeground(new Color(31, 65, 45));
-		rb_Kg_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
-		rb_Kg_1.setBackground(new Color(123, 166, 111));
-		scaleRadioButtonIcon(rb_Kg_1);
+		JRadioButton rb_Kg = new JRadioButton("Quilograma (Kg)");
+		buttonGroup.add(rb_Kg);
+		rb_Kg.setBorder(new LineBorder(new Color(0, 0, 0)));
+		rb_Kg.setForeground(new Color(31, 65, 45));
+		rb_Kg.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
+		rb_Kg.setBackground(new Color(123, 166, 111));
+		scaleRadioButtonIcon(rb_Kg);
 		GridBagConstraints gbc_rb_Kg_1 = new GridBagConstraints();
 		gbc_rb_Kg_1.anchor = GridBagConstraints.NORTHEAST;
 		gbc_rb_Kg_1.insets = new Insets(0, 0, 5, 5);
 		gbc_rb_Kg_1.gridx = 3;
 		gbc_rb_Kg_1.gridy = 5;
-		panel_2.add(rb_Kg_1, gbc_rb_Kg_1);
+		panel_2.add(rb_Kg, gbc_rb_Kg_1);
 
-		JRadioButton rb_Unidade_1 = new JRadioButton("Unidade");
-		buttonGroup.add(rb_Unidade_1);
-		rb_Unidade_1.setForeground(new Color(31, 65, 45));
-		rb_Unidade_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
-		rb_Unidade_1.setBackground(new Color(123, 166, 111));
-		scaleRadioButtonIcon(rb_Unidade_1);
+		JRadioButton rb_Unidade = new JRadioButton("Unidade");
+		buttonGroup.add(rb_Unidade);
+		rb_Unidade.setForeground(new Color(31, 65, 45));
+		rb_Unidade.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
+		rb_Unidade.setBackground(new Color(123, 166, 111));
+		scaleRadioButtonIcon(rb_Unidade);
 		GridBagConstraints gbc_rb_Unidade_1 = new GridBagConstraints();
 		gbc_rb_Unidade_1.fill = GridBagConstraints.BOTH;
 		gbc_rb_Unidade_1.insets = new Insets(0, 0, 5, 5);
 		gbc_rb_Unidade_1.gridx = 5;
 		gbc_rb_Unidade_1.gridy = 5;
-		panel_2.add(rb_Unidade_1, gbc_rb_Unidade_1);
+		panel_2.add(rb_Unidade, gbc_rb_Unidade_1);
 
 		JLabel lblNomeDoVegetal_1_1_1 = new JLabel("Pre\u00E7o:");
 		lblNomeDoVegetal_1_1_1.setForeground(new Color(31, 65, 45));
@@ -268,12 +268,12 @@ public class TelaSalvarProduto {
 			public void actionPerformed(ActionEvent e) {
 
 				Produto produto = produtoSelecionado;
-				produto.setIdProduto(Integer.parseInt(lbl_codigo_1.getText()));
+				produto.setIdProduto(Integer.parseInt(lbl_codigo.getText()));
 				produto.setProduto_nomeveg(txt_nome.getText());
 				produto.setProduto_especieveg(txt_especie.getText());
 				produto.setProduto_preco(Float.parseFloat(txt_preco.getText()));
 				produto.setProduto_quantidade(Float.parseFloat(txt_quantidade.getText()));
-				if (rb_Kg_1.isSelected() == true) {
+				if (rb_Kg.isSelected() == true) {
 					produto.setUnidade_quantidade_idUnidade_quantidade(1);
 				} else {
 					produto.setUnidade_quantidade_idUnidade_quantidade(2);
@@ -285,18 +285,18 @@ public class TelaSalvarProduto {
 			}
 		});
 
-		JTextField txt_preco_1 = new JTextField();
-		txt_preco_1.setForeground(Color.DARK_GRAY);
-		txt_preco_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txt_preco_1.setColumns(10);
-		txt_preco_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		txt_preco_1.setBackground(new Color(234, 242, 237));
+		JTextField txt_preco = new JTextField();
+		txt_preco.setForeground(Color.DARK_GRAY);
+		txt_preco.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txt_preco.setColumns(10);
+		txt_preco.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txt_preco.setBackground(new Color(234, 242, 237));
 		GridBagConstraints gbc_txt_preco_1 = new GridBagConstraints();
 		gbc_txt_preco_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txt_preco_1.insets = new Insets(0, 0, 5, 5);
 		gbc_txt_preco_1.gridx = 3;
 		gbc_txt_preco_1.gridy = 7;
-		panel_2.add(txt_preco_1, gbc_txt_preco_1);
+		panel_2.add(txt_preco, gbc_txt_preco_1);
 
 		JLabel lblNomeDoVegetal_1_1_1_1 = new JLabel("Quantidade:");
 		lblNomeDoVegetal_1_1_1_1.setForeground(new Color(31, 65, 45));
@@ -309,18 +309,18 @@ public class TelaSalvarProduto {
 		gbc_lblNomeDoVegetal_1_1_1_1.gridy = 7;
 		panel_2.add(lblNomeDoVegetal_1_1_1_1, gbc_lblNomeDoVegetal_1_1_1_1);
 
-		JTextField txt_quantidade_1 = new JTextField();
-		txt_quantidade_1.setForeground(Color.DARK_GRAY);
-		txt_quantidade_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txt_quantidade_1.setColumns(10);
-		txt_quantidade_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		txt_quantidade_1.setBackground(new Color(234, 242, 237));
+		JTextField txt_quantidade = new JTextField();
+		txt_quantidade.setForeground(Color.DARK_GRAY);
+		txt_quantidade.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txt_quantidade.setColumns(10);
+		txt_quantidade.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		txt_quantidade.setBackground(new Color(234, 242, 237));
 		GridBagConstraints gbc_txt_quantidade_1 = new GridBagConstraints();
 		gbc_txt_quantidade_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txt_quantidade_1.insets = new Insets(0, 0, 5, 0);
 		gbc_txt_quantidade_1.gridx = 6;
 		gbc_txt_quantidade_1.gridy = 7;
-		panel_2.add(txt_quantidade_1, gbc_txt_quantidade_1);
+		panel_2.add(txt_quantidade, gbc_txt_quantidade_1);
 		btnSalvar.setBackground(new Color(255, 255, 255));
 		btnSalvar.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
 		btnSalvar.setForeground(new Color(31, 65, 45));
