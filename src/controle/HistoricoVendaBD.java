@@ -33,7 +33,7 @@ public class HistoricoVendaBD {
 	        	  v.setIdVenda(rs.getInt(1));
 	        	  v.setVenda_data(rs.getDate(2));
 	        	  v.setVenda_valor(rs.getFloat(3));
-	        	  v.setTipo_pagamento(4);
+	        	  v.setTipo_pagamento(rs.getInt(4));
 	        	  historico.add(v);
 
 	            }
@@ -58,13 +58,14 @@ public class HistoricoVendaBD {
 			Venda v = lp.get(i);
 			////--- nao 
 			modelo_tabela.addRow(new Object[]{v.getIdVenda(), v.getVenda_data(), v.getVenda_valor(),TipoPagemento(v.getTipo_pagamento())});
+			System.out.println(TipoPagemento(v.getTipo_pagamento())+"   "+v.getTipo_pagamento());
 		}
 		return modelo_tabela;	
 	}	
 	public String TipoPagemento (int id){
 		String tipo = null;
 		switch (id) {
-			case 1:			
+			case 1:	
 				tipo = "Dinheiro";
 			case 2:
 				tipo = "Cartão de Débito";

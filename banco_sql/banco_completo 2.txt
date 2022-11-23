@@ -233,7 +233,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `piteco`.`Venda_Produto` ;
 
 CREATE TABLE IF NOT EXISTS `piteco`.`Venda_Produto` (
-  `Venda_idVenda` INT NOT NULL AUTO_INCREMENT,
+  `Venda_idVenda` INT NOT NULL,
   `Produto_idProduto` INT NOT NULL,
   `Produto_Unidade_quantidade_idUnidade_quantidade` INT NOT NULL,
   `vp_quantidade` FLOAT NULL,
