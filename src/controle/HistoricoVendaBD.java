@@ -13,6 +13,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import modelo.ItemVenda;
+import modelo.ItemVendido;
 import modelo.Produto;
 import modelo.Venda;
 
@@ -76,17 +77,39 @@ public class HistoricoVendaBD {
 		}
 		return tipo;
 	}
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------
+	public DefaultTableModel listagemItemVenda() {
+		ArrayList<ItemVendido> lp = listaItensVenda();
+		DefaultTableModel modelo_tabela = new DefaultTableModel(
+				new Object[][][][]{
+					
+				},
+				new String[] {
+					"ID", "Nome", "Quantidade", "Preço"
+				}	
+		);
+		for (int i = 0;i<lp.size();i++) {
+			ItemVendido iv = lp.get(i);
+			////--- nao 
+			modelo_tabela.addRow(new Object[]{iv.getCodigoItem(),iv.getNomIetem(),iv.getQuantidadeItem(),iv.getPrecoTotalItem()});
+		}
+		return modelo_tabela;	
+	}	
 	
-	public ArrayList<ItemVenda> listaItensVenda(){
+	public ArrayList<ItemVendido> listaItensVenda(){
 		try {
-			ArrayList<ItemVenda> itensVenda = new ArrayList<>();
-			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT * FROM venda");
+			ArrayList<ItemVendido> itensVenda = new ArrayList<>();
+			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT Produto_idProduto,produto_nomeveg,vp_quantidade,vp_valor "
+					+ "from produto inner join venda_produto on Produto_idProduto = idProduto inner join venda on Venda_idVenda = idVenda "
+					+ "where idVenda = ?");
 			ResultSet rs = ps.executeQuery();
 	          while(rs.next()){
-	        	  ItemVenda iv = new ItemVenda();
-	        	  iv.setCodigoItem(rs.getInt(2));;
-	        	  iv.setQuantidadeItem(4);;
-	        	  iv.setPrecoTotalItem(5);
+	        	  ItemVendido iv = new ItemVendido();
+	        	  Produto p = new Produto(0, null, null, 0, 0, 0);
+	        	  iv.setCodigoItem(rs.getInt(1));
+	        	  iv.setNomIetem(rs.getString(2));
+	        	  iv.setQuantidadeItem(3);
+	        	  iv.setPrecoTotalItem(4);
 	        	  itensVenda.add(iv);
 
 	            }
@@ -94,11 +117,11 @@ public class HistoricoVendaBD {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return null;
 	}
 	
 	public DefaultTableModel listagemItensVenda() {
 		return null;
 	}
+	
 }
