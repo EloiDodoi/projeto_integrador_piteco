@@ -354,10 +354,10 @@ public class TelaHistoricoVendas extends JFrame {
 		table.setForeground(new Color(31, 65, 45));
 		table.setFont(new Font("Yu Gothic Light", Font.PLAIN, 26));
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
+			new Object[][][][][] {
 				{null, null, null, null, null},
 				{null, null, null, null, null},
-				{null, null, null, "", null},
+				{null, null, null, null, null},
 				{null, null, null, null, null},
 			},
 			new String[] {
