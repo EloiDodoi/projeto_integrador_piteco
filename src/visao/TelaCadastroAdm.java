@@ -117,7 +117,7 @@ public class TelaCadastroAdm {
 		panel_3.setLayout(null);
 		
 		JLabel lblNewLabel_11 = new JLabel("Nome do seu Negócio");
-		lblNewLabel_11.setBounds(31, 140, 470, 35);
+		lblNewLabel_11.setBounds(31, 24, 470, 35);
 		panel_3.add(lblNewLabel_11);
 		lblNewLabel_11.setForeground(new Color(31, 65, 45));
 		lblNewLabel_11.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
@@ -132,7 +132,7 @@ public class TelaCadastroAdm {
 		textField_1.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		
 		JLabel lblNewLabel_8 = new JLabel("Telefone");
-		lblNewLabel_1.setBounds(31, 140, 470, 35);
+		lblNewLabel_8.setBounds(31, 140, 470, 35);
 		lblNewLabel_8.setForeground(new Color(31, 65, 45));
 		lblNewLabel_8.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
 		panel_3.add(lblNewLabel_8);
@@ -162,7 +162,7 @@ public class TelaCadastroAdm {
 		panel_3.add(textField_6);
 		
 		JLabel lblNewLabel_9 = new JLabel("CNPJ");
-		lblNewLabel_9.setBounds(31, 224, 470, 35);
+		lblNewLabel_9.setBounds(31, 270, 470, 35);
 		lblNewLabel_9.setForeground(new Color(31, 65, 45));
 		lblNewLabel_9.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
 		panel_3.add(lblNewLabel_9);
@@ -196,7 +196,7 @@ public class TelaCadastroAdm {
 		panel_2.setLayout(null);
 		
 		JLabel lblNewLabel_13 = new JLabel("Nome Completo");
-		lblNewLabel_13.setBounds(53, 72, 248, 60);
+		lblNewLabel_13.setBounds(37, 11, 248, 60);
 		lblNewLabel_13.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		lblNewLabel_13.setAlignmentY(Component.TOP_ALIGNMENT);
 		lblNewLabel_13.setForeground(new Color(31, 65, 45));
@@ -204,15 +204,16 @@ public class TelaCadastroAdm {
 		panel_2.add(lblNewLabel_13);
 		
 		JTextField textField_3 = new JTextField();
+		textField_3.setBounds(37, 11, 248, 60);
 		textField_3.setBackground(new Color(234, 242, 237));
-		textField_3.add(textField_3);
+		panel_2.add(textField_3);
 		textField_3.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		textField_3.setForeground(Color.DARK_GRAY);
 		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("CPF");
-		lblNewLabel_2_1.setBounds(53, 72, 248, 60);
+		lblNewLabel_2_1.setBounds(37, 95, 248, 60);
 		lblNewLabel_2_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		lblNewLabel_2_1.setAlignmentY(Component.TOP_ALIGNMENT);
 		lblNewLabel_2_1.setForeground(new Color(31, 65, 45));
@@ -229,7 +230,7 @@ public class TelaCadastroAdm {
 		panel_2.add(textField_2_1);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Data de Nascimento");
-		lblNewLabel_3_1.setBounds(53, 72, 248, 60);
+		lblNewLabel_3_1.setBounds(37, 184, 248, 60);
 		lblNewLabel_3_1.setAlignmentY(Component.TOP_ALIGNMENT);
 		lblNewLabel_3_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		panel_2.add(lblNewLabel_3_1);
@@ -241,20 +242,23 @@ public class TelaCadastroAdm {
 		panel_5.setLayout(new GridLayout(2, 3, 3, 0));
 		
 		JLabel lblNewLabel_4_1 = new JLabel("Dia");
+		lblNewLabel_4_1.setBounds(37, 227, 248, 60);
 		lblNewLabel_4_1.setBackground(new Color(234, 242, 237));
-		panel_5.add(lblNewLabel_4_1);
+		panel_2.add(lblNewLabel_4_1);
 		lblNewLabel_4_1.setForeground(new Color(31, 65, 45));
 		lblNewLabel_4_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		
 		JLabel lblNewLabel_5_1 = new JLabel("Mês");
+		lblNewLabel_5_1.setBounds(191, 227, 248, 60);
 		lblNewLabel_5_1.setBackground(new Color(234, 242, 237));
-		panel_5.add(lblNewLabel_5_1);
+		panel_2.add(lblNewLabel_5_1);
 		lblNewLabel_5_1.setForeground(new Color(31, 65, 45));
 		lblNewLabel_5_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		
 		JLabel lblNewLabel_6_1 = new JLabel("Ano");
+		lblNewLabel_6_1.setBounds(443, 227, 248, 60);
 		lblNewLabel_6_1.setBackground(new Color(234, 242, 237));
-		panel_5.add(lblNewLabel_6_1);
+		panel_2.add(lblNewLabel_6_1);
 		lblNewLabel_6_1.setForeground(new Color(31, 65, 45));
 		lblNewLabel_6_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		
@@ -294,7 +298,7 @@ public class TelaCadastroAdm {
 		panel_2.add(lblNewLabel_7_1);
 		
 		JPasswordField passwordField_2 = new JPasswordField();
-		passwordField_2.setBounds(53, 72, 248, 60);
+		passwordField_2.setBounds(37, 356, 565, 35);
 		passwordField_2.setBackground(new Color(234, 242, 237));
 		panel_2.add(passwordField_2);
 		passwordField_2.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
@@ -302,19 +306,15 @@ public class TelaCadastroAdm {
 		passwordField_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		
 		JLabel lblNewLabel_10_1 = new JLabel("Confirme sua Senha");
+		passwordField_2.setBounds(37, 356, 565, 35);
 		lblNewLabel_10_1.setAlignmentY(Component.TOP_ALIGNMENT);
 		lblNewLabel_10_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		lblNewLabel_10_1.setForeground(new Color(31, 65, 45));
 		lblNewLabel_10_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		GridBagConstraints gbc_lblNewLabel_10_1 = new GridBagConstraints();
-		gbc_lblNewLabel_10_1.fill = GridBagConstraints.BOTH;
-		gbc_lblNewLabel_10_1.anchor = GridBagConstraints.NORTHWEST;
-		gbc_lblNewLabel_10_1.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_10_1.gridx = 0;
-		gbc_lblNewLabel_10_1.gridy = 8;
-		panel_2.add(lblNewLabel_10_1, gbc_lblNewLabel_10_1);
+		panel_2.add(lblNewLabel_10_1);
 		
 		JPasswordField passwordField_1_1 = new JPasswordField();
+		passwordField_2.setBounds(37, 356, 565, 35);
 		passwordField_1_1.setBackground(new Color(234, 242, 237));
 		passwordField_1_1.setForeground(Color.DARK_GRAY);
 		passwordField_1_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
