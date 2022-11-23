@@ -78,8 +78,8 @@ public class HistoricoVendaBD {
 		return tipo;
 	}
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------
-	public DefaultTableModel listagemItemVenda() {
-		ArrayList<ItemVendido> lp = listaItensVenda(null);
+	public DefaultTableModel listagemItemVenda(Venda v) {
+		ArrayList<ItemVendido> lp = listaItensVenda(v);
 		DefaultTableModel modelo_tabela = new DefaultTableModel(
 				new Object[][][][]{
 					
@@ -106,11 +106,10 @@ public class HistoricoVendaBD {
 			ResultSet rs = ps.executeQuery();
 	          while(rs.next()){
 	        	  ItemVendido iv = new ItemVendido();
-	        	  Produto p = new Produto(0, null, null, 0, 0, 0);
 	        	  iv.setCodigoItem(rs.getInt(1));
 	        	  iv.setNomIetem(rs.getString(2));
-	        	  iv.setQuantidadeItem(3);
-	        	  iv.setPrecoTotalItem(4);
+	        	  iv.setQuantidadeItem(rs.getFloat(3));
+	        	  iv.setPrecoTotalItem(rs.getFloat(4));
 	        	  itensVenda.add(iv);
 
 	            }

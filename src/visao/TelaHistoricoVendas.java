@@ -352,6 +352,8 @@ public class TelaHistoricoVendas extends JFrame {
 		JButton btnVisualizarProduto = new JButton("Visualizar produtos");
 		btnVisualizarProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				TelaListagemItensVenda tliv = new TelaListagemItensVenda();
+				tliv.setVisible(true);
 			}
 		});
 		
@@ -436,5 +438,9 @@ public class TelaHistoricoVendas extends JFrame {
 		);
 
 	
+	}
+	
+	public Venda retornarVendaSelecionada() {
+		return venda_selecionada;
 	}
 }

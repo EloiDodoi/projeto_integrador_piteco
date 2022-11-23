@@ -16,10 +16,15 @@ import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import controle.HistoricoVendaBD;
+import modelo.Venda;
+
 public class TelaListagemItensVenda extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	HistoricoVendaBD hvbd = new HistoricoVendaBD();
+	TelaHistoricoVendas thv = new TelaHistoricoVendas();
 
 	/**
 	 * Launch the application.
@@ -86,6 +91,8 @@ public class TelaListagemItensVenda extends JFrame {
 		gbc_scrollPane.gridy = 2;
 		contentPane.add(scrollPane, gbc_scrollPane);
 		
+		
+		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
@@ -94,6 +101,8 @@ public class TelaListagemItensVenda extends JFrame {
 				"C\u00F3digo", "Nome", "Pre\u00E7o", "Quantidade"
 			}
 		));
+		
+		hvbd.listagemItemVenda(thv.retornarVendaSelecionada());
 		table.setSelectionBackground(new Color(217, 173, 181));
 		table.setRowHeight(25);
 		table.setGridColor(new Color(31, 65, 45));
@@ -101,6 +110,7 @@ public class TelaListagemItensVenda extends JFrame {
 		table.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		table.setBackground(new Color(234, 242, 237));
 		scrollPane.setViewportView(table);
+		
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(31, 65, 45));
@@ -110,6 +120,8 @@ public class TelaListagemItensVenda extends JFrame {
 		gbc_panel.gridx = 0;
 		gbc_panel.gridy = 3;
 		contentPane.add(panel, gbc_panel);
+		
+		
 	}
 
 }
