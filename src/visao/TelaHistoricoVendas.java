@@ -364,17 +364,16 @@ public class TelaHistoricoVendas extends JFrame {
 		table.setForeground(new Color(31, 65, 45));
 		table.setFont(new Font("Yu Gothic Light", Font.PLAIN, 26));
 		table.setModel(new DefaultTableModel(
-			new Object[][][][][] {
-
+			new Object[][] {
+				{new Integer(1), null, new Float(62.43f), null},
 			},
 			new String[] {
-				"N\u00B0", "Data", "Valor", "Tipo de Pagamento", "Produtos"
+				"N\uFFFD", "Data", "Valor", "Tipo de Pagamento"
 			}
 		));
+		table.getColumnModel().getColumn(0).setPreferredWidth(50);
 		
 		table.setModel(hvbd.listagemVenda());
-		
-		table.getColumnModel().getColumn(4).setPreferredWidth(100);
 		scrollPane.setViewportView(table);
 		
 		JTableHeader tHeader = table.getTableHeader();
