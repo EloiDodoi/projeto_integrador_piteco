@@ -134,8 +134,7 @@ public class TelaLoginAdm {
 		btn_entrar_adm.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		btn_entrar_adm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Usuario login = new Usuario(0, null, null, null, null, null, txt_senha.getText(), txt_login.getText(),
-						0);
+				Usuario login = new Usuario(0, null, null, null, null, null, txt_senha.getText(), txt_login.getText(), null, 0);
 				LoginAdmBD lg;
 				lg = new LoginAdmBD();
 				if (lg.autenticar(login) == null) {

@@ -431,7 +431,7 @@ public class TelaAlterarVendedor {
 				}
 				else {
 					AlterarVendedorBD abd = new AlterarVendedorBD();
-					Usuario usuario =  new Usuario(id,nome_vendedor,cpf_vendedor,null,Date.valueOf(data),telefone_vendedor,senha_vendedor,email_vendedor,0);
+					Usuario usuario =  new Usuario(id,nome_vendedor,cpf_vendedor,null,Date.valueOf(data),telefone_vendedor,senha_vendedor,email_vendedor,null,0);
 
 					abd.alteraVendedor(usuario);
 				}

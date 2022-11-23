@@ -275,7 +275,7 @@ public class TelaCadastroAdm {
 		cbMes.setForeground(new Color(31, 65, 45));
 		cbMes.setBackground(new Color(245, 250, 248));
 		cbMes.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		cbMes.setModel(new DefaultComboBoxModel(new String[] {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"}));
+		cbMes.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		cbMes.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		cbMes.setBounds(191, 272, 159, 35);
 		panel_2.add(cbMes);
@@ -353,7 +353,7 @@ public class TelaCadastroAdm {
 				}
 				else {
 					CadastrarAdmBD cabd = new CadastrarAdmBD();
-				//	Usuario Adm = new Usuario(0, nomeAdm, cpfAdm, Date.valueOf(dataAdm), telefoneAdm, senhaAdm, emailAdm, 0);
+					Usuario Adm = new Usuario(0,nomeAdm, cpfAdm, cnpj,Date.valueOf(dataAdm),telefoneAdm,senhaAdm,emailAdm,nomeNegocio,0);
 					cabd.cadastrarVendedor(Adm);
 				}
 				

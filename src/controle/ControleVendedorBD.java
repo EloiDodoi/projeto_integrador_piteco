@@ -28,7 +28,7 @@ public class ControleVendedorBD {
 			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT * FROM usuario where TipoUser_id_tipo = 2");
 			ResultSet rs = ps.executeQuery();
 	          while(rs.next()){
-	        	  Usuario vendedor = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), null, rs.getDate(5), rs.getString(6), null, rs.getString(8), rs.getInt(9));
+	        	  Usuario vendedor = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), null, rs.getDate(5), rs.getString(6), null, rs.getString(8),null, rs.getInt(9));
 	        	  controle_vend.add(vendedor);
 	          }
 	          return controle_vend;
