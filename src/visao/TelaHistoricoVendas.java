@@ -20,6 +20,9 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+
+import controle.HistoricoVendaBD;
+
 import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import javax.swing.JMenuBar;
@@ -37,6 +40,7 @@ public class TelaHistoricoVendas extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldPesquisa;
 	private JTable table;
+	HistoricoVendaBD hvbd = new HistoricoVendaBD();
 	/**
 	 * Launch the application.
 	 */
@@ -346,7 +350,13 @@ public class TelaHistoricoVendas extends JFrame {
 		gbc_scrollPane.gridy = 3;
 		panel.add(scrollPane, gbc_scrollPane);
 		
-		table = new JTable();
+		table = new JTable()  {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+		};
 		table.setSelectionBackground(new Color(217, 173, 181));
 		table.setRowHeight(40);
 		table.setBorder(new LineBorder(new Color(31, 65, 45), 2));
@@ -355,15 +365,15 @@ public class TelaHistoricoVendas extends JFrame {
 		table.setFont(new Font("Yu Gothic Light", Font.PLAIN, 26));
 		table.setModel(new DefaultTableModel(
 			new Object[][][][][] {
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
+
 			},
 			new String[] {
 				"N\u00B0", "Data", "Valor", "Tipo de Pagamento", "Produtos"
 			}
 		));
+		
+		table.setModel(hvbd.listagemVenda());
+		
 		table.getColumnModel().getColumn(4).setPreferredWidth(100);
 		scrollPane.setViewportView(table);
 		

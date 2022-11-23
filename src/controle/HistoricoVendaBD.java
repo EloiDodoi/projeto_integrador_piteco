@@ -23,22 +23,19 @@ public class HistoricoVendaBD {
 		jt.setModel(listagemVenda());
 	}
 	
-	public ArrayList<Object> listaVendas() {
+	public ArrayList<Venda> listaVendas() {
 		try {
-			ArrayList<Object> historico = new ArrayList<>();
-			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT idVenda,venda_data,venda_valor,Tipo_Pagamento FROM venda inner join tipo_pagamento on Tipo_Pagamento_idTipo_Pagamento = idTipo_Pagamento");
+			ArrayList<Venda> historico = new ArrayList<>();
+			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT idVenda,venda_data,venda_valor,Tipo_Pagamento_idTipo_Pagamento FROM venda");
 			ResultSet rs = ps.executeQuery();
 	          while(rs.next()){
-	        	  int  i = 0;
-	        	  String tipo_a;
 	        	  Venda v = new Venda();
 	        	  v.setIdVenda(rs.getInt(1));
 	        	  v.setVenda_data(rs.getDate(2));
 	        	  v.setVenda_valor(rs.getFloat(3));
-	        	  tipo_a = rs.getString(4);
-	        	  historico.add(i, v);
-	        	  historico.add(i, tipo_a);
-	        	  i++;
+	        	  v.setTipo_pagamento(4);
+	        	  historico.add(v);
+
 	            }
 	          return historico;
 		} catch (SQLException e) {
@@ -48,21 +45,32 @@ public class HistoricoVendaBD {
 	}
 	
 	public DefaultTableModel listagemVenda() {
-		ArrayList<Object> lp = listaVendas();
+		ArrayList<Venda> lp = listaVendas();
 		DefaultTableModel modelo_tabela = new DefaultTableModel(
 				new Object[][][][][]{
 					
 				},
 				new String[] {
-					"N�", "Data", "Valor", "Tipo de Pagamento", "Produtos"
+					"N�", "Data", "Valor", "Tipo de Pagamento", "Produtos"
 				}	
 		);
 		for (int i = 0;i<lp.size();i++) {
-			Object v = lp.get(i);
+			Venda v = lp.get(i);
 			////--- nao 
-			modelo_tabela.addRow(new Object[] {});
+			modelo_tabela.addRow(new Object[]{v.getIdVenda(), v.getVenda_data(), v.getVenda_valor(),TipoPagemento(v.getTipo_pagamento())});
 		}
 		return modelo_tabela;	
-		}	
-
+	}	
+	public String TipoPagemento (int id){
+		String tipo = null;
+		switch (id) {
+			case 1:			
+				tipo = "Dinheiro";
+			case 2:
+				tipo = "Cartão de Débito";
+			case 3:
+				tipo = "Cartão de Crédito";
+		}
+		return tipo;
+	}
 }
