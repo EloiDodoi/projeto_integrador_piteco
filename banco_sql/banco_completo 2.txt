@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `piteco`.`Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `usuario_nome` VARCHAR(70) NOT NULL,
   `usuario_cpf` CHAR(11) NOT NULL,
+  usuario_empresa char(50) null,
   `usuario_cnpj` CHAR(14) NULL,
   `usuario_datanascimento` DATE NOT NULL,
   `usuario_telefone` varchar(15) NULL,
