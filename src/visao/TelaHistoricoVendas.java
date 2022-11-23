@@ -34,6 +34,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Component;
 
 public class TelaHistoricoVendas extends JFrame {
 
@@ -271,17 +272,17 @@ public class TelaHistoricoVendas extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{855, 293, 113, 0, 0};
-		gbl_panel.rowHeights = new int[]{108, 44, 40, 458, 0};
-		gbl_panel.columnWeights = new double[]{1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_panel.columnWidths = new int[]{62, 960, 0, 16, 370, 77, 25, 0};
+		gbl_panel.rowHeights = new int[]{108, 44, 40, 486, 57};
+		gbl_panel.columnWeights = new double[]{1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		JLabel lblHistricoDeVendas = new JLabel("Hist\u00F3rico de Vendas\r\n");
 		GridBagConstraints gbc_lblHistricoDeVendas = new GridBagConstraints();
 		gbc_lblHistricoDeVendas.anchor = GridBagConstraints.NORTHWEST;
 		gbc_lblHistricoDeVendas.insets = new Insets(0, 0, 5, 5);
-		gbc_lblHistricoDeVendas.gridx = 0;
+		gbc_lblHistricoDeVendas.gridx = 1;
 		gbc_lblHistricoDeVendas.gridy = 0;
 		panel.add(lblHistricoDeVendas, gbc_lblHistricoDeVendas);
 		lblHistricoDeVendas.setHorizontalAlignment(SwingConstants.LEFT);
@@ -289,15 +290,32 @@ public class TelaHistoricoVendas extends JFrame {
 		lblHistricoDeVendas.setFont(new Font("Dialog", Font.PLAIN, 85));
 		lblHistricoDeVendas.setBackground(new Color(234, 242, 237));
 		
+		JSeparator linha_2 = new JSeparator();
+		linha_2.setBackground(new Color(31, 65, 45));
+		linha_2.setBorder(new LineBorder(new Color(31, 65, 45), 50));
+		GridBagConstraints gbc_linha_2 = new GridBagConstraints();
+		gbc_linha_2.insets = new Insets(0, 0, 5, 5);
+		gbc_linha_2.gridx = 1;
+		gbc_linha_2.gridy = 1;
+		panel.add(linha_2, gbc_linha_2);
+		
+		JPanel panel_3 = new JPanel();
+		GridBagConstraints gbc_panel_3 = new GridBagConstraints();
+		gbc_panel_3.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_3.fill = GridBagConstraints.BOTH;
+		gbc_panel_3.gridx = 5;
+		gbc_panel_3.gridy = 1;
+		panel.add(panel_3, gbc_panel_3);
+		
 		JPanel panelPesquisa = new JPanel();
 		GridBagConstraints gbc_panelPesquisa = new GridBagConstraints();
 		gbc_panelPesquisa.fill = GridBagConstraints.BOTH;
 		gbc_panelPesquisa.insets = new Insets(0, 0, 5, 5);
-		gbc_panelPesquisa.gridx = 0;
+		gbc_panelPesquisa.gridx = 1;
 		gbc_panelPesquisa.gridy = 2;
 		panel.add(panelPesquisa, gbc_panelPesquisa);
 		GridBagLayout gbl_panelPesquisa = new GridBagLayout();
-		gbl_panelPesquisa.columnWidths = new int[] {30, 800};
+		gbl_panelPesquisa.columnWidths = new int[] {30, 888};
 		gbl_panelPesquisa.rowHeights = new int[] {32};
 		gbl_panelPesquisa.columnWeights = new double[]{1.0, 1.0, 0.0};
 		gbl_panelPesquisa.rowWeights = new double[]{0.0};
@@ -321,24 +339,39 @@ public class TelaHistoricoVendas extends JFrame {
 		textFieldPesquisa.setCaretColor(new Color(31, 65, 45));
 		textFieldPesquisa.setBorder(new LineBorder(new Color(31, 65, 45), 2));
 		GridBagConstraints gbc_textFieldPesquisa = new GridBagConstraints();
-		gbc_textFieldPesquisa.gridwidth = 2;
 		gbc_textFieldPesquisa.fill = GridBagConstraints.BOTH;
+		gbc_textFieldPesquisa.anchor = GridBagConstraints.WEST;
+		gbc_textFieldPesquisa.gridwidth = 2;
 		gbc_textFieldPesquisa.gridx = 1;
 		gbc_textFieldPesquisa.gridy = 0;
 		panelPesquisa.add(textFieldPesquisa, gbc_textFieldPesquisa);
 		
+		JButton btnVisualizarProduto = new JButton("Visualizar produtos");
+		btnVisualizarProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
 		JButton btnFiltrar = new JButton("Filtrar");
-		btnFiltrar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
-		btnFiltrar.setBorder(null);
-		btnFiltrar.setBackground(new Color(31, 65, 45));
+		btnFiltrar.setMargin(new Insets(1, 14, 1, 14));
 		btnFiltrar.setForeground(Color.WHITE);
+		btnFiltrar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
+		btnFiltrar.setBackground(new Color(31, 65, 45));
 		GridBagConstraints gbc_btnFiltrar = new GridBagConstraints();
-		gbc_btnFiltrar.anchor = GridBagConstraints.SOUTH;
-		gbc_btnFiltrar.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnFiltrar.anchor = GridBagConstraints.WEST;
 		gbc_btnFiltrar.insets = new Insets(0, 0, 5, 5);
 		gbc_btnFiltrar.gridx = 2;
 		gbc_btnFiltrar.gridy = 2;
 		panel.add(btnFiltrar, gbc_btnFiltrar);
+		btnVisualizarProduto.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
+		btnVisualizarProduto.setBackground(new Color(31, 65, 45));
+		btnVisualizarProduto.setForeground(new Color(255, 255, 255));
+		GridBagConstraints gbc_btnVisualizarProduto = new GridBagConstraints();
+		gbc_btnVisualizarProduto.anchor = GridBagConstraints.EAST;
+		gbc_btnVisualizarProduto.insets = new Insets(0, 0, 5, 5);
+		gbc_btnVisualizarProduto.gridx = 4;
+		gbc_btnVisualizarProduto.gridy = 2;
+		panel.add(btnVisualizarProduto, gbc_btnVisualizarProduto);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 26));
@@ -346,8 +379,8 @@ public class TelaHistoricoVendas extends JFrame {
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.insets = new Insets(0, 0, 0, 5);
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
-		gbc_scrollPane.gridwidth = 3;
-		gbc_scrollPane.gridx = 0;
+		gbc_scrollPane.gridwidth = 4;
+		gbc_scrollPane.gridx = 1;
 		gbc_scrollPane.gridy = 3;
 		panel.add(scrollPane, gbc_scrollPane);
 		
@@ -368,15 +401,19 @@ public class TelaHistoricoVendas extends JFrame {
 		table.setModel(hvbd.listagemVenda());
 		scrollPane.setViewportView(table);
 		
-		JButton btnNewButton = new JButton("Visualizar produtos");
-		btnNewButton.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
-		btnNewButton.setBackground(new Color(31, 65, 45));
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.anchor = GridBagConstraints.NORTH;
-		gbc_btnNewButton.gridx = 3;
-		gbc_btnNewButton.gridy = 3;
-		panel.add(btnNewButton, gbc_btnNewButton);
+		JPanel panel_2 = new JPanel();
+		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
+		gbc_panel_2.fill = GridBagConstraints.BOTH;
+		gbc_panel_2.gridx = 6;
+		gbc_panel_2.gridy = 3;
+		panel.add(panel_2, gbc_panel_2);
+		
+		JPanel panel_4 = new JPanel();
+		GridBagConstraints gbc_panel_4 = new GridBagConstraints();
+		gbc_panel_4.fill = GridBagConstraints.BOTH;
+		gbc_panel_4.gridx = 1;
+		gbc_panel_4.gridy = 5;
+		panel.add(panel_4, gbc_panel_4);
 		
 		JTableHeader tHeader = table.getTableHeader();
 		tHeader.setBackground(new Color(150, 191, 120));
