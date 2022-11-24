@@ -355,9 +355,6 @@ public class TelaSalvarProduto {
 		gbc_btnExcluir.gridy = 9;
 		panel_2.add(btnExcluir, gbc_btnExcluir);
 
-		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
-
 		
 		
 	}

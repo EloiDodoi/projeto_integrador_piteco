@@ -37,6 +37,7 @@ import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 
 public class TelaListagemVendedores extends JFrame {
@@ -257,9 +258,7 @@ public class TelaListagemVendedores extends JFrame {
 		btnListagemDeVendedores = new JMenuItem("Listagem de Vendedores");
 		btnListagemDeVendedores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				TelaListagemVendedores tlv = new TelaListagemVendedores();
-				tlv.abrir();		
+				JOptionPane.showMessageDialog(null, "Você já está na Listagem de Vendedores!");
 			}
 		});
 		btnListagemDeVendedores.setOpaque(true);
@@ -376,6 +375,7 @@ public class TelaListagemVendedores extends JFrame {
 		lblTitulo.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 82));
 		
 		JButton btnExcluir = new JButton(" Excluir");
+		btnExcluir.setToolTipText("Excluir Vendedor selecionado");
 		GridBagConstraints gbc_btnExcluir = new GridBagConstraints();
 		gbc_btnExcluir.anchor = GridBagConstraints.SOUTH;
 		gbc_btnExcluir.fill = GridBagConstraints.HORIZONTAL;
@@ -444,6 +444,7 @@ public class TelaListagemVendedores extends JFrame {
 		panel.add(btnFiltrar, gbc_btnFiltrar);
 		
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setToolTipText("Alterar Vendedor selecionado");
 		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
 		gbc_btnAlterar.anchor = GridBagConstraints.SOUTH;
 		gbc_btnAlterar.fill = GridBagConstraints.HORIZONTAL;

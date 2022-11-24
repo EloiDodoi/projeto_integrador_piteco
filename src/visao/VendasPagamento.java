@@ -499,79 +499,28 @@ public class VendasPagamento extends JFrame {
 				
 			}
 		});
+		
+		JButton btnCancelar = new JButton(" Cancelar ");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				TelaVenda tv = new TelaVenda();
+				tv.abrir();
+			}
+		});
+		btnCancelar.setForeground(new Color(217, 173, 181));
+		btnCancelar.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 42));
+		btnCancelar.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
+		btnCancelar.setBackground(new Color(234, 242, 237));
+		panel_5.add(btnCancelar);
+		
+		JPanel panel = new JPanel();
+		panel_5.add(panel);
 		btnFinalizar.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
 		btnFinalizar.setBackground(new Color(234, 242, 237));
 		btnFinalizar.setForeground(new Color(217, 173, 181));
 		btnFinalizar.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 42));
 		panel_5.add(btnFinalizar);
-
-		JPanel panelMenuSuperior = new JPanel();
-		panelMenuSuperior.setBackground(new Color(150, 191, 120));
-		contentPane.add(panelMenuSuperior, BorderLayout.NORTH);
-		panelMenuSuperior.setLayout(new BorderLayout(0, 0));
-
-		JPanel panelIcons = new JPanel();
-		panelIcons.setBackground(new Color(150, 191, 120));
-		panelMenuSuperior.add(panelIcons, BorderLayout.EAST);
-		GridBagLayout gbl_panelIcons = new GridBagLayout();
-		gbl_panelIcons.columnWidths = new int[] { 30, 30, 20, 30, 20, 0 };
-		gbl_panelIcons.rowHeights = new int[] { 33, 0 };
-		gbl_panelIcons.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gbl_panelIcons.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
-		panelIcons.setLayout(gbl_panelIcons);
-
-		JSeparator separator = new JSeparator();
-		separator.setOrientation(SwingConstants.VERTICAL);
-		separator.setForeground(new Color(234, 242, 237));
-		separator.setBackground(new Color(234, 242, 237));
-		GridBagConstraints gbc_separator = new GridBagConstraints();
-		gbc_separator.insets = new Insets(0, 0, 0, 5);
-		gbc_separator.gridx = 0;
-		gbc_separator.gridy = 0;
-		panelIcons.add(separator, gbc_separator);
-
-		JButton btnConfiguracao = new JButton("");
-		btnConfiguracao.setIcon(new ImageIcon(VendasPagamento.class.getResource("/img/solucao.png")));
-		btnConfiguracao.setBorder(null);
-		btnConfiguracao.setBackground(new Color(150, 191, 120));
-		GridBagConstraints gbc_btnConfiguracao = new GridBagConstraints();
-		gbc_btnConfiguracao.insets = new Insets(0, 0, 0, 5);
-		gbc_btnConfiguracao.gridx = 1;
-		gbc_btnConfiguracao.gridy = 0;
-		panelIcons.add(btnConfiguracao, gbc_btnConfiguracao);
-
-		JButton btnNotificacao = new JButton("");
-		btnNotificacao.setIcon(new ImageIcon(VendasPagamento.class.getResource("/img/notificacao.png")));
-		btnNotificacao.setBorder(null);
-		btnNotificacao.setBackground(new Color(150, 191, 120));
-		GridBagConstraints gbc_btnNotificacao = new GridBagConstraints();
-		gbc_btnNotificacao.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNotificacao.gridx = 2;
-		gbc_btnNotificacao.gridy = 0;
-		panelIcons.add(btnNotificacao, gbc_btnNotificacao);
-
-		JButton btnUser = new JButton("");
-		btnUser.setIcon(new ImageIcon(VendasPagamento.class.getResource("/img/farmer.png")));
-		btnUser.setBorder(null);
-		btnUser.setBackground(new Color(150, 191, 120));
-		GridBagConstraints gbc_btnUser = new GridBagConstraints();
-		gbc_btnUser.insets = new Insets(5, 0, 5, 10);
-		gbc_btnUser.gridx = 4;
-		gbc_btnUser.gridy = 0;
-		panelIcons.add(btnUser, gbc_btnUser);
-
-		JPanel panelMenuLateral = new JPanel();
-		panelMenuLateral.setBorder(new EmptyBorder(10, 10, 10, 10));
-		panelMenuLateral.setBackground(new Color(150, 191, 120));
-		contentPane.add(panelMenuLateral, BorderLayout.WEST);
-		panelMenuLateral.setLayout(new BorderLayout(0, 0));
-
-		JButton btnMenu = new JButton("");
-		btnMenu.setIcon(new ImageIcon(VendasPagamento.class.getResource("/img/menu-aberto.png")));
-		btnMenu.setForeground(new Color(234, 242, 237));
-		btnMenu.setBorder(null);
-		btnMenu.setBackground(new Color(150, 191, 120));
-		panelMenuLateral.add(btnMenu, BorderLayout.SOUTH);
 	}
 	
 	protected void atualizarTroco(Venda venda) {

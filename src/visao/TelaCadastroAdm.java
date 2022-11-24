@@ -88,7 +88,7 @@ public class TelaCadastroAdm {
 		frame.getContentPane().setBackground(new Color(150, 191, 120));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] {120, 1182, 120};
-		gridBagLayout.rowHeights = new int[] {50, 127, 536, 50};
+		gridBagLayout.rowHeights = new int[] {50, 143, 536, 50};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
 		frame.getContentPane().setLayout(gridBagLayout);
@@ -138,21 +138,11 @@ public class TelaCadastroAdm {
 		gbc_panel_2.gridy = 2;
 		frame.getContentPane().add(panel_2, gbc_panel_2);
 		GridBagLayout gbl_panel_2 = new GridBagLayout();
-		gbl_panel_2.columnWidths = new int[] {1, 30, 73, 55, 116, 55, 234, 80, 62, 430, 30};
-		gbl_panel_2.rowHeights = new int[] {20, 30, 30, 30, 30, 30, 30, 30, 30, 0, 30, 30, 0, 30};
+		gbl_panel_2.columnWidths = new int[] {1, 30, 73, 55, 116, 55, 234, 80, 202, 218, 30};
+		gbl_panel_2.rowHeights = new int[] {30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30};
 		gbl_panel_2.columnWeights = new double[]{0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
-		gbl_panel_2.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+		gbl_panel_2.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		panel_2.setLayout(gbl_panel_2);
-		
-		JPanel panel_5 = new JPanel();
-		GridBagConstraints gbc_panel_5 = new GridBagConstraints();
-		gbc_panel_5.anchor = GridBagConstraints.NORTH;
-		gbc_panel_5.fill = GridBagConstraints.HORIZONTAL;
-		gbc_panel_5.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_5.gridx = 0;
-		gbc_panel_5.gridy = 0;
-		panel_2.add(panel_5, gbc_panel_5);
-		panel_5.setLayout(new GridLayout(2, 3, 3, 0));
 		
 		JLabel lblNewLabel_13 = new JLabel("Nome Completo");
 		lblNewLabel_13.setAlignmentX(Component.RIGHT_ALIGNMENT);
@@ -321,6 +311,21 @@ public class TelaCadastroAdm {
 		lblNewLabel_6_1.setForeground(new Color(31, 65, 45));
 		lblNewLabel_6_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		
+		JTextField txtTelefone = new JTextField();
+		GridBagConstraints gbc_txtTelefone = new GridBagConstraints();
+		gbc_txtTelefone.anchor = GridBagConstraints.SOUTH;
+		gbc_txtTelefone.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtTelefone.insets = new Insets(0, 0, 5, 0);
+		gbc_txtTelefone.gridwidth = 2;
+		gbc_txtTelefone.gridx = 8;
+		gbc_txtTelefone.gridy = 6;
+		panel_2.add(txtTelefone, gbc_txtTelefone);
+		txtTelefone.setBackground(new Color(234, 242, 237));
+		txtTelefone.setForeground(Color.DARK_GRAY);
+		txtTelefone.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txtTelefone.setColumns(10);
+		txtTelefone.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+		
 		JComboBox cbDia = new JComboBox();
 		cbDia.setForeground(new Color(31, 65, 45));
 		cbDia.setBackground(new Color(245, 250, 248));
@@ -348,21 +353,6 @@ public class TelaCadastroAdm {
 		gbc_cbMes.gridy = 7;
 		panel_2.add(cbMes, gbc_cbMes);
 		
-		JTextField txtTelefone = new JTextField();
-		GridBagConstraints gbc_txtTelefone = new GridBagConstraints();
-		gbc_txtTelefone.anchor = GridBagConstraints.SOUTH;
-		gbc_txtTelefone.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txtTelefone.insets = new Insets(0, 0, 5, 0);
-		gbc_txtTelefone.gridwidth = 2;
-		gbc_txtTelefone.gridx = 8;
-		gbc_txtTelefone.gridy = 6;
-		panel_2.add(txtTelefone, gbc_txtTelefone);
-		txtTelefone.setBackground(new Color(234, 242, 237));
-		txtTelefone.setForeground(Color.DARK_GRAY);
-		txtTelefone.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txtTelefone.setColumns(10);
-		txtTelefone.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-		
 		JComboBox cbAno = new JComboBox();
 		cbAno.setForeground(new Color(31, 65, 45));
 		cbAno.setBackground(new Color(245, 250, 248));
@@ -386,34 +376,6 @@ public class TelaCadastroAdm {
 		panel_2.add(lblNewLabel_9_1, gbc_lblNewLabel_9_1);
 		lblNewLabel_9_1.setForeground(new Color(31, 65, 45));
 		lblNewLabel_9_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		
-		JLabel lblNewLabel_10_1 = new JLabel("Confirme sua Senha");
-		lblNewLabel_10_1.setAlignmentY(Component.TOP_ALIGNMENT);
-		lblNewLabel_10_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		lblNewLabel_10_1.setForeground(new Color(31, 65, 45));
-		lblNewLabel_10_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
-		GridBagConstraints gbc_lblNewLabel_10_1 = new GridBagConstraints();
-		gbc_lblNewLabel_10_1.anchor = GridBagConstraints.NORTH;
-		gbc_lblNewLabel_10_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_lblNewLabel_10_1.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_10_1.gridwidth = 5;
-		gbc_lblNewLabel_10_1.gridx = 2;
-		gbc_lblNewLabel_10_1.gridy = 11;
-		panel_2.add(lblNewLabel_10_1, gbc_lblNewLabel_10_1);
-		
-			JPasswordField pfSenhaConfirmada = new JPasswordField();
-			pfSenhaConfirmada.setBackground(new Color(234, 242, 237));
-			pfSenhaConfirmada.setForeground(Color.DARK_GRAY);
-			pfSenhaConfirmada.setFont(new Font("Tahoma", Font.PLAIN, 25));
-			pfSenhaConfirmada.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
-			GridBagConstraints gbc_pfSenhaConfirmada = new GridBagConstraints();
-			gbc_pfSenhaConfirmada.anchor = GridBagConstraints.NORTH;
-			gbc_pfSenhaConfirmada.fill = GridBagConstraints.HORIZONTAL;
-			gbc_pfSenhaConfirmada.insets = new Insets(0, 0, 20, 5);
-			gbc_pfSenhaConfirmada.gridwidth = 5;
-			gbc_pfSenhaConfirmada.gridx = 2;
-			gbc_pfSenhaConfirmada.gridy = 12;
-			panel_2.add(pfSenhaConfirmada, gbc_pfSenhaConfirmada);
 		
 		JLabel lblNewLabel_7_1 = new JLabel("Senha");
 		lblNewLabel_7_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
@@ -453,82 +415,107 @@ public class TelaCadastroAdm {
 		gbc_pfSenha.insets = new Insets(0, 0, 5, 5);
 		gbc_pfSenha.gridwidth = 5;
 		gbc_pfSenha.gridx = 2;
-		gbc_pfSenha.gridy = 10;
+		gbc_pfSenha.gridy = 9;
 		panel_2.add(pfSenha, gbc_pfSenha);
 		pfSenha.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		pfSenha.setForeground(Color.DARK_GRAY);
 		pfSenha.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		
-		JButton btnCadastrar = new JButton("Cadastrar");
-		GridBagConstraints gbc_btnCadastrar = new GridBagConstraints();
-		gbc_btnCadastrar.insets = new Insets(0, 0, 20, 0);
-		gbc_btnCadastrar.gridwidth = 2;
-		gbc_btnCadastrar.fill = GridBagConstraints.BOTH;
-		gbc_btnCadastrar.gridheight = 2;
-		gbc_btnCadastrar.gridx = 8;
-		gbc_btnCadastrar.gridy = 10;
-		panel_2.add(btnCadastrar, gbc_btnCadastrar);
-		btnCadastrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			
+			JLabel lblNewLabel_10_1 = new JLabel("Confirme sua Senha");
+			lblNewLabel_10_1.setAlignmentY(Component.TOP_ALIGNMENT);
+			lblNewLabel_10_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
+			lblNewLabel_10_1.setForeground(new Color(31, 65, 45));
+			lblNewLabel_10_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
+			GridBagConstraints gbc_lblNewLabel_10_1 = new GridBagConstraints();
+			gbc_lblNewLabel_10_1.anchor = GridBagConstraints.NORTH;
+			gbc_lblNewLabel_10_1.fill = GridBagConstraints.HORIZONTAL;
+			gbc_lblNewLabel_10_1.insets = new Insets(0, 0, 5, 5);
+			gbc_lblNewLabel_10_1.gridwidth = 5;
+			gbc_lblNewLabel_10_1.gridx = 2;
+			gbc_lblNewLabel_10_1.gridy = 10;
+			panel_2.add(lblNewLabel_10_1, gbc_lblNewLabel_10_1);
+			
+				JPasswordField pfSenhaConfirmada = new JPasswordField();
+				pfSenhaConfirmada.setBackground(new Color(234, 242, 237));
+				pfSenhaConfirmada.setForeground(Color.DARK_GRAY);
+				pfSenhaConfirmada.setFont(new Font("Tahoma", Font.PLAIN, 25));
+				pfSenhaConfirmada.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
+				GridBagConstraints gbc_pfSenhaConfirmada = new GridBagConstraints();
+				gbc_pfSenhaConfirmada.anchor = GridBagConstraints.NORTH;
+				gbc_pfSenhaConfirmada.fill = GridBagConstraints.HORIZONTAL;
+				gbc_pfSenhaConfirmada.insets = new Insets(0, 0, 20, 5);
+				gbc_pfSenhaConfirmada.gridwidth = 5;
+				gbc_pfSenhaConfirmada.gridx = 2;
+				gbc_pfSenhaConfirmada.gridy = 11;
+				panel_2.add(pfSenhaConfirmada, gbc_pfSenhaConfirmada);
 				
-				String nomeAdm = txtNome.getText();
-				String cpfAdm = txtCPF.getText();
-				
-				String senhaAdm = pfSenha.getText();
-				String senhaConfirmadaAdm = pfSenhaConfirmada.getText();
-				
-				String nomeNegocio = txtNomeNegocio.getText();
-				String emailAdm = txtEmail.getText();
-				String cnpj = txtCNPJ.getText();
-				
-				String telefoneAdm = txtTelefone.getText();
-				
-				int diaAdm = Integer.parseInt((String) cbDia.getSelectedItem());
-				int mesAdm = Integer.parseInt((String) cbMes.getSelectedItem());
-				int anoAdm = Integer.parseInt((String) cbAno.getSelectedItem());
-				
-				LocalDate dataAdm = LocalDate.of(anoAdm, mesAdm, diaAdm);
-				
-				if (!senhaAdm.equals(senhaAdm)) {
-					JOptionPane.showMessageDialog(null, "A confirmação da senha está incorreta. Digite novamente.");
-					pfSenhaConfirmada.setText("");
-				}
-				else {
-					CadastrarAdmBD cabd = new CadastrarAdmBD();
-					Usuario Adm = new Usuario(0,nomeAdm, cpfAdm, cnpj,Date.valueOf(dataAdm),telefoneAdm,senhaAdm,emailAdm,nomeNegocio,0);
-					cabd.cadastrarVendedor(Adm);
-					
+				JButton btnCancelar = new JButton("Cancelar");
+				btnCancelar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
 					frame.setVisible(false);
 					TelaLoginAdm tla = new TelaLoginAdm();
 					tla.abrir();
-				}
+					}
+				});
+				btnCancelar.setForeground(new Color(217, 173, 181));
+				btnCancelar.setFont(new Font("Dialog", Font.PLAIN, 30));
+				btnCancelar.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
+				btnCancelar.setBackground(new Color(234, 242, 237));
+				GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
+				gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
+				gbc_btnCancelar.fill = GridBagConstraints.BOTH;
+				gbc_btnCancelar.gridx = 8;
+				gbc_btnCancelar.gridy = 11;
+				panel_2.add(btnCancelar, gbc_btnCancelar);
 				
-			}
-		});
-		btnCadastrar.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
-		btnCadastrar.setForeground(new Color(217, 173, 181));
-		btnCadastrar.setBackground(new Color(234, 242, 237));
-		btnCadastrar.setFont(new Font("Dialog", Font.PLAIN, 45));
-		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			frame.setVisible(false);
-			TelaLoginAdm tla = new TelaLoginAdm();
-			tla.abrir();
-			}
-		});
-		btnCancelar.setForeground(new Color(217, 173, 181));
-		btnCancelar.setFont(new Font("Dialog", Font.PLAIN, 45));
-		btnCancelar.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
-		btnCancelar.setBackground(new Color(234, 242, 237));
-		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
-		gbc_btnCancelar.insets = new Insets(0, 0, 5, 0);
-		gbc_btnCancelar.gridwidth = 2;
-		gbc_btnCancelar.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnCancelar.gridx = 8;
-		gbc_btnCancelar.gridy = 12;
-		panel_2.add(btnCancelar, gbc_btnCancelar);
+				JButton btnCadastrar = new JButton("Cadastrar");
+				GridBagConstraints gbc_btnCadastrar = new GridBagConstraints();
+				gbc_btnCadastrar.insets = new Insets(0, 0, 5, 0);
+				gbc_btnCadastrar.fill = GridBagConstraints.BOTH;
+				gbc_btnCadastrar.gridx = 9;
+				gbc_btnCadastrar.gridy = 11;
+				panel_2.add(btnCadastrar, gbc_btnCadastrar);
+				btnCadastrar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						String nomeAdm = txtNome.getText();
+						String cpfAdm = txtCPF.getText();
+						
+						String senhaAdm = pfSenha.getText();
+						String senhaConfirmadaAdm = pfSenhaConfirmada.getText();
+						
+						String nomeNegocio = txtNomeNegocio.getText();
+						String emailAdm = txtEmail.getText();
+						String cnpj = txtCNPJ.getText();
+						
+						String telefoneAdm = txtTelefone.getText();
+						
+						int diaAdm = Integer.parseInt((String) cbDia.getSelectedItem());
+						int mesAdm = Integer.parseInt((String) cbMes.getSelectedItem());
+						int anoAdm = Integer.parseInt((String) cbAno.getSelectedItem());
+						
+						LocalDate dataAdm = LocalDate.of(anoAdm, mesAdm, diaAdm);
+						
+						if (!senhaAdm.equals(senhaAdm)) {
+							JOptionPane.showMessageDialog(null, "A confirmação da senha está incorreta. Digite novamente.");
+							pfSenhaConfirmada.setText("");
+						}
+						else {
+							CadastrarAdmBD cabd = new CadastrarAdmBD();
+							Usuario Adm = new Usuario(0,nomeAdm, cpfAdm, cnpj,Date.valueOf(dataAdm),telefoneAdm,senhaAdm,emailAdm,nomeNegocio,0);
+							cabd.cadastrarVendedor(Adm);
+							
+							frame.setVisible(false);
+							TelaLoginAdm tla = new TelaLoginAdm();
+							tla.abrir();
+						}
+						
+					}
+				});
+				btnCadastrar.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
+				btnCadastrar.setForeground(new Color(217, 173, 181));
+				btnCadastrar.setBackground(new Color(234, 242, 237));
+				btnCadastrar.setFont(new Font("Dialog", Font.PLAIN, 30));
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1600, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

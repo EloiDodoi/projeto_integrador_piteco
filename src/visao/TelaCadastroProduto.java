@@ -322,19 +322,35 @@ public class TelaCadastroProduto {
 		gbc_panel_3.gridx = 1;
 		gbc_panel_3.gridy = 9;
 		panel_2.add(panel_3, gbc_panel_3);
+		
+		JButton btn_cadastrar_produto_1 = new JButton("  Cancelar ");
+		btn_cadastrar_produto_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				TelaBemVindo tbv = new TelaBemVindo();
+				tbv.abrir();
+			}
+		});
+		btn_cadastrar_produto_1.setForeground(new Color(31, 65, 45));
+		btn_cadastrar_produto_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
+		btn_cadastrar_produto_1.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
+		btn_cadastrar_produto_1.setBackground(new Color(123, 166, 111));
+		GridBagConstraints gbc_btn_cadastrar_produto_1 = new GridBagConstraints();
+		gbc_btn_cadastrar_produto_1.gridwidth = 4;
+		gbc_btn_cadastrar_produto_1.insets = new Insets(0, 0, 5, 5);
+		gbc_btn_cadastrar_produto_1.gridx = 1;
+		gbc_btn_cadastrar_produto_1.gridy = 10;
+		panel_2.add(btn_cadastrar_produto_1, gbc_btn_cadastrar_produto_1);
 		btn_cadastrar_produto.setBackground(new Color(123, 166, 111));
 		btn_cadastrar_produto.setBorder(new LineBorder(new Color(31, 65, 45), 3, true));
 		btn_cadastrar_produto.setForeground(new Color(31, 65, 45));
 		btn_cadastrar_produto.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 50));
 		GridBagConstraints gbc_btn_cadastrar_produto = new GridBagConstraints();
-		gbc_btn_cadastrar_produto.insets = new Insets(0, 0, 10, 0);
-		gbc_btn_cadastrar_produto.gridwidth = 9;
-		gbc_btn_cadastrar_produto.gridx = 0;
+		gbc_btn_cadastrar_produto.insets = new Insets(0, 0, 10, 5);
+		gbc_btn_cadastrar_produto.gridwidth = 3;
+		gbc_btn_cadastrar_produto.gridx = 5;
 		gbc_btn_cadastrar_produto.gridy = 10;
 		panel_2.add(btn_cadastrar_produto, gbc_btn_cadastrar_produto);
-		
-		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
 	}
 	
 	public static void scaleRadioButtonIcon(JRadioButton rb){

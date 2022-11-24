@@ -444,15 +444,33 @@ public class TelaAlterarVendedor {
 			}
 		});
 		
+		JButton btnCancela = new JButton("  Cancelar  ");
+		btnCancela.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				TelaListagemVendedores tlv = new TelaListagemVendedores();
+				tlv.abrir();
+			}
+		});
+		btnCancela.setForeground(new Color(217, 173, 181));
+		btnCancela.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
+		btnCancela.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
+		btnCancela.setBackground(new Color(234, 242, 237));
+		GridBagConstraints gbc_btnCancela = new GridBagConstraints();
+		gbc_btnCancela.gridwidth = 5;
+		gbc_btnCancela.insets = new Insets(0, 0, 5, 5);
+		gbc_btnCancela.gridx = 1;
+		gbc_btnCancela.gridy = 11;
+		panel.add(btnCancela, gbc_btnCancela);
+		
 		btnNewButton.setBackground(new Color(234, 242, 237));
 		btnNewButton.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
 		btnNewButton.setForeground(new Color(217, 173, 181));
 		btnNewButton.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
 		gbc_btnNewButton.fill = GridBagConstraints.VERTICAL;
-		gbc_btnNewButton.gridwidth = 10;
-		gbc_btnNewButton.gridx = 0;
+		gbc_btnNewButton.gridx = 9;
 		gbc_btnNewButton.gridy = 11;
 		panel.add(btnNewButton, gbc_btnNewButton);
 	}	

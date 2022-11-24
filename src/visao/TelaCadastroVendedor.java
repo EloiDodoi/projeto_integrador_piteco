@@ -378,7 +378,7 @@ public class TelaCadastroVendedor {
 		gbc_cb_ano.gridy = 9;
 		panel.add(cb_ano, gbc_cb_ano);
 		
-		JButton btnNewButton = new JButton("Cadastrar");
+		JButton btnNewButton = new JButton("  Cadastrar  ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome_vendedor = txt_nome_vendedor.getText();
@@ -411,6 +411,25 @@ public class TelaCadastroVendedor {
 			}
 		});
 		
+		JButton btnCancelar = new JButton("  Cancelar  ");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				TelaBemVindo tbv = new TelaBemVindo();
+				tbv.abrir();
+			}
+		});
+		btnCancelar.setForeground(new Color(217, 173, 181));
+		btnCancelar.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
+		btnCancelar.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
+		btnCancelar.setBackground(new Color(234, 242, 237));
+		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
+		gbc_btnCancelar.gridwidth = 5;
+		gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
+		gbc_btnCancelar.gridx = 1;
+		gbc_btnCancelar.gridy = 10;
+		panel.add(btnCancelar, gbc_btnCancelar);
+		
 		btnNewButton.setBackground(new Color(234, 242, 237));
 		btnNewButton.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
 		btnNewButton.setForeground(new Color(217, 173, 181));
@@ -418,12 +437,8 @@ public class TelaCadastroVendedor {
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(10, 0, 20, 0);
 		gbc_btnNewButton.fill = GridBagConstraints.VERTICAL;
-		gbc_btnNewButton.gridwidth = 10;
-		gbc_btnNewButton.gridx = 0;
+		gbc_btnNewButton.gridx = 9;
 		gbc_btnNewButton.gridy = 10;
 		panel.add(btnNewButton, gbc_btnNewButton);
-		
-		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
 	}
 }
