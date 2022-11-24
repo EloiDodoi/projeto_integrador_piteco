@@ -355,7 +355,7 @@ public class TelaBemVindo extends JFrame {
 		btnCadastro.setForeground(new Color(85, 121, 74));
 		btnCadastro.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 65));
 
-		JButton btnVenda = new JButton("Venda");
+		JButton btnVenda = new JButton("Vendas");
 		btnVenda.setBorder(new LineBorder(new Color(85, 121, 74), 2, true));
 		GridBagConstraints gbc_btnVenda = new GridBagConstraints();
 		gbc_btnVenda.insets = new Insets(0, 0, 10, 0);
