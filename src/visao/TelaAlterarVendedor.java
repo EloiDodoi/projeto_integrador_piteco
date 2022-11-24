@@ -123,12 +123,13 @@ public class TelaAlterarVendedor {
 		gbl_panel_1.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		panel_1.setLayout(gbl_panel_1);
 		
-		JLabel lblCadastroDoVendedor = new JLabel("Alterar Vendedor");
+		JLabel lblCadastroDoVendedor = new JLabel(" Alterar Vendedor");
 		lblCadastroDoVendedor.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCadastroDoVendedor.setForeground(new Color(234, 242, 237));
 		lblCadastroDoVendedor.setFont(new Font("Dialog", Font.PLAIN, 85));
 		GridBagConstraints gbc_lblCadastroDoVendedor = new GridBagConstraints();
-		gbc_lblCadastroDoVendedor.fill = GridBagConstraints.BOTH;
+		gbc_lblCadastroDoVendedor.anchor = GridBagConstraints.WEST;
+		gbc_lblCadastroDoVendedor.fill = GridBagConstraints.VERTICAL;
 		gbc_lblCadastroDoVendedor.gridx = 0;
 		gbc_lblCadastroDoVendedor.gridy = 0;
 		panel_1.add(lblCadastroDoVendedor, gbc_lblCadastroDoVendedor);
@@ -403,7 +404,7 @@ public class TelaAlterarVendedor {
 		gbc_cb_ano.gridy = 9;
 		panel.add(cb_ano, gbc_cb_ano);
 		
-		JButton btnNewButton = new JButton("Alterar");
+		JButton btnNewButton = new JButton("   Alterar   ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome_vendedor = txt_nome_vendedor.getText();
@@ -435,6 +436,10 @@ public class TelaAlterarVendedor {
 
 					abd.alteraVendedor(usuario);
 				}
+				
+				frame.setVisible(false);
+				TelaListagemVendedores tlv = new TelaListagemVendedores();
+				tlv.setVisible(true);
 				
 			}
 		});

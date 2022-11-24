@@ -305,7 +305,7 @@ public class TelaEstoque extends JFrame {
 		tHeader.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 20));
 		tHeader.setForeground(Color.WHITE);
 		
-		JButton btnAlterar = new JButton("Alterar");
+		JButton btnAlterar = new JButton("  Alterar  ");
 		btnAlterar.setForeground(new Color(234, 242, 237));
 		btnAlterar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
 		btnAlterar.setBackground(new Color(31, 65, 45));
@@ -386,6 +386,7 @@ public class TelaEstoque extends JFrame {
 		textFieldPesquisaNoEstoque.setHorizontalAlignment(SwingConstants.LEFT);
 		textFieldPesquisaNoEstoque.setColumns(10);
 		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
+		gbc_btnAlterar.anchor = GridBagConstraints.EAST;
 		gbc_btnAlterar.fill = GridBagConstraints.VERTICAL;
 		gbc_btnAlterar.insets = new Insets(0, 0, 5, 0);
 		gbc_btnAlterar.gridx = 3;
@@ -424,6 +425,7 @@ public class TelaEstoque extends JFrame {
 			}
 		});
 		GridBagConstraints gbc_btnRemover = new GridBagConstraints();
+		gbc_btnRemover.anchor = GridBagConstraints.EAST;
 		gbc_btnRemover.fill = GridBagConstraints.VERTICAL;
 		gbc_btnRemover.insets = new Insets(0, 0, 5, 0);
 		gbc_btnRemover.gridx = 3;
