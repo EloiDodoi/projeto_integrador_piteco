@@ -71,6 +71,12 @@ public class TelaListagemVendedores extends JFrame {
 	 * Create the frame.
 	 */
 	
+	public void abrir() {
+		setVisible(true);
+		setLocationRelativeTo(null);
+		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
+	
 	public TelaListagemVendedores() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 850);
