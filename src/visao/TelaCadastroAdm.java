@@ -88,7 +88,7 @@ public class TelaCadastroAdm {
 		frame.getContentPane().setBackground(new Color(150, 191, 120));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] {120, 1182, 120};
-		gridBagLayout.rowHeights = new int[] {50, 127, 536, 50};
+		gridBagLayout.rowHeights = new int[] {50, 143, 536, 50};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
 		frame.getContentPane().setLayout(gridBagLayout);

@@ -371,6 +371,7 @@ public class TelaControleVendedores extends JFrame {
 		panelPesquisa.add(textField, gbc_textField);
 		
 		JButton btnExcluir = new JButton(" Excluir");
+		btnExcluir.setToolTipText("Excluir Usuário selecionado");
 		GridBagConstraints gbc_btnExcluir = new GridBagConstraints();
 		gbc_btnExcluir.anchor = GridBagConstraints.SOUTH;
 		gbc_btnExcluir.fill = GridBagConstraints.HORIZONTAL;
@@ -389,6 +390,7 @@ public class TelaControleVendedores extends JFrame {
 		btnExcluir.setBackground(new Color(31, 65, 45));
 		
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setToolTipText("Alterar Usuário selecionado");
 		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
 		gbc_btnAlterar.anchor = GridBagConstraints.SOUTH;
 		gbc_btnAlterar.fill = GridBagConstraints.HORIZONTAL;

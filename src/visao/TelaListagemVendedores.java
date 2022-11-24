@@ -376,6 +376,7 @@ public class TelaListagemVendedores extends JFrame {
 		lblTitulo.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 82));
 		
 		JButton btnExcluir = new JButton(" Excluir");
+		btnExcluir.setToolTipText("Excluir Vendedor selecionado");
 		GridBagConstraints gbc_btnExcluir = new GridBagConstraints();
 		gbc_btnExcluir.anchor = GridBagConstraints.SOUTH;
 		gbc_btnExcluir.fill = GridBagConstraints.HORIZONTAL;
@@ -444,6 +445,7 @@ public class TelaListagemVendedores extends JFrame {
 		panel.add(btnFiltrar, gbc_btnFiltrar);
 		
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setToolTipText("Alterar Vendedor selecionado");
 		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
 		gbc_btnAlterar.anchor = GridBagConstraints.SOUTH;
 		gbc_btnAlterar.fill = GridBagConstraints.HORIZONTAL;
