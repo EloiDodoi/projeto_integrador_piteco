@@ -49,6 +49,7 @@ public class TelaListagemVendedores extends JFrame {
 	ControleVendedorBD cvbd = new ControleVendedorBD();
 	private JPanel panel;
 	private JMenuBar menuBar;
+	private JButton btnFiltrar;
 
 	/**
 	 * Launch the application.
@@ -70,13 +71,6 @@ public class TelaListagemVendedores extends JFrame {
 	 * Create the frame.
 	 */
 	
-	public void abrir() {
-		TelaEstoque frame = new TelaEstoque();
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-	}
-	
 	public TelaListagemVendedores() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 850);
@@ -93,9 +87,9 @@ public class TelaListagemVendedores extends JFrame {
 		contentPane.add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] {65, 865, 125, 119, 119, 65};
-		gbl_panel.rowHeights = new int[] {30, 0, 158, 544, 30};
+		gbl_panel.rowHeights = new int[] {30, 0, 31, 138, 39, 41, 544, 30};
 		gbl_panel.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		Linha = new JPanel();
@@ -114,20 +108,37 @@ public class TelaListagemVendedores extends JFrame {
 		gbc_lblTitulo.anchor = GridBagConstraints.NORTHWEST;
 		gbc_lblTitulo.insets = new Insets(0, 0, 5, 5);
 		gbc_lblTitulo.gridx = 1;
-		gbc_lblTitulo.gridy = 2;
+		gbc_lblTitulo.gridy = 3;
 		panel.add(lblTitulo, gbc_lblTitulo);
 		lblTitulo.setVerticalAlignment(SwingConstants.TOP);
 		lblTitulo.setHorizontalAlignment(SwingConstants.LEFT);
 		lblTitulo.setForeground(new Color(31, 65, 45));
 		lblTitulo.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 82));
 		
+		JButton btnExcluir = new JButton(" Excluir");
+		GridBagConstraints gbc_btnExcluir = new GridBagConstraints();
+		gbc_btnExcluir.anchor = GridBagConstraints.SOUTH;
+		gbc_btnExcluir.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnExcluir.insets = new Insets(0, 0, 5, 0);
+		gbc_btnExcluir.gridx = 4;
+		gbc_btnExcluir.gridy = 4;
+		panel.add(btnExcluir, gbc_btnExcluir);
+		btnExcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cvbd.deletarVendedor(vendedor_selecionado, table);
+			}
+		});
+		btnExcluir.setForeground(new Color(234, 242, 237));
+		btnExcluir.setFont(new Font("Yu Gothic UI", Font.PLAIN, 28));
+		btnExcluir.setBorder(null);
+		btnExcluir.setBackground(new Color(31, 65, 45));
+		
 		panelPesquisa = new JPanel();
 		GridBagConstraints gbc_panelPesquisa = new GridBagConstraints();
-		gbc_panelPesquisa.anchor = GridBagConstraints.SOUTH;
 		gbc_panelPesquisa.fill = GridBagConstraints.HORIZONTAL;
 		gbc_panelPesquisa.insets = new Insets(0, 0, 5, 5);
 		gbc_panelPesquisa.gridx = 1;
-		gbc_panelPesquisa.gridy = 2;
+		gbc_panelPesquisa.gridy = 5;
 		panel.add(panelPesquisa, gbc_panelPesquisa);
 		GridBagLayout gbl_panelPesquisa = new GridBagLayout();
 		gbl_panelPesquisa.columnWidths = new int[] {80, 800};
@@ -160,23 +171,17 @@ public class TelaListagemVendedores extends JFrame {
 		gbc_textField.gridy = 0;
 		panelPesquisa.add(textField, gbc_textField);
 		
-		JButton btnExcluir = new JButton(" Excluir");
-		GridBagConstraints gbc_btnExcluir = new GridBagConstraints();
-		gbc_btnExcluir.anchor = GridBagConstraints.SOUTH;
-		gbc_btnExcluir.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnExcluir.insets = new Insets(0, 0, 5, 5);
-		gbc_btnExcluir.gridx = 3;
-		gbc_btnExcluir.gridy = 2;
-		panel.add(btnExcluir, gbc_btnExcluir);
-		btnExcluir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				cvbd.deletarVendedor(vendedor_selecionado, table);
-			}
-		});
-		btnExcluir.setForeground(new Color(234, 242, 237));
-		btnExcluir.setFont(new Font("Yu Gothic UI", Font.PLAIN, 28));
-		btnExcluir.setBorder(null);
-		btnExcluir.setBackground(new Color(31, 65, 45));
+		btnFiltrar = new JButton("Filtrar");
+		btnFiltrar.setForeground(new Color(234, 242, 237));
+		btnFiltrar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 28));
+		btnFiltrar.setBorder(null);
+		btnFiltrar.setBackground(new Color(31, 65, 45));
+		GridBagConstraints gbc_btnFiltrar = new GridBagConstraints();
+		gbc_btnFiltrar.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnFiltrar.insets = new Insets(0, 0, 5, 5);
+		gbc_btnFiltrar.gridx = 2;
+		gbc_btnFiltrar.gridy = 5;
+		panel.add(btnFiltrar, gbc_btnFiltrar);
 		
 		JButton btnAlterar = new JButton("Alterar");
 		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
@@ -184,13 +189,14 @@ public class TelaListagemVendedores extends JFrame {
 		gbc_btnAlterar.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnAlterar.insets = new Insets(0, 0, 5, 0);
 		gbc_btnAlterar.gridx = 4;
-		gbc_btnAlterar.gridy = 2;
+		gbc_btnAlterar.gridy = 5;
 		panel.add(btnAlterar, gbc_btnAlterar);
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(vendedor_selecionado != null) {
 					TelaAlterarVendedor tav = new TelaAlterarVendedor();
 					tav.abrir(vendedor_selecionado);
+					setVisible(false);
 				}
 			}
 		});
@@ -204,7 +210,7 @@ public class TelaListagemVendedores extends JFrame {
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
 		gbc_scrollPane.gridwidth = 4;
 		gbc_scrollPane.gridx = 1;
-		gbc_scrollPane.gridy = 3;
+		gbc_scrollPane.gridy = 6;
 		panel.add(scrollPane, gbc_scrollPane);
 		scrollPane.setForeground(new Color(123, 166, 111));
 		scrollPane.setFont(new Font("Yu Gothic UI", Font.PLAIN, 25));
