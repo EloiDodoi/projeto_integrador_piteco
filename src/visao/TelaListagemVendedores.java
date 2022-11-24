@@ -37,6 +37,7 @@ import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 
 public class TelaListagemVendedores extends JFrame {
@@ -257,9 +258,7 @@ public class TelaListagemVendedores extends JFrame {
 		btnListagemDeVendedores = new JMenuItem("Listagem de Vendedores");
 		btnListagemDeVendedores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				TelaListagemVendedores tlv = new TelaListagemVendedores();
-				tlv.abrir();		
+				JOptionPane.showMessageDialog(null, "Você já está na Listagem de Vendedores!");
 			}
 		});
 		btnListagemDeVendedores.setOpaque(true);
