@@ -1,14 +1,13 @@
 package controle;
+
 import modelo.Produto;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 import modelo.Produto;
 
 public class EstoqueBD {
@@ -17,6 +16,9 @@ public class EstoqueBD {
 	
 	public void atualizarEstoque(JTable jt) {
 		jt.setModel(listagemProduto());
+	}
+	public void atualizarPesquisa(JTable jt, String texto, int tipo) {
+		jt.setModel(produtoFiltradoTabela(texto, tipo));
 	}
 	
 	public void deletar(Produto p, JTable jt) {
@@ -80,20 +82,15 @@ public class EstoqueBD {
 			ArrayList<Produto> listaFiltrada = new ArrayList<>();
 			if (tipo == 1) {
 				PreparedStatement ps;
-				ps = cbd.getConexao().prepareStatement("SELECT * FROM produto WHERE produto_nomeveg like '%?%'");
-				ps.setString(1, texto);
+				ps = cbd.getConexao().prepareStatement("SELECT * FROM produto WHERE produto_nomeveg like ?");
+				ps.setString(1,"'%"+ texto +"%'");
+				System.out.println(ps);
 				ResultSet rs = ps.executeQuery();
 				while (rs.next()) {
 			      	Produto p = new Produto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
 		        	  listaFiltrada.add(p);
 	            }
 	          for (Produto p: listaFiltrada) {
-	        	  System.out.println(p.getIdProduto());
-	        	  System.out.println(p.getProduto_nomeveg());
-	        	  System.out.println(p.getProduto_especieveg());
-	        	  System.out.println(p.getProduto_preco());
-	        	  System.out.println(p.getProduto_quantidade());
-	        	  System.out.println(p.getUnidade_quantidade_idUnidade_quantidade());
 	          }
 	          	return listaFiltrada;
 	          }else if (tipo == 2){
@@ -107,12 +104,6 @@ public class EstoqueBD {
 			        	  listaFiltrada.add(p);
 		            }
 		          for (Produto p: listaFiltrada) {
-		        	  System.out.println(p.getIdProduto());
-		        	  System.out.println(p.getProduto_nomeveg());
-		        	  System.out.println(p.getProduto_especieveg());
-		        	  System.out.println(p.getProduto_preco());
-		        	  System.out.println(p.getProduto_quantidade());
-		        	  System.out.println(p.getUnidade_quantidade_idUnidade_quantidade());
 		          }
 		          	return listaFiltrada;
 	          } else if (tipo == 3) {
@@ -126,12 +117,6 @@ public class EstoqueBD {
 			        	  listaFiltrada.add(p);
 		            }
 		          for (Produto p: listaFiltrada) {
-		        	  System.out.println(p.getIdProduto());
-		        	  System.out.println(p.getProduto_nomeveg());
-		        	  System.out.println(p.getProduto_especieveg());
-		        	  System.out.println(p.getProduto_preco());
-		        	  System.out.println(p.getProduto_quantidade());
-		        	  System.out.println(p.getUnidade_quantidade_idUnidade_quantidade());
 		          }
 		          	return listaFiltrada;
 			}else if (tipo==4) {
@@ -145,14 +130,8 @@ public class EstoqueBD {
 			        	  listaFiltrada.add(p);
 		            }
 		          for (Produto p: listaFiltrada) {
-		        	  System.out.println(p.getIdProduto());
-		        	  System.out.println(p.getProduto_nomeveg());
-		        	  System.out.println(p.getProduto_especieveg());
-		        	  System.out.println(p.getProduto_preco());
-		        	  System.out.println(p.getProduto_quantidade());
-		        	  System.out.println(p.getUnidade_quantidade_idUnidade_quantidade());
 		          }
-		          	return listaFiltrada;
+		          return listaFiltrada;
 			}
 			
 			
@@ -165,8 +144,8 @@ public class EstoqueBD {
 		return null;
 	}
 	
-	public DefaultTableModel produtoFiltradoTabela(String nome) {
-		//Produto p = filtro(nome, 0);
+	public DefaultTableModel produtoFiltradoTabela(String texto, int tipo) {
+		ArrayList<Produto> listaFiltrada = filtro(texto, tipo);
 		
 		DefaultTableModel modelo_tabela = new DefaultTableModel(
 				new Object[][][][][][] {
@@ -176,8 +155,10 @@ public class EstoqueBD {
 					"C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade"
 				}	
 		);
-		//modelo_tabela.addRow(new Object[] {p.getIdProduto(),p.getProduto_nomeveg(),p.getProduto_especieveg(),p.getProduto_preco(), p.getProduto_quantidade()});
-		
+		for (int i = 0;i<listaFiltrada.size();i++) {
+			Produto p = listaFiltrada.get(i);
+			modelo_tabela.addRow(new Object[] {p.getIdProduto(),p.getProduto_nomeveg(),p.getProduto_especieveg(),p.getProduto_preco(), p.getProduto_quantidade()});
+		}
 		return modelo_tabela;
 	}
 

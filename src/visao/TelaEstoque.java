@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,7 +26,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-
 import controle.AlterarProdutoBD;
 import controle.EstoqueBD;
 import modelo.Produto;
@@ -37,6 +35,10 @@ import javax.swing.JSeparator;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import javax.swing.AbstractButton;
+import javax.swing.DefaultComboBoxModel;
 
 public class TelaEstoque extends JFrame {
 
@@ -46,6 +48,8 @@ public class TelaEstoque extends JFrame {
 	EstoqueBD etb = new EstoqueBD();
 	AlterarProdutoBD at = new AlterarProdutoBD();
 	JTable table;
+	JComboBox comboBox;
+
 	/**
 	 * Launch the application.
 	 */
@@ -76,7 +80,7 @@ public class TelaEstoque extends JFrame {
 		contentPane.setBackground(new Color(234, 242, 237));
 
 		setContentPane(contentPane);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorder(null);
 		menuBar.setBackground(new Color(150, 191, 120));
@@ -85,7 +89,7 @@ public class TelaEstoque extends JFrame {
 		menuBar.setMinimumSize(new Dimension(0, 5));
 		menuBar.setMaximumSize(new Dimension(0, 5));
 		setJMenuBar(menuBar);
-		
+
 		JMenu mnNewMenu = new JMenu("  ");
 		mnNewMenu.setOpaque(true);
 		mnNewMenu.setHorizontalTextPosition(SwingConstants.LEFT);
@@ -98,7 +102,7 @@ public class TelaEstoque extends JFrame {
 		mnNewMenu.setBorder(null);
 		mnNewMenu.setBackground(new Color(150, 191, 120));
 		menuBar.add(mnNewMenu);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("PITECO");
 		lblNewLabel_2.setMaximumSize(new Dimension(1000, 14));
 		lblNewLabel_2.setOpaque(true);
@@ -112,7 +116,7 @@ public class TelaEstoque extends JFrame {
 		lblNewLabel_2.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 20));
 		lblNewLabel_2.setAlignmentX(Component.CENTER_ALIGNMENT);
 		mnNewMenu.add(lblNewLabel_2);
-		
+
 		JMenuItem btnMenuInicio = new JMenuItem("In\u00EDcio");
 		btnMenuInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -129,13 +133,13 @@ public class TelaEstoque extends JFrame {
 		btnMenuInicio.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnMenuInicio.setHorizontalAlignment(SwingConstants.CENTER);
 		mnNewMenu.add(btnMenuInicio);
-		
+
 		JPanel linha = new JPanel();
 		linha.setPreferredSize(new Dimension(1, 2));
 		linha.setMinimumSize(new Dimension(5, 1));
 		linha.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha);
-		
+
 		JMenuItem btnMenuEstoque = new JMenuItem("Estoque");
 		btnMenuEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -150,13 +154,13 @@ public class TelaEstoque extends JFrame {
 		btnMenuEstoque.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuEstoque.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuEstoque);
-		
+
 		JMenuItem btnMenuVendas = new JMenuItem("Vendas");
 		btnMenuVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			setVisible(false);
-			TelaVenda venda = new TelaVenda();
-			venda.abrir();
+				setVisible(false);
+				TelaVenda venda = new TelaVenda();
+				venda.abrir();
 			}
 		});
 		btnMenuVendas.setOpaque(true);
@@ -167,13 +171,13 @@ public class TelaEstoque extends JFrame {
 		btnMenuVendas.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuVendas.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuVendas);
-		
+
 		JPanel linha_1 = new JPanel();
 		linha_1.setPreferredSize(new Dimension(1, 2));
 		linha_1.setMinimumSize(new Dimension(5, 1));
 		linha_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1);
-		
+
 		JMenuItem btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas");
 		btnMenuRelatorios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -189,7 +193,7 @@ public class TelaEstoque extends JFrame {
 		btnMenuRelatorios.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuRelatorios.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuRelatorios);
-		
+
 		JMenuItem btnMenuControle = new JMenuItem("Controle");
 		btnMenuControle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -205,13 +209,13 @@ public class TelaEstoque extends JFrame {
 		btnMenuControle.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuControle.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuControle);
-		
+
 		JPanel linha_1_1 = new JPanel();
 		linha_1_1.setPreferredSize(new Dimension(1, 2));
 		linha_1_1.setMinimumSize(new Dimension(5, 1));
 		linha_1_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1_1);
-		
+
 		JMenuItem btnMenuSair = new JMenuItem("Sair");
 		btnMenuSair.setOpaque(true);
 		btnMenuSair.setForeground(new Color(85, 121, 74));
@@ -221,22 +225,22 @@ public class TelaEstoque extends JFrame {
 		btnMenuSair.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuSair.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuSair);
-		
+
 		JPanel BarraSuperior = new JPanel();
 		BarraSuperior.setBackground(new Color(150, 191, 120));
 		menuBar.add(BarraSuperior);
 		BarraSuperior.setLayout(new BorderLayout(0, 0));
-		
+
 		JPanel panel_8 = new JPanel();
 		panel_8.setBackground(new Color(150, 191, 120));
 		BarraSuperior.add(panel_8, BorderLayout.EAST);
 		GridBagLayout gbl_panel_8 = new GridBagLayout();
-		gbl_panel_8.columnWidths = new int[]{30, 30, 20, 0, 30, 20, 0};
-		gbl_panel_8.rowHeights = new int[]{33, 0};
-		gbl_panel_8.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel_8.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_panel_8.columnWidths = new int[] { 30, 30, 20, 0, 30, 20, 0 };
+		gbl_panel_8.rowHeights = new int[] { 33, 0 };
+		gbl_panel_8.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel_8.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
 		panel_8.setLayout(gbl_panel_8);
-		
+
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
 		separator.setForeground(new Color(234, 242, 237));
@@ -246,7 +250,7 @@ public class TelaEstoque extends JFrame {
 		gbc_separator.gridx = 0;
 		gbc_separator.gridy = 0;
 		panel_8.add(separator, gbc_separator);
-		
+
 		JButton btnNotificacao = new JButton("");
 		btnNotificacao.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/notificacao.png")));
 		btnNotificacao.setBorder(null);
@@ -256,7 +260,7 @@ public class TelaEstoque extends JFrame {
 		gbc_btnNotificacao.gridx = 3;
 		gbc_btnNotificacao.gridy = 0;
 		panel_8.add(btnNotificacao, gbc_btnNotificacao);
-		
+
 		JButton btnUser = new JButton("");
 		btnUser.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/farmer.png")));
 		btnUser.setBorder(null);
@@ -267,12 +271,12 @@ public class TelaEstoque extends JFrame {
 		gbc_btnUser.gridy = 0;
 		panel_8.add(btnUser, gbc_btnUser);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[] {65, 856, 134, 256, 65};
-		gbl_contentPane.rowHeights = new int[] {30, 5, 115, 31, 31, 391, 30};
-		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.columnWidths = new int[] { 65, 856, 233, 181, 256, 65 };
+		gbl_contentPane.rowHeights = new int[] { 30, 5, 124, 31, 61, 481, 30 };
+		gbl_contentPane.columnWeights = new double[] { 0.0, 1.0, 1.0, 0.0, 1.0, Double.MIN_VALUE };
+		gbl_contentPane.rowWeights = new double[] { 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE };
 		contentPane.setLayout(gbl_contentPane);
-		
+
 		table = new JTable() {
 			@Override
 			public boolean isCellEditable(int row, int column) {
@@ -280,55 +284,37 @@ public class TelaEstoque extends JFrame {
 				return false;
 			}
 		};
+		table.setSelectionForeground(new Color(234, 242, 237));
+		table.setSelectionBackground(new Color(217, 173, 181));
 		table.setBounds(130, 330, 1119, 391);
 		table.setRowHeight(40);
-		table.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
+		table.setFont(new Font("Yu Gothic Light", Font.BOLD, 20));
 		table.setBorder(new LineBorder(new Color(31, 65, 45), 2));
 		table.setGridColor(new Color(150, 191, 120));
-		
-		
-		table.setModel(new DefaultTableModel(
-				new Object[][][][][][] {
-				
-				},
-				new String[] {
-					"C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade"
-				}
-			));
+
+		table.setModel(new DefaultTableModel(new Object[][][][][][] {
+
+		}, new String[] { "C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade" }));
 		table.setModel(etb.listagemProduto());
 		table.getColumnModel().getColumn(1).setPreferredWidth(150);
 		table.getColumnModel().getColumn(2).setPreferredWidth(150);
 		table.getColumnModel().getColumn(4).setPreferredWidth(100);
-		
+
 		JTableHeader tHeader = table.getTableHeader();
 		tHeader.setBackground(new Color(150, 191, 120));
 		tHeader.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 20));
 		tHeader.setForeground(Color.WHITE);
-		
-		JButton btnAlterar = new JButton("  Alterar  ");
-		btnAlterar.setForeground(new Color(234, 242, 237));
-		btnAlterar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
-		btnAlterar.setBackground(new Color(31, 65, 45));
-		btnAlterar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(produto_selecionado != null) {
-					TelaSalvarProduto sp = new TelaSalvarProduto();
-					sp.abrir(produto_selecionado);
-					
-				}
-			}
-		});
-		
+
 		JPanel Linha = new JPanel();
 		Linha.setBackground(new Color(31, 65, 45));
 		GridBagConstraints gbc_Linha = new GridBagConstraints();
 		gbc_Linha.fill = GridBagConstraints.BOTH;
 		gbc_Linha.insets = new Insets(0, 0, 5, 0);
-		gbc_Linha.gridwidth = 3;
+		gbc_Linha.gridwidth = 4;
 		gbc_Linha.gridx = 1;
 		gbc_Linha.gridy = 1;
 		contentPane.add(Linha, gbc_Linha);
-		
+
 		JLabel lblTitulo = new JLabel("Estoque");
 		lblTitulo.setForeground(new Color(31, 65, 45));
 		lblTitulo.setVerticalAlignment(SwingConstants.TOP);
@@ -341,24 +327,24 @@ public class TelaEstoque extends JFrame {
 		gbc_lblTitulo.gridx = 1;
 		gbc_lblTitulo.gridy = 2;
 		contentPane.add(lblTitulo, gbc_lblTitulo);
-		
+
 		JPanel panelPesquisa = new JPanel();
 		GridBagConstraints gbc_panelPesquisa = new GridBagConstraints();
 		gbc_panelPesquisa.fill = GridBagConstraints.HORIZONTAL;
 		gbc_panelPesquisa.insets = new Insets(0, 0, 5, 5);
 		gbc_panelPesquisa.gridx = 1;
-		gbc_panelPesquisa.gridy = 4;
+		gbc_panelPesquisa.gridy = 3;
 		contentPane.add(panelPesquisa, gbc_panelPesquisa);
 		GridBagLayout gbl_panelPesquisa = new GridBagLayout();
-		gbl_panelPesquisa.columnWidths = new int[] {80, 800};
-		gbl_panelPesquisa.rowHeights = new int[] {32};
-		gbl_panelPesquisa.columnWeights = new double[]{1.0, 1.0};
-		gbl_panelPesquisa.rowWeights = new double[]{0.0};
+		gbl_panelPesquisa.columnWidths = new int[] { 80, 800 };
+		gbl_panelPesquisa.rowHeights = new int[] { 32 };
+		gbl_panelPesquisa.columnWeights = new double[] { 1.0, 1.0 };
+		gbl_panelPesquisa.rowWeights = new double[] { 0.0 };
 		panelPesquisa.setLayout(gbl_panelPesquisa);
-		
+
 		JButton btnPesquisa = new JButton("");
 		btnPesquisa.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/inspecao (1).png")));
-		
+
 		GridBagConstraints gbc_btnPesquisa = new GridBagConstraints();
 		gbc_btnPesquisa.fill = GridBagConstraints.BOTH;
 		gbc_btnPesquisa.gridx = 0;
@@ -366,12 +352,15 @@ public class TelaEstoque extends JFrame {
 		panelPesquisa.add(btnPesquisa, gbc_btnPesquisa);
 		btnPesquisa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				String pesquisa = textFieldPesquisaNoEstoque.getText();
+				EstoqueBD ebd = new EstoqueBD();
+				
+				ebd.atualizarPesquisa(table, pesquisa, filtro());;
 			}
 		});
 		btnPesquisa.setBorder(null);
 		btnPesquisa.setBackground(new Color(31, 65, 45));
-		
+
 		textFieldPesquisaNoEstoque = new JTextField();
 		GridBagConstraints gbc_textFieldPesquisaNoEstoque = new GridBagConstraints();
 		gbc_textFieldPesquisaNoEstoque.insets = new Insets(0, 0, 0, 5);
@@ -385,65 +374,73 @@ public class TelaEstoque extends JFrame {
 		textFieldPesquisaNoEstoque.setBorder(new LineBorder(new Color(31, 65, 45), 2));
 		textFieldPesquisaNoEstoque.setHorizontalAlignment(SwingConstants.LEFT);
 		textFieldPesquisaNoEstoque.setColumns(10);
-		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
-		gbc_btnAlterar.anchor = GridBagConstraints.EAST;
-		gbc_btnAlterar.fill = GridBagConstraints.VERTICAL;
-		gbc_btnAlterar.insets = new Insets(0, 0, 5, 0);
-		gbc_btnAlterar.gridx = 3;
-		gbc_btnAlterar.gridy = 3;
-		contentPane.add(btnAlterar, gbc_btnAlterar);
-		
-		JButton btnFiltro = new JButton("Filtrar");
-		btnFiltro.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/filtro (1).png")));
-		btnFiltro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String nome = textFieldPesquisaNoEstoque.getText();
-				EstoqueBD ebd = new EstoqueBD();
-				
-				ebd.produtoFiltradoTabela(nome);
-			}
-		});
-		btnFiltro.setForeground(new Color(234, 242, 237));
-		btnFiltro.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
-		btnFiltro.setBorder(null);
-		btnFiltro.setBackground(new Color(31, 65, 45));
-		GridBagConstraints gbc_btnFiltro = new GridBagConstraints();
-		gbc_btnFiltro.fill = GridBagConstraints.BOTH;
-		gbc_btnFiltro.insets = new Insets(0, 0, 5, 5);
-		gbc_btnFiltro.gridx = 2;
-		gbc_btnFiltro.gridy = 4;
-		contentPane.add(btnFiltro, gbc_btnFiltro);
-		
+
 		JButton btnRemover = new JButton("Remover");
 		btnRemover.setForeground(new Color(234, 242, 237));
 		btnRemover.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
 		btnRemover.setBackground(new Color(31, 65, 45));
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				etb.deletar(produto_selecionado,table);
+				etb.deletar(produto_selecionado, table);
 				table.setModel(etb.listagemProduto());
 			}
 		});
+
+		JButton btnAlterar = new JButton("  Alterar  ");
+		btnAlterar.setForeground(new Color(234, 242, 237));
+		btnAlterar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
+		btnAlterar.setBackground(new Color(31, 65, 45));
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (produto_selecionado != null) {
+					TelaSalvarProduto sp = new TelaSalvarProduto();
+					sp.abrir(produto_selecionado);
+
+				}
+			}
+		});
+
+		comboBox = new JComboBox();
+		GridBagConstraints gbc_comboBox = new GridBagConstraints();
+		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
+		gbc_comboBox.gridx = 2;
+		gbc_comboBox.gridy = 3;
+		contentPane.add(comboBox, gbc_comboBox);
+		comboBox.setForeground(new Color(234, 242, 237));
+		comboBox.setBackground(new Color(31, 65, 45));
+		comboBox.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { " Filtrar", " Nome", " Código",
+				" Preço - Maior para menor", " Preço - Menor para maior" }));
+		
+		
+		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
+		gbc_btnAlterar.anchor = GridBagConstraints.EAST;
+		gbc_btnAlterar.fill = GridBagConstraints.BOTH;
+		gbc_btnAlterar.insets = new Insets(0, 0, 5, 0);
+		gbc_btnAlterar.gridx = 4;
+		gbc_btnAlterar.gridy = 3;
+		contentPane.add(btnAlterar, gbc_btnAlterar);
+
 		GridBagConstraints gbc_btnRemover = new GridBagConstraints();
+		gbc_btnRemover.fill = GridBagConstraints.BOTH;
 		gbc_btnRemover.anchor = GridBagConstraints.EAST;
-		gbc_btnRemover.fill = GridBagConstraints.VERTICAL;
 		gbc_btnRemover.insets = new Insets(0, 0, 5, 0);
-		gbc_btnRemover.gridx = 3;
+		gbc_btnRemover.gridx = 4;
 		gbc_btnRemover.gridy = 4;
 		contentPane.add(btnRemover, gbc_btnRemover);
-		
+
 		JScrollPane scrollPane = new JScrollPane(table);
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
-		gbc_scrollPane.gridwidth = 3;
+		gbc_scrollPane.gridwidth = 4;
 		gbc_scrollPane.gridx = 1;
 		gbc_scrollPane.gridy = 5;
 		contentPane.add(scrollPane, gbc_scrollPane);
-		
+
 		JTableHeader tH = table.getTableHeader();
-		
-		
-		//-------------------------------------------------------- métodos -------------------------------------
+
+		// -------------------------------------------------------- métodos
+		// -------------------------------------
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -452,12 +449,28 @@ public class TelaEstoque extends JFrame {
 				produto_selecionado = lista.get(posicao_produto);
 				System.out.println(produto_selecionado.getProduto_nomeveg());
 			}
-			}	
-		);
+		});
 		tH.setBackground(new Color(150, 191, 120));
 		tH.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 20));
 		tH.setForeground(Color.WHITE);
 
-
+	}
+	
+	public int filtro() {
+		int filtro = 0;
+		if (comboBox.getSelectedIndex() == 2) {
+			filtro = 1;
+		}
+		else if(comboBox.getSelectedIndex() == 3) {
+			filtro = 2;
+		}
+		else if(comboBox.getSelectedIndex() == 4) {
+			filtro = 3;
+		}
+		else if(comboBox.getSelectedIndex() == 5) {
+			filtro = 4;
+		}
+		
+		return filtro;
 	}
 }
