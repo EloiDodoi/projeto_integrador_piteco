@@ -115,11 +115,6 @@ public class TelaListagemItensVenda extends JFrame {
 		contentPane.add(scrollPane, gbc_scrollPane);
 
 		table = new JTable();
-		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "C\u00F3digo", "Nome", "Pre\u00E7o", "Quantidade" }));
-
-		listagemItemVenda(venda_selecionada);
-
 		table.setSelectionBackground(new Color(217, 173, 181));
 		table.setRowHeight(25);
 		table.setGridColor(new Color(31, 65, 45));
@@ -127,6 +122,11 @@ public class TelaListagemItensVenda extends JFrame {
 		table.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		table.setBackground(new Color(234, 242, 237));
 		scrollPane.setViewportView(table);
+		table.setModel(new DefaultTableModel(new Object[][] {},
+				new String[] { "C\u00F3digo", "Nome", "Pre\u00E7o", "Quantidade" }));
+
+		DefaultTableModel obj = listagemItemVenda(venda_selecionada);
+		table.setModel(obj);
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(31, 65, 45));
