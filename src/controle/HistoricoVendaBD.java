@@ -18,60 +18,57 @@ import modelo.Produto;
 import modelo.Venda;
 
 public class HistoricoVendaBD {
-	
+
 	private ConexaoBD cbd = new ConexaoBD();
 
 	public void atualizarHistoricoVenda(JTable jt) {
 		jt.setModel(listagemVenda());
 	}
-	
+
 	public ArrayList<Venda> listaVendas() {
 		try {
 			ArrayList<Venda> historico = new ArrayList<>();
-			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT idVenda,venda_data,venda_valor,Tipo_Pagamento_idTipo_Pagamento FROM venda");
+			PreparedStatement ps = cbd.getConexao().prepareStatement(
+					"SELECT idVenda,venda_data,venda_valor,Tipo_Pagamento_idTipo_Pagamento FROM venda");
 			ResultSet rs = ps.executeQuery();
-	          while(rs.next()){
-	        	  Venda v = new Venda();
-	        	  v.setIdVenda(rs.getInt(1));
-	        	  v.setVenda_data(rs.getDate(2));
-	        	  v.setVenda_valor(rs.getFloat(3));
-	        	  v.setTipo_pagamento(rs.getInt(4));
-	        	  historico.add(v);
+			while (rs.next()) {
+				Venda v = new Venda();
+				v.setIdVenda(rs.getInt(1));
+				v.setVenda_data(rs.getDate(2));
+				v.setVenda_valor(rs.getFloat(3));
+				v.setTipo_pagamento(rs.getInt(4));
+				historico.add(v);
 
-	            }
-	          return historico;
+			}
+			return historico;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
+
 	public DefaultTableModel listagemVenda() {
 		ArrayList<Venda> lp = listaVendas();
-		DefaultTableModel modelo_tabela = new DefaultTableModel(
-				new Object[][][][]{
-					
-				},
-				new String[] {
-					"N�", "Data", "Valor", "Tipo de Pagamento"
-				}	
-		);
-		for (int i = 0;i<lp.size();i++) {
+		DefaultTableModel modelo_tabela = new DefaultTableModel(new Object[][][][] {
+
+		}, new String[] { "N�", "Data", "Valor", "Tipo de Pagamento" });
+		for (int i = 0; i < lp.size(); i++) {
 			Venda v = lp.get(i);
-			////--- nao 
-			modelo_tabela.addRow(new Object[]{v.getIdVenda(), v.getVenda_data(), v.getVenda_valor(),TipoPagemento(v.getTipo_pagamento())});
-			System.out.println(TipoPagemento(v.getTipo_pagamento())+"   "+v.getTipo_pagamento());
+			//// --- nao
+			modelo_tabela.addRow(new Object[] { v.getIdVenda(), v.getVenda_data(), v.getVenda_valor(),
+					TipoPagemento(v.getTipo_pagamento()) });
+			System.out.println(TipoPagemento(v.getTipo_pagamento()) + "   " + v.getTipo_pagamento());
 		}
-		return modelo_tabela;	
-	}	
-	
-	public String TipoPagemento (int id){
+		return modelo_tabela;
+	}
+
+	public String TipoPagemento(int id) {
 		String tipo = null;
 		if (id == 1) {
 			tipo = "Dinheiro";
-		}else if (id == 2) {
+		} else if (id == 2) {
 			tipo = "Cartão de Débito";
-		}else {
+		} else {
 			tipo = "Cartão de Crédito";
 		}
 //		switch (id) {
@@ -84,51 +81,37 @@ public class HistoricoVendaBD {
 //		}
 		return tipo;
 	}
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------
-	public DefaultTableModel listagemItemVenda(Venda v) {
-		ArrayList<ItemVendido> lp = listaItensVenda(v);
-		DefaultTableModel modelo_tabela = new DefaultTableModel(
-				new Object[][][][]{
-					
-				},
-				new String[] {
-					"ID", "Nome", "Quantidade", "Preço"
-				}	
-		);
-		for (int i = 0;i<lp.size();i++) {
-			ItemVendido iv = lp.get(i);
-			////--- nao 
-			modelo_tabela.addRow(new Object[]{iv.getCodigoItem(),iv.getNomIetem(),iv.getQuantidadeItem(),iv.getPrecoTotalItem()});
-		}
-		return modelo_tabela;	
-	}	
+
+	// -----------------------------------------------------------------------------------------------------------------------------------------------------
 	
-	public ArrayList<ItemVendido> listaItensVenda(Venda v){
+
+	public ArrayList<ItemVendido> listaItensVenda(Venda v) {
 		try {
 			ArrayList<ItemVendido> itensVenda = new ArrayList<>();
-			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT Produto_idProduto,produto_nomeveg,vp_quantidade,vp_valor "
-					+ "from produto inner join venda_produto on Produto_idProduto = idProduto inner join venda on Venda_idVenda = idVenda "
-					+ "where idVenda = ?");
+			PreparedStatement ps = cbd.getConexao()
+					.prepareStatement("SELECT Produto_idProduto,produto_nomeveg,vp_quantidade,vp_valor "
+							+ "from produto inner join venda_produto on Produto_idProduto = idProduto inner join venda on Venda_idVenda = idVenda "
+							+ "where idVenda = ?");
 			ps.setInt(1, v.getIdVenda());
 			ResultSet rs = ps.executeQuery();
-	          while(rs.next()){
-	        	  ItemVendido iv = new ItemVendido();
-	        	  iv.setCodigoItem(rs.getInt(1));
-	        	  iv.setNomIetem(rs.getString(2));
-	        	  iv.setQuantidadeItem(rs.getFloat(3));
-	        	  iv.setPrecoTotalItem(rs.getFloat(4));
-	        	  itensVenda.add(iv);
+			while (rs.next()) {
+				ItemVendido iv = new ItemVendido();
+				iv.setCodigoItem(rs.getInt(1));
+				iv.setNomIetem(rs.getString(2));
+				iv.setQuantidadeItem(rs.getFloat(3));
+				iv.setPrecoTotalItem(rs.getFloat(4));
+				itensVenda.add(iv);
 
-	            }
-	          return itensVenda;
+			}
+			return itensVenda;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
+
 	public DefaultTableModel listagemItensVenda() {
 		return null;
 	}
-	
+
 }

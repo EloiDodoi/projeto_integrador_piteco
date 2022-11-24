@@ -1,32 +1,33 @@
 package visao;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import java.awt.GridBagLayout;
-import javax.swing.JScrollPane;
-import java.awt.GridBagConstraints;
-import java.awt.Font;
-import java.awt.Insets;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controle.HistoricoVendaBD;
 import modelo.ItemVendido;
-import modelo.Produto;
 import modelo.Venda;
 
 public class TelaListagemItensVenda extends JFrame {
 
 	private JPanel contentPane;
+	private JFrame frame;
 	private JTable table;
+	private static Venda venda_selecionada;
 	HistoricoVendaBD hvbd = new HistoricoVendaBD();
-	TelaHistoricoVendas thv = new TelaHistoricoVendas();
 
 	/**
 	 * Launch the application.
@@ -35,8 +36,9 @@ public class TelaListagemItensVenda extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaListagemItensVenda frame = new TelaListagemItensVenda();
-					frame.setVisible(true);
+					TelaListagemItensVenda window = new TelaListagemItensVenda(venda_selecionada);
+					window.frame.setVisible(true);
+					window.frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -47,7 +49,26 @@ public class TelaListagemItensVenda extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaListagemItensVenda() {
+	public TelaListagemItensVenda(Venda vendaSelecionada) {
+		venda_selecionada = vendaSelecionada;
+		initialize();
+	}
+
+	public DefaultTableModel listagemItemVenda(Venda v) {
+		ArrayList<ItemVendido> lp = hvbd.listaItensVenda(v);
+		DefaultTableModel modelo_tabela = new DefaultTableModel(new Object[][][][] {
+
+		}, new String[] { "ID", "Nome", "Quantidade", "Preço" });
+		for (int i = 0; i < lp.size(); i++) {
+			ItemVendido iv = lp.get(i);
+			//// --- nao
+			modelo_tabela.addRow(new Object[] { iv.getCodigoItem(), iv.getNomIetem(), iv.getQuantidadeItem(),
+					iv.getPrecoTotalItem() });
+		}
+		return modelo_tabela;
+	}
+
+	private void initialize() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 385, 450);
@@ -57,12 +78,12 @@ public class TelaListagemItensVenda extends JFrame {
 
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{32, 308, 34, 0};
-		gbl_contentPane.rowHeights = new int[]{0, 0, 310, 0, 0};
-		gbl_contentPane.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.columnWidths = new int[] { 32, 308, 34, 0 };
+		gbl_contentPane.rowHeights = new int[] { 0, 0, 310, 0, 0 };
+		gbl_contentPane.columnWeights = new double[] { 1.0, 1.0, 1.0, Double.MIN_VALUE };
+		gbl_contentPane.rowWeights = new double[] { 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
 		contentPane.setLayout(gbl_contentPane);
-		
+
 		JLabel lblItensDaVenda = new JLabel("Itens da Venda");
 		lblItensDaVenda.setHorizontalAlignment(SwingConstants.LEFT);
 		lblItensDaVenda.setForeground(new Color(234, 242, 237));
@@ -73,7 +94,7 @@ public class TelaListagemItensVenda extends JFrame {
 		gbc_lblItensDaVenda.gridx = 1;
 		gbc_lblItensDaVenda.gridy = 0;
 		contentPane.add(lblItensDaVenda, gbc_lblItensDaVenda);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(31, 65, 45));
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
@@ -82,7 +103,7 @@ public class TelaListagemItensVenda extends JFrame {
 		gbc_panel_1.gridx = 2;
 		gbc_panel_1.gridy = 1;
 		contentPane.add(panel_1, gbc_panel_1);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		scrollPane.setBackground(new Color(234, 242, 237));
@@ -92,21 +113,13 @@ public class TelaListagemItensVenda extends JFrame {
 		gbc_scrollPane.gridx = 1;
 		gbc_scrollPane.gridy = 2;
 		contentPane.add(scrollPane, gbc_scrollPane);
-		
-		
-		
+
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"C\u00F3digo", "Nome", "Pre\u00E7o", "Quantidade"
-			}
-		));
-		
-		hvbd.listagemItemVenda(thv.retornarVendaSelecionada());
-		System.out.println(thv.retornarVendaSelecionada());
-		
+		table.setModel(new DefaultTableModel(new Object[][] {},
+				new String[] { "C\u00F3digo", "Nome", "Pre\u00E7o", "Quantidade" }));
+
+		listagemItemVenda(venda_selecionada);
+
 		table.setSelectionBackground(new Color(217, 173, 181));
 		table.setRowHeight(25);
 		table.setGridColor(new Color(31, 65, 45));
@@ -114,8 +127,7 @@ public class TelaListagemItensVenda extends JFrame {
 		table.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 25));
 		table.setBackground(new Color(234, 242, 237));
 		scrollPane.setViewportView(table);
-		
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(31, 65, 45));
 		GridBagConstraints gbc_panel = new GridBagConstraints();
@@ -124,9 +136,7 @@ public class TelaListagemItensVenda extends JFrame {
 		gbc_panel.gridx = 0;
 		gbc_panel.gridy = 3;
 		contentPane.add(panel, gbc_panel);
-		
-		
+
 	}
 
-	
 }
