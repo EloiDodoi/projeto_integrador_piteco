@@ -104,7 +104,7 @@ public class TelaAlterarVendedor {
 		gbl_panelPrincipal.columnWidths = new int[] {65, 1171, 65};
 		gbl_panelPrincipal.rowHeights = new int[] {110, 580};
 		gbl_panelPrincipal.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-		gbl_panelPrincipal.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+		gbl_panelPrincipal.rowWeights = new double[]{0.0, 1.0};
 		panelPrincipal.setLayout(gbl_panelPrincipal);
 		
 		JPanel panel_1 = new JPanel();
@@ -123,7 +123,7 @@ public class TelaAlterarVendedor {
 		gbl_panel_1.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		panel_1.setLayout(gbl_panel_1);
 		
-		JLabel lblCadastroDoVendedor = new JLabel("Cadastro do Vendedor");
+		JLabel lblCadastroDoVendedor = new JLabel("Alterar Vendedor");
 		lblCadastroDoVendedor.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCadastroDoVendedor.setForeground(new Color(234, 242, 237));
 		lblCadastroDoVendedor.setFont(new Font("Dialog", Font.PLAIN, 85));
