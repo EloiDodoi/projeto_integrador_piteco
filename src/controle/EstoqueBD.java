@@ -29,6 +29,7 @@ public class EstoqueBD {
 			JOptionPane.showMessageDialog(null, "Produto deletado com êxito!");
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao deletar o produto!");
+			System.out.println(e);
 		}
 	
 	}

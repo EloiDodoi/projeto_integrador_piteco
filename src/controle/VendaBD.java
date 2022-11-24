@@ -115,7 +115,7 @@ public class VendaBD {
 				ps3.setInt(2, produto.getIdProduto());
 				ps3.execute();
 			}
-
+			JOptionPane.showMessageDialog(null, "Venda executada com êxito!");
 		} catch (SQLException e) {
 				System.out.println(e);
 			e.printStackTrace();
