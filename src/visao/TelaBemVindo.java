@@ -141,7 +141,7 @@ public class TelaBemVindo extends JFrame {
 		btnMenuEstoque.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuEstoque);
 
-		JMenuItem btnMenuVendas = new JMenuItem("Vendas");
+		JMenuItem btnMenuVendas = new JMenuItem("Venda");
 		btnMenuVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
