@@ -99,7 +99,7 @@ public class TelaAlterarVendedor {
 		
 		JPanel panelPrincipal = new JPanel();
 		panelPrincipal.setBackground(new Color(123, 166, 111));
-		frame.getContentPane().add(panelPrincipal);
+		frame.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
 		GridBagLayout gbl_panelPrincipal = new GridBagLayout();
 		gbl_panelPrincipal.columnWidths = new int[] {65, 1171, 65};
 		gbl_panelPrincipal.rowHeights = new int[] {110, 580};

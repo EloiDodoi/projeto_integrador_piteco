@@ -172,7 +172,7 @@ public class TelaControleVendedores extends JFrame {
 		btnMenuEstoque.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnMenuEstoque);
 		
-		btnMenuVendas = new JMenuItem("Vendas");
+		btnMenuVendas = new JMenuItem("Venda");
 		btnMenuVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
