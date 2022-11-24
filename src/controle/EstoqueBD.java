@@ -74,28 +74,98 @@ public class EstoqueBD {
 		return modelo_tabela;	
 	}
 	
-	public Produto filtro(String nome) {
-		PreparedStatement ps;
-		Produto p = null;
+	public ArrayList<Produto> filtro(String texto, int tipo) {
 		try {
-			ps = cbd.getConexao().prepareStatement("SELECT * FROM produto WHERE produto_nomeveg = ?");
-			ps.setString(1, nome);
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-		      	p = new Produto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
+			ArrayList<Produto> listaFiltrada = new ArrayList<>();
+			if (tipo == 1) {
+				PreparedStatement ps;
+				ps = cbd.getConexao().prepareStatement("SELECT * FROM produto WHERE produto_nomeveg like '%?%'");
+				ps.setString(1, texto);
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+			      	Produto p = new Produto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
+		        	  listaFiltrada.add(p);
+	            }
+	          for (Produto p: listaFiltrada) {
+	        	  System.out.println(p.getIdProduto());
+	        	  System.out.println(p.getProduto_nomeveg());
+	        	  System.out.println(p.getProduto_especieveg());
+	        	  System.out.println(p.getProduto_preco());
+	        	  System.out.println(p.getProduto_quantidade());
+	        	  System.out.println(p.getUnidade_quantidade_idUnidade_quantidade());
+	          }
+	          	return listaFiltrada;
+	          }else if (tipo == 2){
+	        	  int cod = Integer.parseInt(texto);
+	        	  PreparedStatement ps;
+					ps = cbd.getConexao().prepareStatement("SELECT * FROM produto WHERE IdProduto = 1");
+					ps.setInt(1, cod);
+					ResultSet rs = ps.executeQuery();
+					while (rs.next()) {
+				      	Produto p = new Produto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
+			        	  listaFiltrada.add(p);
+		            }
+		          for (Produto p: listaFiltrada) {
+		        	  System.out.println(p.getIdProduto());
+		        	  System.out.println(p.getProduto_nomeveg());
+		        	  System.out.println(p.getProduto_especieveg());
+		        	  System.out.println(p.getProduto_preco());
+		        	  System.out.println(p.getProduto_quantidade());
+		        	  System.out.println(p.getUnidade_quantidade_idUnidade_quantidade());
+		          }
+		          	return listaFiltrada;
+	          } else if (tipo == 3) {
+	        	  Float preco_maior = Float.parseFloat(texto);
+	        	  PreparedStatement ps;
+					ps = cbd.getConexao().prepareStatement("SELECT * FROM produto WHERE Produto_preco <= ?");
+					ps.setFloat(1, preco_maior);
+					ResultSet rs = ps.executeQuery();
+					while (rs.next()) {
+				      	Produto p = new Produto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
+			        	  listaFiltrada.add(p);
+		            }
+		          for (Produto p: listaFiltrada) {
+		        	  System.out.println(p.getIdProduto());
+		        	  System.out.println(p.getProduto_nomeveg());
+		        	  System.out.println(p.getProduto_especieveg());
+		        	  System.out.println(p.getProduto_preco());
+		        	  System.out.println(p.getProduto_quantidade());
+		        	  System.out.println(p.getUnidade_quantidade_idUnidade_quantidade());
+		          }
+		          	return listaFiltrada;
+			}else if (tipo==4) {
+	        	  Float preco_menor = Float.parseFloat(texto);
+	        	  PreparedStatement ps;
+					ps = cbd.getConexao().prepareStatement("SELECT * FROM produto WHERE Produto_preco >= ?");
+					ps.setFloat(1, preco_menor);
+					ResultSet rs = ps.executeQuery();
+					while (rs.next()) {
+				      	Produto p = new Produto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
+			        	  listaFiltrada.add(p);
+		            }
+		          for (Produto p: listaFiltrada) {
+		        	  System.out.println(p.getIdProduto());
+		        	  System.out.println(p.getProduto_nomeveg());
+		        	  System.out.println(p.getProduto_especieveg());
+		        	  System.out.println(p.getProduto_preco());
+		        	  System.out.println(p.getProduto_quantidade());
+		        	  System.out.println(p.getUnidade_quantidade_idUnidade_quantidade());
+		          }
+		          	return listaFiltrada;
 			}
-			return p;
-		} catch (SQLException e) {
+			
+			
+			} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro ao filtrar. Tenha certeza de que digitou um nome válido");
+			JOptionPane.showMessageDialog(null, "Erro ao filtrar ou n�o existente. Tenha certeza de que digitou um produto válido");
 		}
 		
 		return null;
 	}
 	
 	public DefaultTableModel produtoFiltradoTabela(String nome) {
-		Produto p = filtro(nome);
+		//Produto p = filtro(nome, 0);
 		
 		DefaultTableModel modelo_tabela = new DefaultTableModel(
 				new Object[][][][][][] {
@@ -105,8 +175,9 @@ public class EstoqueBD {
 					"C\u00F3digo", "Nome", "Esp\u00E9cie", "Pre\u00E7o", "Quantidade"
 				}	
 		);
-		modelo_tabela.addRow(new Object[] {p.getIdProduto(),p.getProduto_nomeveg(),p.getProduto_especieveg(),p.getProduto_preco(), p.getProduto_quantidade()});
+		//modelo_tabela.addRow(new Object[] {p.getIdProduto(),p.getProduto_nomeveg(),p.getProduto_especieveg(),p.getProduto_preco(), p.getProduto_quantidade()});
 		
 		return modelo_tabela;
 	}
+
 }

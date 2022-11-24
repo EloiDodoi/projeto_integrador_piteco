@@ -17,6 +17,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import controle.HistoricoVendaBD;
+import modelo.ItemVendido;
+import modelo.Produto;
 import modelo.Venda;
 
 public class TelaListagemItensVenda extends JFrame {
@@ -103,6 +105,8 @@ public class TelaListagemItensVenda extends JFrame {
 		));
 		
 		hvbd.listagemItemVenda(thv.retornarVendaSelecionada());
+		System.out.println(thv.retornarVendaSelecionada());
+		
 		table.setSelectionBackground(new Color(217, 173, 181));
 		table.setRowHeight(25);
 		table.setGridColor(new Color(31, 65, 45));
@@ -124,4 +128,5 @@ public class TelaListagemItensVenda extends JFrame {
 		
 	}
 
+	
 }
