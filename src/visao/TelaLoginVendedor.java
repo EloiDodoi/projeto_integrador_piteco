@@ -91,7 +91,7 @@ public class TelaLoginVendedor {
 																																frame.getContentPane().add(panel1);
 																																panel1.setLayout(null);
 																																
-																																		JLabel lblUsuario1 = new JLabel("Usu�rio");
+																																		JLabel lblUsuario1 = new JLabel("Usuário");
 																																		lblUsuario1.setForeground(new Color(31, 65, 45));
 																																		lblUsuario1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 27));
 																																		lblUsuario1.setBounds(37, 37, 146, 31);
@@ -136,6 +136,22 @@ public class TelaLoginVendedor {
 																																												passwordField.setFont(new Font("Tahoma", Font.PLAIN, 25));
 																																												passwordField.setBounds(37, 192, 577, 39);
 																																												panel1.add(passwordField);
+																																												
+																																												JButton btnNewButton = new JButton("");
+																																												btnNewButton.addActionListener(new ActionListener() {
+																																													public void actionPerformed(ActionEvent arg0) {
+																																														frame.setVisible(false);
+																																														TelaInicial ti = new TelaInicial();
+																																														ti.setVisible(true);
+																																													}
+																																												});
+																																												btnNewButton.setIcon(new ImageIcon(TelaLoginVendedor.class.getResource("/img/voltar.png")));
+																																												btnNewButton.setForeground(Color.WHITE);
+																																												btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 30));
+																																												btnNewButton.setBorder(null);
+																																												btnNewButton.setBackground(new Color(150, 191, 120));
+																																												btnNewButton.setBounds(10, 11, 100, 100);
+																																												frame.getContentPane().add(btnNewButton);
 
 																																												URL resource = this.getClass().getResource("../img/adm_login.png");
 		Image img1 = new ImageIcon(resource).getImage();

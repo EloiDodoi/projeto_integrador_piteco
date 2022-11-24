@@ -177,7 +177,9 @@ public class TelaLoginAdm {
 		txt_senha.setBounds(37, 192, 577, 39);
 		panel_1.add(txt_senha);
 
-		JButton btnNewButton = new JButton("<");
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setBorder(null);
+		btnNewButton.setIcon(new ImageIcon(TelaLoginAdm.class.getResource("/img/voltar.png")));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaInicial ti = new TelaInicial();
@@ -187,8 +189,8 @@ public class TelaLoginAdm {
 		});
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 30));
-		btnNewButton.setBackground(new Color(31, 65, 45));
-		btnNewButton.setBounds(27, 25, 60, 56);
+		btnNewButton.setBackground(new Color(150, 191, 120));
+		btnNewButton.setBounds(10, 11, 100, 100);
 		frmLoginDoAdministrador.getContentPane().add(btnNewButton);
 		frmLoginDoAdministrador.setBounds(100, 100, 1600, 850);
 		frmLoginDoAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
