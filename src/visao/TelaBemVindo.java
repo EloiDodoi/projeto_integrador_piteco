@@ -106,7 +106,7 @@ public class TelaBemVindo extends JFrame {
 		JMenuItem btnMenuInicio = new JMenuItem("In\u00EDcio");
 		btnMenuInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Voc� j� est� na Tela Inicial.");
+				JOptionPane.showMessageDialog(null, "Você já está na Tela Inicial.");
 			}
 		});
 		btnMenuInicio.setOpaque(true);
@@ -336,7 +336,8 @@ public class TelaBemVindo extends JFrame {
 		gbl_panel_3.rowWeights = new double[] { 0.0, 1.0, Double.MIN_VALUE };
 		panel_3.setLayout(gbl_panel_3);
 
-		JButton btnCadastro = new JButton("Cadastro");
+		JButton btnCadastro = new JButton("Cadastro Produto");
+		btnCadastro.setToolTipText("Efetuar o cadastro de um novo produto");
 		btnCadastro.setBorder(new LineBorder(new Color(85, 121, 74), 2, true));
 		GridBagConstraints gbc_btnCadastro = new GridBagConstraints();
 		gbc_btnCadastro.fill = GridBagConstraints.BOTH;
@@ -353,9 +354,10 @@ public class TelaBemVindo extends JFrame {
 		});
 		btnCadastro.setBackground(new Color(150, 191, 120));
 		btnCadastro.setForeground(new Color(85, 121, 74));
-		btnCadastro.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 65));
+		btnCadastro.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 50));
 
-		JButton btnVenda = new JButton("Vendas");
+		JButton btnVenda = new JButton("Venda");
+		btnVenda.setToolTipText("Efetuar uma nova venda");
 		btnVenda.setBorder(new LineBorder(new Color(85, 121, 74), 2, true));
 		GridBagConstraints gbc_btnVenda = new GridBagConstraints();
 		gbc_btnVenda.insets = new Insets(0, 0, 10, 0);
