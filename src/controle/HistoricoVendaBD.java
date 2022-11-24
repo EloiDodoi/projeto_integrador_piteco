@@ -67,14 +67,21 @@ public class HistoricoVendaBD {
 	
 	public String TipoPagemento (int id){
 		String tipo = null;
-		switch (id) {
-			case 1:	
-				tipo = "Dinheiro";
-			case 2:
-				tipo = "Cartão de Débito";
-			case 3:
-				tipo = "Cartão de Crédito";
+		if (id == 1) {
+			tipo = "Dinheiro";
+		}else if (id == 2) {
+			tipo = "Cartão de Débito";
+		}else {
+			tipo = "Cartão de Crédito";
 		}
+//		switch (id) {
+//			case 1:	
+//				tipo = "Dinheiro";
+//			case 2:
+//				tipo = "Cartão de Débito";
+//			case 3:
+//				tipo = "Cartão de Crédito";
+//		}
 		return tipo;
 	}
 	//-----------------------------------------------------------------------------------------------------------------------------------------------------

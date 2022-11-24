@@ -98,7 +98,7 @@ public class EstoqueBD {
 	          }else if (tipo == 2){
 	        	  int cod = Integer.parseInt(texto);
 	        	  PreparedStatement ps;
-					ps = cbd.getConexao().prepareStatement("SELECT * FROM produto WHERE IdProduto = 1");
+					ps = cbd.getConexao().prepareStatement("SELECT * FROM produto WHERE IdProduto = ?");
 					ps.setInt(1, cod);
 					ResultSet rs = ps.executeQuery();
 					while (rs.next()) {
@@ -158,7 +158,7 @@ public class EstoqueBD {
 			} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro ao filtrar ou n�o existente. Tenha certeza de que digitou um produto válido");
+			JOptionPane.showMessageDialog(null, "Erro ao filtrar ou n�o existente. Tenha certeza de que digitou um produto válido");
 		}
 		
 		return null;
