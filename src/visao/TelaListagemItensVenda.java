@@ -23,6 +23,9 @@ import modelo.ItemVendido;
 import modelo.Venda;
 import javax.swing.JSeparator;
 import javax.swing.border.LineBorder;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaListagemItensVenda extends JFrame {
 
@@ -73,17 +76,17 @@ public class TelaListagemItensVenda extends JFrame {
 	private void initialize() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 442, 450);
+		setBounds(100, 100, 574, 450);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(234, 242, 237));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[] { 32, 341, 34, 0 };
-		gbl_contentPane.rowHeights = new int[] { 54, 7, 28, 310, 0, 0 };
+		gbl_contentPane.columnWidths = new int[] { 55, 479, 83, 0 };
+		gbl_contentPane.rowHeights = new int[] { 54, 7, 28, 310, 0, 0, 0, 27, 0 };
 		gbl_contentPane.columnWeights = new double[] { 1.0, 1.0, 1.0, Double.MIN_VALUE };
-		gbl_contentPane.rowWeights = new double[] { 0.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
+		gbl_contentPane.rowWeights = new double[] { 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE };
 		contentPane.setLayout(gbl_contentPane);
 
 		JLabel lblItensDaVenda = new JLabel("Itens da Venda");
@@ -137,6 +140,29 @@ public class TelaListagemItensVenda extends JFrame {
 		table.setBackground(new Color(234, 242, 237));
 		table.getColumnModel().getColumn(1).setPreferredWidth(5);
 		table.setModel(obj);
+		
+		JButton btnNewButton = new JButton("  Fechar  ");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+		});
+		btnNewButton.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 17));
+		btnNewButton.setForeground(new Color(234, 242, 237));
+		btnNewButton.setBackground(new Color(31, 65, 45));
+		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNewButton.gridx = 1;
+		gbc_btnNewButton.gridy = 5;
+		contentPane.add(btnNewButton, gbc_btnNewButton);
+		
+		JPanel panel_1 = new JPanel();
+		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
+		gbc_panel_1.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_1.fill = GridBagConstraints.BOTH;
+		gbc_panel_1.gridx = 1;
+		gbc_panel_1.gridy = 6;
+		contentPane.add(panel_1, gbc_panel_1);
 		
 		
 		JTableHeader tHeader = table.getTableHeader();

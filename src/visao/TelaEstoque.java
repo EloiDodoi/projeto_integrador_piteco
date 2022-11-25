@@ -49,6 +49,7 @@ public class TelaEstoque extends JFrame {
 	AlterarProdutoBD at = new AlterarProdutoBD();
 	JTable table;
 	JComboBox comboBox;
+	static TelaEstoque frame;
 
 	/**
 	 * Launch the application.
@@ -57,7 +58,7 @@ public class TelaEstoque extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaEstoque frame = new TelaEstoque();
+					frame = new TelaEstoque();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -442,7 +443,7 @@ public class TelaEstoque extends JFrame {
 				if (produto_selecionado != null) {
 					TelaSalvarProduto sp = new TelaSalvarProduto();
 					sp.abrir(produto_selecionado);
-
+					frame.setVisible(false);
 				}
 			}
 		});

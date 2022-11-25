@@ -184,6 +184,8 @@ public class TelaLoginAdm {
 			public void actionPerformed(ActionEvent e) {
 				TelaInicial ti = new TelaInicial();
 				ti.setVisible(true);
+				ti.setExtendedState(ti.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+
 				frmLoginDoAdministrador.setVisible(false);
 			}
 		});

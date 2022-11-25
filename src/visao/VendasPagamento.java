@@ -491,6 +491,7 @@ public class VendasPagamento extends JFrame {
 					venda.setTipo_pagamento(pagamento);
 					
 					vbd.executarVenda(venda);
+					setVisible(false);
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "Selecione um método de pagamento antes de finalizar a venda!");

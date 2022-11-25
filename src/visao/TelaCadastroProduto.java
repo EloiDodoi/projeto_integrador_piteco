@@ -74,6 +74,7 @@ public class TelaCadastroProduto {
 	}
 	
 	private void initialize() {
+				
 		frame = new JFrame();
 		frame.setMaximumSize(new Dimension(1600, 850));
 		frame.setMinimumSize(new Dimension(1600, 850));

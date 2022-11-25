@@ -21,6 +21,7 @@ import java.awt.event.ActionEvent;
 public class TelaInicial extends JFrame {
 
 	private JPanel contentPane;
+	static TelaInicial window;
 //	TelaInicial frame = new TelaInicial();
 	/**
 	 * Launch the application.
@@ -29,7 +30,7 @@ public class TelaInicial extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaInicial window = new TelaInicial();
+					window = new TelaInicial();
 					window.setVisible(true);
 					window.setLocationRelativeTo(null);
 					window.setExtendedState(window.getExtendedState() | JFrame.MAXIMIZED_BOTH);
@@ -121,6 +122,7 @@ public class TelaInicial extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TelaLoginAdm login_adm = new TelaLoginAdm();
 				login_adm.abrir();
+				window.setVisible(false);
 			}
 		});
 		btn_adm.setForeground(Color.WHITE);
@@ -135,6 +137,7 @@ public class TelaInicial extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TelaLoginVendedor login_vendedor = new TelaLoginVendedor();
 				login_vendedor.abrir();
+				window.setVisible(false);
 			}
 		});
 		btn_vendedor.setPreferredSize(new Dimension(99, 23));

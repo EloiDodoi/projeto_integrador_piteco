@@ -44,6 +44,7 @@ public class TelaCadastroVendedor {
 	private JTextField txt_email_vendedor;
 	private JPasswordField pf_senha_vendedor;
 	private JPasswordField pf_senha_confirmada_vendedor;
+	static TelaCadastroVendedor window;
 	
 	private int statusMenu = 0;
 	
@@ -55,7 +56,7 @@ public class TelaCadastroVendedor {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaCadastroVendedor window = new TelaCadastroVendedor();
+					window = new TelaCadastroVendedor();
 					window.frame.setVisible(true);
 					window.frame.setLocationRelativeTo(null);
 					window.frame.setExtendedState(window.frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
@@ -406,6 +407,8 @@ public class TelaCadastroVendedor {
 					CadastroVendedorBD bv = new CadastroVendedorBD();
 					Usuario usuario =  new Usuario(0,nome_vendedor,cpf_vendedor,null,Date.valueOf(data),telefone_vendedor,Md5.cifrar(senha_vendedor),email_vendedor,null,0);
 					bv.cadastrarVendedor(usuario);
+					frame.setVisible(false);
+					
 				}
 				
 			}

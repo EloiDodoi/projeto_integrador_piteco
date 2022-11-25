@@ -59,9 +59,9 @@ public class ControleVendedorBD {
 			ps.setInt(1, u.getUsuario_id());
 			ps.executeUpdate();
 			atualizarLista(table);
-			JOptionPane.showMessageDialog(null, "Produto deletado com êxito!");
+			JOptionPane.showMessageDialog(null, "Usuário deletado com êxito!");
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao deletar o produto!");
+			JOptionPane.showMessageDialog(null, "Erro ao deletar usuário!");
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
