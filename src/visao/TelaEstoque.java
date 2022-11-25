@@ -215,6 +215,46 @@ public class TelaEstoque extends JFrame {
 		linha_1_1.setMinimumSize(new Dimension(5, 1));
 		linha_1_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1_1);
+		
+		JMenuItem btnCadastrarVendedor = new JMenuItem("Cadastrar Vendedor");
+		btnCadastrarVendedor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				TelaCadastroVendedor tcv = new TelaCadastroVendedor();
+				tcv.abrir();
+			}
+		});
+		btnCadastrarVendedor.setOpaque(true);
+		btnCadastrarVendedor.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnCadastrarVendedor.setHorizontalAlignment(SwingConstants.CENTER);
+		btnCadastrarVendedor.setForeground(new Color(85, 121, 74));
+		btnCadastrarVendedor.setFont(new Font("Dialog", Font.PLAIN, 16));
+		btnCadastrarVendedor.setBorder(null);
+		btnCadastrarVendedor.setBackground(new Color(150, 191, 120));
+		mnNewMenu.add(btnCadastrarVendedor);
+		
+		JMenuItem btnListagemDeVendedores = new JMenuItem("Listagem de Vendedores");
+		btnListagemDeVendedores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				TelaListagemVendedores tlv = new TelaListagemVendedores();
+				tlv.abrir();
+			}
+		});
+		btnListagemDeVendedores.setOpaque(true);
+		btnListagemDeVendedores.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnListagemDeVendedores.setHorizontalAlignment(SwingConstants.CENTER);
+		btnListagemDeVendedores.setForeground(new Color(85, 121, 74));
+		btnListagemDeVendedores.setFont(new Font("Dialog", Font.PLAIN, 16));
+		btnListagemDeVendedores.setBorder(null);
+		btnListagemDeVendedores.setBackground(new Color(150, 191, 120));
+		mnNewMenu.add(btnListagemDeVendedores);
+		
+		JPanel linha_1_1_2 = new JPanel();
+		linha_1_1_2.setPreferredSize(new Dimension(1, 2));
+		linha_1_1_2.setMinimumSize(new Dimension(5, 1));
+		linha_1_1_2.setBackground(new Color(85, 121, 74));
+		mnNewMenu.add(linha_1_1_2);
 
 		JMenuItem btnMenuSair = new JMenuItem("Sair");
 		btnMenuSair.setOpaque(true);
@@ -262,6 +302,13 @@ public class TelaEstoque extends JFrame {
 		panel_8.add(btnNotificacao, gbc_btnNotificacao);
 
 		JButton btnUser = new JButton("");
+		btnUser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				TelaAlterarAdm taa = new TelaAlterarAdm();
+				taa.abrir();
+			}
+		});
 		btnUser.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/farmer.png")));
 		btnUser.setBorder(null);
 		btnUser.setBackground(new Color(150, 191, 120));

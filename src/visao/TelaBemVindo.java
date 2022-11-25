@@ -298,6 +298,7 @@ public class TelaBemVindo extends JFrame {
 		JButton btnUser = new JButton("");
 		btnUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				TelaAlterarAdm taa = new TelaAlterarAdm();
 				taa.abrir();
 			}

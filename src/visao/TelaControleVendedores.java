@@ -70,6 +70,9 @@ public class TelaControleVendedores extends JFrame {
 	private JSeparator separator;
 	private JButton btnNotificacao;
 	private JButton btnUser;
+	private JMenuItem btnCadastrarVendedor;
+	private JMenuItem btnListagemDeVendedores;
+	private JPanel linha_1_1_2;
 
 	/**
 	 * Launch the application.
@@ -233,6 +236,44 @@ public class TelaControleVendedores extends JFrame {
 		linha_1_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1_1);
 		
+		btnCadastrarVendedor = new JMenuItem("Cadastrar Vendedor");
+		btnCadastrarVendedor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "Você já está na tela de Cadastro de Vendedor!");
+			}
+		});
+		btnCadastrarVendedor.setOpaque(true);
+		btnCadastrarVendedor.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnCadastrarVendedor.setHorizontalAlignment(SwingConstants.CENTER);
+		btnCadastrarVendedor.setForeground(new Color(85, 121, 74));
+		btnCadastrarVendedor.setFont(new Font("Dialog", Font.PLAIN, 16));
+		btnCadastrarVendedor.setBorder(null);
+		btnCadastrarVendedor.setBackground(new Color(150, 191, 120));
+		mnNewMenu.add(btnCadastrarVendedor);
+		
+		btnListagemDeVendedores = new JMenuItem("Listagem de Vendedores");
+		btnListagemDeVendedores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				TelaListagemVendedores tlv = new TelaListagemVendedores();
+				tlv.abrir();
+			}
+		});
+		btnListagemDeVendedores.setOpaque(true);
+		btnListagemDeVendedores.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnListagemDeVendedores.setHorizontalAlignment(SwingConstants.CENTER);
+		btnListagemDeVendedores.setForeground(new Color(85, 121, 74));
+		btnListagemDeVendedores.setFont(new Font("Dialog", Font.PLAIN, 16));
+		btnListagemDeVendedores.setBorder(null);
+		btnListagemDeVendedores.setBackground(new Color(150, 191, 120));
+		mnNewMenu.add(btnListagemDeVendedores);
+		
+		linha_1_1_2 = new JPanel();
+		linha_1_1_2.setPreferredSize(new Dimension(1, 2));
+		linha_1_1_2.setMinimumSize(new Dimension(5, 1));
+		linha_1_1_2.setBackground(new Color(85, 121, 74));
+		mnNewMenu.add(linha_1_1_2);
+		
 		btnMenuSair = new JMenuItem("Sair");
 		btnMenuSair.setOpaque(true);
 		btnMenuSair.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -285,6 +326,13 @@ public class TelaControleVendedores extends JFrame {
 		panel_1.add(btnNotificacao, gbc_btnNotificacao);
 		
 		btnUser = new JButton("");
+		btnUser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				TelaAlterarAdm taa = new TelaAlterarAdm();
+				taa.abrir();
+			}
+		});
 		btnUser.setIcon(new ImageIcon(TelaControleVendedores.class.getResource("/img/farmer.png")));
 		btnUser.setBorder(null);
 		btnUser.setBackground(new Color(150, 191, 120));

@@ -328,6 +328,13 @@ public class TelaListagemVendedores extends JFrame {
 		panel_1.add(btnNotificacao, gbc_btnNotificacao);
 		
 		btnUser = new JButton("");
+		btnUser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				TelaAlterarAdm taa = new TelaAlterarAdm();
+				taa.abrir();
+			}
+		});
 		btnUser.setIcon(new ImageIcon(TelaListagemVendedores.class.getResource("/img/farmer.png")));
 		btnUser.setBorder(null);
 		btnUser.setBackground(new Color(150, 191, 120));
