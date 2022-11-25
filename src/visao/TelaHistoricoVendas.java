@@ -30,6 +30,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 
 import controle.HistoricoVendaBD;
@@ -403,7 +404,6 @@ public class TelaHistoricoVendas extends JFrame {
 		table.setGridColor(new Color(150, 191, 120));
 		table.setForeground(new Color(31, 65, 45));
 		table.setFont(new Font("Yu Gothic Light", Font.PLAIN, 26));
-
 		table.setModel(hvbd.listagemVenda());
 		scrollPane.setViewportView(table);
 

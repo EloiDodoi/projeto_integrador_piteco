@@ -1,5 +1,7 @@
 package controle;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -54,7 +56,6 @@ public class HistoricoVendaBD {
 		}, new String[] { "N�", "Data", "Valor", "Tipo de Pagamento" });
 		for (int i = 0; i < lp.size(); i++) {
 			Venda v = lp.get(i);
-			//// --- nao
 			modelo_tabela.addRow(new Object[] { v.getIdVenda(), v.getVenda_data(), v.getVenda_valor(),
 					TipoPagemento(v.getTipo_pagamento()) });
 			System.out.println(TipoPagemento(v.getTipo_pagamento()) + "   " + v.getTipo_pagamento());
