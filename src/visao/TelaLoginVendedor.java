@@ -29,10 +29,11 @@ import java.net.URL;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 import javax.swing.JPasswordField;
+import java.awt.Toolkit;
 
 public class TelaLoginVendedor {
 
-	private static JFrame frame;
+	private static JFrame frmLoginDoVendedor;
 	private JTextField txtUsuarioVendedor;
 	private JPasswordField passwordField;
 
@@ -44,9 +45,9 @@ public class TelaLoginVendedor {
 			public void run() {
 				try {
 					TelaLoginVendedor window = new TelaLoginVendedor();
-					window.frame.setVisible(true);
-					window.frame.setLocationRelativeTo(null);
-					window.frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+					window.frmLoginDoVendedor.setVisible(true);
+					window.frmLoginDoVendedor.setLocationRelativeTo(null);
+					window.frmLoginDoVendedor.setExtendedState(frmLoginDoVendedor.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -58,38 +59,40 @@ public class TelaLoginVendedor {
 	 * Create the application.
 	 */
 	public TelaLoginVendedor() {
+		
 		initialize();
 	}
 
 	public void abrir() {
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		frmLoginDoVendedor.setVisible(true);
+		frmLoginDoVendedor.setLocationRelativeTo(null);
+		frmLoginDoVendedor.setExtendedState(frmLoginDoVendedor.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setTitle("Tela Login Vendedor");
-		frame.getContentPane().setBackground(new Color(150, 191, 120));
-		frame.getContentPane().setLayout(null);
+		frmLoginDoVendedor = new JFrame();
+		frmLoginDoVendedor.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaLoginVendedor.class.getResource("/img/1.png")));
+		frmLoginDoVendedor.setResizable(false);
+		frmLoginDoVendedor.setTitle("Login do Vendedor");
+		frmLoginDoVendedor.getContentPane().setBackground(new Color(150, 191, 120));
+		frmLoginDoVendedor.getContentPane().setLayout(null);
 
 		JLabel lblVendedor = new JLabel("Vendedor");
 		lblVendedor.setHorizontalAlignment(SwingConstants.CENTER);
 		lblVendedor.setForeground(new Color(234, 242, 237));
 		lblVendedor.setFont(new Font("Dialog", Font.PLAIN, 99));
 		lblVendedor.setBounds(421, 50, 528, 149);
-		frame.getContentPane().add(lblVendedor);
+		frmLoginDoVendedor.getContentPane().add(lblVendedor);
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(TelaLoginVendedor.class.getResource("/img/vendedora-removebg-preview.png")));
 		lblNewLabel.setBounds(596, 183, 180, 180);
-		frame.getContentPane().add(lblNewLabel);
+		frmLoginDoVendedor.getContentPane().add(lblNewLabel);
 
 		JPanel panel1 = new JPanel();
 		panel1.setBackground(new Color(234, 242, 237));
 		panel1.setBounds(360, 315, 650, 380);
-		frame.getContentPane().add(panel1);
+		frmLoginDoVendedor.getContentPane().add(panel1);
 		panel1.setLayout(null);
 
 		JLabel lblUsuario1 = new JLabel("Usuário");
@@ -130,7 +133,7 @@ public class TelaLoginVendedor {
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.setVisible(false);
+				frmLoginDoVendedor.setVisible(false);
 				TelaInicial ti = new TelaInicial();
 				ti.setVisible(true);
 				ti.setExtendedState(ti.getExtendedState() | JFrame.MAXIMIZED_BOTH);
@@ -142,18 +145,18 @@ public class TelaLoginVendedor {
 		btnNewButton.setBorder(null);
 		btnNewButton.setBackground(new Color(150, 191, 120));
 		btnNewButton.setBounds(10, 11, 100, 100);
-		frame.getContentPane().add(btnNewButton);
+		frmLoginDoVendedor.getContentPane().add(btnNewButton);
 
 		URL resource = this.getClass().getResource("../img/adm_login.png");
 		Image img1 = new ImageIcon(resource).getImage();
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 1600, 850);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLoginDoVendedor.setResizable(false);
+		frmLoginDoVendedor.setBounds(100, 100, 1600, 850);
+		frmLoginDoVendedor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JButton btnEntrar1 = new JButton("Entrar");
 		btnEntrar1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Usuario login = new Usuario(0, null, null, null, null, null, passwordField.getText(), txtUsuarioVendedor.getText(), 0);
+				Usuario login = new Usuario(0, null, null, null, null, null, passwordField.getText(), txtUsuarioVendedor.getText(), null, 0);
 				LoginVendedorBD lg = new LoginVendedorBD();
 				if (lg.autenticar(login)== null ) {
 					System.out.println("Erro Login");

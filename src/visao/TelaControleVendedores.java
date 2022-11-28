@@ -39,6 +39,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class TelaControleVendedores extends JFrame {
 
@@ -102,6 +103,8 @@ public class TelaControleVendedores extends JFrame {
 	}
 	
 	public TelaControleVendedores() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaControleVendedores.class.getResource("/img/1.png")));
+		setTitle("Controle de Vendedores");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 850);
 		

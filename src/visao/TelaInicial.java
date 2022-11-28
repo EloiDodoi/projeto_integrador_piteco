@@ -53,8 +53,9 @@ public class TelaInicial extends JFrame {
 //		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 //	}
 	public TelaInicial() {
+		setTitle("Bem Vindo");
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Lenovo\\Downloads\\PitecoLogo\\3.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaInicial.class.getResource("/img/1.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 850);
 		contentPane = new JPanel();

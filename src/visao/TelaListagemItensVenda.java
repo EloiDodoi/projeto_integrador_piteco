@@ -26,6 +26,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class TelaListagemItensVenda extends JFrame {
 
@@ -56,6 +57,8 @@ public class TelaListagemItensVenda extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaListagemItensVenda(Venda vendaSelecionada) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaListagemItensVenda.class.getResource("/img/1.png")));
+		setTitle("Listagem de Itens de Venda");
 		venda_selecionada = vendaSelecionada;
 		initialize();
 	}

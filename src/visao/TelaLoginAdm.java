@@ -31,6 +31,7 @@ import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 import visao.TelaBemVindo;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
 
 public class TelaLoginAdm {
 
@@ -76,6 +77,7 @@ public class TelaLoginAdm {
 
 	private void initialize() {
 		frmLoginDoAdministrador = new JFrame();
+		frmLoginDoAdministrador.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaLoginAdm.class.getResource("/img/1.png")));
 		frmLoginDoAdministrador.setResizable(false);
 		frmLoginDoAdministrador.setTitle("Login do Administrador");
 		frmLoginDoAdministrador.getContentPane().setBackground(new Color(150, 191, 120));

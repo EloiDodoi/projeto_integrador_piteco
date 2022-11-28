@@ -36,10 +36,11 @@ import javax.swing.JProgressBar;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.Toolkit;
 
 public class TelaAlterarVendedor {
 
-	private JFrame frame;
+	private JFrame frmTelaAlterarVendedor;
 	private JTextField txt_nome_vendedor;
 	private JTextField txt_cpf_vendedor;
 	private JTextField txt_telefone_vendedor;
@@ -63,9 +64,9 @@ public class TelaAlterarVendedor {
 			public void run() {
 				try {
 					TelaAlterarVendedor window = new TelaAlterarVendedor();
-					window.frame.setVisible(true);
-					window.frame.setLocationRelativeTo(null);
-					window.frame.setExtendedState(window.frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+					window.frmTelaAlterarVendedor.setVisible(true);
+					window.frmTelaAlterarVendedor.setLocationRelativeTo(null);
+					window.frmTelaAlterarVendedor.setExtendedState(window.frmTelaAlterarVendedor.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -85,21 +86,23 @@ public class TelaAlterarVendedor {
 	 */
 	
 	public void abrir() {
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		frmTelaAlterarVendedor.setVisible(true);
+		frmTelaAlterarVendedor.setLocationRelativeTo(null);
+		frmTelaAlterarVendedor.setExtendedState(frmTelaAlterarVendedor.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 	private void initialize() {
 		
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(123, 166, 111));
-		frame.setBounds(100, 100, 1600, 851);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		frmTelaAlterarVendedor = new JFrame();
+		frmTelaAlterarVendedor.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaAlterarVendedor.class.getResource("/img/1.png")));
+		frmTelaAlterarVendedor.setTitle("Alterar Vendedor");
+		frmTelaAlterarVendedor.getContentPane().setBackground(new Color(123, 166, 111));
+		frmTelaAlterarVendedor.setBounds(100, 100, 1600, 851);
+		frmTelaAlterarVendedor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmTelaAlterarVendedor.getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelPrincipal = new JPanel();
 		panelPrincipal.setBackground(new Color(123, 166, 111));
-		frame.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
+		frmTelaAlterarVendedor.getContentPane().add(panelPrincipal, BorderLayout.CENTER);
 		GridBagLayout gbl_panelPrincipal = new GridBagLayout();
 		gbl_panelPrincipal.columnWidths = new int[] {65, 1171, 65};
 		gbl_panelPrincipal.rowHeights = new int[] {110, 580};
@@ -437,7 +440,7 @@ public class TelaAlterarVendedor {
 					abd.alteraVendedor(usuario);
 				}
 				
-				frame.setVisible(false);
+				frmTelaAlterarVendedor.setVisible(false);
 				TelaListagemVendedores tlv = new TelaListagemVendedores();
 				tlv.setVisible(true);
 				
@@ -447,7 +450,7 @@ public class TelaAlterarVendedor {
 		JButton btnCancela = new JButton("  Cancelar  ");
 		btnCancela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.setVisible(false);
+				frmTelaAlterarVendedor.setVisible(false);
 				TelaListagemVendedores tlv = new TelaListagemVendedores();
 				tlv.abrir();
 			}
@@ -478,9 +481,9 @@ public class TelaAlterarVendedor {
 	public void abrir(Usuario usuario_selecionado) {
 		
 		this.usuario_selecionado = usuario_selecionado;
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);		
+		frmTelaAlterarVendedor.setVisible(true);
+		frmTelaAlterarVendedor.setLocationRelativeTo(null);
+		frmTelaAlterarVendedor.setExtendedState(frmTelaAlterarVendedor.getExtendedState() | JFrame.MAXIMIZED_BOTH);		
 
 		txt_nome_vendedor.setText(usuario_selecionado.getUsuario_nome());
 		txt_email_vendedor.setText(usuario_selecionado.getUsuario_email());

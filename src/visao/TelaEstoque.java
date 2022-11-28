@@ -39,6 +39,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.AbstractButton;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Toolkit;
 
 public class TelaEstoque extends JFrame {
 
@@ -75,6 +76,8 @@ public class TelaEstoque extends JFrame {
 	}
 
 	public TelaEstoque() {
+		setTitle("Estoque");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaEstoque.class.getResource("/img/1.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 850);
 		contentPane = new JPanel();

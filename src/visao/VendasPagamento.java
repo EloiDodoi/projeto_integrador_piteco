@@ -44,6 +44,7 @@ import java.util.Date;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import visao.TelaLoginAdm;
+import java.awt.Toolkit;
 
 public class VendasPagamento extends JFrame {
 	private JPanel contentPane;
@@ -89,6 +90,8 @@ public class VendasPagamento extends JFrame {
 	}
 
 	public VendasPagamento(Venda venda) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VendasPagamento.class.getResource("/img/1.png")));
+		setTitle("Pagamento da Venda");
 
 		System.out.println(venda.getArrayItensVenda().size());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -34,10 +34,11 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.FlowLayout;
 import javax.swing.JMenuBar;
+import java.awt.Toolkit;
 
 public class TelaCadastroVendedor {
 
-	private JFrame frame;
+	private JFrame frmTelaDeCadastro;
 	private JTextField txt_nome_vendedor;
 	private JTextField txt_cpf_vendedor;
 	private JTextField txt_telefone_vendedor;
@@ -57,9 +58,9 @@ public class TelaCadastroVendedor {
 			public void run() {
 				try {
 					window = new TelaCadastroVendedor();
-					window.frame.setVisible(true);
-					window.frame.setLocationRelativeTo(null);
-					window.frame.setExtendedState(window.frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+					window.frmTelaDeCadastro.setVisible(true);
+					window.frmTelaDeCadastro.setLocationRelativeTo(null);
+					window.frmTelaDeCadastro.setExtendedState(window.frmTelaDeCadastro.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -79,22 +80,24 @@ public class TelaCadastroVendedor {
 	 */
 	
 	public void abrir() {
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		frmTelaDeCadastro.setVisible(true);
+		frmTelaDeCadastro.setLocationRelativeTo(null);
+		frmTelaDeCadastro.setExtendedState(frmTelaDeCadastro.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 	
 	private void initialize() {
 		
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(123, 166, 111));
-		frame.setBounds(100, 100, 1600, 851);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		frmTelaDeCadastro = new JFrame();
+		frmTelaDeCadastro.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaCadastroVendedor.class.getResource("/img/1.png")));
+		frmTelaDeCadastro.setTitle("Cadastro de Vendedor");
+		frmTelaDeCadastro.getContentPane().setBackground(new Color(123, 166, 111));
+		frmTelaDeCadastro.setBounds(100, 100, 1600, 851);
+		frmTelaDeCadastro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmTelaDeCadastro.getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel_Principal = new JPanel();
 		panel_Principal.setBackground(new Color(123, 166, 111));
-		frame.getContentPane().add(panel_Principal);
+		frmTelaDeCadastro.getContentPane().add(panel_Principal);
 		GridBagLayout gbl_panel_Principal = new GridBagLayout();
 		gbl_panel_Principal.columnWidths = new int[] {65, 1171, 65};
 		gbl_panel_Principal.rowHeights = new int[] {0, 118, 500, 30};
@@ -407,7 +410,7 @@ public class TelaCadastroVendedor {
 					CadastroVendedorBD bv = new CadastroVendedorBD();
 					Usuario usuario =  new Usuario(0,nome_vendedor,cpf_vendedor,null,Date.valueOf(data),telefone_vendedor,Md5.cifrar(senha_vendedor),email_vendedor,null,0);
 					bv.cadastrarVendedor(usuario);
-					frame.setVisible(false);
+					frmTelaDeCadastro.setVisible(false);
 					
 				}
 				
@@ -417,7 +420,7 @@ public class TelaCadastroVendedor {
 		JButton btnCancelar = new JButton("  Cancelar  ");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.setVisible(false);
+				frmTelaDeCadastro.setVisible(false);
 				TelaBemVindo tbv = new TelaBemVindo();
 				tbv.abrir();
 			}

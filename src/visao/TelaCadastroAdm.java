@@ -25,7 +25,7 @@ import modelo.Usuario;
 
 public class TelaCadastroAdm {
 
-	private JFrame frame;
+	private JFrame frmTelaCadastrarAdministrador;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -59,9 +59,9 @@ public class TelaCadastroAdm {
 			public void run() {
 				try {
 					TelaCadastroAdm window = new TelaCadastroAdm();
-					window.frame.setVisible(true);
-					window.frame.setLocationRelativeTo(null);
-					window.frame.setExtendedState(window.frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+					window.frmTelaCadastrarAdministrador.setVisible(true);
+					window.frmTelaCadastrarAdministrador.setLocationRelativeTo(null);
+					window.frmTelaCadastrarAdministrador.setExtendedState(window.frmTelaCadastrarAdministrador.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -78,20 +78,22 @@ public class TelaCadastroAdm {
 	}
 
 	public void abrir() {
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		frmTelaCadastrarAdministrador.setVisible(true);
+		frmTelaCadastrarAdministrador.setLocationRelativeTo(null);
+		frmTelaCadastrarAdministrador.setExtendedState(frmTelaCadastrarAdministrador.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 	
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(150, 191, 120));
+		frmTelaCadastrarAdministrador = new JFrame();
+		frmTelaCadastrarAdministrador.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaCadastroAdm.class.getResource("/img/1.png")));
+		frmTelaCadastrarAdministrador.setTitle("Cadastrar Administrador");
+		frmTelaCadastrarAdministrador.getContentPane().setBackground(new Color(150, 191, 120));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] {120, 1182, 120};
 		gridBagLayout.rowHeights = new int[] {50, 143, 536, 50};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
-		frame.getContentPane().setLayout(gridBagLayout);
+		frmTelaCadastrarAdministrador.getContentPane().setLayout(gridBagLayout);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setMinimumSize(new Dimension(1171, 174));
@@ -101,7 +103,7 @@ public class TelaCadastroAdm {
 		gbc_panel_1.fill = GridBagConstraints.VERTICAL;
 		gbc_panel_1.gridx = 1;
 		gbc_panel_1.gridy = 1;
-		frame.getContentPane().add(panel_1, gbc_panel_1);
+		frmTelaCadastrarAdministrador.getContentPane().add(panel_1, gbc_panel_1);
 		panel_1.setBackground(new Color(31, 65, 45));
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
 		gbl_panel_1.columnWidths = new int[]{871, 136, 175, 0};
@@ -136,7 +138,7 @@ public class TelaCadastroAdm {
 		gbc_panel_2.fill = GridBagConstraints.BOTH;
 		gbc_panel_2.gridx = 1;
 		gbc_panel_2.gridy = 2;
-		frame.getContentPane().add(panel_2, gbc_panel_2);
+		frmTelaCadastrarAdministrador.getContentPane().add(panel_2, gbc_panel_2);
 		GridBagLayout gbl_panel_2 = new GridBagLayout();
 		gbl_panel_2.columnWidths = new int[] {1, 30, 73, 55, 116, 55, 234, 80, 202, 218, 30};
 		gbl_panel_2.rowHeights = new int[] {30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30};
@@ -452,7 +454,7 @@ public class TelaCadastroAdm {
 				JButton btnCancelar = new JButton("Cancelar");
 				btnCancelar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-					frame.setVisible(false);
+					frmTelaCadastrarAdministrador.setVisible(false);
 					TelaLoginAdm tla = new TelaLoginAdm();
 					tla.abrir();
 					}
@@ -505,7 +507,7 @@ public class TelaCadastroAdm {
 							Usuario Adm = new Usuario(0,nomeAdm, cpfAdm, cnpj,Date.valueOf(dataAdm),telefoneAdm,senhaAdm,emailAdm,nomeNegocio,0);
 							cabd.cadastrarVendedor(Adm);
 							
-							frame.setVisible(false);
+							frmTelaCadastrarAdministrador.setVisible(false);
 							TelaLoginAdm tla = new TelaLoginAdm();
 							tla.abrir();
 						}
@@ -516,9 +518,9 @@ public class TelaCadastroAdm {
 				btnCadastrar.setForeground(new Color(217, 173, 181));
 				btnCadastrar.setBackground(new Color(234, 242, 237));
 				btnCadastrar.setFont(new Font("Dialog", Font.PLAIN, 30));
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 1600, 850);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmTelaCadastrarAdministrador.setResizable(false);
+		frmTelaCadastrarAdministrador.setBounds(100, 100, 1600, 850);
+		frmTelaCadastrarAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	
 	}

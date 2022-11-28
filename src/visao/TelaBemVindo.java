@@ -64,6 +64,8 @@ public class TelaBemVindo extends JFrame {
 	 */
 
 	public TelaBemVindo() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaBemVindo.class.getResource("/img/1.png")));
+		setTitle("Tela Inicial");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1034, 641);
 

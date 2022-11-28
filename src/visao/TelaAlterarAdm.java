@@ -12,7 +12,7 @@ import javax.swing.border.LineBorder;
 
 public class TelaAlterarAdm {
 
-	private JFrame frame;
+	private JFrame frmTelaAlterarAdministrador;
 	private JTextField txtEmail;
 
 	/**
@@ -23,9 +23,9 @@ public class TelaAlterarAdm {
 			public void run() {
 				try {
 					TelaAlterarAdm window = new TelaAlterarAdm();
-					window.frame.setVisible(true);
-					window.frame.setLocationRelativeTo(null);
-					window.frame.setExtendedState(window.frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+					window.frmTelaAlterarAdministrador.setVisible(true);
+					window.frmTelaAlterarAdministrador.setLocationRelativeTo(null);
+					window.frmTelaAlterarAdministrador.setExtendedState(window.frmTelaAlterarAdministrador.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,20 +42,22 @@ public class TelaAlterarAdm {
 	}
 
 	public void abrir() {
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		frmTelaAlterarAdministrador.setVisible(true);
+		frmTelaAlterarAdministrador.setLocationRelativeTo(null);
+		frmTelaAlterarAdministrador.setExtendedState(frmTelaAlterarAdministrador.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 	
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(150, 191, 120));
+		frmTelaAlterarAdministrador = new JFrame();
+		frmTelaAlterarAdministrador.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaAlterarAdm.class.getResource("/img/1.png")));
+		frmTelaAlterarAdministrador.setTitle("Alterar Administrador");
+		frmTelaAlterarAdministrador.getContentPane().setBackground(new Color(150, 191, 120));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] {120, 1182, 120};
 		gridBagLayout.rowHeights = new int[] {50, 127, 536, 50};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
-		frame.getContentPane().setLayout(gridBagLayout);
+		frmTelaAlterarAdministrador.getContentPane().setLayout(gridBagLayout);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setMinimumSize(new Dimension(1171, 174));
@@ -65,7 +67,7 @@ public class TelaAlterarAdm {
 		gbc_panel_1.fill = GridBagConstraints.VERTICAL;
 		gbc_panel_1.gridx = 1;
 		gbc_panel_1.gridy = 1;
-		frame.getContentPane().add(panel_1, gbc_panel_1);
+		frmTelaAlterarAdministrador.getContentPane().add(panel_1, gbc_panel_1);
 		panel_1.setBackground(new Color(31, 65, 45));
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
 		gbl_panel_1.columnWidths = new int[]{871, 136, 175, 0};
@@ -99,7 +101,7 @@ public class TelaAlterarAdm {
 		gbc_panel_2.fill = GridBagConstraints.BOTH;
 		gbc_panel_2.gridx = 1;
 		gbc_panel_2.gridy = 2;
-		frame.getContentPane().add(panel_2, gbc_panel_2);
+		frmTelaAlterarAdministrador.getContentPane().add(panel_2, gbc_panel_2);
 		GridBagLayout gbl_panel_2 = new GridBagLayout();
 		gbl_panel_2.columnWidths = new int[] {1, 30, 73, 55, 116, 55, 234, 80, 62, 430, 30};
 		gbl_panel_2.rowHeights = new int[] {20, 30, 30, 30, 30, 30, 30, 30, 30, 0, 30, 30, 0, 30};
@@ -405,7 +407,7 @@ public class TelaAlterarAdm {
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			
-			frame.setVisible(false);
+			frmTelaAlterarAdministrador.setVisible(false);
 			TelaBemVindo tbv = new TelaBemVindo();
 			tbv.abrir();
 			}
@@ -432,7 +434,7 @@ public class TelaAlterarAdm {
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			frame.setVisible(false);
+			frmTelaAlterarAdministrador.setVisible(false);
 			TelaBemVindo tbv = new TelaBemVindo();
 			tbv.abrir();
 			}
@@ -462,12 +464,12 @@ public class TelaAlterarAdm {
 		gbc_btnCancelar.gridx = 8;
 		gbc_btnCancelar.gridy = 12;
 		panel_2.add(btnCancelar, gbc_btnCancelar);
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 1600, 850);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 1600, 850);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmTelaAlterarAdministrador.setResizable(false);
+		frmTelaAlterarAdministrador.setBounds(100, 100, 1600, 850);
+		frmTelaAlterarAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmTelaAlterarAdministrador.setResizable(false);
+		frmTelaAlterarAdministrador.setBounds(100, 100, 1600, 850);
+		frmTelaAlterarAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 }

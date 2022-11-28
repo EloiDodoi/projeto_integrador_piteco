@@ -41,10 +41,11 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JMenuBar;
+import java.awt.Toolkit;
 
 public class TelaSalvarProduto {
 
-	private JFrame frame;
+	private JFrame frmSalvarProduto;
 	private JTextField txt_nome;
 	private JTextField txt_especie;
 	private JTextField txt_preco;
@@ -66,9 +67,9 @@ public class TelaSalvarProduto {
 			public void run() {
 				try {
 					TelaSalvarProduto window = new TelaSalvarProduto();
-					window.frame.setVisible(true);
-					window.frame.setLocationRelativeTo(null);
-					window.frame.setExtendedState(window.frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+					window.frmSalvarProduto.setVisible(true);
+					window.frmSalvarProduto.setLocationRelativeTo(null);
+					window.frmSalvarProduto.setExtendedState(window.frmSalvarProduto.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -86,16 +87,18 @@ public class TelaSalvarProduto {
 
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setMaximumSize(new Dimension(1600, 850));
-		frame.setMinimumSize(new Dimension(1600, 850));
-		frame.getContentPane().setBackground(new Color(234, 242, 237));
-		frame.setBounds(100, 100, 1600, 850);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		frmSalvarProduto = new JFrame();
+		frmSalvarProduto.setTitle("Salvar Produto");
+		frmSalvarProduto.setIconImage(Toolkit.getDefaultToolkit().getImage(TelaSalvarProduto.class.getResource("/img/1.png")));
+		frmSalvarProduto.setMaximumSize(new Dimension(1600, 850));
+		frmSalvarProduto.setMinimumSize(new Dimension(1600, 850));
+		frmSalvarProduto.getContentPane().setBackground(new Color(234, 242, 237));
+		frmSalvarProduto.setBounds(100, 100, 1600, 850);
+		frmSalvarProduto.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmSalvarProduto.getContentPane().setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel);
+		frmSalvarProduto.getContentPane().add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] { 65, 797, 179, 454, 65 };
 		gbl_panel.rowHeights = new int[] { 30, 10, 110, 544, 30 };
@@ -280,7 +283,7 @@ public class TelaSalvarProduto {
 				}
 				alt.alterarProduto(produto);
 				telaEstoque.table.setModel(etb.listagemProduto());
-				frame.setVisible(false);
+				frmSalvarProduto.setVisible(false);
 				TelaEstoque te = new TelaEstoque();
 				te.setVisible(true);
 
@@ -341,7 +344,7 @@ public class TelaSalvarProduto {
 
 				TelaEstoque te = new TelaEstoque();
 				te.abrir();
-				frame.setVisible(false);
+				frmSalvarProduto.setVisible(false);
 			}
 		});
 		btnExcluir.setForeground(new Color(31, 65, 45));
@@ -362,9 +365,9 @@ public class TelaSalvarProduto {
 	public void abrir(Produto produtoSelecionado) {
 
 		this.produtoSelecionado = produtoSelecionado;
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		frmSalvarProduto.setVisible(true);
+		frmSalvarProduto.setLocationRelativeTo(null);
+		frmSalvarProduto.setExtendedState(frmSalvarProduto.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
 		txt_nome.setText(produtoSelecionado.getProduto_nomeveg());
 		txt_especie.setText(produtoSelecionado.getProduto_especieveg());

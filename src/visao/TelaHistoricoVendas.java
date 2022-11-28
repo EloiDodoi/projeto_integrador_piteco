@@ -35,6 +35,7 @@ import javax.swing.table.JTableHeader;
 
 import controle.HistoricoVendaBD;
 import modelo.Venda;
+import java.awt.Toolkit;
 
 public class TelaHistoricoVendas extends JFrame {
 
@@ -65,6 +66,8 @@ public class TelaHistoricoVendas extends JFrame {
 	}
 
 	public TelaHistoricoVendas() {
+		setTitle("Histórico de Vendas");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaHistoricoVendas.class.getResource("/img/1.png")));
 		hvbd = new HistoricoVendaBD();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 850);

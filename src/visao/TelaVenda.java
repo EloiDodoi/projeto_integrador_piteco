@@ -37,6 +37,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import java.awt.Toolkit;
 
 public class TelaVenda extends JFrame {
 
@@ -86,6 +87,8 @@ public class TelaVenda extends JFrame {
 	}
 	
 	public TelaVenda() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaVenda.class.getResource("/img/1.png")));
+		setTitle("Venda");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 924, 517);
 		

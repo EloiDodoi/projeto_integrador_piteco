@@ -39,6 +39,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
+import java.awt.Toolkit;
 
 public class TelaListagemVendedores extends JFrame {
 
@@ -102,6 +103,8 @@ public class TelaListagemVendedores extends JFrame {
 	}
 	
 	public TelaListagemVendedores() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaListagemVendedores.class.getResource("/img/1.png")));
+		setTitle("Listagem de Vendedores");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1600, 850);
 		
