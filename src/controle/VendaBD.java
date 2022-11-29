@@ -136,6 +136,7 @@ public class VendaBD {
 				return false;
 			}
 			else {
+				JOptionPane.showMessageDialog(null, "Quantidade insuficiente no estoque!");			
 				return true;
 			}
 		} catch (SQLException e) {
