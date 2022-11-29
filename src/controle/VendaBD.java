@@ -132,17 +132,15 @@ public class VendaBD {
 			while (rs.next()) {
 				quant = rs.getFloat(1);
 			}
-			if(quant < quant_item) {
-				return false;
-			}
-			else {
-				JOptionPane.showMessageDialog(null, "Quantidade insuficiente no estoque!");			
+			if(quant > quant_item) {
 				return true;
+			}
+			else {	
+				return false;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		JOptionPane.showMessageDialog(null, "Quantidade insuficiente no estoque!");			
+		}	
 		return false;
 	}
 	public void messagemEstoque (Venda venda){

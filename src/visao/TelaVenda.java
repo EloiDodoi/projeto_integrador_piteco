@@ -27,6 +27,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import controle.VendaBD;
 import modelo.ItemVenda;
+import modelo.Produto;
 import modelo.Venda;
 
 import java.awt.event.KeyAdapter;
@@ -707,13 +708,24 @@ public class TelaVenda extends JFrame {
 
 			if (textField_1.getText().isEmpty() == false) {
 				float quantidade = Float.parseFloat(textField_1.getText());
+				
+				Produto p = new Produto(codProduto, "", "", 0, 0, 0);
+				
+				if(vbd.verificarItem(p, quantidade) == true) {
 
-				float total = vbd.precoUnitario(codProduto, quantidade);
-				lblValorDoProduto.setText(String.valueOf(roundAvoid(total, 2)));
-				int pos = v.getArrayItensVenda().size() - 1;
-				v.getArrayItensVenda().get(pos).setCodigoItem(codProduto);
-				v.getArrayItensVenda().get(pos).setQuantidadeItem(quantidade);
-				v.getArrayItensVenda().get(pos).setPrecoTotalItem(roundAvoid(total, 2));
+					float total = vbd.precoUnitario(codProduto, quantidade);
+					lblValorDoProduto.setText(String.valueOf(roundAvoid(total, 2)));
+					int pos = v.getArrayItensVenda().size() - 1;
+					v.getArrayItensVenda().get(pos).setCodigoItem(codProduto);
+					v.getArrayItensVenda().get(pos).setQuantidadeItem(quantidade);
+					v.getArrayItensVenda().get(pos).setPrecoTotalItem(roundAvoid(total, 2));
+					
+				} else {
+					JOptionPane.showMessageDialog(null, "Quantidade insuficiente no estoque!");	
+					textField_1.setText("");
+					lblValorDoProduto.setText("0.00");
+				}
+				
 			}
 
 		}
