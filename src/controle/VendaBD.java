@@ -123,16 +123,16 @@ public class VendaBD {
 		}
 		
 	}
-	public boolean verificarItem(ItemVenda item){
+	public boolean verificarItem(Produto item, Float quant_item){
 		try {
 			float quant = 0;
 			PreparedStatement ps = cbd.getConexao().prepareStatement("Select produto_quantidade from produto where idproduto = ?");
-			ps.setInt(1, item.getCodigoItem());
+			ps.setInt(1, item.getIdProduto());
 			ResultSet rs =  ps.executeQuery();
 			while (rs.next()) {
 				quant = rs.getFloat(1);
 			}
-			if(quant < item.getQuantidadeItem()) {
+			if(quant < quant_item) {
 				return false;
 			}
 			else {
