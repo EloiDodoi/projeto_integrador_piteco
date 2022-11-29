@@ -58,11 +58,10 @@ public class VendasPagamento extends JFrame {
 	JLabel lblRS2;
 	JLabel lblTroco;
 	JLabel lblRS4;
-	
-	
+
 	public static float roundAvoid(double value, int places) {
 		float scale = (float) Math.pow(10, places);
-	    return Math.round(value * scale) / scale;
+		return Math.round(value * scale) / scale;
 	}
 
 	public DefaultTableModel listagemItensVenda(Venda venda) {
@@ -79,11 +78,11 @@ public class VendasPagamento extends JFrame {
 		}
 		return modelo_tabela;
 	}
-	
+
 	public float valorTotalVenda(Venda venda) {
 		float valor = 0;
-		
-		for(int i = 0; i < venda.getArrayItensVenda().size(); i++) {
+
+		for (int i = 0; i < venda.getArrayItensVenda().size(); i++) {
 			valor += venda.getArrayItensVenda().get(i).getPrecoTotalItem();
 		}
 		return roundAvoid(valor, 2);
@@ -249,7 +248,7 @@ public class VendasPagamento extends JFrame {
 				txtValorDinheiro.setVisible(true);
 			}
 		});
-		
+
 		buttonGroup.add(rbtnDinheiro);
 		rbtnDinheiro.setBackground(new Color(234, 242, 237));
 		rbtnDinheiro.setForeground(new Color(31, 65, 45));
@@ -273,7 +272,7 @@ public class VendasPagamento extends JFrame {
 				lblRS4.setVisible(false);
 				lblTroco2.setVisible(false);
 				lblTroco2.setText("0,0");
-				
+
 			}
 		});
 		buttonGroup.add(rdbtnCartaoDeDebito);
@@ -299,7 +298,7 @@ public class VendasPagamento extends JFrame {
 				lblRS4.setVisible(false);
 				lblTroco2.setVisible(false);
 				lblTroco2.setText("0,0");
-				
+
 			}
 		});
 		buttonGroup.add(rdbtnCartaoDeCredito);
@@ -408,13 +407,13 @@ public class VendasPagamento extends JFrame {
 		gbc_lblRS2.gridy = 1;
 		panelValores.add(lblRS2, gbc_lblRS2);
 		lblRS2.setVisible(false);
-		
+
 		txtValorDinheiro = new JTextField();
 		txtValorDinheiro.setForeground(new Color(31, 65, 45));
 		txtValorDinheiro.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				
+
 				atualizarTroco(venda);
 			}
 		});
@@ -429,7 +428,6 @@ public class VendasPagamento extends JFrame {
 		panelValores.add(txtValorDinheiro, gbc_textField);
 		txtValorDinheiro.setColumns(10);
 		txtValorDinheiro.setVisible(false);
-		
 
 		lblTroco = new JLabel("Troco:");
 		lblTroco.setForeground(new Color(31, 65, 45));
@@ -477,33 +475,30 @@ public class VendasPagamento extends JFrame {
 				java.sql.Date data_venda = java.sql.Date.valueOf(data.toLocalDate());
 				venda.setVenda_data(data_venda);
 				System.out.println(data_venda);
-				
+
 				int pagamento = 0;
-				
-				if(rbtnDinheiro.isSelected() == true || rdbtnCartaoDeDebito.isSelected() == true || rdbtnCartaoDeCredito.isSelected() == true) {
+
+				if (rbtnDinheiro.isSelected() == true || rdbtnCartaoDeDebito.isSelected() == true
+						|| rdbtnCartaoDeCredito.isSelected() == true) {
 					if (rbtnDinheiro.isSelected() == true) {
 						pagamento = 1;
-					}
-					else if (rdbtnCartaoDeDebito.isSelected() == true){
+					} else if (rdbtnCartaoDeDebito.isSelected() == true) {
 						pagamento = 2;
-					}
-					else if(rdbtnCartaoDeCredito.isSelected() == true) {
+					} else if (rdbtnCartaoDeCredito.isSelected() == true) {
 						pagamento = 3;
 					}
-					
+
 					venda.setTipo_pagamento(pagamento);
-					
+
 					vbd.executarVenda(venda);
 					setVisible(false);
-				}
-				else {
+				} else {
 					JOptionPane.showMessageDialog(null, "Selecione um método de pagamento antes de finalizar a venda!");
 				}
-				
-				
+
 			}
 		});
-		
+
 		JButton btnCancelar = new JButton(" Cancelar ");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -517,7 +512,7 @@ public class VendasPagamento extends JFrame {
 		btnCancelar.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
 		btnCancelar.setBackground(new Color(234, 242, 237));
 		panel_5.add(btnCancelar);
-		
+
 		JPanel panel = new JPanel();
 		panel_5.add(panel);
 		btnFinalizar.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
@@ -526,15 +521,21 @@ public class VendasPagamento extends JFrame {
 		btnFinalizar.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 42));
 		panel_5.add(btnFinalizar);
 	}
-	
+
 	protected void atualizarTroco(Venda venda) {
-		
+
 		valorTotal = Float.parseFloat(txtValorDinheiro.getText()) - valorTotalVenda(venda);
-		lblTroco.setVisible(true);
-		lblRS4.setVisible(true);
-		lblTroco2.setVisible(true);
-		lblTroco2.setText(String.valueOf(roundAvoid(valorTotal, 2)));
-		
+		if (valorTotal > 0) {
+			lblTroco.setVisible(true);
+			lblRS4.setVisible(true);
+			lblTroco2.setVisible(true);
+			lblTroco2.setText(String.valueOf(roundAvoid(valorTotal, 2)));
+		} else {
+			lblTroco.setVisible(true);
+			lblRS4.setVisible(true);
+			lblTroco2.setVisible(true);
+		}
+
 	}
 
 }

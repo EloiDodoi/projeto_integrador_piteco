@@ -47,20 +47,19 @@ public class TelaVenda extends JFrame {
 	private JTextField textField_1;
 	private JPanel panel_5;
 	private JPanel itensVenda;
-	
+
 	static TelaVenda frame = new TelaVenda();
 	JLabel lblNewLabel;
 	JLabel lblValorDoProduto;
-	
+
 	Venda v = new Venda();
 	VendasPagamento vp = new VendasPagamento(v);
-	
+
 	private JTextField cur_textField = null;
 	private JTextField cur_textField_1 = null;
 	int numItens = 0;
-	
+
 	ArrayList<JButton> lista_botoes_excluir = new ArrayList<JButton>();
-	
 
 	/**
 	 * Launch the application.
@@ -85,13 +84,13 @@ public class TelaVenda extends JFrame {
 		setLocationRelativeTo(null);
 		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
-	
+
 	public TelaVenda() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaVenda.class.getResource("/img/1.png")));
 		setTitle("Venda");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 924, 517);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorder(null);
 		menuBar.setBackground(new Color(150, 191, 120));
@@ -100,7 +99,7 @@ public class TelaVenda extends JFrame {
 		menuBar.setMinimumSize(new Dimension(0, 5));
 		menuBar.setMaximumSize(new Dimension(0, 5));
 		setJMenuBar(menuBar);
-		
+
 		JMenu mnNewMenu = new JMenu("  ");
 		mnNewMenu.setOpaque(true);
 		mnNewMenu.setHorizontalTextPosition(SwingConstants.LEFT);
@@ -113,7 +112,7 @@ public class TelaVenda extends JFrame {
 		mnNewMenu.setBorder(null);
 		mnNewMenu.setBackground(new Color(150, 191, 120));
 		menuBar.add(mnNewMenu);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("PITECO");
 		lblNewLabel_2.setMaximumSize(new Dimension(1000, 14));
 		lblNewLabel_2.setOpaque(true);
@@ -127,7 +126,7 @@ public class TelaVenda extends JFrame {
 		lblNewLabel_2.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 20));
 		lblNewLabel_2.setAlignmentX(Component.CENTER_ALIGNMENT);
 		mnNewMenu.add(lblNewLabel_2);
-		
+
 		JMenuItem btnMenuInicio = new JMenuItem("In\u00EDcio");
 		btnMenuInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -144,20 +143,20 @@ public class TelaVenda extends JFrame {
 		btnMenuInicio.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnMenuInicio.setHorizontalAlignment(SwingConstants.CENTER);
 		mnNewMenu.add(btnMenuInicio);
-		
+
 		JPanel linha = new JPanel();
 		linha.setPreferredSize(new Dimension(1, 2));
 		linha.setMinimumSize(new Dimension(5, 1));
 		linha.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha);
-		
+
 		JMenuItem btnMenuEstoque = new JMenuItem("Estoque");
 		btnMenuEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				TelaEstoque te = new TelaEstoque();
 				te.abrir();
-				
+
 			}
 		});
 		btnMenuEstoque.setOpaque(true);
@@ -168,7 +167,7 @@ public class TelaVenda extends JFrame {
 		btnMenuEstoque.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuEstoque.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuEstoque);
-		
+
 		JMenuItem btnMenuVendas = new JMenuItem("Venda");
 		btnMenuVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -183,13 +182,13 @@ public class TelaVenda extends JFrame {
 		btnMenuVendas.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuVendas.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuVendas);
-		
+
 		JPanel linha_1 = new JPanel();
 		linha_1.setPreferredSize(new Dimension(1, 2));
 		linha_1.setMinimumSize(new Dimension(5, 1));
 		linha_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1);
-		
+
 		JMenuItem btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas");
 		btnMenuRelatorios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -205,7 +204,7 @@ public class TelaVenda extends JFrame {
 		btnMenuRelatorios.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuRelatorios.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuRelatorios);
-		
+
 		JMenuItem btnMenuControle = new JMenuItem("Controle");
 		btnMenuControle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -221,19 +220,19 @@ public class TelaVenda extends JFrame {
 		btnMenuControle.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuControle.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuControle);
-		
+
 		JPanel linha_1_1 = new JPanel();
 		linha_1_1.setPreferredSize(new Dimension(1, 2));
 		linha_1_1.setMinimumSize(new Dimension(5, 1));
 		linha_1_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1_1);
-		
+
 		JMenuItem btnCadastrarVendedor = new JMenuItem("Cadastrar Vendedor");
 		btnCadastrarVendedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				TelaCadastroVendedor tcv = new TelaCadastroVendedor();
-				tcv.abrir();			
+				tcv.abrir();
 			}
 		});
 		btnCadastrarVendedor.setOpaque(true);
@@ -244,7 +243,7 @@ public class TelaVenda extends JFrame {
 		btnCadastrarVendedor.setBorder(null);
 		btnCadastrarVendedor.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnCadastrarVendedor);
-		
+
 		JMenuItem btnListagemDeVendedores = new JMenuItem("Listagem de Vendedores");
 		btnListagemDeVendedores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -261,13 +260,13 @@ public class TelaVenda extends JFrame {
 		btnListagemDeVendedores.setBorder(null);
 		btnListagemDeVendedores.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnListagemDeVendedores);
-		
+
 		JPanel linha_1_1_2 = new JPanel();
 		linha_1_1_2.setPreferredSize(new Dimension(1, 2));
 		linha_1_1_2.setMinimumSize(new Dimension(5, 1));
 		linha_1_1_2.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1_1_2);
-		
+
 		JMenuItem btnMenuSair = new JMenuItem("Sair");
 		btnMenuSair.setOpaque(true);
 		btnMenuSair.setForeground(new Color(85, 121, 74));
@@ -277,22 +276,22 @@ public class TelaVenda extends JFrame {
 		btnMenuSair.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuSair.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuSair);
-		
+
 		JPanel BarraSuperior = new JPanel();
 		BarraSuperior.setBackground(new Color(150, 191, 120));
 		menuBar.add(BarraSuperior);
 		BarraSuperior.setLayout(new BorderLayout(0, 0));
-		
+
 		JPanel panel_8_1 = new JPanel();
 		panel_8_1.setBackground(new Color(150, 191, 120));
 		BarraSuperior.add(panel_8_1, BorderLayout.EAST);
 		GridBagLayout gbl_panel_8_1 = new GridBagLayout();
-		gbl_panel_8_1.columnWidths = new int[]{30, 30, 20, 0, 30, 20, 0};
-		gbl_panel_8_1.rowHeights = new int[]{33, 0};
-		gbl_panel_8_1.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel_8_1.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_panel_8_1.columnWidths = new int[] { 30, 30, 20, 0, 30, 20, 0 };
+		gbl_panel_8_1.rowHeights = new int[] { 33, 0 };
+		gbl_panel_8_1.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel_8_1.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
 		panel_8_1.setLayout(gbl_panel_8_1);
-		
+
 		JSeparator separator_2 = new JSeparator();
 		separator_2.setOrientation(SwingConstants.VERTICAL);
 		separator_2.setForeground(new Color(234, 242, 237));
@@ -302,7 +301,7 @@ public class TelaVenda extends JFrame {
 		gbc_separator_2.gridx = 0;
 		gbc_separator_2.gridy = 0;
 		panel_8_1.add(separator_2, gbc_separator_2);
-		
+
 		JButton btnNotificacao_1 = new JButton("");
 		btnNotificacao_1.setIcon(new ImageIcon(TelaVenda.class.getResource("/img/notificacao.png")));
 		btnNotificacao_1.setBorder(null);
@@ -312,7 +311,7 @@ public class TelaVenda extends JFrame {
 		gbc_btnNotificacao_1.gridx = 3;
 		gbc_btnNotificacao_1.gridy = 0;
 		panel_8_1.add(btnNotificacao_1, gbc_btnNotificacao_1);
-		
+
 		JButton btnUser_1 = new JButton("");
 		btnUser_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -329,17 +328,17 @@ public class TelaVenda extends JFrame {
 		gbc_btnUser_1.gridx = 5;
 		gbc_btnUser_1.gridy = 0;
 		panel_8_1.add(btnUser_1, gbc_btnUser_1);
-		
+
 		JPanel panel_8 = new JPanel();
 		panel_8.setBackground(new Color(150, 191, 120));
-	//	BarraSuperior.add(panel_8, BorderLayout.EAST);
+		// BarraSuperior.add(panel_8, BorderLayout.EAST);
 		GridBagLayout gbl_panel_8 = new GridBagLayout();
-		gbl_panel_8.columnWidths = new int[]{30, 30, 20, 0, 30, 20, 0};
-		gbl_panel_8.rowHeights = new int[]{33, 0};
-		gbl_panel_8.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel_8.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_panel_8.columnWidths = new int[] { 30, 30, 20, 0, 30, 20, 0 };
+		gbl_panel_8.rowHeights = new int[] { 33, 0 };
+		gbl_panel_8.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel_8.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
 		panel_8.setLayout(gbl_panel_8);
-		
+
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
 		separator.setForeground(new Color(234, 242, 237));
@@ -349,7 +348,7 @@ public class TelaVenda extends JFrame {
 		gbc_separator.gridx = 0;
 		gbc_separator.gridy = 0;
 		panel_8.add(separator, gbc_separator);
-		
+
 		JButton btnNotificacao = new JButton("");
 		btnNotificacao.setIcon(new ImageIcon(TelaVenda.class.getResource("/img/notificacao.png")));
 		btnNotificacao.setBorder(null);
@@ -359,7 +358,7 @@ public class TelaVenda extends JFrame {
 		gbc_btnNotificacao.gridx = 3;
 		gbc_btnNotificacao.gridy = 0;
 		panel_8.add(btnNotificacao, gbc_btnNotificacao);
-		
+
 		JButton btnUser = new JButton("");
 		btnUser.setIcon(new ImageIcon(TelaVenda.class.getResource("/img/farmer.png")));
 		btnUser.setBorder(null);
@@ -422,10 +421,10 @@ public class TelaVenda extends JFrame {
 		btnNewButton = new JButton(" Pagamento ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(v.getArrayItensVenda().isEmpty() == true) {
-					JOptionPane.showMessageDialog(null, "Adicione pelo menos um item à venda para realizar o pagamento.");
-				}
-				else {
+				if (v.getArrayItensVenda().isEmpty() == true) {
+					JOptionPane.showMessageDialog(null,
+							"Adicione pelo menos um item à venda para realizar o pagamento.");
+				} else {
 					VendasPagamento telavp = new VendasPagamento(v);
 					telavp.listagemItensVenda(v);
 					telavp.setVisible(true);
@@ -434,7 +433,7 @@ public class TelaVenda extends JFrame {
 				}
 			}
 		});
-		
+
 		JButton btnCancelar = new JButton(" Cancelar ");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -448,7 +447,7 @@ public class TelaVenda extends JFrame {
 		btnCancelar.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
 		btnCancelar.setBackground(new Color(234, 242, 237));
 		panel_4.add(btnCancelar);
-		
+
 		JPanel separador = new JPanel();
 		panel_4.add(separador);
 		btnNewButton.setBackground(new Color(234, 242, 237));
@@ -496,9 +495,9 @@ public class TelaVenda extends JFrame {
 		btnAdicionarItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ItemVenda novoItem = new ItemVenda();
-				
+
 				v.adicionarItem(novoItem);
-				
+
 				JPanel itemVenda = new JPanel();
 				itemVenda.setBackground(new Color(150, 191, 120));
 				GridBagLayout gbl_panel_Itens = new GridBagLayout();
@@ -572,10 +571,9 @@ public class TelaVenda extends JFrame {
 					@Override
 					public void keyReleased(KeyEvent e) {
 						atualizarValorUnitario();
-							
+
 					}
 
-				
 				});
 
 				JLabel lblQuantidade = new JLabel("Quantidade");
@@ -602,19 +600,19 @@ public class TelaVenda extends JFrame {
 				textField_1.addKeyListener(new KeyAdapter() {
 					@Override
 					public void keyReleased(KeyEvent e) {
-						
+
 						atualizarValorUnitario();
-						
+
 					}
 				});
-				
-				if(cur_textField != null) {
+
+				if (cur_textField != null) {
 					cur_textField.setEditable(false);
 					cur_textField_1.setEditable(false);
 				}
 				cur_textField = textField;
 				cur_textField_1 = textField_1;
-				numItens +=1;
+				numItens += 1;
 
 				JButton btnDeletarItem = new JButton(" X ");
 				btnDeletarItem.setForeground(new Color(234, 242, 237));
@@ -624,12 +622,12 @@ public class TelaVenda extends JFrame {
 				itemVenda.add(btnDeletarItem);
 				btnDeletarItem.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
+
 						JButton btn = (JButton) e.getSource();
 						int pos = lista_botoes_excluir.indexOf(btn);
 						lista_botoes_excluir.remove(pos);
 						v.getArrayItensVenda().remove(pos);
-						
+
 						itensVenda.remove(itemVenda);
 						itensVenda.revalidate();
 						itensVenda.repaint();
@@ -671,59 +669,55 @@ public class TelaVenda extends JFrame {
 
 			}
 		});
-		
-		
 
-/*		scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
-		    protected void configureScrollBarColors() {
-		        this.thumbColor = Color.decode("#7BA66F");
-		    }
-		    
-		    @Override
-		    protected JButton createDecreaseButton(int orientation) {
-		        JButton button = super.createDecreaseButton(orientation);
-		        button.setBackground(new Color(234, 242, 237));
-		        button.setForeground(null);
-		        button.setSelectedIcon(null);
-		        button.setBorder(BorderFactory.createLineBorder(new Color(234, 242, 237), 2));
-		        return button;
-		    }
-
-		    @Override
-		    protected JButton createIncreaseButton(int orientation) {
-		        JButton button = super.createIncreaseButton(orientation);
-		        button.setBackground(new Color(234, 242, 237));
-		        button.setForeground(null);
-		        button.setSelectedIcon(null);
-		        button.setBorder(BorderFactory.createLineBorder(new Color(234, 242, 237), 2));
-		        return button;
-		    }
-		});
-*/
+		/*
+		 * scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() { protected
+		 * void configureScrollBarColors() { this.thumbColor = Color.decode("#7BA66F");
+		 * }
+		 * 
+		 * @Override protected JButton createDecreaseButton(int orientation) { JButton
+		 * button = super.createDecreaseButton(orientation); button.setBackground(new
+		 * Color(234, 242, 237)); button.setForeground(null);
+		 * button.setSelectedIcon(null);
+		 * button.setBorder(BorderFactory.createLineBorder(new Color(234, 242, 237),
+		 * 2)); return button; }
+		 * 
+		 * @Override protected JButton createIncreaseButton(int orientation) { JButton
+		 * button = super.createIncreaseButton(orientation); button.setBackground(new
+		 * Color(234, 242, 237)); button.setForeground(null);
+		 * button.setSelectedIcon(null);
+		 * button.setBorder(BorderFactory.createLineBorder(new Color(234, 242, 237),
+		 * 2)); return button; } });
+		 */
 	}
 	
+	public static float roundAvoid(double value, int places) {
+		float scale = (float) Math.pow(10, places);
+		return Math.round(value * scale) / scale;
+	}
+
 	protected void atualizarValorUnitario() {
-		
-		if(textField.getText().isEmpty() == false) {
-			
+
+		if (textField.getText().isEmpty() == false) {
+
 			VendaBD vbd = new VendaBD();
 			int codProduto = Integer.parseInt(textField.getText());
-			
+
 			lblNewLabel.setText("Item - " + vbd.nomeProduto(codProduto));
-			
-			if(textField_1.getText().isEmpty() == false) {
+
+			if (textField_1.getText().isEmpty() == false) {
 				float quantidade = Float.parseFloat(textField_1.getText());
-			
+
 				float total = vbd.precoUnitario(codProduto, quantidade);
-				lblValorDoProduto.setText(String.valueOf(total));
-				int pos = v.getArrayItensVenda().size()-1;
+				lblValorDoProduto.setText(String.valueOf(roundAvoid(total, 2)));
+				int pos = v.getArrayItensVenda().size() - 1;
 				v.getArrayItensVenda().get(pos).setCodigoItem(codProduto);
 				v.getArrayItensVenda().get(pos).setQuantidadeItem(quantidade);
-				v.getArrayItensVenda().get(pos).setPrecoTotalItem(total);
+				v.getArrayItensVenda().get(pos).setPrecoTotalItem(roundAvoid(total, 2));
 			}
-		
+
 		}
-	
+
 	}
 
 }
