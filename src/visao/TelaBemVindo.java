@@ -355,7 +355,7 @@ public class TelaBemVindo extends JFrame {
 				frame.setVisible(false);
 			}
 		});
-		btnCadastro.setBackground(new Color(150, 191, 120));
+		btnCadastro.setBackground(new Color(234, 242, 237));
 		btnCadastro.setForeground(new Color(85, 121, 74));
 		btnCadastro.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 50));
 
@@ -375,7 +375,7 @@ public class TelaBemVindo extends JFrame {
 				frame.setVisible(false);
 			}
 		});
-		btnVenda.setBackground(new Color(150, 191, 120));
+		btnVenda.setBackground(new Color(234, 242, 237));
 		btnVenda.setForeground(new Color(85, 121, 74));
 		btnVenda.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 65));
 
