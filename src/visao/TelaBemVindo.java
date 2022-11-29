@@ -28,6 +28,9 @@ import java.awt.Insets;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+
+import controle.EstoqueBD;
+
 import com.jgoodies.forms.layout.FormSpecs;
 import java.awt.GridLayout;
 import javax.swing.JMenuBar;
@@ -288,6 +291,12 @@ public class TelaBemVindo extends JFrame {
 		separator.setForeground(new Color(234, 242, 237));
 
 		JButton btnNotificacao = new JButton("");
+		btnNotificacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EstoqueBD ebd = new EstoqueBD();
+				ebd.notificacaoEstoque();
+			}
+		});
 		GridBagConstraints gbc_btnNotificacao = new GridBagConstraints();
 		gbc_btnNotificacao.insets = new Insets(0, 0, 0, 5);
 		gbc_btnNotificacao.gridx = 3;

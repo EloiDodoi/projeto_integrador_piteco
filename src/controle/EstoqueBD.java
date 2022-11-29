@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Produto;
@@ -160,6 +161,22 @@ public class EstoqueBD {
 			modelo_tabela.addRow(new Object[] {p.getIdProduto(),p.getProduto_nomeveg(),p.getProduto_especieveg(),p.getProduto_preco(), p.getProduto_quantidade()});
 		}
 		return modelo_tabela;
+	}
+	public void notificacaoEstoque () {
+		ArrayList<Produto> lista_quant = new ArrayList<>();
+		try {
+			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT  idProduto,produto_nomeveg,produto_quantidade FROM produto where produto_quantidade < 5");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Produto p = new Produto(rs.getInt(1), (rs.getString(2)), null, 0, rs.getFloat(3), 0);
+				lista_quant.add(p);
+			}
+			JOptionPane.showMessageDialog(null, "Produtos que estão quase esgotando+: "+ lista_quant);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 }
