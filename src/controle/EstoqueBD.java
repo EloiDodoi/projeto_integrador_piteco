@@ -47,12 +47,12 @@ public class EstoqueBD {
 	        	  estoque.add(p);
 	            }
 	          for (Produto p: estoque) {
-	        	  System.out.println(p.getIdProduto());
-	        	  System.out.println(p.getProduto_nomeveg());
-	        	  System.out.println(p.getProduto_especieveg());
-	        	  System.out.println(p.getProduto_preco());
-	        	  System.out.println(p.getProduto_quantidade());
-	        	  System.out.println(p.getUnidade_quantidade_idUnidade_quantidade());
+//	        	  System.out.println(p.getIdProduto());
+//	        	  System.out.println(p.getProduto_nomeveg());
+//	        	  System.out.println(p.getProduto_especieveg());
+//	        	  System.out.println(p.getProduto_preco());
+//	        	  System.out.println(p.getProduto_quantidade());
+//	        	  System.out.println(p.getUnidade_quantidade_idUnidade_quantidade());
 	          }
 	          return estoque;
 		} catch (SQLException e) {
@@ -79,20 +79,19 @@ public class EstoqueBD {
 	}
 	
 	public ArrayList<Produto> filtro(String texto, int tipo) {
+		System.out.println(tipo);
 		try {
 			ArrayList<Produto> listaFiltrada = new ArrayList<>();
 			if (tipo == 1) {
 				PreparedStatement ps;
 				ps = cbd.getConexao().prepareStatement("SELECT * FROM produto WHERE produto_nomeveg like ?");
-				ps.setString(1,"'%"+ texto +"%'");
+				ps.setString(1,"%"+ texto+"%");
 				System.out.println(ps);
 				ResultSet rs = ps.executeQuery();
 				while (rs.next()) {
 			      	Produto p = new Produto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
 		        	  listaFiltrada.add(p);
 	            }
-	          for (Produto p: listaFiltrada) {
-	          }
 	          	return listaFiltrada;
 	          }else if (tipo == 2){
 	        	  int cod = Integer.parseInt(texto);
@@ -104,8 +103,6 @@ public class EstoqueBD {
 				      	Produto p = new Produto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
 			        	  listaFiltrada.add(p);
 		            }
-		          for (Produto p: listaFiltrada) {
-		          }
 		          	return listaFiltrada;
 	          } else if (tipo == 3) {
 	        	  Float preco_maior = Float.parseFloat(texto);
@@ -117,8 +114,6 @@ public class EstoqueBD {
 				      	Produto p = new Produto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
 			        	  listaFiltrada.add(p);
 		            }
-		          for (Produto p: listaFiltrada) {
-		          }
 		          	return listaFiltrada;
 			}else if (tipo==4) {
 	        	  Float preco_menor = Float.parseFloat(texto);
@@ -130,8 +125,6 @@ public class EstoqueBD {
 				      	Produto p = new Produto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
 			        	  listaFiltrada.add(p);
 		            }
-		          for (Produto p: listaFiltrada) {
-		          }
 		          return listaFiltrada;
 			}
 			

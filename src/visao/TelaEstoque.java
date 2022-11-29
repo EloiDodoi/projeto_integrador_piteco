@@ -509,17 +509,20 @@ public class TelaEstoque extends JFrame {
 	
 	public int filtro() {
 		int filtro = 0;
-		if (comboBox.getSelectedIndex() == 2) {
+		System.out.println(comboBox.getSelectedIndex());
+		if (comboBox.getSelectedIndex() == 1) {
 			filtro = 1;
 		}
-		else if(comboBox.getSelectedIndex() == 3) {
+		else if(comboBox.getSelectedIndex() == 2) {
 			filtro = 2;
 		}
-		else if(comboBox.getSelectedIndex() == 4) {
+		else if(comboBox.getSelectedIndex() == 3) {
 			filtro = 3;
 		}
-		else if(comboBox.getSelectedIndex() == 5) {
+		else if(comboBox.getSelectedIndex() == 4) {
 			filtro = 4;
+		}else {
+			JOptionPane.showMessageDialog(null, "Escolha uma das opções para filtro!");
 		}
 		
 		return filtro;

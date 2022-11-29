@@ -28,6 +28,9 @@ import java.awt.image.ImageProducer;
 import java.net.URL;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
+
+import org.w3c.dom.UserDataHandler;
+
 import javax.swing.JPasswordField;
 import java.awt.Toolkit;
 
@@ -36,6 +39,7 @@ public class TelaLoginVendedor {
 	private static JFrame frmLoginDoVendedor;
 	private JTextField txtUsuarioVendedor;
 	private JPasswordField passwordField;
+	static Usuario user;
 
 	/**
 	 * Launch the application.
@@ -164,7 +168,9 @@ public class TelaLoginVendedor {
 				}else {
 					System.out.println("Login feito com êxito");
 					TelaBemVindo tb = new TelaBemVindo();
+					user = lg.autenticar(login);
 					tb.abrir();
+					frmLoginDoVendedor.setVisible(false);
 				}
 			}
 		});
