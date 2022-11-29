@@ -100,18 +100,18 @@ public class TelaCadastroVendedor {
 		frmTelaDeCadastro.getContentPane().add(panel_Principal);
 		GridBagLayout gbl_panel_Principal = new GridBagLayout();
 		gbl_panel_Principal.columnWidths = new int[] {65, 1171, 65};
-		gbl_panel_Principal.rowHeights = new int[] {0, 118, 500, 30};
+		gbl_panel_Principal.rowHeights = new int[] {75, 0, 500, 0, 30};
 		gbl_panel_Principal.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
-		gbl_panel_Principal.rowWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_panel_Principal.rowWeights = new double[]{1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 		panel_Principal.setLayout(gbl_panel_Principal);
 		
 		JPanel panel_1 = new JPanel();
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
-		gbc_panel_1.insets = new Insets(30, 0, 0, 0);
+		gbc_panel_1.insets = new Insets(30, 0, 5, 0);
 		gbc_panel_1.anchor = GridBagConstraints.NORTH;
 		gbc_panel_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_panel_1.gridx = 1;
-		gbc_panel_1.gridy = 0;
+		gbc_panel_1.gridy = 1;
 		panel_Principal.add(panel_1, gbc_panel_1);
 		panel_1.setBackground(new Color(31, 65, 45));
 		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
@@ -131,10 +131,10 @@ public class TelaCadastroVendedor {
 		panel_Principal.add(panel, gbc_panel);
 		panel.setBackground(new Color(234, 242, 237));
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] {30, 73, 86, 121, 44, 159, 50, 8, 50, 483, 30};
-		gbl_panel.rowHeights = new int[] {50, 31, 35, 32, 65, 37, 64, 36, 31, 35, 35, 50};
-		gbl_panel.columnWeights = new double[]{1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+		gbl_panel.columnWidths = new int[] {96, 160, 174, 111, 33, 8, 0, 249, 211, 85};
+		gbl_panel.rowHeights = new int[] {31, 35, 32, 65, 37, 64, 36, 31, 35, 35, 50};
+		gbl_panel.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		panel.setLayout(gbl_panel);
 		
 		JLabel lblNewLabel = new JLabel("Nome Completo");
@@ -144,9 +144,9 @@ public class TelaCadastroVendedor {
 		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel.fill = GridBagConstraints.VERTICAL;
 		gbc_lblNewLabel.insets = new Insets(20, 0, 5, 5);
-		gbc_lblNewLabel.gridwidth = 3;
+		gbc_lblNewLabel.gridwidth = 2;
 		gbc_lblNewLabel.gridx = 1;
-		gbc_lblNewLabel.gridy = 1;
+		gbc_lblNewLabel.gridy = 0;
 		panel.add(lblNewLabel, gbc_lblNewLabel);
 		
 		txt_nome_vendedor = new JTextField();
@@ -158,10 +158,10 @@ public class TelaCadastroVendedor {
 		GridBagConstraints gbc_txt_nome_vendedor = new GridBagConstraints();
 		gbc_txt_nome_vendedor.anchor = GridBagConstraints.NORTH;
 		gbc_txt_nome_vendedor.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txt_nome_vendedor.insets = new Insets(0, 0, 5, 0);
-		gbc_txt_nome_vendedor.gridwidth = 9;
+		gbc_txt_nome_vendedor.insets = new Insets(0, 0, 5, 5);
+		gbc_txt_nome_vendedor.gridwidth = 8;
 		gbc_txt_nome_vendedor.gridx = 1;
-		gbc_txt_nome_vendedor.gridy = 2;
+		gbc_txt_nome_vendedor.gridy = 1;
 		panel.add(txt_nome_vendedor, gbc_txt_nome_vendedor);
 		
 		JLabel lblCpf = new JLabel("CPF");
@@ -171,19 +171,20 @@ public class TelaCadastroVendedor {
 		gbc_lblCpf.anchor = GridBagConstraints.NORTH;
 		gbc_lblCpf.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblCpf.insets = new Insets(0, 0, 5, 5);
-		gbc_lblCpf.gridwidth = 3;
+		gbc_lblCpf.gridwidth = 2;
 		gbc_lblCpf.gridx = 1;
-		gbc_lblCpf.gridy = 3;
+		gbc_lblCpf.gridy = 2;
 		panel.add(lblCpf, gbc_lblCpf);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Telefone");
 		lblNewLabel_1_1_1.setForeground(new Color(31, 65, 45));
 		lblNewLabel_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
 		GridBagConstraints gbc_lblNewLabel_1_1_1 = new GridBagConstraints();
+		gbc_lblNewLabel_1_1_1.gridwidth = 3;
 		gbc_lblNewLabel_1_1_1.anchor = GridBagConstraints.NORTHWEST;
 		gbc_lblNewLabel_1_1_1.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_1_1_1.gridx = 9;
-		gbc_lblNewLabel_1_1_1.gridy = 3;
+		gbc_lblNewLabel_1_1_1.gridx = 7;
+		gbc_lblNewLabel_1_1_1.gridy = 2;
 		panel.add(lblNewLabel_1_1_1, gbc_lblNewLabel_1_1_1);
 		
 		txt_cpf_vendedor = new JTextField();
@@ -196,21 +197,10 @@ public class TelaCadastroVendedor {
 		gbc_txt_cpf_vendedor.anchor = GridBagConstraints.NORTH;
 		gbc_txt_cpf_vendedor.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txt_cpf_vendedor.insets = new Insets(0, 0, 5, 5);
-		gbc_txt_cpf_vendedor.gridwidth = 5;
+		gbc_txt_cpf_vendedor.gridwidth = 3;
 		gbc_txt_cpf_vendedor.gridx = 1;
-		gbc_txt_cpf_vendedor.gridy = 4;
+		gbc_txt_cpf_vendedor.gridy = 3;
 		panel.add(txt_cpf_vendedor, gbc_txt_cpf_vendedor);
-		
-		JSeparator separator = new JSeparator();
-		separator.setBorder(new LineBorder(new Color(31, 65, 45), 3));
-		separator.setBackground(new Color(31, 65, 45));
-		GridBagConstraints gbc_separator = new GridBagConstraints();
-		gbc_separator.fill = GridBagConstraints.BOTH;
-		gbc_separator.insets = new Insets(0, 0, 5, 5);
-		gbc_separator.gridheight = 6;
-		gbc_separator.gridx = 7;
-		gbc_separator.gridy = 4;
-		panel.add(separator, gbc_separator);
 		
 		txt_telefone_vendedor = new JTextField();
 		txt_telefone_vendedor.setForeground(Color.DARK_GRAY);
@@ -219,11 +209,12 @@ public class TelaCadastroVendedor {
 		txt_telefone_vendedor.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		txt_telefone_vendedor.setBackground(new Color(245, 250, 248));
 		GridBagConstraints gbc_txt_telefone_vendedor = new GridBagConstraints();
+		gbc_txt_telefone_vendedor.gridwidth = 2;
 		gbc_txt_telefone_vendedor.anchor = GridBagConstraints.NORTH;
 		gbc_txt_telefone_vendedor.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txt_telefone_vendedor.insets = new Insets(0, 0, 5, 0);
-		gbc_txt_telefone_vendedor.gridx = 9;
-		gbc_txt_telefone_vendedor.gridy = 4;
+		gbc_txt_telefone_vendedor.insets = new Insets(0, 0, 5, 5);
+		gbc_txt_telefone_vendedor.gridx = 7;
+		gbc_txt_telefone_vendedor.gridy = 3;
 		panel.add(txt_telefone_vendedor, gbc_txt_telefone_vendedor);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("E-mail");
@@ -233,19 +224,20 @@ public class TelaCadastroVendedor {
 		gbc_lblNewLabel_1_1.anchor = GridBagConstraints.NORTH;
 		gbc_lblNewLabel_1_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblNewLabel_1_1.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_1_1.gridwidth = 3;
+		gbc_lblNewLabel_1_1.gridwidth = 2;
 		gbc_lblNewLabel_1_1.gridx = 1;
-		gbc_lblNewLabel_1_1.gridy = 5;
+		gbc_lblNewLabel_1_1.gridy = 4;
 		panel.add(lblNewLabel_1_1, gbc_lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Senha");
 		lblNewLabel_1_1_1_1_1.setForeground(new Color(31, 65, 45));
 		lblNewLabel_1_1_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
 		GridBagConstraints gbc_lblNewLabel_1_1_1_1_1 = new GridBagConstraints();
+		gbc_lblNewLabel_1_1_1_1_1.gridwidth = 3;
 		gbc_lblNewLabel_1_1_1_1_1.anchor = GridBagConstraints.NORTHWEST;
 		gbc_lblNewLabel_1_1_1_1_1.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_1_1_1_1_1.gridx = 9;
-		gbc_lblNewLabel_1_1_1_1_1.gridy = 5;
+		gbc_lblNewLabel_1_1_1_1_1.gridx = 7;
+		gbc_lblNewLabel_1_1_1_1_1.gridy = 4;
 		panel.add(lblNewLabel_1_1_1_1_1, gbc_lblNewLabel_1_1_1_1_1);
 		
 		txt_email_vendedor = new JTextField();
@@ -258,9 +250,9 @@ public class TelaCadastroVendedor {
 		gbc_txt_email_vendedor.anchor = GridBagConstraints.NORTH;
 		gbc_txt_email_vendedor.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txt_email_vendedor.insets = new Insets(0, 0, 5, 5);
-		gbc_txt_email_vendedor.gridwidth = 5;
+		gbc_txt_email_vendedor.gridwidth = 3;
 		gbc_txt_email_vendedor.gridx = 1;
-		gbc_txt_email_vendedor.gridy = 6;
+		gbc_txt_email_vendedor.gridy = 5;
 		panel.add(txt_email_vendedor, gbc_txt_email_vendedor);
 		
 		pf_senha_vendedor = new JPasswordField();
@@ -269,11 +261,12 @@ public class TelaCadastroVendedor {
 		pf_senha_vendedor.setBackground(new Color(245, 250, 248));
 		pf_senha_vendedor.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		GridBagConstraints gbc_pf_senha_vendedor = new GridBagConstraints();
+		gbc_pf_senha_vendedor.gridwidth = 2;
 		gbc_pf_senha_vendedor.anchor = GridBagConstraints.NORTH;
 		gbc_pf_senha_vendedor.fill = GridBagConstraints.HORIZONTAL;
-		gbc_pf_senha_vendedor.insets = new Insets(0, 0, 5, 0);
-		gbc_pf_senha_vendedor.gridx = 9;
-		gbc_pf_senha_vendedor.gridy = 6;
+		gbc_pf_senha_vendedor.insets = new Insets(0, 0, 5, 5);
+		gbc_pf_senha_vendedor.gridx = 7;
+		gbc_pf_senha_vendedor.gridy = 5;
 		panel.add(pf_senha_vendedor, gbc_pf_senha_vendedor);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Data de Nascimento");
@@ -282,20 +275,21 @@ public class TelaCadastroVendedor {
 		GridBagConstraints gbc_lblNewLabel_1_1_1_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1_1_1_1.fill = GridBagConstraints.BOTH;
 		gbc_lblNewLabel_1_1_1_1.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_1_1_1_1.gridwidth = 3;
+		gbc_lblNewLabel_1_1_1_1.gridwidth = 2;
 		gbc_lblNewLabel_1_1_1_1.gridx = 1;
-		gbc_lblNewLabel_1_1_1_1.gridy = 7;
+		gbc_lblNewLabel_1_1_1_1.gridy = 6;
 		panel.add(lblNewLabel_1_1_1_1, gbc_lblNewLabel_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("Confirmar senha");
 		lblNewLabel_1_1_1_1_1_1.setForeground(new Color(31, 65, 45));
 		lblNewLabel_1_1_1_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
 		GridBagConstraints gbc_lblNewLabel_1_1_1_1_1_1 = new GridBagConstraints();
+		gbc_lblNewLabel_1_1_1_1_1_1.gridwidth = 3;
 		gbc_lblNewLabel_1_1_1_1_1_1.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_1_1_1_1_1_1.fill = GridBagConstraints.VERTICAL;
 		gbc_lblNewLabel_1_1_1_1_1_1.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_1_1_1_1_1_1.gridx = 9;
-		gbc_lblNewLabel_1_1_1_1_1_1.gridy = 7;
+		gbc_lblNewLabel_1_1_1_1_1_1.gridx = 7;
+		gbc_lblNewLabel_1_1_1_1_1_1.gridy = 6;
 		panel.add(lblNewLabel_1_1_1_1_1_1, gbc_lblNewLabel_1_1_1_1_1_1);
 		
 		JLabel lblNewLabel_4 = new JLabel("Dia");
@@ -305,7 +299,7 @@ public class TelaCadastroVendedor {
 		gbc_lblNewLabel_4.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_4.gridx = 1;
-		gbc_lblNewLabel_4.gridy = 8;
+		gbc_lblNewLabel_4.gridy = 7;
 		panel.add(lblNewLabel_4, gbc_lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("M\u00EAs");
@@ -314,8 +308,8 @@ public class TelaCadastroVendedor {
 		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
 		gbc_lblNewLabel_5.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_5.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_5.gridx = 3;
-		gbc_lblNewLabel_5.gridy = 8;
+		gbc_lblNewLabel_5.gridx = 2;
+		gbc_lblNewLabel_5.gridy = 7;
 		panel.add(lblNewLabel_5, gbc_lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Ano");
@@ -324,8 +318,8 @@ public class TelaCadastroVendedor {
 		GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();
 		gbc_lblNewLabel_6.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_6.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_6.gridx = 5;
-		gbc_lblNewLabel_6.gridy = 8;
+		gbc_lblNewLabel_6.gridx = 3;
+		gbc_lblNewLabel_6.gridy = 7;
 		panel.add(lblNewLabel_6, gbc_lblNewLabel_6);
 		
 		pf_senha_confirmada_vendedor = new JPasswordField();
@@ -334,11 +328,12 @@ public class TelaCadastroVendedor {
 		pf_senha_confirmada_vendedor.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		pf_senha_confirmada_vendedor.setBackground(new Color(245, 250, 248));
 		GridBagConstraints gbc_pf_senha_confirmada_vendedor = new GridBagConstraints();
+		gbc_pf_senha_confirmada_vendedor.gridwidth = 2;
 		gbc_pf_senha_confirmada_vendedor.anchor = GridBagConstraints.NORTH;
 		gbc_pf_senha_confirmada_vendedor.fill = GridBagConstraints.HORIZONTAL;
-		gbc_pf_senha_confirmada_vendedor.insets = new Insets(0, 0, 5, 0);
-		gbc_pf_senha_confirmada_vendedor.gridx = 9;
-		gbc_pf_senha_confirmada_vendedor.gridy = 8;
+		gbc_pf_senha_confirmada_vendedor.insets = new Insets(0, 0, 5, 5);
+		gbc_pf_senha_confirmada_vendedor.gridx = 7;
+		gbc_pf_senha_confirmada_vendedor.gridy = 7;
 		panel.add(pf_senha_confirmada_vendedor, gbc_pf_senha_confirmada_vendedor);
 		
 		JComboBox cb_dia = new JComboBox();
@@ -352,7 +347,7 @@ public class TelaCadastroVendedor {
 		gbc_cb_dia.fill = GridBagConstraints.VERTICAL;
 		gbc_cb_dia.insets = new Insets(0, 0, 5, 5);
 		gbc_cb_dia.gridx = 1;
-		gbc_cb_dia.gridy = 9;
+		gbc_cb_dia.gridy = 8;
 		panel.add(cb_dia, gbc_cb_dia);
 		
 		JComboBox cb_mes = new JComboBox();
@@ -365,8 +360,8 @@ public class TelaCadastroVendedor {
 		gbc_cb_mes.anchor = GridBagConstraints.WEST;
 		gbc_cb_mes.fill = GridBagConstraints.VERTICAL;
 		gbc_cb_mes.insets = new Insets(0, 0, 5, 5);
-		gbc_cb_mes.gridx = 3;
-		gbc_cb_mes.gridy = 9;
+		gbc_cb_mes.gridx = 2;
+		gbc_cb_mes.gridy = 8;
 		panel.add(cb_mes, gbc_cb_mes);
 		
 		JComboBox cb_ano = new JComboBox();
@@ -378,9 +373,27 @@ public class TelaCadastroVendedor {
 		GridBagConstraints gbc_cb_ano = new GridBagConstraints();
 		gbc_cb_ano.fill = GridBagConstraints.BOTH;
 		gbc_cb_ano.insets = new Insets(0, 0, 5, 5);
-		gbc_cb_ano.gridx = 5;
-		gbc_cb_ano.gridy = 9;
+		gbc_cb_ano.gridx = 3;
+		gbc_cb_ano.gridy = 8;
 		panel.add(cb_ano, gbc_cb_ano);
+		
+		JButton btnCancelar = new JButton("  Cancelar  ");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmTelaDeCadastro.setVisible(false);
+				TelaBemVindo tbv = new TelaBemVindo();
+				tbv.abrir();
+			}
+		});
+		btnCancelar.setForeground(new Color(217, 173, 181));
+		btnCancelar.setFont(new Font("Dialog", Font.PLAIN, 30));
+		btnCancelar.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
+		btnCancelar.setBackground(new Color(234, 242, 237));
+		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
+		gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
+		gbc_btnCancelar.gridx = 7;
+		gbc_btnCancelar.gridy = 9;
+		panel.add(btnCancelar, gbc_btnCancelar);
 		
 		JButton btnNewButton = new JButton("  Cadastrar  ");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -417,34 +430,14 @@ public class TelaCadastroVendedor {
 			}
 		});
 		
-		JButton btnCancelar = new JButton("  Cancelar  ");
-		btnCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frmTelaDeCadastro.setVisible(false);
-				TelaBemVindo tbv = new TelaBemVindo();
-				tbv.abrir();
-			}
-		});
-		btnCancelar.setForeground(new Color(217, 173, 181));
-		btnCancelar.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
-		btnCancelar.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
-		btnCancelar.setBackground(new Color(234, 242, 237));
-		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
-		gbc_btnCancelar.gridwidth = 5;
-		gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnCancelar.gridx = 1;
-		gbc_btnCancelar.gridy = 10;
-		panel.add(btnCancelar, gbc_btnCancelar);
-		
 		btnNewButton.setBackground(new Color(234, 242, 237));
-		btnNewButton.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
+		btnNewButton.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
 		btnNewButton.setForeground(new Color(217, 173, 181));
-		btnNewButton.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
+		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 30));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(10, 0, 20, 0);
-		gbc_btnNewButton.fill = GridBagConstraints.VERTICAL;
-		gbc_btnNewButton.gridx = 9;
-		gbc_btnNewButton.gridy = 10;
+		gbc_btnNewButton.insets = new Insets(10, 0, 20, 5);
+		gbc_btnNewButton.gridx = 8;
+		gbc_btnNewButton.gridy = 9;
 		panel.add(btnNewButton, gbc_btnNewButton);
 	}
 }

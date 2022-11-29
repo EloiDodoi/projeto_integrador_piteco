@@ -156,10 +156,10 @@ public class TelaAlterarVendedor {
 		panelPrincipal.add(panel, gbc_panel);
 		panel.setBackground(new Color(234, 242, 237));
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] {30, 73, 86, 121, 44, 159, 50, 2, 50, 483, 30};
-		gbl_panel.rowHeights = new int[] {50, 31, 35, 32, 65, 37, 64, 36, 31, 35, 35, 31, 62, 20};
-		gbl_panel.columnWeights = new double[]{1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.columnWidths = new int[] {58, 73, 46, 121, 160, 92, 225, 232, 83};
+		gbl_panel.rowHeights = new int[] {50, 31, 85, 32, 86, 37, 78, 36, 31, 35, 35, 6, 0, 20};
+		gbl_panel.columnWeights = new double[]{1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		JLabel lblNewLabel = new JLabel("Nome Completo");
@@ -183,8 +183,8 @@ public class TelaAlterarVendedor {
 		GridBagConstraints gbc_txt_nome_vendedor = new GridBagConstraints();
 		gbc_txt_nome_vendedor.anchor = GridBagConstraints.NORTH;
 		gbc_txt_nome_vendedor.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txt_nome_vendedor.insets = new Insets(0, 0, 5, 0);
-		gbc_txt_nome_vendedor.gridwidth = 9;
+		gbc_txt_nome_vendedor.insets = new Insets(0, 0, 5, 5);
+		gbc_txt_nome_vendedor.gridwidth = 7;
 		gbc_txt_nome_vendedor.gridx = 1;
 		gbc_txt_nome_vendedor.gridy = 2;
 		panel.add(txt_nome_vendedor, gbc_txt_nome_vendedor);
@@ -206,8 +206,8 @@ public class TelaAlterarVendedor {
 		lblNewLabel_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
 		GridBagConstraints gbc_lblNewLabel_1_1_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1_1_1.anchor = GridBagConstraints.NORTHWEST;
-		gbc_lblNewLabel_1_1_1.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_1_1_1.gridx = 9;
+		gbc_lblNewLabel_1_1_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_1_1_1.gridx = 6;
 		gbc_lblNewLabel_1_1_1.gridy = 3;
 		panel.add(lblNewLabel_1_1_1, gbc_lblNewLabel_1_1_1);
 		
@@ -221,21 +221,10 @@ public class TelaAlterarVendedor {
 		gbc_txt_cpf_vendedor.anchor = GridBagConstraints.NORTH;
 		gbc_txt_cpf_vendedor.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txt_cpf_vendedor.insets = new Insets(0, 0, 5, 5);
-		gbc_txt_cpf_vendedor.gridwidth = 5;
+		gbc_txt_cpf_vendedor.gridwidth = 4;
 		gbc_txt_cpf_vendedor.gridx = 1;
 		gbc_txt_cpf_vendedor.gridy = 4;
 		panel.add(txt_cpf_vendedor, gbc_txt_cpf_vendedor);
-		
-		JSeparator separator = new JSeparator();
-		separator.setBorder(new LineBorder(new Color(31, 65, 45), 3));
-		separator.setBackground(new Color(31, 65, 45));
-		GridBagConstraints gbc_separator = new GridBagConstraints();
-		gbc_separator.fill = GridBagConstraints.BOTH;
-		gbc_separator.insets = new Insets(0, 0, 5, 5);
-		gbc_separator.gridheight = 6;
-		gbc_separator.gridx = 7;
-		gbc_separator.gridy = 4;
-		panel.add(separator, gbc_separator);
 		
 		txt_telefone_vendedor = new JTextField();
 		txt_telefone_vendedor.setForeground(Color.DARK_GRAY);
@@ -244,10 +233,11 @@ public class TelaAlterarVendedor {
 		txt_telefone_vendedor.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		txt_telefone_vendedor.setBackground(new Color(245, 250, 248));
 		GridBagConstraints gbc_txt_telefone_vendedor = new GridBagConstraints();
+		gbc_txt_telefone_vendedor.gridwidth = 2;
 		gbc_txt_telefone_vendedor.anchor = GridBagConstraints.NORTH;
 		gbc_txt_telefone_vendedor.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txt_telefone_vendedor.insets = new Insets(0, 0, 5, 0);
-		gbc_txt_telefone_vendedor.gridx = 9;
+		gbc_txt_telefone_vendedor.insets = new Insets(0, 0, 5, 5);
+		gbc_txt_telefone_vendedor.gridx = 6;
 		gbc_txt_telefone_vendedor.gridy = 4;
 		panel.add(txt_telefone_vendedor, gbc_txt_telefone_vendedor);
 		
@@ -268,8 +258,8 @@ public class TelaAlterarVendedor {
 		lblNewLabel_1_1_1_1_1.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 28));
 		GridBagConstraints gbc_lblNewLabel_1_1_1_1_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1_1_1_1_1.anchor = GridBagConstraints.NORTHWEST;
-		gbc_lblNewLabel_1_1_1_1_1.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_1_1_1_1_1.gridx = 9;
+		gbc_lblNewLabel_1_1_1_1_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_1_1_1_1_1.gridx = 6;
 		gbc_lblNewLabel_1_1_1_1_1.gridy = 5;
 		panel.add(lblNewLabel_1_1_1_1_1, gbc_lblNewLabel_1_1_1_1_1);
 		
@@ -283,7 +273,7 @@ public class TelaAlterarVendedor {
 		gbc_txt_email_vendedor.anchor = GridBagConstraints.NORTH;
 		gbc_txt_email_vendedor.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txt_email_vendedor.insets = new Insets(0, 0, 5, 5);
-		gbc_txt_email_vendedor.gridwidth = 5;
+		gbc_txt_email_vendedor.gridwidth = 4;
 		gbc_txt_email_vendedor.gridx = 1;
 		gbc_txt_email_vendedor.gridy = 6;
 		panel.add(txt_email_vendedor, gbc_txt_email_vendedor);
@@ -294,10 +284,11 @@ public class TelaAlterarVendedor {
 		pf_senha_vendedor.setBackground(new Color(245, 250, 248));
 		pf_senha_vendedor.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		GridBagConstraints gbc_pf_senha_vendedor = new GridBagConstraints();
+		gbc_pf_senha_vendedor.gridwidth = 2;
 		gbc_pf_senha_vendedor.anchor = GridBagConstraints.NORTH;
 		gbc_pf_senha_vendedor.fill = GridBagConstraints.HORIZONTAL;
-		gbc_pf_senha_vendedor.insets = new Insets(0, 0, 5, 0);
-		gbc_pf_senha_vendedor.gridx = 9;
+		gbc_pf_senha_vendedor.insets = new Insets(0, 0, 5, 5);
+		gbc_pf_senha_vendedor.gridx = 6;
 		gbc_pf_senha_vendedor.gridy = 6;
 		panel.add(pf_senha_vendedor, gbc_pf_senha_vendedor);
 		
@@ -318,8 +309,8 @@ public class TelaAlterarVendedor {
 		GridBagConstraints gbc_lblNewLabel_1_1_1_1_1_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1_1_1_1_1_1.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_1_1_1_1_1_1.fill = GridBagConstraints.VERTICAL;
-		gbc_lblNewLabel_1_1_1_1_1_1.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_1_1_1_1_1_1.gridx = 9;
+		gbc_lblNewLabel_1_1_1_1_1_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_1_1_1_1_1_1.gridx = 6;
 		gbc_lblNewLabel_1_1_1_1_1_1.gridy = 7;
 		panel.add(lblNewLabel_1_1_1_1_1_1, gbc_lblNewLabel_1_1_1_1_1_1);
 		
@@ -349,7 +340,7 @@ public class TelaAlterarVendedor {
 		GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();
 		gbc_lblNewLabel_6.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_6.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_6.gridx = 5;
+		gbc_lblNewLabel_6.gridx = 4;
 		gbc_lblNewLabel_6.gridy = 8;
 		panel.add(lblNewLabel_6, gbc_lblNewLabel_6);
 		
@@ -359,10 +350,11 @@ public class TelaAlterarVendedor {
 		pf_senha_confirmada_vendedor.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		pf_senha_confirmada_vendedor.setBackground(new Color(245, 250, 248));
 		GridBagConstraints gbc_pf_senha_confirmada_vendedor = new GridBagConstraints();
+		gbc_pf_senha_confirmada_vendedor.gridwidth = 2;
 		gbc_pf_senha_confirmada_vendedor.anchor = GridBagConstraints.NORTH;
 		gbc_pf_senha_confirmada_vendedor.fill = GridBagConstraints.HORIZONTAL;
-		gbc_pf_senha_confirmada_vendedor.insets = new Insets(0, 0, 5, 0);
-		gbc_pf_senha_confirmada_vendedor.gridx = 9;
+		gbc_pf_senha_confirmada_vendedor.insets = new Insets(0, 0, 5, 5);
+		gbc_pf_senha_confirmada_vendedor.gridx = 6;
 		gbc_pf_senha_confirmada_vendedor.gridy = 8;
 		panel.add(pf_senha_confirmada_vendedor, gbc_pf_senha_confirmada_vendedor);
 		
@@ -403,13 +395,37 @@ public class TelaAlterarVendedor {
 		GridBagConstraints gbc_cb_ano = new GridBagConstraints();
 		gbc_cb_ano.fill = GridBagConstraints.BOTH;
 		gbc_cb_ano.insets = new Insets(0, 0, 5, 5);
-		gbc_cb_ano.gridx = 5;
+		gbc_cb_ano.gridx = 4;
 		gbc_cb_ano.gridy = 9;
 		panel.add(cb_ano, gbc_cb_ano);
 		
-		JButton btnNewButton = new JButton("   Alterar   ");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnCancelar = new JButton("  Cancelar  ");
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				frmTelaAlterarVendedor.setVisible(false);
+				TelaListagemVendedores tlv = new TelaListagemVendedores();
+				tlv.abrir();
+				
+				
+			}
+		});
+		
+		btnCancelar.setBackground(new Color(234, 242, 237));
+		btnCancelar.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
+		btnCancelar.setForeground(new Color(217, 173, 181));
+		btnCancelar.setFont(new Font("Dialog", Font.PLAIN, 30));
+		GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
+		gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
+		gbc_btnCancelar.fill = GridBagConstraints.VERTICAL;
+		gbc_btnCancelar.gridx = 6;
+		gbc_btnCancelar.gridy = 10;
+		panel.add(btnCancelar, gbc_btnCancelar);
+		
+		JButton btnAlterar = new JButton("    Alterar    ");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
 				String nome_vendedor = txt_nome_vendedor.getText();
 				String cpf_vendedor = txt_cpf_vendedor.getText();
 				String email_vendedor = txt_email_vendedor.getText();
@@ -443,39 +459,31 @@ public class TelaAlterarVendedor {
 				frmTelaAlterarVendedor.setVisible(false);
 				TelaListagemVendedores tlv = new TelaListagemVendedores();
 				tlv.setVisible(true);
-				
 			}
 		});
+		btnAlterar.setForeground(new Color(217, 173, 181));
+		btnAlterar.setFont(new Font("Dialog", Font.PLAIN, 30));
+		btnAlterar.setBorder(new LineBorder(new Color(217, 173, 181), 3, true));
+		btnAlterar.setBackground(new Color(234, 242, 237));
+		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
+		gbc_btnAlterar.insets = new Insets(0, 0, 5, 5);
+		gbc_btnAlterar.gridx = 7;
+		gbc_btnAlterar.gridy = 10;
+		panel.add(btnAlterar, gbc_btnAlterar);
 		
-		JButton btnCancela = new JButton("  Cancelar  ");
-		btnCancela.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frmTelaAlterarVendedor.setVisible(false);
-				TelaListagemVendedores tlv = new TelaListagemVendedores();
-				tlv.abrir();
-			}
-		});
-		btnCancela.setForeground(new Color(217, 173, 181));
-		btnCancela.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
-		btnCancela.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
-		btnCancela.setBackground(new Color(234, 242, 237));
-		GridBagConstraints gbc_btnCancela = new GridBagConstraints();
-		gbc_btnCancela.gridwidth = 5;
-		gbc_btnCancela.insets = new Insets(0, 0, 5, 5);
-		gbc_btnCancela.gridx = 1;
-		gbc_btnCancela.gridy = 11;
-		panel.add(btnCancela, gbc_btnCancela);
-		
-		btnNewButton.setBackground(new Color(234, 242, 237));
-		btnNewButton.setBorder(new LineBorder(new Color(217, 173, 181), 2, true));
-		btnNewButton.setForeground(new Color(217, 173, 181));
-		btnNewButton.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 0);
-		gbc_btnNewButton.fill = GridBagConstraints.VERTICAL;
-		gbc_btnNewButton.gridx = 9;
-		gbc_btnNewButton.gridy = 11;
-		panel.add(btnNewButton, gbc_btnNewButton);
+		JPanel panel_2 = new JPanel();
+		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
+		gbc_panel_2.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_2.fill = GridBagConstraints.BOTH;
+		gbc_panel_2.gridx = 6;
+		gbc_panel_2.gridy = 11;
+		panel.add(panel_2, gbc_panel_2);
+		GridBagLayout gbl_panel_2 = new GridBagLayout();
+		gbl_panel_2.columnWidths = new int[]{0};
+		gbl_panel_2.rowHeights = new int[]{0};
+		gbl_panel_2.columnWeights = new double[]{Double.MIN_VALUE};
+		gbl_panel_2.rowWeights = new double[]{Double.MIN_VALUE};
+		panel_2.setLayout(gbl_panel_2);
 	}	
 	
 	public void abrir(Usuario usuario_selecionado) {

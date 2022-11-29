@@ -117,6 +117,7 @@ public class TelaCadastroAdm {
 		lblVendedor.setForeground(new Color(234, 242, 237));
 		lblVendedor.setFont(new Font("Dialog", Font.PLAIN, 85));
 		GridBagConstraints gbc_lblVendedor = new GridBagConstraints();
+		gbc_lblVendedor.gridwidth = 2;
 		gbc_lblVendedor.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblVendedor.insets = new Insets(0, 10, 0, 5);
 		gbc_lblVendedor.gridx = 0;
@@ -154,7 +155,7 @@ public class TelaCadastroAdm {
 		GridBagConstraints gbc_lblNewLabel_13 = new GridBagConstraints();
 		gbc_lblNewLabel_13.anchor = GridBagConstraints.NORTHWEST;
 		gbc_lblNewLabel_13.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_13.gridwidth = 3;
+		gbc_lblNewLabel_13.gridwidth = 4;
 		gbc_lblNewLabel_13.gridx = 2;
 		gbc_lblNewLabel_13.gridy = 1;
 		panel_2.add(lblNewLabel_13, gbc_lblNewLabel_13);
@@ -451,7 +452,7 @@ public class TelaCadastroAdm {
 				gbc_pfSenhaConfirmada.gridy = 11;
 				panel_2.add(pfSenhaConfirmada, gbc_pfSenhaConfirmada);
 				
-				JButton btnCancelar = new JButton("Cancelar");
+				JButton btnCancelar = new JButton("   Cancelar   ");
 				btnCancelar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 					frmTelaCadastrarAdministrador.setVisible(false);
@@ -465,15 +466,14 @@ public class TelaCadastroAdm {
 				btnCancelar.setBackground(new Color(234, 242, 237));
 				GridBagConstraints gbc_btnCancelar = new GridBagConstraints();
 				gbc_btnCancelar.insets = new Insets(0, 0, 5, 5);
-				gbc_btnCancelar.fill = GridBagConstraints.BOTH;
 				gbc_btnCancelar.gridx = 8;
 				gbc_btnCancelar.gridy = 11;
 				panel_2.add(btnCancelar, gbc_btnCancelar);
 				
-				JButton btnCadastrar = new JButton("Cadastrar");
+				JButton btnCadastrar = new JButton("   Cadastrar   ");
 				GridBagConstraints gbc_btnCadastrar = new GridBagConstraints();
+				gbc_btnCadastrar.anchor = GridBagConstraints.EAST;
 				gbc_btnCadastrar.insets = new Insets(0, 0, 5, 0);
-				gbc_btnCadastrar.fill = GridBagConstraints.BOTH;
 				gbc_btnCadastrar.gridx = 9;
 				gbc_btnCadastrar.gridy = 11;
 				panel_2.add(btnCadastrar, gbc_btnCadastrar);
