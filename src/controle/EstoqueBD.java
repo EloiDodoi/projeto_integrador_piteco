@@ -14,6 +14,7 @@ import modelo.Produto;
 
 public class EstoqueBD {
 
+	private static final String JTable = null;
 	private ConexaoBD cbd = new ConexaoBD();
 	
 	public void atualizarEstoque(JTable jt) {
@@ -160,7 +161,7 @@ public class EstoqueBD {
 		}
 		return modelo_tabela;
 	}
-	public JTable notificacaoEstoque () {
+	public void notificacaoEstoque () {
 		ArrayList<Produto> lista_quant = new ArrayList<>();
 		try {
 			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT  idProduto,produto_nomeveg,produto_quantidade FROM produto where produto_quantidade < 5");
@@ -169,18 +170,21 @@ public class EstoqueBD {
 				Produto p = new Produto(rs.getInt(1), (rs.getString(2)), null, 0, rs.getFloat(3), 0);
 				lista_quant.add(p);
 			}
+			JTable tabelaNot = null;
 			DefaultTableModel modelo_tabela = new DefaultTableModel(
-					new Object[][][][][][] {
+					new Object[][][] {
 						
 					},
 					new String[] {
-						"Código", "Nome", "Quantidade"}
+						"Código", "Nome", "Quantidade"
+						}
+					);
 					for (int i = 0;i<lista_quant.size();i++) {
 						Produto p = lista_quant.get(i);
-						modelo_tabela.addRow(new Object[] {p.getIdProduto(),p.getProduto_nomeveg(),p.getProduto_especieveg(),p.getProduto_preco(), p.getProduto_quantidade()});
-					}
-					//Table JTable.setDefaultLocale(null)
-				//	return JTable;
+						modelo_tabela.addRow(new Object[] {p.getIdProduto(),p.getProduto_nomeveg(),p.getProduto_quantidade()});
+					} 
+					tabelaNot.setModel(modelo_tabela);
+					JOptionPane.showMessageDialog(null, tabelaNot);
 			} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
