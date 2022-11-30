@@ -57,6 +57,7 @@ public class TelaListagemItensVenda extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaListagemItensVenda(Venda vendaSelecionada) {
+		setForeground(new Color(123, 166, 111));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaListagemItensVenda.class.getResource("/img/1.png")));
 		setTitle("Listagem de Itens de Venda");
 		venda_selecionada = vendaSelecionada;
