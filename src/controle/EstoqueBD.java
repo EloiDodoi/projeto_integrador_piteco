@@ -18,9 +18,12 @@ public class EstoqueBD {
 	public void atualizarEstoque(JTable jt) {
 		jt.setModel(listagemProduto());
 	}
+	
+	
 	public void atualizarPesquisa(JTable jt, String texto, int tipo) {
 		jt.setModel(produtoFiltradoTabela(texto, tipo));
 	}
+	
 	
 	public void deletar(Produto p, JTable jt) {
 		PreparedStatement ps;
@@ -77,6 +80,7 @@ public class EstoqueBD {
 		}
 		return modelo_tabela;	
 	}
+	
 	
 	public ArrayList<Produto> filtro(String texto, int tipo) {
 		System.out.println(tipo);

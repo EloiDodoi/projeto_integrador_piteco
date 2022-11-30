@@ -424,6 +424,7 @@ public class TelaListagemVendedores extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String pesquisa = tfPesquisa.getText();
 				ControleVendedorBD cvbd = new ControleVendedorBD();
+				cvbd.atualizarListaFiltrada(table, pesquisa, filtro());
 				
 				
 			}
