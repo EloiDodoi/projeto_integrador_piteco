@@ -40,6 +40,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import java.awt.Toolkit;
+import javax.swing.JComboBox;
 
 public class TelaListagemVendedores extends JFrame {
 
@@ -54,7 +55,6 @@ public class TelaListagemVendedores extends JFrame {
 	ControleVendedorBD cvbd = new ControleVendedorBD();
 	private JPanel panel;
 	private JMenuBar menuBar;
-	private JButton btnFiltrar;
 	private JMenu mnNewMenu;
 	private JLabel lblNewLabel;
 	private JMenuItem btnMenuInicio;
@@ -75,6 +75,7 @@ public class TelaListagemVendedores extends JFrame {
 	private JSeparator separator;
 	private JButton btnNotificacao;
 	private JButton btnUser;
+	private JComboBox comboBox;
 
 	/**
 	 * Launch the application.
@@ -357,7 +358,7 @@ public class TelaListagemVendedores extends JFrame {
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[] {65, 865, 125, 119, 119, 65};
 		gbl_panel.rowHeights = new int[] {30, 0, 31, 138, 39, 41, 544, 30};
-		gbl_panel.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_panel.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
@@ -441,17 +442,16 @@ public class TelaListagemVendedores extends JFrame {
 		gbc_textField.gridy = 0;
 		panelPesquisa.add(textField, gbc_textField);
 		
-		btnFiltrar = new JButton("Filtrar");
-		btnFiltrar.setForeground(new Color(234, 242, 237));
-		btnFiltrar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 28));
-		btnFiltrar.setBorder(null);
-		btnFiltrar.setBackground(new Color(31, 65, 45));
-		GridBagConstraints gbc_btnFiltrar = new GridBagConstraints();
-		gbc_btnFiltrar.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnFiltrar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnFiltrar.gridx = 2;
-		gbc_btnFiltrar.gridy = 5;
-		panel.add(btnFiltrar, gbc_btnFiltrar);
+		comboBox = new JComboBox();
+		comboBox.setForeground(new Color(234, 242, 237));
+		comboBox.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
+		comboBox.setBackground(new Color(31, 65, 45));
+		GridBagConstraints gbc_comboBox = new GridBagConstraints();
+		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
+		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBox.gridx = 2;
+		gbc_comboBox.gridy = 5;
+		panel.add(comboBox, gbc_comboBox);
 		
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.setToolTipText("Alterar Vendedor selecionado");

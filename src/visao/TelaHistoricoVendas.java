@@ -36,16 +36,18 @@ import javax.swing.table.JTableHeader;
 import controle.HistoricoVendaBD;
 import modelo.Venda;
 import java.awt.Toolkit;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class TelaHistoricoVendas extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldPesquisa;
 	private JTable table;
-
 	private HistoricoVendaBD hvbd;
 	private Venda vendaSelecionada;
-
+	JComboBox comboBox;
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -203,13 +205,13 @@ public class TelaHistoricoVendas extends JFrame {
 		linha_1_1.setMinimumSize(new Dimension(5, 1));
 		linha_1_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1_1);
-		
+
 		JMenuItem btnCadastrarVendedor = new JMenuItem("Cadastrar Vendedor");
 		btnCadastrarVendedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			setVisible(false);
-			TelaCadastroVendedor tcv = new TelaCadastroVendedor();
-			tcv.abrir();
+				setVisible(false);
+				TelaCadastroVendedor tcv = new TelaCadastroVendedor();
+				tcv.abrir();
 			}
 		});
 		btnCadastrarVendedor.setOpaque(true);
@@ -220,7 +222,7 @@ public class TelaHistoricoVendas extends JFrame {
 		btnCadastrarVendedor.setBorder(null);
 		btnCadastrarVendedor.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnCadastrarVendedor);
-		
+
 		JMenuItem btnListagemDeVendedores = new JMenuItem("Listagem de Vendedores");
 		btnListagemDeVendedores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -237,7 +239,7 @@ public class TelaHistoricoVendas extends JFrame {
 		btnListagemDeVendedores.setBorder(null);
 		btnListagemDeVendedores.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnListagemDeVendedores);
-		
+
 		JPanel linha_1_1_2 = new JPanel();
 		linha_1_1_2.setPreferredSize(new Dimension(1, 2));
 		linha_1_1_2.setMinimumSize(new Dimension(5, 1));
@@ -321,14 +323,15 @@ public class TelaHistoricoVendas extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] { 62, 960, 0, 16, 370, 77, 25, 0 };
+		gbl_panel.columnWidths = new int[] { 44, 907, 241, 302, 62, 18, 0 };
 		gbl_panel.rowHeights = new int[] { 108, 44, 40, 486, 57 };
-		gbl_panel.columnWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
+		gbl_panel.columnWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
 		gbl_panel.rowWeights = new double[] { 0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE };
 		panel.setLayout(gbl_panel);
 
 		JLabel lblHistricoDeVendas = new JLabel("Hist\u00F3rico de Vendas\r\n");
 		GridBagConstraints gbc_lblHistricoDeVendas = new GridBagConstraints();
+		gbc_lblHistricoDeVendas.gridwidth = 3;
 		gbc_lblHistricoDeVendas.anchor = GridBagConstraints.NORTHWEST;
 		gbc_lblHistricoDeVendas.insets = new Insets(0, 0, 5, 5);
 		gbc_lblHistricoDeVendas.gridx = 1;
@@ -352,7 +355,7 @@ public class TelaHistoricoVendas extends JFrame {
 		GridBagConstraints gbc_panel_3 = new GridBagConstraints();
 		gbc_panel_3.insets = new Insets(0, 0, 5, 5);
 		gbc_panel_3.fill = GridBagConstraints.BOTH;
-		gbc_panel_3.gridx = 5;
+		gbc_panel_3.gridx = 4;
 		gbc_panel_3.gridy = 1;
 		panel.add(panel_3, gbc_panel_3);
 
@@ -364,13 +367,22 @@ public class TelaHistoricoVendas extends JFrame {
 		gbc_panelPesquisa.gridy = 2;
 		panel.add(panelPesquisa, gbc_panelPesquisa);
 		GridBagLayout gbl_panelPesquisa = new GridBagLayout();
-		gbl_panelPesquisa.columnWidths = new int[] { 30, 888 };
+		gbl_panelPesquisa.columnWidths = new int[] { 66, 888 };
 		gbl_panelPesquisa.rowHeights = new int[] { 32 };
-		gbl_panelPesquisa.columnWeights = new double[] { 1.0, 1.0, 0.0 };
+		gbl_panelPesquisa.columnWeights = new double[] { 1.0, 1.0 };
 		gbl_panelPesquisa.rowWeights = new double[] { 0.0 };
 		panelPesquisa.setLayout(gbl_panelPesquisa);
 
 		JButton btnPesquisa = new JButton("");
+		btnPesquisa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String pesquisa = textFieldPesquisa.getText();
+				HistoricoVendaBD hvbd = new HistoricoVendaBD();
+				
+				
+				
+			}
+		});
 		btnPesquisa.setIcon(new ImageIcon(TelaHistoricoVendas.class.getResource("/img/inspecao (1).png")));
 		btnPesquisa.setBorder(null);
 		btnPesquisa.setBackground(new Color(31, 65, 45));
@@ -390,7 +402,6 @@ public class TelaHistoricoVendas extends JFrame {
 		GridBagConstraints gbc_textFieldPesquisa = new GridBagConstraints();
 		gbc_textFieldPesquisa.fill = GridBagConstraints.BOTH;
 		gbc_textFieldPesquisa.anchor = GridBagConstraints.WEST;
-		gbc_textFieldPesquisa.gridwidth = 2;
 		gbc_textFieldPesquisa.gridx = 1;
 		gbc_textFieldPesquisa.gridy = 0;
 		panelPesquisa.add(textFieldPesquisa, gbc_textFieldPesquisa);
@@ -408,25 +419,25 @@ public class TelaHistoricoVendas extends JFrame {
 
 			}
 		});
-
-		JButton btnFiltrar = new JButton("Filtrar");
-		btnFiltrar.setMargin(new Insets(1, 14, 1, 14));
-		btnFiltrar.setForeground(Color.WHITE);
-		btnFiltrar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
-		btnFiltrar.setBackground(new Color(31, 65, 45));
-		GridBagConstraints gbc_btnFiltrar = new GridBagConstraints();
-		gbc_btnFiltrar.anchor = GridBagConstraints.WEST;
-		gbc_btnFiltrar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnFiltrar.gridx = 2;
-		gbc_btnFiltrar.gridy = 2;
-		panel.add(btnFiltrar, gbc_btnFiltrar);
+		
+		comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Filtro", "Código", "Maior valor", "Menor valor"}));
+		comboBox.setForeground(new Color(234, 242, 237));
+		comboBox.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
+		comboBox.setBackground(new Color(31, 65, 45));
+		GridBagConstraints gbc_comboBox = new GridBagConstraints();
+		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
+		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBox.gridx = 2;
+		gbc_comboBox.gridy = 2;
+		panel.add(comboBox, gbc_comboBox);
 		btnVisualizarProduto.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
 		btnVisualizarProduto.setBackground(new Color(31, 65, 45));
 		btnVisualizarProduto.setForeground(new Color(255, 255, 255));
 		GridBagConstraints gbc_btnVisualizarProduto = new GridBagConstraints();
 		gbc_btnVisualizarProduto.anchor = GridBagConstraints.EAST;
 		gbc_btnVisualizarProduto.insets = new Insets(0, 0, 5, 5);
-		gbc_btnVisualizarProduto.gridx = 4;
+		gbc_btnVisualizarProduto.gridx = 3;
 		gbc_btnVisualizarProduto.gridy = 2;
 		panel.add(btnVisualizarProduto, gbc_btnVisualizarProduto);
 
@@ -434,9 +445,9 @@ public class TelaHistoricoVendas extends JFrame {
 		scrollPane.setFont(new Font("Yu Gothic UI Semilight", Font.PLAIN, 26));
 		scrollPane.setForeground(new Color(150, 191, 120));
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
-		gbc_scrollPane.insets = new Insets(0, 0, 0, 5);
+		gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
-		gbc_scrollPane.gridwidth = 4;
+		gbc_scrollPane.gridwidth = 3;
 		gbc_scrollPane.gridx = 1;
 		gbc_scrollPane.gridy = 3;
 		panel.add(scrollPane, gbc_scrollPane);
@@ -459,13 +470,15 @@ public class TelaHistoricoVendas extends JFrame {
 
 		JPanel panel_2 = new JPanel();
 		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
+		gbc_panel_2.insets = new Insets(0, 0, 5, 0);
 		gbc_panel_2.fill = GridBagConstraints.BOTH;
-		gbc_panel_2.gridx = 6;
+		gbc_panel_2.gridx = 5;
 		gbc_panel_2.gridy = 3;
 		panel.add(panel_2, gbc_panel_2);
 
 		JPanel panel_4 = new JPanel();
 		GridBagConstraints gbc_panel_4 = new GridBagConstraints();
+		gbc_panel_4.insets = new Insets(0, 0, 0, 5);
 		gbc_panel_4.fill = GridBagConstraints.BOTH;
 		gbc_panel_4.gridx = 1;
 		gbc_panel_4.gridy = 5;
@@ -486,6 +499,24 @@ public class TelaHistoricoVendas extends JFrame {
 			}
 		});
 
+	}
+	
+	public int filtro() {
+		int filtro = 0;
+		System.out.println(comboBox.getSelectedIndex());
+		if (comboBox.getSelectedIndex() == 1) {
+			filtro = 1;
+		}
+		else if(comboBox.getSelectedIndex() == 2) {
+			filtro = 2;
+		}
+		else if(comboBox.getSelectedIndex() == 3) {
+			filtro = 3;
+		}else {
+			JOptionPane.showMessageDialog(null, "Escolha uma das opções para filtro!");
+		}
+		
+		return filtro;
 	}
 
 }

@@ -219,7 +219,7 @@ public class TelaEstoque extends JFrame {
 		linha_1_1.setMinimumSize(new Dimension(5, 1));
 		linha_1_1.setBackground(new Color(85, 121, 74));
 		mnNewMenu.add(linha_1_1);
-		
+
 		JMenuItem btnCadastrarVendedor = new JMenuItem("Cadastrar Vendedor");
 		btnCadastrarVendedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -236,7 +236,7 @@ public class TelaEstoque extends JFrame {
 		btnCadastrarVendedor.setBorder(null);
 		btnCadastrarVendedor.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnCadastrarVendedor);
-		
+
 		JMenuItem btnListagemDeVendedores = new JMenuItem("Listagem de Vendedores");
 		btnListagemDeVendedores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -253,7 +253,7 @@ public class TelaEstoque extends JFrame {
 		btnListagemDeVendedores.setBorder(null);
 		btnListagemDeVendedores.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnListagemDeVendedores);
-		
+
 		JPanel linha_1_1_2 = new JPanel();
 		linha_1_1_2.setPreferredSize(new Dimension(1, 2));
 		linha_1_1_2.setMinimumSize(new Dimension(5, 1));
@@ -378,29 +378,28 @@ public class TelaEstoque extends JFrame {
 		gbc_lblTitulo.gridx = 1;
 		gbc_lblTitulo.gridy = 2;
 		contentPane.add(lblTitulo, gbc_lblTitulo);
-		
-				JButton btnAlterar = new JButton("  Alterar  ");
-				btnAlterar.setForeground(new Color(234, 242, 237));
-				btnAlterar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
-				btnAlterar.setBackground(new Color(31, 65, 45));
-				btnAlterar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						if (produto_selecionado != null) {
-							TelaSalvarProduto sp = new TelaSalvarProduto();
-							sp.abrir(produto_selecionado);
-							frame.setVisible(false);
-						}
-					}
-				});
-				
-				
-				GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
-				gbc_btnAlterar.anchor = GridBagConstraints.SOUTH;
-				gbc_btnAlterar.fill = GridBagConstraints.HORIZONTAL;
-				gbc_btnAlterar.insets = new Insets(0, 0, 5, 0);
-				gbc_btnAlterar.gridx = 4;
-				gbc_btnAlterar.gridy = 2;
-				contentPane.add(btnAlterar, gbc_btnAlterar);
+
+		JButton btnAlterar = new JButton("  Alterar  ");
+		btnAlterar.setForeground(new Color(234, 242, 237));
+		btnAlterar.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
+		btnAlterar.setBackground(new Color(31, 65, 45));
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (produto_selecionado != null) {
+					TelaSalvarProduto sp = new TelaSalvarProduto();
+					sp.abrir(produto_selecionado);
+					frame.setVisible(false);
+				}
+			}
+		});
+
+		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
+		gbc_btnAlterar.anchor = GridBagConstraints.SOUTH;
+		gbc_btnAlterar.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnAlterar.insets = new Insets(0, 0, 5, 0);
+		gbc_btnAlterar.gridx = 4;
+		gbc_btnAlterar.gridy = 2;
+		contentPane.add(btnAlterar, gbc_btnAlterar);
 
 		JPanel panelPesquisa = new JPanel();
 		GridBagConstraints gbc_panelPesquisa = new GridBagConstraints();
@@ -428,8 +427,9 @@ public class TelaEstoque extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String pesquisa = textFieldPesquisaNoEstoque.getText();
 				EstoqueBD ebd = new EstoqueBD();
-				
-				ebd.atualizarPesquisa(table, pesquisa, filtro());;
+
+				ebd.atualizarPesquisa(table, pesquisa, filtro());
+				;
 			}
 		});
 		btnPesquisa.setBorder(null);
@@ -460,25 +460,25 @@ public class TelaEstoque extends JFrame {
 		comboBox.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { " Filtrar", " Nome", " Código",
 				" Preço - Maior para menor", " Preço - Menor para maior" }));
-		
-				JButton btnRemover = new JButton("Remover");
-				btnRemover.setForeground(new Color(234, 242, 237));
-				btnRemover.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
-				btnRemover.setBackground(new Color(31, 65, 45));
-				btnRemover.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						etb.deletar(produto_selecionado, table);
-						table.setModel(etb.listagemProduto());
-					}
-				});
-				
-						GridBagConstraints gbc_btnRemover = new GridBagConstraints();
-						gbc_btnRemover.fill = GridBagConstraints.BOTH;
-						gbc_btnRemover.anchor = GridBagConstraints.EAST;
-						gbc_btnRemover.insets = new Insets(0, 0, 5, 0);
-						gbc_btnRemover.gridx = 4;
-						gbc_btnRemover.gridy = 3;
-						contentPane.add(btnRemover, gbc_btnRemover);
+
+		JButton btnRemover = new JButton("Remover");
+		btnRemover.setForeground(new Color(234, 242, 237));
+		btnRemover.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
+		btnRemover.setBackground(new Color(31, 65, 45));
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				etb.deletar(produto_selecionado, table);
+				table.setModel(etb.listagemProduto());
+			}
+		});
+
+		GridBagConstraints gbc_btnRemover = new GridBagConstraints();
+		gbc_btnRemover.fill = GridBagConstraints.BOTH;
+		gbc_btnRemover.anchor = GridBagConstraints.EAST;
+		gbc_btnRemover.insets = new Insets(0, 0, 5, 0);
+		gbc_btnRemover.gridx = 4;
+		gbc_btnRemover.gridy = 3;
+		contentPane.add(btnRemover, gbc_btnRemover);
 
 		JScrollPane scrollPane = new JScrollPane(table);
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
@@ -506,25 +506,22 @@ public class TelaEstoque extends JFrame {
 		tH.setForeground(Color.WHITE);
 
 	}
-	
+
 	public int filtro() {
 		int filtro = 0;
 		System.out.println(comboBox.getSelectedIndex());
 		if (comboBox.getSelectedIndex() == 1) {
 			filtro = 1;
-		}
-		else if(comboBox.getSelectedIndex() == 2) {
+		} else if (comboBox.getSelectedIndex() == 2) {
 			filtro = 2;
-		}
-		else if(comboBox.getSelectedIndex() == 3) {
+		} else if (comboBox.getSelectedIndex() == 3) {
 			filtro = 3;
-		}
-		else if(comboBox.getSelectedIndex() == 4) {
+		} else if (comboBox.getSelectedIndex() == 4) {
 			filtro = 4;
-		}else {
+		} else {
 			JOptionPane.showMessageDialog(null, "Escolha uma das opções para filtro!");
 		}
-		
+
 		return filtro;
 	}
 }

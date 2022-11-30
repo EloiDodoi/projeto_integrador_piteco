@@ -493,7 +493,7 @@ public class TelaControleVendedores extends JFrame {
 		gbc_panel_3.gridy = 7;
 		panel.add(panel_3, gbc_panel_3);
 		GridBagLayout gbl_panel_3 = new GridBagLayout();
-		gbl_panel_3.columnWidths = new int[]{345, 326, 362, 270, 0};
+		gbl_panel_3.columnWidths = new int[]{314, 326, 362, 270, 0};
 		gbl_panel_3.rowHeights = new int[]{119, 0};
 		gbl_panel_3.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panel_3.rowWeights = new double[]{0.0, Double.MIN_VALUE};
