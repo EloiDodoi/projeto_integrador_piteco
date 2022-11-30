@@ -41,6 +41,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import java.awt.Toolkit;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class TelaListagemVendedores extends JFrame {
 
@@ -49,7 +50,7 @@ public class TelaListagemVendedores extends JFrame {
 	private JLabel lblTitulo;
 	private JPanel Linha;
 	private JPanel panelPesquisa;
-	private JTextField textField;
+	private JTextField tfPesquisa;
 	private JButton btnPesquisa;
 	Usuario vendedor_selecionado;
 	ControleVendedorBD cvbd = new ControleVendedorBD();
@@ -356,9 +357,9 @@ public class TelaListagemVendedores extends JFrame {
 		panel = new JPanel();
 		contentPane.add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] {65, 865, 125, 119, 119, 65};
-		gbl_panel.rowHeights = new int[] {30, 0, 31, 138, 39, 41, 544, 30};
-		gbl_panel.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_panel.columnWidths = new int[] {65, 899, 328, 336, 65};
+		gbl_panel.rowHeights = new int[] {30, 0, 31, 93, 39, 41, 544, 30};
+		gbl_panel.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
@@ -367,7 +368,7 @@ public class TelaListagemVendedores extends JFrame {
 		gbc_Linha.anchor = GridBagConstraints.NORTH;
 		gbc_Linha.fill = GridBagConstraints.HORIZONTAL;
 		gbc_Linha.insets = new Insets(0, 0, 5, 0);
-		gbc_Linha.gridwidth = 4;
+		gbc_Linha.gridwidth = 3;
 		gbc_Linha.gridx = 1;
 		gbc_Linha.gridy = 1;
 		panel.add(Linha, gbc_Linha);
@@ -385,13 +386,13 @@ public class TelaListagemVendedores extends JFrame {
 		lblTitulo.setForeground(new Color(31, 65, 45));
 		lblTitulo.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 82));
 		
-		JButton btnExcluir = new JButton(" Excluir");
+		JButton btnExcluir = new JButton("    Excluir    ");
 		btnExcluir.setToolTipText("Excluir Vendedor selecionado");
 		GridBagConstraints gbc_btnExcluir = new GridBagConstraints();
-		gbc_btnExcluir.anchor = GridBagConstraints.SOUTH;
-		gbc_btnExcluir.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnExcluir.anchor = GridBagConstraints.EAST;
+		gbc_btnExcluir.fill = GridBagConstraints.VERTICAL;
 		gbc_btnExcluir.insets = new Insets(0, 0, 5, 0);
-		gbc_btnExcluir.gridx = 4;
+		gbc_btnExcluir.gridx = 3;
 		gbc_btnExcluir.gridy = 4;
 		panel.add(btnExcluir, gbc_btnExcluir);
 		btnExcluir.addActionListener(new ActionListener() {
@@ -412,13 +413,21 @@ public class TelaListagemVendedores extends JFrame {
 		gbc_panelPesquisa.gridy = 5;
 		panel.add(panelPesquisa, gbc_panelPesquisa);
 		GridBagLayout gbl_panelPesquisa = new GridBagLayout();
-		gbl_panelPesquisa.columnWidths = new int[] {80, 800};
+		gbl_panelPesquisa.columnWidths = new int[] {77, 767};
 		gbl_panelPesquisa.rowHeights = new int[] {32};
-		gbl_panelPesquisa.columnWeights = new double[]{1.0, 1.0, 0.0};
+		gbl_panelPesquisa.columnWeights = new double[]{1.0, 1.0};
 		gbl_panelPesquisa.rowWeights = new double[]{0.0};
 		panelPesquisa.setLayout(gbl_panelPesquisa);
 		
 		btnPesquisa = new JButton("");
+		btnPesquisa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String pesquisa = tfPesquisa.getText();
+				ControleVendedorBD cvbd = new ControleVendedorBD();
+				
+				
+			}
+		});
 		btnPesquisa.setIcon(new ImageIcon(TelaListagemVendedores.class.getResource("/img/inspecao (1).png")));
 		btnPesquisa.setBorder(null);
 		btnPesquisa.setBackground(new Color(31, 65, 45));
@@ -428,21 +437,21 @@ public class TelaListagemVendedores extends JFrame {
 		gbc_btnPesquisa.gridy = 0;
 		panelPesquisa.add(btnPesquisa, gbc_btnPesquisa);
 		
-		textField = new JTextField();
-		textField.setSelectionColor(new Color(217, 173, 181));
-		textField.setHorizontalAlignment(SwingConstants.LEFT);
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		textField.setColumns(10);
-		textField.setCaretColor(new Color(31, 65, 45));
-		textField.setBorder(new LineBorder(new Color(31, 65, 45), 2));
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.gridwidth = 2;
-		gbc_textField.fill = GridBagConstraints.BOTH;
-		gbc_textField.gridx = 1;
-		gbc_textField.gridy = 0;
-		panelPesquisa.add(textField, gbc_textField);
+		tfPesquisa = new JTextField();
+		tfPesquisa.setSelectionColor(new Color(217, 173, 181));
+		tfPesquisa.setHorizontalAlignment(SwingConstants.LEFT);
+		tfPesquisa.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		tfPesquisa.setColumns(10);
+		tfPesquisa.setCaretColor(new Color(31, 65, 45));
+		tfPesquisa.setBorder(new LineBorder(new Color(31, 65, 45), 2));
+		GridBagConstraints gbc_tfPesquisa = new GridBagConstraints();
+		gbc_tfPesquisa.fill = GridBagConstraints.BOTH;
+		gbc_tfPesquisa.gridx = 1;
+		gbc_tfPesquisa.gridy = 0;
+		panelPesquisa.add(tfPesquisa, gbc_tfPesquisa);
 		
 		comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Filtro", "Nome", "CPF", "Data de Nascimento", "Telefone", "E-mail"}));
 		comboBox.setForeground(new Color(234, 242, 237));
 		comboBox.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
 		comboBox.setBackground(new Color(31, 65, 45));
@@ -453,13 +462,13 @@ public class TelaListagemVendedores extends JFrame {
 		gbc_comboBox.gridy = 5;
 		panel.add(comboBox, gbc_comboBox);
 		
-		JButton btnAlterar = new JButton("Alterar");
+		JButton btnAlterar = new JButton("    Alterar    ");
 		btnAlterar.setToolTipText("Alterar Vendedor selecionado");
 		GridBagConstraints gbc_btnAlterar = new GridBagConstraints();
-		gbc_btnAlterar.anchor = GridBagConstraints.SOUTH;
-		gbc_btnAlterar.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnAlterar.anchor = GridBagConstraints.EAST;
+		gbc_btnAlterar.fill = GridBagConstraints.VERTICAL;
 		gbc_btnAlterar.insets = new Insets(0, 0, 5, 0);
-		gbc_btnAlterar.gridx = 4;
+		gbc_btnAlterar.gridx = 3;
 		gbc_btnAlterar.gridy = 5;
 		panel.add(btnAlterar, gbc_btnAlterar);
 		btnAlterar.addActionListener(new ActionListener() {
@@ -479,7 +488,7 @@ public class TelaListagemVendedores extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
-		gbc_scrollPane.gridwidth = 4;
+		gbc_scrollPane.gridwidth = 3;
 		gbc_scrollPane.gridx = 1;
 		gbc_scrollPane.gridy = 6;
 		panel.add(scrollPane, gbc_scrollPane);
@@ -531,5 +540,25 @@ public class TelaListagemVendedores extends JFrame {
 			}	
 		);
 
+	}
+	
+	public int filtro() {
+		int filtro = 0;
+		System.out.println(comboBox.getSelectedIndex());
+		if (comboBox.getSelectedIndex() == 1) {
+			filtro = 1;
+		} else if (comboBox.getSelectedIndex() == 2) {
+			filtro = 2;
+		} else if (comboBox.getSelectedIndex() == 3) {
+			filtro = 3;
+		} else if (comboBox.getSelectedIndex() == 4) {
+			filtro = 4;
+		} else if (comboBox.getSelectedIndex() == 5) {
+			filtro = 5;
+		}else {
+			JOptionPane.showMessageDialog(null, "Escolha uma das opções para filtro!");
+		}
+
+		return filtro;
 	}
 }
