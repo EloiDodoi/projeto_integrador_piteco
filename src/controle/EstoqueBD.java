@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Produto;
@@ -159,7 +160,7 @@ public class EstoqueBD {
 		}
 		return modelo_tabela;
 	}
-	public void notificacaoEstoque () {
+	public JTable notificacaoEstoque () {
 		ArrayList<Produto> lista_quant = new ArrayList<>();
 		try {
 			PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT  idProduto,produto_nomeveg,produto_quantidade FROM produto where produto_quantidade < 5");
@@ -168,8 +169,19 @@ public class EstoqueBD {
 				Produto p = new Produto(rs.getInt(1), (rs.getString(2)), null, 0, rs.getFloat(3), 0);
 				lista_quant.add(p);
 			}
-			JOptionPane.showMessageDialog(null, "Produtos que estão quase esgotando+: "+ lista_quant);
-		} catch (SQLException e) {
+			DefaultTableModel modelo_tabela = new DefaultTableModel(
+					new Object[][][][][][] {
+						
+					},
+					new String[] {
+						"Código", "Nome", "Quantidade"}
+					for (int i = 0;i<lista_quant.size();i++) {
+						Produto p = lista_quant.get(i);
+						modelo_tabela.addRow(new Object[] {p.getIdProduto(),p.getProduto_nomeveg(),p.getProduto_especieveg(),p.getProduto_preco(), p.getProduto_quantidade()});
+					}
+					//Table JTable.setDefaultLocale(null)
+				//	return JTable;
+			} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
