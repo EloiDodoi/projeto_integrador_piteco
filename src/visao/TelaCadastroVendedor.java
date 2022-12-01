@@ -403,6 +403,11 @@ public class TelaCadastroVendedor {
 		JButton btnNewButton = new JButton("  Cadastrar  ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(txt_nome_vendedor.getText().isEmpty() == true || txt_cpf_vendedor.getText().isEmpty() == true || pf_senha_vendedor.getText().isEmpty() == true || pf_senha_confirmada_vendedor.getText().isEmpty() == true || txt_email_vendedor.getText().isEmpty() == true || txt_telefone_vendedor.getText().isEmpty() == true) {
+					JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de realizar o cadastro!");
+				}
+				else {
+				
 				String nome_vendedor = txt_nome_vendedor.getText();
 				String cpf_vendedor = txt_cpf_vendedor.getText();
 				String email_vendedor = txt_email_vendedor.getText();
@@ -434,6 +439,8 @@ public class TelaCadastroVendedor {
 				}
 				
 			}
+			}
+				
 		});
 		
 		btnNewButton.setBackground(new Color(234, 242, 237));
