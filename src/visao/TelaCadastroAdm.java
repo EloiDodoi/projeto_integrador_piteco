@@ -480,36 +480,41 @@ public class TelaCadastroAdm {
 				btnCadastrar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-						String nomeAdm = txtNome.getText();
-						String cpfAdm = txtCPF.getText();
-						
-						String senhaAdm = pfSenha.getText();
-						String senhaConfirmadaAdm = pfSenhaConfirmada.getText();
-						
-						String nomeNegocio = txtNomeNegocio.getText();
-						String emailAdm = txtEmail.getText();
-						String cnpj = txtCNPJ.getText();
-						
-						String telefoneAdm = txtTelefone.getText();
-						
-						int diaAdm = Integer.parseInt((String) cbDia.getSelectedItem());
-						int mesAdm = Integer.parseInt((String) cbMes.getSelectedItem());
-						int anoAdm = Integer.parseInt((String) cbAno.getSelectedItem());
-						
-						LocalDate dataAdm = LocalDate.of(anoAdm, mesAdm, diaAdm);
-						
-						if (!senhaAdm.equals(senhaAdm)) {
-							JOptionPane.showMessageDialog(null, "A confirmação da senha está incorreta. Digite novamente.");
-							pfSenhaConfirmada.setText("");
+						if(txtNome.getText().isEmpty() == true || txtCPF.getText().isEmpty() == true || pfSenha.getText().isEmpty() == true || pfSenhaConfirmada.getText().isEmpty() == true || txtNomeNegocio.getText().isEmpty() == true || txtEmail.getText().isEmpty() == true || txtCNPJ.getText().isEmpty() == true || txtTelefone.getText().isEmpty() == true) {
+							JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de realizar o cadastro!");
 						}
 						else {
-							CadastrarAdmBD cabd = new CadastrarAdmBD();
-							Usuario Adm = new Usuario(0,nomeAdm, cpfAdm, cnpj,Date.valueOf(dataAdm),telefoneAdm,senhaAdm,emailAdm,nomeNegocio,0);
-							cabd.cadastrarVendedor(Adm);
+							String nomeAdm = txtNome.getText();
+							String cpfAdm = txtCPF.getText();
 							
-							frmTelaCadastrarAdministrador.setVisible(false);
-							TelaLoginAdm tla = new TelaLoginAdm();
-							tla.abrir();
+							String senhaAdm = pfSenha.getText();
+							String senhaConfirmadaAdm = pfSenhaConfirmada.getText();
+							
+							String nomeNegocio = txtNomeNegocio.getText();
+							String emailAdm = txtEmail.getText();
+							String cnpj = txtCNPJ.getText();
+							
+							String telefoneAdm = txtTelefone.getText();
+							
+							int diaAdm = Integer.parseInt((String) cbDia.getSelectedItem());
+							int mesAdm = Integer.parseInt((String) cbMes.getSelectedItem());
+							int anoAdm = Integer.parseInt((String) cbAno.getSelectedItem());
+							
+							LocalDate dataAdm = LocalDate.of(anoAdm, mesAdm, diaAdm);
+						
+							if (!senhaAdm.equals(senhaAdm)) {
+								JOptionPane.showMessageDialog(null, "A confirmação da senha está incorreta. Digite novamente.");
+								pfSenhaConfirmada.setText("");
+							}
+							else {
+								CadastrarAdmBD cabd = new CadastrarAdmBD();
+								Usuario Adm = new Usuario(0,nomeAdm, cpfAdm, cnpj,Date.valueOf(dataAdm),telefoneAdm,senhaAdm,emailAdm,nomeNegocio,0);
+								cabd.cadastrarVendedor(Adm);
+								
+								frmTelaCadastrarAdministrador.setVisible(false);
+								TelaLoginAdm tla = new TelaLoginAdm();
+								tla.abrir();
+							}
 						}
 						
 					}
