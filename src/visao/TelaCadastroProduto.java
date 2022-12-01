@@ -35,6 +35,7 @@ import javax.swing.JMenuBar;
 import java.awt.Toolkit;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 public class TelaCadastroProduto {
 
 	private JFrame frmTelaDeCadastro;
@@ -237,31 +238,36 @@ public class TelaCadastroProduto {
 		JButton btn_cadastrar_produto = new JButton("  Cadastrar  ");
 		btn_cadastrar_produto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String nome = txt_nome.getText();
-				String especie = txt_especie.getText();
-				int unidade;
-				if (rbKg.isSelected() == true) {
-					unidade = 1;
+				if(txt_nome.getText().isEmpty() == true || txt_especie.getText().isEmpty() == true || txt_preco.getText().isEmpty() == true || txt_quantidade.getText().isEmpty() == true) {
+					JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de realizar o cadastro!");
 				}
 				else {
-					unidade = 2;
+					String nome = txt_nome.getText();
+					String especie = txt_especie.getText();
+					int unidade;
+					if (rbKg.isSelected() == true) {
+						unidade = 1;
+					}
+					else {
+						unidade = 2;
+					}
+					float preco = Float.parseFloat(txt_preco.getText());
+					float quantidade = Float.parseFloat(txt_quantidade.getText());
+					CadastroProdutoBD cp = new CadastroProdutoBD();
+					Produto pd = new Produto(0, nome, especie, preco, quantidade, unidade);
+					cp.cadastrar(pd);
+					
+					frmTelaDeCadastro.setVisible(false);
+					TelaBemVindo tbv = new TelaBemVindo();
+					tbv.abrir();
+					
+					//limpar campos
+					txt_nome.setText("");
+					txt_especie.setText("");
+					rbKg.setSelected(true);
+					txt_preco.setText("");
+					txt_quantidade.setText("");
 				}
-				float preco = Float.parseFloat(txt_preco.getText());
-				float quantidade = Float.parseFloat(txt_quantidade.getText());
-				CadastroProdutoBD cp = new CadastroProdutoBD();
-				Produto pd = new Produto(0, nome, especie, preco, quantidade, unidade);
-				cp.cadastrar(pd);
-				
-				frmTelaDeCadastro.setVisible(false);
-				TelaBemVindo tbv = new TelaBemVindo();
-				tbv.abrir();
-				
-				//limpar campos
-				txt_nome.setText("");
-				txt_especie.setText("");
-				rbKg.setSelected(true);
-				txt_preco.setText("");
-				txt_quantidade.setText("");
 			}
 		});
 		
