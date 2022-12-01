@@ -188,6 +188,7 @@ public class TelaBemVindo extends JFrame {
 		JMenuItem btnMenuControle = new JMenuItem("Controle");
 		btnMenuControle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				TelaControleVendedores tcv = new TelaControleVendedores();
 				tcv.abrir();
 			}

@@ -123,7 +123,7 @@ public class TelaInicial extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TelaLoginAdm login_adm = new TelaLoginAdm();
 				login_adm.abrir();
-				window.setVisible(false);
+				setVisible(false);
 			}
 		});
 		btn_adm.setForeground(Color.WHITE);
@@ -136,10 +136,10 @@ public class TelaInicial extends JFrame {
 		JButton btn_vendedor = new JButton("Vendedor\r\n");
 		btn_vendedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				TelaLoginVendedor login_vendedor = new TelaLoginVendedor();
 				login_vendedor.abrir();
-				window.setVisible(false);
-			}
+				}
 		});
 		btn_vendedor.setPreferredSize(new Dimension(99, 23));
 		btn_vendedor.setBorder(null);

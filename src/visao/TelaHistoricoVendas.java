@@ -521,7 +521,7 @@ public class TelaHistoricoVendas extends JFrame {
 		}else if (comboBox.getSelectedIndex() == 5){
 			filtro = 5;
 		}else {
-			JOptionPane.showMessageDialog(null, "Escolha uma das opções claro");
+			JOptionPane.showMessageDialog(null, "Escolha uma das opï¿½ï¿½es claro");
 		}
 		
 		return filtro;

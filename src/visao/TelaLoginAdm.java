@@ -162,6 +162,7 @@ public class TelaLoginAdm {
 		btn_cadastrar_adm.setBorder(new LineBorder(new Color(31, 65, 45), 2, true));
 		btn_cadastrar_adm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frmLoginDoAdministrador.setVisible(false);
 				TelaCadastroAdm tela_cadastro = new TelaCadastroAdm();
 				tela_cadastro.abrir();
 			}
