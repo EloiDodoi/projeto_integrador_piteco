@@ -99,8 +99,7 @@ public class TelaCadastroAdm {
 		panel_1.setMinimumSize(new Dimension(1171, 174));
 		panel_1.setMaximumSize(new Dimension(1171, 174));
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
-		gbc_panel_1.anchor = GridBagConstraints.WEST;
-		gbc_panel_1.fill = GridBagConstraints.VERTICAL;
+		gbc_panel_1.fill = GridBagConstraints.BOTH;
 		gbc_panel_1.gridx = 1;
 		gbc_panel_1.gridy = 1;
 		frmTelaCadastrarAdministrador.getContentPane().add(panel_1, gbc_panel_1);
@@ -117,9 +116,9 @@ public class TelaCadastroAdm {
 		lblVendedor.setForeground(new Color(234, 242, 237));
 		lblVendedor.setFont(new Font("Dialog", Font.PLAIN, 85));
 		GridBagConstraints gbc_lblVendedor = new GridBagConstraints();
+		gbc_lblVendedor.anchor = GridBagConstraints.WEST;
 		gbc_lblVendedor.gridwidth = 2;
-		gbc_lblVendedor.fill = GridBagConstraints.HORIZONTAL;
-		gbc_lblVendedor.insets = new Insets(0, 10, 0, 5);
+		gbc_lblVendedor.insets = new Insets(0, 20, 0, 5);
 		gbc_lblVendedor.gridx = 0;
 		gbc_lblVendedor.gridy = 0;
 		panel_1.add(lblVendedor, gbc_lblVendedor);
@@ -127,8 +126,8 @@ public class TelaCadastroAdm {
 		JLabel lblNewLabel_12_1 = new JLabel("");
 		lblNewLabel_12_1.setIcon(new ImageIcon(TelaCadastroAdm.class.getResource("/img/farmer-128px.png")));
 		GridBagConstraints gbc_lblNewLabel_12_1 = new GridBagConstraints();
+		gbc_lblNewLabel_12_1.insets = new Insets(0, 0, 20, 20);
 		gbc_lblNewLabel_12_1.anchor = GridBagConstraints.SOUTH;
-		gbc_lblNewLabel_12_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblNewLabel_12_1.gridx = 2;
 		gbc_lblNewLabel_12_1.gridy = 0;
 		panel_1.add(lblNewLabel_12_1, gbc_lblNewLabel_12_1);
