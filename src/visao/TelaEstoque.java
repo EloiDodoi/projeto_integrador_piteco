@@ -147,7 +147,7 @@ public class TelaEstoque extends JFrame {
 		JMenuItem btnMenuEstoque = new JMenuItem("Estoque");
 		btnMenuEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Voc� j� est� na Tela de Estoque.");
+				JOptionPane.showMessageDialog(null, "Você já está na Tela de Estoque!");
 			}
 		});
 		btnMenuEstoque.setOpaque(true);
@@ -185,6 +185,7 @@ public class TelaEstoque extends JFrame {
 		JMenuItem btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas");
 		btnMenuRelatorios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				TelaHistoricoVendas thv = new TelaHistoricoVendas();
 				thv.abrir();
 			}
@@ -201,6 +202,7 @@ public class TelaEstoque extends JFrame {
 		JMenuItem btnMenuControle = new JMenuItem("Controle");
 		btnMenuControle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				TelaControleVendedores tcv = new TelaControleVendedores();
 				tcv.abrir();
 			}
@@ -388,7 +390,7 @@ public class TelaEstoque extends JFrame {
 				if (produto_selecionado != null) {
 					TelaSalvarProduto sp = new TelaSalvarProduto();
 					sp.abrir(produto_selecionado);
-					frame.setVisible(false);
+					setVisible(false);
 				}
 			}
 		});
