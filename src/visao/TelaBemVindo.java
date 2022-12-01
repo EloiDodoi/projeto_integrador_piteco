@@ -174,6 +174,7 @@ public class TelaBemVindo extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TelaHistoricoVendas thv = new TelaHistoricoVendas();
 				thv.abrir();
+				setVisible(false);
 			}
 		});
 		btnMenuRelatorios.setOpaque(true);
@@ -192,7 +193,7 @@ public class TelaBemVindo extends JFrame {
 				TelaControleVendedores tcv = new TelaControleVendedores();
 				tcv.abrir();
 			}
-		});
+			});
 		btnMenuControle.setOpaque(true);
 		btnMenuControle.setForeground(new Color(85, 121, 74));
 		btnMenuControle.setBorder(null);

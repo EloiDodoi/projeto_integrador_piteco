@@ -429,7 +429,8 @@ public class TelaCadastroVendedor {
 					Usuario usuario =  new Usuario(0,nome_vendedor,cpf_vendedor,null,Date.valueOf(data),telefone_vendedor,Md5.cifrar(senha_vendedor),email_vendedor,null,0);
 					bv.cadastrarVendedor(usuario);
 					frmTelaDeCadastro.setVisible(false);
-					
+					TelaBemVindo tbv = new TelaBemVindo();
+					tbv.abrir();
 				}
 				
 			}

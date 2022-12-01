@@ -110,10 +110,9 @@ public class TelaControleVendedores extends JFrame {
 	 */
 	
 	public void abrir() {
-		TelaEstoque frame = new TelaEstoque();
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
-		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		setVisible(true);
+		setLocationRelativeTo(null);
+		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
 	}
 	
 	public TelaControleVendedores() {
@@ -434,7 +433,7 @@ public class TelaControleVendedores extends JFrame {
 		gbc_rbNovoVendedor.gridy = 0;
 		panel_2.add(rbNovoVendedor, gbc_rbNovoVendedor);
 		
-		rbHistoricoVendedores = new JRadioButton("Hisórico de Vendedores");
+		rbHistoricoVendedores = new JRadioButton("Listagem de Vendedores");
 		buttonGroup.add(rbHistoricoVendedores);
 		rbHistoricoVendedores.setForeground(new Color(31, 65, 45));
 		rbHistoricoVendedores.setFont(new Font("Yu Gothic UI", Font.PLAIN, 35));
