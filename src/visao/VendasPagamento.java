@@ -492,6 +492,8 @@ public class VendasPagamento extends JFrame {
 
 					vbd.executarVenda(venda);
 					setVisible(false);
+					TelaBemVindo tbv = new TelaBemVindo();
+					tbv.abrir();
 				} else {
 					JOptionPane.showMessageDialog(null, "Selecione um método de pagamento antes de finalizar a venda!");
 				}

@@ -362,7 +362,7 @@ public class TelaBemVindo extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TelaCadastroProduto cadastro_produto = new TelaCadastroProduto();
 				cadastro_produto.abrir();
-				frame.setVisible(false);
+				setVisible(false);
 			}
 		});
 		btnCadastro.setBackground(new Color(234, 242, 237));
@@ -382,7 +382,7 @@ public class TelaBemVindo extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TelaVenda venda = new TelaVenda();
 				venda.abrir();
-				frame.setVisible(false);
+				setVisible(false);
 			}
 		});
 		btnVenda.setBackground(new Color(234, 242, 237));

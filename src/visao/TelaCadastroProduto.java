@@ -252,6 +252,10 @@ public class TelaCadastroProduto {
 				Produto pd = new Produto(0, nome, especie, preco, quantidade, unidade);
 				cp.cadastrar(pd);
 				
+				frmTelaDeCadastro.setVisible(false);
+				TelaBemVindo tbv = new TelaBemVindo();
+				tbv.abrir();
+				
 				//limpar campos
 				txt_nome.setText("");
 				txt_especie.setText("");
