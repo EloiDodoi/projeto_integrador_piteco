@@ -46,12 +46,11 @@ public class TelaInicial extends JFrame {
 	 * Create the frame.
 	 */
 	
-//	public void abrir() {
-//
-//	frame.setVisible(true);
-//		frame.setLocationRelativeTo(null);
-//		frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-//	}
+	public void abrir() {
+		setVisible(true);
+		setLocationRelativeTo(null);
+		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
+	}
 	public TelaInicial() {
 		setTitle("Bem Vindo");
 		

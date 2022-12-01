@@ -478,6 +478,8 @@ public class TelaListagemVendedores extends JFrame {
 					TelaAlterarVendedor tav = new TelaAlterarVendedor();
 					tav.abrir(vendedor_selecionado);
 					setVisible(false);
+				} else {
+					JOptionPane.showMessageDialog(null, "Selecione algum vendedor para alterá-lo.");
 				}
 			}
 		});
