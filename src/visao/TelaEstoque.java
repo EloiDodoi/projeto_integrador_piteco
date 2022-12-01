@@ -263,6 +263,13 @@ public class TelaEstoque extends JFrame {
 		mnNewMenu.add(linha_1_1_2);
 
 		JMenuItem btnMenuSair = new JMenuItem("Sair");
+		btnMenuSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				TelaInicial ti = new TelaInicial();
+				ti.abrir();
+			}
+		});
 		btnMenuSair.setOpaque(true);
 		btnMenuSair.setForeground(new Color(85, 121, 74));
 		btnMenuSair.setBorder(null);

@@ -172,7 +172,7 @@ public class TelaVenda extends JFrame {
 		JMenuItem btnMenuVendas = new JMenuItem("Venda");
 		btnMenuVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JOptionPane.showMessageDialog(null, "Voc� j� est� na Tela de Vendas.");
+				JOptionPane.showMessageDialog(null, "Você já está na Tela de Vendas.");
 			}
 		});
 		btnMenuVendas.setOpaque(true);
@@ -193,6 +193,7 @@ public class TelaVenda extends JFrame {
 		JMenuItem btnMenuRelatorios = new JMenuItem("Hist\u00F3rico de Vendas");
 		btnMenuRelatorios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				TelaHistoricoVendas thv = new TelaHistoricoVendas();
 				thv.abrir();
 			}
@@ -209,6 +210,7 @@ public class TelaVenda extends JFrame {
 		JMenuItem btnMenuControle = new JMenuItem("Controle");
 		btnMenuControle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				TelaControleVendedores tcv = new TelaControleVendedores();
 				tcv.abrir();
 			}
@@ -269,6 +271,13 @@ public class TelaVenda extends JFrame {
 		mnNewMenu.add(linha_1_1_2);
 
 		JMenuItem btnMenuSair = new JMenuItem("Sair");
+		btnMenuSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				TelaInicial ti = new TelaInicial();
+				ti.abrir();
+			}
+		});
 		btnMenuSair.setOpaque(true);
 		btnMenuSair.setForeground(new Color(85, 121, 74));
 		btnMenuSair.setBorder(null);

@@ -44,7 +44,6 @@ import java.awt.Point;
 public class TelaBemVindo extends JFrame {
 
 	static TelaBemVindo frame = new TelaBemVindo();
-	private int statusMenu = 0;
 	private JPanel contentPane;
 
 	/**
