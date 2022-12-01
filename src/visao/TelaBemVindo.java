@@ -330,7 +330,7 @@ public class TelaBemVindo extends JFrame {
 		setContentPane(contentPane);
 
 		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
+		contentPane.add(panel, BorderLayout.SOUTH);
 		panel.setBackground(new Color(234, 242, 237));
 		panel.setLayout(new BorderLayout(0, 0));
 
@@ -390,35 +390,6 @@ public class TelaBemVindo extends JFrame {
 		btnVenda.setForeground(new Color(85, 121, 74));
 		btnVenda.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 65));
 
-		JPanel panel_4 = new JPanel();
-		panel_4.setBackground(new Color(234, 242, 237));
-		panel.add(panel_4, BorderLayout.CENTER);
-		GridBagLayout gbl_panel_4 = new GridBagLayout();
-		gbl_panel_4.columnWidths = new int[] { 600 };
-		gbl_panel_4.rowHeights = new int[] { 400, 0, 200 };
-		gbl_panel_4.columnWeights = new double[] { 0.0 };
-		gbl_panel_4.rowWeights = new double[] { 0.0, 0.0, 0.0 };
-		panel_4.setLayout(gbl_panel_4);
-
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/3.png")));
-		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
-		gbc_lblNewLabel_1.fill = GridBagConstraints.BOTH;
-		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel_1.gridx = 0;
-		gbc_lblNewLabel_1.gridy = 0;
-		panel_4.add(lblNewLabel_1, gbc_lblNewLabel_1);
-
-		JLabel lblNewLabel = new JLabel("Bem Vindo!");
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
-		gbc_lblNewLabel.fill = GridBagConstraints.VERTICAL;
-		gbc_lblNewLabel.gridx = 0;
-		gbc_lblNewLabel.gridy = 1;
-		panel_4.add(lblNewLabel, gbc_lblNewLabel);
-		lblNewLabel.setForeground(new Color(31, 65, 45));
-		lblNewLabel.setFont(new Font("Yu Gothic Medium", Font.PLAIN, 82));
-
 		/*
 		 * GroupLayout gl_BarraSuperior = new GroupLayout(BarraSuperior);
 		 * gl_BarraSuperior.setHorizontalGroup(
@@ -449,12 +420,32 @@ public class TelaBemVindo extends JFrame {
 		 * separator.setForeground(new Color(234, 242, 237)); separator.setBounds(1294,
 		 * 0, 2, 40); BarraSuperior.add(separator);
 		 */
-		JLabel Logo = new JLabel("");
-		Logo.setHorizontalAlignment(SwingConstants.CENTER);
-		Logo.setLabelFor(Logo);
-		Logo.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/3.png")));
-		Logo.setBounds(461, 51, 469, 402);
-		panel.add(Logo);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(234, 242, 237));
+		contentPane.add(panel_1, BorderLayout.CENTER);
+		GridBagLayout gbl_panel_1 = new GridBagLayout();
+		gbl_panel_1.columnWidths = new int[] {250, 500, 250};
+		gbl_panel_1.rowHeights = new int[] {350, 0, 200};
+		gbl_panel_1.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		panel_1.setLayout(gbl_panel_1);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(TelaBemVindo.class.getResource("/img/3.png")));
+		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel.gridx = 1;
+		gbc_lblNewLabel.gridy = 0;
+		panel_1.add(lblNewLabel, gbc_lblNewLabel);
+		
+		JLabel lblPiteco = new JLabel("PITECO");
+		lblPiteco.setForeground(new Color(31, 65, 45));
+		lblPiteco.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 70));
+		GridBagConstraints gbc_lblPiteco = new GridBagConstraints();
+		gbc_lblPiteco.gridx = 1;
+		gbc_lblPiteco.gridy = 1;
+		panel_1.add(lblPiteco, gbc_lblPiteco);
 
 	}
 
