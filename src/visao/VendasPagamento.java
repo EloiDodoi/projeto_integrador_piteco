@@ -28,8 +28,9 @@ import javax.swing.table.TableModel;
 
 import controle.VendaBD;
 import modelo.ItemVenda;
+import modelo.Usuario;
 import modelo.Venda;
-
+import visao.TelaLoginAdm;
 import javax.swing.JRadioButton;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -53,11 +54,13 @@ public class VendasPagamento extends JFrame {
 	VendaBD vbd = new VendaBD();
 	private JTextField txtValorDinheiro;
 	float valorTotal;
+	private Usuario usuario = recberUser(TelaLoginAdm.user);
 	JLabel lblTroco2;
 	JLabel lblValorDinheiro;
 	JLabel lblRS2;
 	JLabel lblTroco;
 	JLabel lblRS4;
+	
 
 	public static float roundAvoid(double value, int places) {
 		float scale = (float) Math.pow(10, places);
@@ -469,7 +472,12 @@ public class VendasPagamento extends JFrame {
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VendaBD vbd = new VendaBD();
-				venda.setUsuario(TelaLoginAdm.user);
+				if (usuario != null) {
+					venda.setUsuario(usuario);
+				}else {
+					venda.setUsuario(usuario);
+				}
+				System.out.println(TelaLoginVendedor.user.getUsuario_id());
 				venda.setVenda_valor(Float.parseFloat(lblTotal.getText()));
 				LocalDateTime data = LocalDateTime.now();
 				java.sql.Date data_venda = java.sql.Date.valueOf(data.toLocalDate());
@@ -540,4 +548,10 @@ public class VendasPagamento extends JFrame {
 
 	}
 
+	public Usuario recberUser(Usuario user) {
+		usuario = user;
+		return usuario;
+	}
 }
+//====================================
+

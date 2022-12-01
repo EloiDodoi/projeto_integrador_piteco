@@ -12,6 +12,7 @@ import javax.swing.table.JTableHeader;
 
 import controle.ControleVendedorBD;
 import controle.EstoqueBD;
+import controle.HistoricoVendaBD;
 import modelo.Produto;
 import modelo.Usuario;
 
@@ -421,12 +422,15 @@ public class TelaListagemVendedores extends JFrame {
 		
 		btnPesquisa = new JButton("");
 		btnPesquisa.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String pesquisa = tfPesquisa.getText();
+		 public void actionPerformed(ActionEvent e) {
+			  String pesquisa  = tfPesquisa.getText();
+				HistoricoVendaBD hvbd = new HistoricoVendaBD();
 				ControleVendedorBD cvbd = new ControleVendedorBD();
+				if(filtro() == 3 && hvbd.validarData(pesquisa) == true) {
 				cvbd.atualizarListaFiltrada(table, pesquisa, filtro());
-				
-				
+				}else if(filtro() != 2) {
+					cvbd.atualizarListaFiltrada(table, pesquisa, filtro());
+				}
 			}
 		});
 		btnPesquisa.setIcon(new ImageIcon(TelaListagemVendedores.class.getResource("/img/inspecao (1).png")));

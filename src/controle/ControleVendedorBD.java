@@ -24,7 +24,7 @@ public class ControleVendedorBD {
 	
 	public void atualizarListaFiltrada(JTable jt, String texto, int tipo) {
 		jt.setModel(listagemFiltroVendedor(texto, tipo));
-	}
+ }
 	
 	public ArrayList<Usuario> listaVendedor() {
 		try {
@@ -86,7 +86,7 @@ public class ControleVendedorBD {
 		          }
 		          return filtro_vend;
 			}else if (tipo == 2) {
-				PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT * FROM usuario where TipoUser_id_tipo = 2 and  usuario_cpf like  ?");
+				PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT * FROM usuario where TipoUser_id_tipo = 2 and   cpf like ?");
 				ps.setString(1, "%"+texto+"%");
 				ResultSet rs = ps.executeQuery();
 		          while(rs.next()){
@@ -96,8 +96,8 @@ public class ControleVendedorBD {
 		          return filtro_vend;	
 		          // --------------- DAta
 			}else if (tipo == 3) {
-				PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT * FROM usuario where TipoUser_id_tipo = 2 and usuario_nome like ?");
-				ps.setString(1, "%"+texto+"%");
+				PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT * FROM usuario where TipoUser_id_tipo = 2 and usuario_datanascimento like ?");
+				ps.setString(1,"%"+texto+"%");
 				ResultSet rs = ps.executeQuery();
 		          while(rs.next()){
 		        	  Usuario vendedor = new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), null, rs.getDate(5), rs.getString(6), null, rs.getString(8),null, rs.getInt(9));

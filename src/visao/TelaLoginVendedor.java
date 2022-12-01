@@ -40,7 +40,6 @@ public class TelaLoginVendedor {
 	private JTextField txtUsuarioVendedor;
 	private JPasswordField passwordField;
 	static Usuario user;
-
 	/**
 	 * Launch the application.
 	 */
@@ -166,9 +165,9 @@ public class TelaLoginVendedor {
 					System.out.println("Erro Login");
 					JOptionPane.showMessageDialog(null, "E-mail ou senha incorretos, tente novamente!");
 				}else {
+					user = lg.autenticar(login);
 					System.out.println("Login feito com êxito");
 					TelaBemVindo tb = new TelaBemVindo();
-					user = lg.autenticar(login);
 					tb.abrir();
 					frmLoginDoVendedor.setVisible(false);
 				}
