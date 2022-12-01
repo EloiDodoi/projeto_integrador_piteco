@@ -255,7 +255,9 @@ public class TelaControleVendedores extends JFrame {
 		btnCadastrarVendedor = new JMenuItem("Cadastrar Vendedor");
 		btnCadastrarVendedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Você já está na tela de Cadastro de Vendedor!");
+				setVisible(false);
+				TelaCadastroVendedor tcv = new TelaCadastroVendedor();
+				tcv.abrir();
 			}
 		});
 		btnCadastrarVendedor.setOpaque(true);
