@@ -138,8 +138,8 @@ public class HistoricoVendaBD {
 
 						//-------------- Consultar por causa de data 
 				}else if (tipo == 4) {
-					PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT idVenda,venda_data,venda_valor,Tipo_Pagamento_idTipo_Pagamento FROM venda order by venda_valor asc");
-					ps.setDate(1, Date.parse(texto)));
+					PreparedStatement ps = cbd.getConexao().prepareStatement("SELECT idVenda,venda_data,venda_valor,Tipo_Pagamento_idTipo_Pagamento FROM venda where venda_data = ?");
+					ps.setString(1, texto);
 					ResultSet rs = ps.executeQuery();
 					while (rs.next()) {
 						Venda v = new Venda();
@@ -236,21 +236,17 @@ public class HistoricoVendaBD {
 		if (strDate.trim().equals(""))
 		{
 		    return true;
-		}
-		else
-		{   SimpleDateFormat sdfrmt = new SimpleDateFormat("yyyy-MM-DD");
-		    sdfrmt.setLenient(false);
+		}else{   
+			SimpleDateFormat sdfrmt = new SimpleDateFormat("yyyy-MM-DD");
+		    sdfrmt.setLenient(true);
 		    try
 		    {
 		        Date javaDate = sdfrmt.parse(strDate); 
-		        System.out.println(strDate+"Agora sim, formato válido!");
 		        JOptionPane.showMessageDialog(null, "Agora sim, formato válido!");
 		    }
 		    catch (ParseException e)
 		    {
 		        JOptionPane.showMessageDialog(null, "Formato de data inválido");
-
-		    	System.out.println(strDate+"Formato de data inválido");
 		        return false;
 		    }
 		    return true;

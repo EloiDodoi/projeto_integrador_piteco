@@ -378,8 +378,12 @@ public class TelaHistoricoVendas extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String pesquisa = textFieldPesquisa.getText();
 				HistoricoVendaBD hvbd = new HistoricoVendaBD();
-				hvbd.atualizarHistoricoFiltro(table, pesquisa,filtro());
-				
+				if(filtro() == 4 && hvbd.validarData(pesquisa) == true) {
+					hvbd.atualizarHistoricoFiltro(table, pesquisa,filtro());
+				}else if(filtro() != 4) {
+					hvbd.atualizarHistoricoFiltro(table, pesquisa, filtro());
+				}
+				System.out.println(hvbd.validarData(pesquisa));
 				
 			}
 		});
