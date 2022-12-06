@@ -16,6 +16,7 @@ public class EstoqueBD {
 
 	private static final String JTable = null;
 	private ConexaoBD cbd = new ConexaoBD();
+	private JTable tabelaNot;
 	
 	public void atualizarEstoque(JTable jt) {
 		jt.setModel(listagemProduto());
@@ -170,7 +171,7 @@ public class EstoqueBD {
 				Produto p = new Produto(rs.getInt(1), (rs.getString(2)), null, 0, rs.getFloat(3), 0);
 				lista_quant.add(p);
 			}
-			JTable tabelaNot = null;
+			tabelaNot = null;
 			DefaultTableModel modelo_tabela = new DefaultTableModel(
 					new Object[][][] {
 						
@@ -183,8 +184,8 @@ public class EstoqueBD {
 						Produto p = lista_quant.get(i);
 						modelo_tabela.addRow(new Object[] {p.getIdProduto(),p.getProduto_nomeveg(),p.getProduto_quantidade()});
 					} 
-					tabelaNot.setModel(modelo_tabela);
-					JOptionPane.showMessageDialog(null, tabelaNot);
+					JTable table = new JTable(modelo_tabela, null);
+					JOptionPane.showMessageDialog(null, new JScrollPane(table));
 			} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
