@@ -146,6 +146,7 @@ public class TelaLoginAdm {
 					System.out.println("Login feito com êxito");
 					TelaBemVindo tb = new TelaBemVindo();
 					user = lg.autenticar(login);
+					System.out.println(user.getUsuario_email());
 					tb.abrir();
 					frmLoginDoAdministrador.setVisible(false);
 				}
