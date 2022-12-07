@@ -3,6 +3,9 @@ package controle;
 import modelo.Produto;
 
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import modelo.Produto;
 
@@ -177,11 +181,25 @@ public class EstoqueBD {
 			}
 			tabelaNot = null;
 			
-			JPanel panel = new JPanel();
-			
-			panel.setLayout(new FlowLayout());
+			JPanel contentPane = new JPanel();
+			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+//			setContentPane(contentPane);
+			GridBagLayout gbl_contentPane = new GridBagLayout();
+			gbl_contentPane.columnWidths = new int[]{0, 0};
+			gbl_contentPane.rowHeights = new int[]{0, 0, 0};
+			gbl_contentPane.columnWeights = new double[]{1.0, Double.MIN_VALUE};
+			gbl_contentPane.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+			contentPane.setLayout(gbl_contentPane);
 			
 			JLabel label = new JLabel("Produtos em baixa quantidade!");
+			
+			GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+			gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
+			gbc_lblNewLabel.gridx = 0;
+			gbc_lblNewLabel.gridy = 0;
+			contentPane.add(label, gbc_lblNewLabel);
+			
 			DefaultTableModel modelo_tabela = new DefaultTableModel(
 					new Object[][][] {
 						
@@ -196,10 +214,16 @@ public class EstoqueBD {
 					} 
 					JTable table = new JTable(modelo_tabela, null);
 					
-					panel.add(label);
-					panel.add(new JScrollPane(table));
+					JScrollPane scrollPane = new JScrollPane();
+					GridBagConstraints gbc_scrollPane = new GridBagConstraints();
+					gbc_scrollPane.fill = GridBagConstraints.BOTH;
+					gbc_scrollPane.gridx = 0;
+					gbc_scrollPane.gridy = 1;
+					contentPane.add(scrollPane, gbc_scrollPane);
 					
-					JOptionPane.showMessageDialog(null, panel);
+					scrollPane.setColumnHeaderView(table);
+					
+					JOptionPane.showMessageDialog(null, contentPane);
 			} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
