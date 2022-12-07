@@ -32,6 +32,7 @@ import modelo.Usuario;
 import modelo.Venda;
 import visao.TelaLoginAdm;
 import javax.swing.JRadioButton;
+import javax.management.loading.PrivateClassLoader;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
@@ -54,7 +55,9 @@ public class VendasPagamento extends JFrame {
 	VendaBD vbd = new VendaBD();
 	private JTextField txtValorDinheiro;
 	float valorTotal;
-	private Usuario usuario = recberUser(TelaLoginAdm.user);
+	private Usuario usuario_adm = TelaLoginAdm.user;
+	private Usuario usuario_vende = TelaLoginVendedor.user;
+	private Usuario usuario;
 	JLabel lblTroco2;
 	JLabel lblValorDinheiro;
 	JLabel lblRS2;
@@ -472,18 +475,22 @@ public class VendasPagamento extends JFrame {
 		btnFinalizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VendaBD vbd = new VendaBD();
+				if(usuario_adm == null) {
+					usuario = usuario_vende;
+				}else {
+					usuario = usuario_adm;
+				}
+				
 				if (usuario != null) {
 					venda.setUsuario(usuario);
 				}else {
 					venda.setUsuario(usuario);
 				}
-				System.out.println(TelaLoginVendedor.user.getUsuario_id());
 				venda.setVenda_valor(Float.parseFloat(lblTotal.getText()));
 				LocalDateTime data = LocalDateTime.now();
 				java.sql.Date data_venda = java.sql.Date.valueOf(data.toLocalDate());
 				venda.setVenda_data(data_venda);
-				System.out.println(data_venda);
-
+				
 				int pagamento = 0;
 
 				if (rbtnDinheiro.isSelected() == true || rdbtnCartaoDeDebito.isSelected() == true

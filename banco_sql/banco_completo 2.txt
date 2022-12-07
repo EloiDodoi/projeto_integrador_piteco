@@ -272,9 +272,9 @@ insert into tipouser (id_tipo, tipo_nome) values (2, 'vendedor');
 
 
 
-insert into permissoes (Codigo_permissao, permissao) values (1, 'permissao1');
-insert into permissoes (Codigo_permissao, permissao) values (2, 'permissao2');
-insert into permissoes (Codigo_permissao, permissao) values (3, 'permissao3');
+insert into permissoes (Codigo_permissao, permissao) values (1, 'Estoque');
+insert into permissoes (Codigo_permissao, permissao) values (2, 'Histórico de Vendas');
+insert into permissoes (Codigo_permissao, permissao) values (3, 'Listagem de Vendedores');
 
 
 
