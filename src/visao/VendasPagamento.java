@@ -55,7 +55,7 @@ public class VendasPagamento extends JFrame {
 	VendaBD vbd = new VendaBD();
 	private JTextField txtValorDinheiro;
 	float valorTotal;
-	private Usuario usuario_adm = TelaLoginAdm.user;
+ 	private Usuario usuario_adm = TelaLoginAdm.user;
 	private Usuario usuario_vende = TelaLoginVendedor.user;
 	private Usuario usuario;
 	JLabel lblTroco2;

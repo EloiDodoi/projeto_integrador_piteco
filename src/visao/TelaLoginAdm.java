@@ -205,4 +205,9 @@ public class TelaLoginAdm {
 
 	protected void setVisible(boolean b) {
 	}
+	
+	public Usuario retornaUser() {
+		this.user = user;
+		return user;
+	}
 }

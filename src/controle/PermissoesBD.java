@@ -24,9 +24,9 @@ public class PermissoesBD {
 			while (rs.next()) {
 				p = rs.getString(1);
 			}
-			JOptionPane.showMessageDialog(null,"Permissão de "+p+" dado com sucesso!");
+			JOptionPane.showMessageDialog(null,"Permissï¿½o de "+p+" dado com sucesso!");
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"Erro ao dar permissão ao usuário!");
+			JOptionPane.showMessageDialog(null,"Erro ao dar permissï¿½o ao usuï¿½rio!");
 			e.printStackTrace();
 		}
 	}
@@ -39,5 +39,22 @@ public class PermissoesBD {
 				e.printStackTrace();
 			return false;
 		}
+	}
+	public boolean menuPermissao(Usuario user) {
+		try {
+			PreparedStatement ps = cbd.getConexao().prepareStatement("Select TipoUser_id_tipo from usuario where idUsuario = ?");
+			ps.setInt(1, user.getUsuario_id());
+			ResultSet rs = ps.executeQuery();
+			int id = 0;
+			while (rs.next()) {
+				id = rs.getInt(1);
+			}
+			if (id == 1 ) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

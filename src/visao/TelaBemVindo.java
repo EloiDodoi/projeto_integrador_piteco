@@ -30,6 +30,7 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 
 import controle.EstoqueBD;
+import controle.PermissoesBD;
 import modelo.Usuario;
 
 import com.jgoodies.forms.layout.FormSpecs;
@@ -46,8 +47,12 @@ public class TelaBemVindo extends JFrame {
 
 	static TelaBemVindo frame = new TelaBemVindo();
 	private JPanel contentPane;
-	private Usuario usuario_adm = TelaLoginAdm.user;
+ 	private Usuario usuario_adm = TelaLoginAdm.user;
 	private Usuario usuario_vende = TelaLoginVendedor.user;
+	private Usuario usuario;
+	PermissoesBD pbd = new PermissoesBD();
+	TelaLoginAdm tla = new TelaLoginAdm();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -132,10 +137,15 @@ public class TelaBemVindo extends JFrame {
 		mnNewMenu.add(linha);
 
 		JMenuItem btnMenuEstoque = new JMenuItem("Estoque");
-
-//		if (usuario_adm.getTipouser_id_tipo() == 0) {
-//			btnMenuEstoque.setEnabled(false);
-		}
+		
+//		if(usuario_adm == null) {
+//			usuario = usuario_vende;
+//		}else {
+//			usuario = usuario_adm;
+//		}
+	//	btnMenuEstoque.enable(pbd.menuPermissao(tla.retornaUser()));
+		
+		
 		btnMenuEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaEstoque te = new TelaEstoque();
