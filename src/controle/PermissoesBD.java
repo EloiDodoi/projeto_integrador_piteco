@@ -20,9 +20,11 @@ public class PermissoesBD {
 			PreparedStatement ps2 =  cbd.getConexao().prepareStatement("Select permissao where Codigo_permissao = ?");
 			ps2.setInt(1, id_p);
 			ResultSet rs = ps2.executeQuery();
+			String p = null;
 			while (rs.next()) {
-				String p = rs.get
+				p = rs.getString(1);
 			}
+			JOptionPane.showMessageDialog(null,"Permissão de "+p+" dado com sucesso!");
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null,"Erro ao dar permissão ao usuário!");
 			e.printStackTrace();
