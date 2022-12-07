@@ -30,4 +30,14 @@ public class PermissoesBD {
 			e.printStackTrace();
 		}
 	}
+	public boolean verificarPermissao(Usuario usuario, int i){
+		try {
+			PreparedStatement ps =  cbd.getConexao().prepareStatement("Select * from Usuario_has_Permissoes where Codigo_permissao = ? and Usuario_idUsuario = ?");
+			ps.execute();
+			return true;
+		} catch (SQLException e) {
+				e.printStackTrace();
+			return false;
+		}
+	}
 }
