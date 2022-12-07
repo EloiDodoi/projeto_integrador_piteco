@@ -2,7 +2,9 @@ package controle;
 
 import modelo.Produto;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -18,6 +20,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+
 import modelo.Produto;
 
 public class EstoqueBD {
@@ -202,7 +206,6 @@ public class EstoqueBD {
 			
 			DefaultTableModel modelo_tabela = new DefaultTableModel(
 					new Object[][][] {
-						
 					},
 					new String[] {
 						"Código", "Nome", "Quantidade"
@@ -213,6 +216,11 @@ public class EstoqueBD {
 						modelo_tabela.addRow(new Object[] {p.getIdProduto(),p.getProduto_nomeveg(),p.getProduto_quantidade()});
 					} 
 					JTable table = new JTable(modelo_tabela, null);
+					
+					JTableHeader tHeader = table.getTableHeader();
+					tHeader.setBackground(new Color(150, 191, 120));
+					tHeader.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 20));
+					tHeader.setForeground(Color.WHITE);
 					
 					JScrollPane scrollPane = new JScrollPane();
 					GridBagConstraints gbc_scrollPane = new GridBagConstraints();
