@@ -425,7 +425,7 @@ public class TelaHistoricoVendas extends JFrame {
 		});
 		
 		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Filtro", "C\u00C3\u00B3digo", "Maior valor", "Menor valor", "Data", "Tipo Pagamento"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Filtro", "CÃ³digo", "Maior valor", "Menor valor", "Data"}));
 		comboBox.setForeground(new Color(234, 242, 237));
 		comboBox.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
 		comboBox.setBackground(new Color(31, 65, 45));

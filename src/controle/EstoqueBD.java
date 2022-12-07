@@ -1,10 +1,14 @@
 package controle;
 
 import modelo.Produto;
+
+import java.awt.FlowLayout;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -172,6 +176,12 @@ public class EstoqueBD {
 				lista_quant.add(p);
 			}
 			tabelaNot = null;
+			
+			JPanel panel = new JPanel();
+			
+			panel.setLayout(new FlowLayout());
+			
+			JLabel label = new JLabel("Produtos em baixa quantidade!");
 			DefaultTableModel modelo_tabela = new DefaultTableModel(
 					new Object[][][] {
 						
@@ -185,7 +195,11 @@ public class EstoqueBD {
 						modelo_tabela.addRow(new Object[] {p.getIdProduto(),p.getProduto_nomeveg(),p.getProduto_quantidade()});
 					} 
 					JTable table = new JTable(modelo_tabela, null);
-					JOptionPane.showMessageDialog(null, new JScrollPane(table));
+					
+					panel.add(label);
+					panel.add(new JScrollPane(table));
+					
+					JOptionPane.showMessageDialog(null, panel);
 			} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
