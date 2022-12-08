@@ -14,6 +14,7 @@ import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 
 import controle.ControleVendedorBD;
 import controle.EstoqueBD;
+import controle.PermissoesBD;
 import modelo.Produto;
 import modelo.Usuario;
 
@@ -575,12 +576,23 @@ public class TelaControleVendedores extends JFrame {
 		gbc_textField.gridy = 1;
 		panel_4.add(textField, gbc_textField);
 		textField.setColumns(10);
-		
 		btnPermissoes = new JButton(">");
 		btnPermissoes.addActionListener(new ActionListener() {
+			PermissoesBD pbd = new PermissoesBD();
 			public void actionPerformed(ActionEvent e) {
 				String idVendedor = textField.getText();
-				
+				if(permissaoEstoque() != 0){
+					Usuario vendedor =  new Usuario(Integer.parseInt(idVendedor),null, null, null, null, null, null, null, null, 0);
+					pbd.adicionarPermissao(permissaoEstoque(), vendedor);
+				}
+				if(permissaoHistorico() != 0){
+					Usuario vendedor =  new Usuario(Integer.parseInt(idVendedor),null, null, null, null, null, null, null, null, 0);
+					pbd.adicionarPermissao(permissaoHistorico(), vendedor);
+				}
+				if(permissaoLista() != 0){
+					Usuario vendedor =  new Usuario(Integer.parseInt(idVendedor),null, null, null, null, null, null, null, null, 0);
+					pbd.adicionarPermissao(permissaoLista(), vendedor);
+				}
 				
 			}
 		});
