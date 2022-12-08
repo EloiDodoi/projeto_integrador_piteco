@@ -151,7 +151,7 @@ public class EstoqueBD {
 			} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro ao filtrar ou n�o existente. Tenha certeza de que digitou um produto válido");
+			JOptionPane.showMessageDialog(null, "Erro ao filtrar ou não existente. Tenha certeza de que digitou um produto válido");
 		}
 		
 		return null;

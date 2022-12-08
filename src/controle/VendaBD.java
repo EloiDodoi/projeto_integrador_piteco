@@ -143,10 +143,5 @@ public class VendaBD {
 		}	
 		return false;
 	}
-	public void messagemEstoque (Venda venda){
-		for (ItemVenda iv : venda.getArrayItensVenda()) {
-			
-		
-		} 
-	}
+
 }

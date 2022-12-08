@@ -473,8 +473,7 @@ public class TelaEstoque extends JFrame {
 		comboBox.setForeground(new Color(234, 242, 237));
 		comboBox.setBackground(new Color(31, 65, 45));
 		comboBox.setFont(new Font("Yu Gothic UI", Font.PLAIN, 26));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { " Filtrar", " Nome", " Código",
-				" Preço - Maior para menor", " Preço - Menor para maior" }));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {" Filtrar", " Nome", " Código", " Preço - Maior para menor", " Preço - Menor para maior"}));
 
 		JButton btnRemover = new JButton("Remover");
 		btnRemover.setForeground(new Color(234, 242, 237));

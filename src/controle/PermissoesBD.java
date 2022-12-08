@@ -24,9 +24,9 @@ public class PermissoesBD {
 			while (rs.next()) {
 				p = rs.getString(1);
 			}
-			JOptionPane.showMessageDialog(null,"Permiss�o de "+p+" dado com sucesso!");
+			JOptionPane.showMessageDialog(null,"Permissão de "+p+" dado com sucesso!");
 		} catch (SQLException e) {
-			JOptionPane.showMessageDialog(null,"Erro ao dar permiss�o ao usu�rio!");
+			JOptionPane.showMessageDialog(null,"Erro ao dar permissão ao usuário!");
 			e.printStackTrace();
 		}
 	}
