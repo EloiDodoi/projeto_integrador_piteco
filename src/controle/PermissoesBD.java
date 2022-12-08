@@ -16,8 +16,8 @@ public class PermissoesBD {
 			PreparedStatement ps =  cbd.getConexao().prepareStatement("Insert into Usuario_has_Permissoes values (?,?)");
 			ps.setInt(1, u.getUsuario_id());
 			ps.setInt(2, id_p);
-			ps.executeQuery();
-			PreparedStatement ps2 =  cbd.getConexao().prepareStatement("Select permissao where Codigo_permissao = ?");
+			ps.execute();
+			PreparedStatement ps2 =  cbd.getConexao().prepareStatement("Select permissao from Permissoes where Codigo_permissao = ?");
 			ps2.setInt(1, id_p);
 			ResultSet rs = ps2.executeQuery();
 			String p = null;
