@@ -10,6 +10,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
+
 import controle.ControleVendedorBD;
 import controle.EstoqueBD;
 import modelo.Produto;
@@ -84,7 +86,9 @@ public class TelaControleVendedores extends JFrame {
 	private JRadioButton rdbtnNewRadioButton_1;
 	private JRadioButton rdbtnNewRadioButton_2;
 	private JRadioButton rdbtnNewRadioButton_3;
-	private final ButtonGroup permissoes = new ButtonGroup();
+	private JPanel panel_4;
+	private JLabel lblNewLabel_1;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -374,7 +378,7 @@ public class TelaControleVendedores extends JFrame {
 		panel = new JPanel();
 		contentPane.add(panel);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] {54, 1221, 265, 60};
+		gbl_panel.columnWidths = new int[] {54, 1083, 265, 60};
 		gbl_panel.rowHeights = new int[]{10, 11, 130, 66, 149, 47, 60, 104, 544, 0};
 		gbl_panel.columnWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
@@ -500,14 +504,13 @@ public class TelaControleVendedores extends JFrame {
 		gbc_panel_3.gridy = 7;
 		panel.add(panel_3, gbc_panel_3);
 		GridBagLayout gbl_panel_3 = new GridBagLayout();
-		gbl_panel_3.columnWidths = new int[]{314, 326, 362, 270, 0};
+		gbl_panel_3.columnWidths = new int[]{201, 286, 294, 233, 270, 0};
 		gbl_panel_3.rowHeights = new int[]{119, 0};
-		gbl_panel_3.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel_3.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_panel_3.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_panel_3.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		panel_3.setLayout(gbl_panel_3);
 		
 		rdbtnNewRadioButton_1 = new JRadioButton("Estoque");
-		permissoes.add(rdbtnNewRadioButton_1);
 		rdbtnNewRadioButton_1.setForeground(new Color(31, 65, 45));
 		rdbtnNewRadioButton_1.setFont(new Font("Yu Gothic UI", Font.PLAIN, 25));
 		rdbtnNewRadioButton_1.setBackground(new Color(123, 166, 111));
@@ -518,7 +521,6 @@ public class TelaControleVendedores extends JFrame {
 		panel_3.add(rdbtnNewRadioButton_1, gbc_rdbtnNewRadioButton_1);
 		
 		rdbtnNewRadioButton_2 = new JRadioButton("Histórico de Vendas  ");
-		permissoes.add(rdbtnNewRadioButton_2);
 		rdbtnNewRadioButton_2.setForeground(new Color(31, 65, 45));
 		rdbtnNewRadioButton_2.setFont(new Font("Yu Gothic UI", Font.PLAIN, 25));
 		rdbtnNewRadioButton_2.setBackground(new Color(123, 166, 111));
@@ -530,17 +532,58 @@ public class TelaControleVendedores extends JFrame {
 		panel_3.add(rdbtnNewRadioButton_2, gbc_rdbtnNewRadioButton_2);
 		
 		rdbtnNewRadioButton_3 = new JRadioButton("Lista de Vendedores");
-		permissoes.add(rdbtnNewRadioButton_3);
 		rdbtnNewRadioButton_3.setForeground(new Color(31, 65, 45));
 		rdbtnNewRadioButton_3.setFont(new Font("Yu Gothic UI", Font.PLAIN, 25));
 		rdbtnNewRadioButton_3.setBackground(new Color(123, 166, 111));
 		GridBagConstraints gbc_rdbtnNewRadioButton_3 = new GridBagConstraints();
+		gbc_rdbtnNewRadioButton_3.anchor = GridBagConstraints.WEST;
 		gbc_rdbtnNewRadioButton_3.insets = new Insets(0, 0, 0, 5);
 		gbc_rdbtnNewRadioButton_3.gridx = 2;
 		gbc_rdbtnNewRadioButton_3.gridy = 0;
 		panel_3.add(rdbtnNewRadioButton_3, gbc_rdbtnNewRadioButton_3);
 		
+		panel_4 = new JPanel();
+		panel_4.setBackground(new Color(123, 166, 111));
+		GridBagConstraints gbc_panel_4 = new GridBagConstraints();
+		gbc_panel_4.insets = new Insets(0, 0, 0, 5);
+		gbc_panel_4.fill = GridBagConstraints.BOTH;
+		gbc_panel_4.gridx = 3;
+		gbc_panel_4.gridy = 0;
+		panel_3.add(panel_4, gbc_panel_4);
+		GridBagLayout gbl_panel_4 = new GridBagLayout();
+		gbl_panel_4.columnWidths = new int[]{0, 0};
+		gbl_panel_4.rowHeights = new int[]{51, 55, 0};
+		gbl_panel_4.columnWeights = new double[]{1.0, Double.MIN_VALUE};
+		gbl_panel_4.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		panel_4.setLayout(gbl_panel_4);
+		
+		lblNewLabel_1 = new JLabel("Id vendedor");
+		lblNewLabel_1.setForeground(new Color(31, 65, 45));
+		lblNewLabel_1.setFont(new Font("Yu Gothic UI", Font.PLAIN, 25));
+		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
+		gbc_lblNewLabel_1.anchor = GridBagConstraints.SOUTH;
+		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_1.gridx = 0;
+		gbc_lblNewLabel_1.gridy = 0;
+		panel_4.add(lblNewLabel_1, gbc_lblNewLabel_1);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Yu Gothic UI", Font.PLAIN, 20));
+		GridBagConstraints gbc_textField = new GridBagConstraints();
+		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField.gridx = 0;
+		gbc_textField.gridy = 1;
+		panel_4.add(textField, gbc_textField);
+		textField.setColumns(10);
+		
 		btnPermissoes = new JButton(">");
+		btnPermissoes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String idVendedor = textField.getText();
+				
+				
+			}
+		});
 		btnPermissoes.setForeground(new Color(234, 242, 237));
 		btnPermissoes.setFont(new Font("Yu Gothic UI", Font.PLAIN, 80));
 		btnPermissoes.setBackground(new Color(123, 166, 111));
@@ -551,5 +594,32 @@ public class TelaControleVendedores extends JFrame {
 		gbc_btnPermissoes.gridy = 7;
 		panel.add(btnPermissoes, gbc_btnPermissoes);
 
+	}
+	
+	public int permissaoEstoque() {
+		int x = 0;
+		if(rdbtnNewRadioButton_1.isSelected() == true) {
+			x = 1;
+		}
+		
+		return x;
+	}
+	
+	public int permissaoHistorico() {
+		int x = 0;
+		if(rdbtnNewRadioButton_2.isSelected() == true) {
+			x = 2;
+		}
+		
+		return x;
+	}
+	
+	public int permissaoLista() {
+		int x = 0;
+		if(rdbtnNewRadioButton_3.isSelected() == true) {
+			x = 3;
+		}
+		
+		return x;
 	}
 }
