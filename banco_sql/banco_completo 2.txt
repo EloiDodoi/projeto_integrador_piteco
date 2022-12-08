@@ -287,8 +287,8 @@ insert into usuario (idUsuario, usuario_nome, usuario_cpf, usuario_cnpj, usuario
 
 
 insert into usuario (idUsuario, usuario_nome, usuario_cpf, usuario_datanascimento, usuario_telefone, usuario_senha, usuario_email, TipoUser_id_tipo) values (2, 'Mike Ianni', '79167095305', '1979-10-14 02:34:51', '69748948553', '321', 'teste', 2);
-insert into usuario (idUsuario, usuario_nome, usuario_cpf, usuario_datanascimento, usuario_telefone, usuario_senha, usuario_email, TipoUser_id_tipo) values (3, 'Gaylor Buzza', '24038418891', '1969-01-09 03:44:41', '38222072735', 'eTFQDJ', 'gbuzza1@illinois.edu', 2);
-insert into usuario (idUsuario, usuario_nome, usuario_cpf, usuario_datanascimento, usuario_telefone, usuario_senha, usuario_email, TipoUser_id_tipo) values (4, 'Liv Bernon', '19222185011', '1955-03-17 23:23:19', '75806156444', 'X1ZXVUnWd4t', 'lbernon2@apache.org', 2);
+insert into usuario (idUsuario, usuario_nome, usuario_cpf, usuario_datanascimento, usuario_telefone, usuario_senha, usuario_email, TipoUser_id_tipo) values (3, 'Gaylor Buzza', '24038418891', '1969-01-09 03:44:41', '38222072735', '321', 'teste1', 2);
+insert into usuario (idUsuario, usuario_nome, usuario_cpf, usuario_datanascimento, usuario_telefone, usuario_senha, usuario_email, TipoUser_id_tipo) values (4, 'Liv Bernon', '19222185011', '1955-03-17 23:23:19', '75806156444', '321', 'teste2', 2);
 
 
 
