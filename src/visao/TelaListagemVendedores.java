@@ -13,6 +13,7 @@ import javax.swing.table.JTableHeader;
 import controle.ControleVendedorBD;
 import controle.EstoqueBD;
 import controle.HistoricoVendaBD;
+import controle.PermissoesBD;
 import modelo.Produto;
 import modelo.Usuario;
 
@@ -180,6 +181,14 @@ public class TelaListagemVendedores extends JFrame {
 		btnMenuEstoque.setBorder(null);
 		btnMenuEstoque.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnMenuEstoque);
+		PermissoesBD pbd = new PermissoesBD();
+		if (TelaLoginAdm.user == null ){
+			btnMenuEstoque.setEnabled(false);
+			System.out.println(pbd.verificarPermissao(TelaLoginVendedor.user, 1));
+			if(pbd.verificarPermissao(TelaLoginVendedor.user,1) == true) {
+				btnMenuEstoque.setEnabled(true);
+			}
+		}
 		
 		btnMenuVendas = new JMenuItem("Venda");
 		btnMenuVendas.addActionListener(new ActionListener() {
@@ -220,6 +229,13 @@ public class TelaListagemVendedores extends JFrame {
 		btnMenuRelatorios.setBorder(null);
 		btnMenuRelatorios.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnMenuRelatorios);
+		if (TelaLoginAdm.user == null ){
+			btnMenuRelatorios.setEnabled(false);
+			System.out.println(pbd.verificarPermissao(TelaLoginVendedor.user, 1));
+			if(pbd.verificarPermissao(TelaLoginVendedor.user,1) == true) {
+				btnMenuRelatorios.setEnabled(true);
+			}
+		}
 		
 		btnMenuControle = new JMenuItem("Controle");
 		btnMenuControle.addActionListener(new ActionListener() {
@@ -237,6 +253,9 @@ public class TelaListagemVendedores extends JFrame {
 		btnMenuControle.setBorder(null);
 		btnMenuControle.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnMenuControle);
+		if (TelaLoginAdm.user == null ){
+			btnMenuControle.setEnabled(false);
+		}
 		
 		linha_1_1 = new JPanel();
 		linha_1_1.setPreferredSize(new Dimension(1, 2));
@@ -260,6 +279,9 @@ public class TelaListagemVendedores extends JFrame {
 		btnCadastrarVendedor.setBorder(null);
 		btnCadastrarVendedor.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnCadastrarVendedor);
+		if (TelaLoginAdm.user == null ){
+			btnCadastrarVendedor.setEnabled(false);
+		}
 		
 		btnListagemDeVendedores = new JMenuItem("Listagem de Vendedores");
 		btnListagemDeVendedores.addActionListener(new ActionListener() {
@@ -275,6 +297,13 @@ public class TelaListagemVendedores extends JFrame {
 		btnListagemDeVendedores.setBorder(null);
 		btnListagemDeVendedores.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnListagemDeVendedores);
+		if (TelaLoginAdm.user == null ){
+			btnListagemDeVendedores.setEnabled(false);
+			System.out.println(pbd.verificarPermissao(TelaLoginVendedor.user, 1));
+			if(pbd.verificarPermissao(TelaLoginVendedor.user,1) == true) {
+				btnListagemDeVendedores.setEnabled(true);
+			}
+		}
 		
 		linha_1_1_1 = new JPanel();
 		linha_1_1_1.setPreferredSize(new Dimension(1, 2));
@@ -357,6 +386,9 @@ public class TelaListagemVendedores extends JFrame {
 		panel_1.add(btnUser, gbc_btnUser);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		if (TelaLoginAdm.user == null ){
+			btnUser.setVisible(false);
+		}
 
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));

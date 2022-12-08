@@ -195,6 +195,13 @@ public class TelaVenda extends JFrame {
 		btnMenuVendas.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuVendas.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuVendas);
+		if (TelaLoginAdm.user == null ){
+			btnMenuVendas.setEnabled(false);
+			System.out.println(pbd.verificarPermissao(TelaLoginVendedor.user, 1));
+			if(pbd.verificarPermissao(TelaLoginVendedor.user,1) == true) {
+				btnMenuVendas.setEnabled(true);
+			}
+		}
 		
 		JPanel linha_1 = new JPanel();
 		linha_1.setPreferredSize(new Dimension(1, 2));
@@ -220,7 +227,8 @@ public class TelaVenda extends JFrame {
 		mnNewMenu.add(btnMenuRelatorios);
 		if (TelaLoginAdm.user == null ){
 			btnMenuRelatorios.setEnabled(false);
-			if(pbd.verificarPermissao(TelaLoginVendedor.user,2) == true) {
+			System.out.println(pbd.verificarPermissao(TelaLoginVendedor.user, 1));
+			if(pbd.verificarPermissao(TelaLoginVendedor.user,1) == true) {
 				btnMenuRelatorios.setEnabled(true);
 			}
 		}
@@ -375,6 +383,9 @@ public class TelaVenda extends JFrame {
 		gbc_btnUser_1.gridx = 5;
 		gbc_btnUser_1.gridy = 0;
 		panel_8_1.add(btnUser_1, gbc_btnUser_1);
+		if (TelaLoginAdm.user == null ){
+			btnUser_1.setVisible(false);
+		}
 
 		JPanel panel_8 = new JPanel();
 		panel_8.setBackground(new Color(150, 191, 120));
