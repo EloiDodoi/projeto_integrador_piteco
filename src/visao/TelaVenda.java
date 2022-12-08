@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.InputVerifier;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,6 +28,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
 import controle.EstoqueBD;
+import controle.PermissoesBD;
 import controle.VendaBD;
 import modelo.ItemVenda;
 import modelo.Produto;
@@ -170,7 +172,15 @@ public class TelaVenda extends JFrame {
 		btnMenuEstoque.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuEstoque.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuEstoque);
-
+		PermissoesBD pbd = new PermissoesBD();
+		if (TelaLoginAdm.user == null ){
+			btnMenuEstoque.setEnabled(false);
+			System.out.println(pbd.verificarPermissao(TelaLoginVendedor.user, 1));
+			if(pbd.verificarPermissao(TelaLoginVendedor.user,1) == true) {
+				btnMenuEstoque.setEnabled(true);
+			}
+		}
+		
 		JMenuItem btnMenuVendas = new JMenuItem("Venda");
 		btnMenuVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -185,7 +195,7 @@ public class TelaVenda extends JFrame {
 		btnMenuVendas.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuVendas.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuVendas);
-
+		
 		JPanel linha_1 = new JPanel();
 		linha_1.setPreferredSize(new Dimension(1, 2));
 		linha_1.setMinimumSize(new Dimension(5, 1));
@@ -208,6 +218,13 @@ public class TelaVenda extends JFrame {
 		btnMenuRelatorios.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuRelatorios.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuRelatorios);
+		if (TelaLoginAdm.user == null ){
+			btnMenuRelatorios.setEnabled(false);
+			if(pbd.verificarPermissao(TelaLoginVendedor.user,2) == true) {
+				btnMenuRelatorios.setEnabled(true);
+			}
+		}
+		
 
 		JMenuItem btnMenuControle = new JMenuItem("Controle");
 		btnMenuControle.addActionListener(new ActionListener() {
@@ -225,6 +242,9 @@ public class TelaVenda extends JFrame {
 		btnMenuControle.setHorizontalAlignment(SwingConstants.CENTER);
 		btnMenuControle.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
 		mnNewMenu.add(btnMenuControle);
+		if (TelaLoginAdm.user == null ){
+			btnMenuControle.setEnabled(false);
+		}
 
 		JPanel linha_1_1 = new JPanel();
 		linha_1_1.setPreferredSize(new Dimension(1, 2));
@@ -248,6 +268,9 @@ public class TelaVenda extends JFrame {
 		btnCadastrarVendedor.setBorder(null);
 		btnCadastrarVendedor.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnCadastrarVendedor);
+		if (TelaLoginAdm.user == null ){
+			btnCadastrarVendedor.setEnabled(false);
+		}
 
 		JMenuItem btnListagemDeVendedores = new JMenuItem("Listagem de Vendedores");
 		btnListagemDeVendedores.addActionListener(new ActionListener() {
@@ -265,6 +288,12 @@ public class TelaVenda extends JFrame {
 		btnListagemDeVendedores.setBorder(null);
 		btnListagemDeVendedores.setBackground(new Color(150, 191, 120));
 		mnNewMenu.add(btnListagemDeVendedores);
+		if (TelaLoginAdm.user == null ){
+			btnListagemDeVendedores.setEnabled(false);
+			if(pbd.verificarPermissao(TelaLoginVendedor.user,3) == true) {
+				btnListagemDeVendedores.setEnabled(true);
+			}
+		}
 
 		JPanel linha_1_1_2 = new JPanel();
 		linha_1_1_2.setPreferredSize(new Dimension(1, 2));

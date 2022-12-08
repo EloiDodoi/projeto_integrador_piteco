@@ -30,11 +30,23 @@ public class PermissoesBD {
 			e.printStackTrace();
 		}
 	}
+	
 	public boolean verificarPermissao(Usuario usuario, int i){
 		try {
-			PreparedStatement ps =  cbd.getConexao().prepareStatement("Select * from Usuario_has_Permissoes where Codigo_permissao = ? and Usuario_idUsuario = ?");
-			ps.execute();
-			return true;
+			PreparedStatement ps =  cbd.getConexao().prepareStatement("Select * from Usuario_has_Permissoes where Permissoes_Codigo_permissao = ? and Usuario_idUsuario = ?");
+			ps.setInt(1, i);
+			ps.setInt(2, usuario.getUsuario_id());
+			ResultSet rs = ps.executeQuery();
+			int a = 0, p = 0;
+			boolean k = false;
+			while (rs.next()) {
+				a = rs.getInt(1);
+				p = rs.getInt(2);
+			}
+			if (a != 0 && p != 0) {
+				k = true;
+			}
+			return k;
 		} catch (SQLException e) {
 				e.printStackTrace();
 			return false;
