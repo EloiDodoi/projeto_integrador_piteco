@@ -324,6 +324,12 @@ public class TelaListagemVendedores extends JFrame {
 		panel_1.add(separator, gbc_separator);
 		
 		btnNotificacao = new JButton("");
+		btnNotificacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EstoqueBD ebd = new EstoqueBD();
+                ebd.notificacaoEstoque();
+			}
+		});
 		btnNotificacao.setIcon(new ImageIcon(TelaListagemVendedores.class.getResource("/img/notificacao.png")));
 		btnNotificacao.setBorder(null);
 		btnNotificacao.setBackground(new Color(150, 191, 120));

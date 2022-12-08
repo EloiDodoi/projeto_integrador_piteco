@@ -33,6 +33,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 
+import controle.EstoqueBD;
 import controle.HistoricoVendaBD;
 import modelo.Venda;
 import java.awt.Toolkit;
@@ -288,6 +289,12 @@ public class TelaHistoricoVendas extends JFrame {
 		panel_8.add(separator_1, gbc_separator_1);
 
 		JButton btnNotificacao_1 = new JButton("");
+		btnNotificacao_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EstoqueBD ebd = new EstoqueBD();
+                ebd.notificacaoEstoque();
+			}
+		});
 		btnNotificacao_1.setIcon(new ImageIcon(TelaHistoricoVendas.class.getResource("/img/notificacao.png")));
 		btnNotificacao_1.setBorder(null);
 		btnNotificacao_1.setBackground(new Color(150, 191, 120));

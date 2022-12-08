@@ -27,6 +27,8 @@ import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import controle.CadastroProdutoBD;
+import controle.EstoqueBD;
+
 import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -583,6 +585,12 @@ public class TelaCadastroProduto {
 		panel_8.add(separator_1, gbc_separator_1);
 		
 		JButton btnNotificacao = new JButton("");
+		btnNotificacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EstoqueBD ebd = new EstoqueBD();
+                ebd.notificacaoEstoque();
+			}
+		});
 		btnNotificacao.setIcon(new ImageIcon(TelaCadastroProduto.class.getResource("/img/notificacao.png")));
 		btnNotificacao.setBorder(null);
 		btnNotificacao.setBackground(new Color(150, 191, 120));

@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import controle.CadastroVendedorBD;
+import controle.EstoqueBD;
 import controle.Md5;
 import modelo.Usuario;
 
@@ -666,6 +667,12 @@ public class TelaCadastroVendedor {
 		panel_8.add(separator_1, gbc_separator_1);
 		
 		JButton btnNotificacao = new JButton("");
+		btnNotificacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EstoqueBD ebd = new EstoqueBD();
+                ebd.notificacaoEstoque();
+			}
+		});
 		btnNotificacao.setIcon(new ImageIcon(TelaCadastroVendedor.class.getResource("/img/notificacao.png")));
 		btnNotificacao.setBorder(null);
 		btnNotificacao.setBackground(new Color(150, 191, 120));

@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import controle.EstoqueBD;
+
 public class TelaAlterarAdm {
 
 	private JFrame frmTelaAlterarAdministrador;
@@ -706,6 +708,12 @@ public class TelaAlterarAdm {
 		panel_8.add(separator, gbc_separator);
 		
 		JButton btnNotificacao = new JButton("");
+		btnNotificacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EstoqueBD ebd = new EstoqueBD();
+                ebd.notificacaoEstoque();
+			}
+		});
 		btnNotificacao.setIcon(new ImageIcon(TelaAlterarAdm.class.getResource("/img/notificacao.png")));
 		btnNotificacao.setBorder(null);
 		btnNotificacao.setBackground(new Color(150, 191, 120));

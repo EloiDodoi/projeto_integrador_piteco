@@ -25,6 +25,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
+
+import controle.EstoqueBD;
 import controle.VendaBD;
 import modelo.ItemVenda;
 import modelo.Produto;
@@ -313,6 +315,12 @@ public class TelaVenda extends JFrame {
 		panel_8_1.add(separator_2, gbc_separator_2);
 
 		JButton btnNotificacao_1 = new JButton("");
+		btnNotificacao_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EstoqueBD ebd = new EstoqueBD();
+                ebd.notificacaoEstoque();
+			}
+		});
 		btnNotificacao_1.setIcon(new ImageIcon(TelaVenda.class.getResource("/img/notificacao.png")));
 		btnNotificacao_1.setBorder(null);
 		btnNotificacao_1.setBackground(new Color(150, 191, 120));

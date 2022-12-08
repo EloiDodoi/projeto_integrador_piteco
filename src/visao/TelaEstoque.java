@@ -305,6 +305,12 @@ public class TelaEstoque extends JFrame {
 		panel_8.add(separator, gbc_separator);
 
 		JButton btnNotificacao = new JButton("");
+		btnNotificacao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EstoqueBD ebd = new EstoqueBD();
+                ebd.notificacaoEstoque();
+			}
+		});
 		btnNotificacao.setIcon(new ImageIcon(TelaEstoque.class.getResource("/img/notificacao.png")));
 		btnNotificacao.setBorder(null);
 		btnNotificacao.setBackground(new Color(150, 191, 120));
